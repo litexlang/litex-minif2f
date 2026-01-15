@@ -1,0 +1,6 @@
+for i closed_range(10, 99):
+    dom:
+        exist x N_pos: (6 * x) % i = 1
+        1 % m = 216 % m
+    =>:
+        i = 43

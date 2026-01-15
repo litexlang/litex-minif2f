@@ -1,0 +1,10 @@
+run_file "commons.lit"
+
+let a, b, c R
+
+let point set
+
+# the parabola: y = ax^2 + bx + c
+prop point_on_parabola(x point, a, b, c R)
+    know x $in cart(R, R)
+

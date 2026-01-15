@@ -1,0 +1,26 @@
+run_file "commons.lit"
+
+let a, b R
+
+know 4 = a * 7 + b
+know 3 = a * 6 + b
+
+claim:
+    a = 1, b = -3
+    prove:
+        # todo
+        know a = 1, b = -3
+
+prove:
+    $line_as_intensional_set(line(1, -1, 3), 1, -1, 3)
+    line(1, -1, 3) = {x cart(R, R): 1 * x[1] + (-1) * x[2] = 3}
+    forall x line(1, -1, 3):
+        x $in cart(R, R)
+        1 * x[1] + (-1) * x[2] = 3
+
+claim:
+    $is_intercept(3, 1, 1, -1)
+    prove:
+        # todo
+        know $is_intercept(3, 1, 1, -1)
+

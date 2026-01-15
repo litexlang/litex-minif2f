@@ -1,0 +1,9 @@
+run_file "commons.lit"
+
+let a, c R
+
+claim:
+    2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)
+    prove:
+        # todo
+        know 2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)

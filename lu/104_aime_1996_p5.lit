@@ -1,0 +1,22 @@
+run_file "commons.lit"
+
+let a, b, c R
+
+prop fit_equation(x R):
+    x^3 + 3 * x^2 + 4 * x - 11 = 0
+
+
+know $fit_equation(a)
+know $fit_equation(b)
+know $fit_equation(c)
+
+let t R
+
+# todo
+
+claim:
+    t = 23
+    prove:
+        # todo
+        know t = 23
+

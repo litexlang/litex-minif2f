@@ -1,0 +1,24 @@
+run_file "commons.lit"
+
+# todo
+# problem: invalid number: 942!
+# know exist n N_pos st 942! % 15^n = 0
+# exist n N_pos st 942! % 15^n = 0
+
+#test
+prop q(x N_pos):
+    (6 * 5 * 4 * 3 * 2 * 1) % 2^x = 0
+
+let num set: num = {n N_pos: $q(n)}
+
+#todo
+prop p(x N_pos)
+
+know $p(233)
+
+let S set: S = {n N_pos: $p(n)}
+
+claim:
+    forall x S => x <= 233
+    prove:
+        know forall x S => x <= 233

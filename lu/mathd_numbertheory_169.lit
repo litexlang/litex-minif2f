@@ -1,0 +1,3 @@
+run_file "commons.lit"
+
+$prime(1)

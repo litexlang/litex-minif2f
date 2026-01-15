@@ -1,0 +1,24 @@
+know forall x Z, y, z R: x % 2 = 1, y ^ x = z ^ x => y = z
+
+know forall x Z, y, z R: x % 2 = 1, y = z ^ x => y ^ (1/x) = z
+
+have fn log(x, y R_pos) R
+know:
+    forall x, y, z R_pos:
+        log(x^y, z) = (1/y) * log(x, z)
+        log(x, y * z) = log(x, y) + log(x, z)
+        log(x, y / z) = log(x, y) - log(x, z)
+        log(1, z) = 0
+        log(z, z) = 1
+        log(z, 1) = 0
+        log(z, z^y) = y
+
+    forall a, b R_pos, c R:
+        log(a, b) = c
+        <=>:
+            b = a ^ c
+
+    forall a, b, c R_pos:
+        log(a, b) = log(a, c)
+        =>:
+            b = c

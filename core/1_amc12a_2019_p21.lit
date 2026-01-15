@@ -1,0 +1,2 @@
+z = (1, 1) \c_div (sqrt(2), 0) = (1 / sqrt(2), 1 / sqrt(2))
+z \c_mul z = (1 / sqrt(2), 1 / sqrt(2)) \c_mul (1 / sqrt(2), 1 / sqrt(2)) = ( (1 / sqrt(2)) * (1 / sqrt(2)) + (1 / sqrt(2)) * (1 / sqrt(2)), (1 / sqrt(2)) * (1 / sqrt(2)) - (1 / sqrt(2)) * (1 / sqrt(2)) ) = ( (1 / 2) + (1 / 2), (1 / 2) + (1 / 2) ) = (1, 1)

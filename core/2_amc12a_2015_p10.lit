@@ -1,0 +1,20 @@
+know forall x, y N_pos: x % y = 0 => y <= x
+
+let x, y Z:
+    x > y
+    y > 0
+    x + y + x * y = 80
+    =>:
+        x = 26
+
+for i close_range(1, 81):
+    dom:
+        81 % i = 0
+    =>:
+        i = 1 or i = 3 or i = 9 or i = 27 or i = 81
+
+x + y + x * y + 1 = 81 = (x + 1) * (y + 1)
+
+# x + 1 在 2 到 81 之间，且 81 % (x + 1) = 0
+# 那 x + 1 = 3 or x + 1 = 9 or x + 1 = 27 or x + 1 = 81
+# 在每种情况就不行，要引入 impossible 这个关键词

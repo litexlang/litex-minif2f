@@ -1,0 +1,10 @@
+run_file common.lit
+claim:
+    forall x,e cart(R,R):
+        add(x,e)=(7,0)
+        add(sm(2,x),e)=(3,0)
+        =>:
+            e=(11,0)
+            x=(-4,0)
+prove:
+#Todo

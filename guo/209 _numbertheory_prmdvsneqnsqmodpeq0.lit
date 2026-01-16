@@ -1,0 +1,10 @@
+prop is_prime_number(p N_pos):
+    p!=1
+    forall x N_pos:
+        2<=x
+        x<p
+        =>:
+            p%x!=0
+claim:
+    forall p {x N_pos:$is_prime_number(x)},n Z:
+        n%p=0 <=> n^2%p=0

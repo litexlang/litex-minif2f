@@ -1,0 +1,12 @@
+#promblem:how to discribe "determin existence"
+prop is_increase(fn f(n N) N):
+    forall x,y N:
+        x<=y
+        =>:
+            f(x)<=f(y)
+have fn f(n N) N 
+    =>: $is_increase(f)
+        f(1)=2
+        forall n N:
+            f(f(n))=f(n)+n
+    

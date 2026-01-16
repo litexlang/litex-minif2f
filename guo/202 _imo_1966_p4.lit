@@ -1,0 +1,12 @@
+run_file common.lit
+have n N_pos
+prop p(x R):
+    forall t N,k Z:
+        t<=n
+        =>:
+            x!=k*\pi/2^t
+claim:
+    forall x R:
+        $p(x)
+        =>:
+            

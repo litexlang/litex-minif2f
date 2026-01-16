@@ -1,0 +1,8 @@
+run_file common.lit
+claim:
+    forall b R:
+        b!=o
+        =>:
+            (7*b^3)^2*(4*b^2)^(-3)=49/64
+prove:
+     # Todo

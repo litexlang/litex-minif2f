@@ -1,0 +1,9 @@
+run_file common.lit
+claim:
+    forall a,b,c Z:
+        a*b*c=720
+        a=b+1=c+2
+        =>:
+            a=10
+prove:
+#Todo

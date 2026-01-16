@@ -1,0 +1,9 @@
+run_file common.lit
+claim:
+    forall a,b N_pos:
+        a+b=20
+        a=3*b
+        =>:
+            a-b=10
+prove:
+#Todo

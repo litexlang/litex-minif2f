@@ -1,0 +1,5 @@
+run_file common.lit
+claim:
+    forall n N =>:(2^(2*n+1)+1)%3=0
+prove:
+#Todo

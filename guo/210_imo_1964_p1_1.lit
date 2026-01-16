@@ -1,0 +1,8 @@
+run_file common.lit
+claim:
+    forall n N:
+        (2^n-1)%7=0
+        =>:
+            n%3=0
+prove:
+#Todo

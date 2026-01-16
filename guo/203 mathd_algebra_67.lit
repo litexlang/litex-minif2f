@@ -1,0 +1,9 @@
+run_file common.lit
+let fn f(x R) R
+know forall x R =>: f(x)=5*x+3
+let fn g(x R) R
+know forall x R =>: g(x)=x^2-2
+claim:
+    g(f(-1))=2
+prove:
+#   Todo

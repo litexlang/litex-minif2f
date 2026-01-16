@@ -1,0 +1,13 @@
+run_file "commons.lit"
+
+prop p(x Z):
+    absolute(x + 4) < 9
+
+let num set: num = {x Z: $p(x)}
+know $is_finite_set(num)
+
+claim:
+    count(num) = 17
+    prove:
+        # todo
+        know count(num) = 17

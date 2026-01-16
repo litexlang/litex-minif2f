@@ -172,5 +172,9 @@ have fn:
     = result
 
 
-
+# absolute
+let fn absolute(x R) R
+know:
+    forall x R: x >= 0 => absolute(x) = x
+    forall x R: x < 0 => absolute(x) = -x
     

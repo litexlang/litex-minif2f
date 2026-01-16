@@ -1,11 +1,10 @@
 run_file "commons.lit"
 
-let x, y N_pos
-
-know x*y + x + y = 71
-know x^2 * y + x * y^2 = 880
-
 claim:
-    x^2 + y^2 = 146
+    forall x, y N_pos:
+        x*y + x + y = 71
+        x^2 * y + x * y^2 = 880
+        =>:
+            x^2 + y^2 = 146
     prove:
-        know x^2 + y^2 = 146
+        

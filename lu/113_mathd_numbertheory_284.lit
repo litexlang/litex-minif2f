@@ -1,0 +1,13 @@
+run_file "commons.lit"
+
+let fn S(n N_pos) N
+know forall n N_pos => S(n) = (n % 10) + ((n - (n % 10)) / 10)
+
+prop p(x N_pos):
+    x = 2 * S(x)
+
+let two_digit set: two_digit = {x N_pos: 10 <= x and x < 100}
+claim:
+    forall x two_digit: $p(x) <=> x = 18
+    prove:
+        know forall x two_digit: $p(x) <=> x = 18

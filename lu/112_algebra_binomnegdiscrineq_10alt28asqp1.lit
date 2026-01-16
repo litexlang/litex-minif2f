@@ -1,0 +1,7 @@
+run_file "commons.lit"
+
+claim:
+    forall a R => 10 * a <= 28 * a^2 + 1
+    prove:
+        # todo
+        know forall a R => 10 * a <= 28 * a^2 + 1

@@ -1,15 +1,13 @@
 run_file "commons.lit"
 
-let a, b R
-
-know 4 = a * 7 + b
-know 3 = a * 6 + b
-
 claim:
-    a = 1, b = -3
+    forall a, b R:
+        4 = a * 7 + b
+        3 = a * 6 + b
+        =>:
+            a = 1, b = -3
     prove:
         # todo
-        know a = 1, b = -3
 
 prove:
     $line_as_intensional_set(line(1, -1, 3), 1, -1, 3)
@@ -22,5 +20,4 @@ claim:
     $is_intercept(3, 1, 1, -1)
     prove:
         # todo
-        know $is_intercept(3, 1, 1, -1)
 

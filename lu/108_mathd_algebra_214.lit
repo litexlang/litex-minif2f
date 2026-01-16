@@ -1,0 +1,11 @@
+run_file "commons.lit"
+
+let a, b, c R
+
+let point set
+
+# the parabola: y = ax^2 + bx + c
+prop point_on_parabola(p point, a, b, c R)
+
+# currently I don't wanna deal with the formalization of this problem, so let's just skip it
+

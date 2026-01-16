@@ -1,0 +1,10 @@
+run_file "commons.lit"
+
+claim:
+    forall x, y N_pos:
+        x*y + x + y = 71
+        x^2 * y + x * y^2 = 880
+        =>:
+            x^2 + y^2 = 146
+    prove:
+        

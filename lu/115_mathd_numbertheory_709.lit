@@ -1,0 +1,10 @@
+run_file "commons.lit"
+
+claim:
+    forall n N_pos:
+        num_divisors(2 * n) = 28
+        num_divisors(3 * n) = 30
+        =>:
+            num_divisors(6 * n) = 35
+    prove:
+        

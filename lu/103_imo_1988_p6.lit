@@ -1,0 +1,9 @@
+run_file "commons.lit"
+
+claim:
+    forall a, b N_pos:
+        (a^2 + b^2) % (a * b + 1) = 0
+        =>:
+            exist x Z st x^2 = (a^2 + b^2) / (a * b + 1)
+    prove:
+        # todo

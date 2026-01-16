@@ -1,0 +1,17 @@
+run_file "commons.lit"
+
+let fn P(n N_pos) N
+know forall n N_pos => P(n) = (n % 10) * ((n - (n % 10)) / 10)
+
+let fn S(n N_pos) N
+know forall n N_pos => S(n) = (n % 10) + ((n - (n % 10)) / 10)
+
+claim:
+    forall n N_pos:
+        10 <= n
+        n < 100
+        n = P(n) + S(n)
+        =>:
+            n % 10 = 9
+    prove:
+        # todo

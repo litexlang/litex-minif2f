@@ -1,0 +1,9 @@
+run_file "commons.lit"
+
+# based on theorem amc12b_2003_p17 from minif2f.jsonl
+
+claim:
+    # TODO: formalize statement
+    prove:
+        # todo
+

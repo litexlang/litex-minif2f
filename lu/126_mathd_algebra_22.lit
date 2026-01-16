@@ -1,0 +1,9 @@
+run_file "commons.lit"
+
+# based on theorem mathd_algebra_22 from minif2f.jsonl
+
+claim:
+    # TODO: formalize statement
+    prove:
+        # todo
+

@@ -1,0 +1,35 @@
+contra not sqrt(2) $in Q:
+    have m, n st $Q_in_frac(sqrt(2))
+    sqrt(2) = m / n
+    n * sqrt(2) = m # 自动生成
+    (n * sqrt(2)) ^ 2 = m ^ 2 = n ^ 2 * 2
+    m^2 $dvd 2
+    m $dvd 2
+    prove n $dvd 2:
+        m = 2 * k
+        2 * n^2 = 2^2 * k^2
+        2 $div n^2    
+    gcd(m, n) $dvd 2
+    impossible 1 $dvd 2
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+prop is_prime(x N_pos):
+    dom:
+        x >= 2
+    <=>:
+        forall y N_pos: y >= 2, y < x => not y $dvd x
+
+know infer exp_dvd_imply_dvd(x, y Z, a N_pos):
+    x != 0
+    x $dvd y ^ a
+    $is_prime(a)
+    =>:
+        x $dvd y
+
+for i range():
+	

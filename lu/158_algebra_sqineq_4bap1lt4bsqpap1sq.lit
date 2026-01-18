@@ -1,0 +1,18 @@
+run_file "commons.lit"
+
+# Problem: For real numbers a and b, show 4b(a+1) <= 4b^2 + (a+1)^2
+
+claim:
+    forall a, b R:
+        4 * b * (a + 1) <= 4 * b^2 + (a + 1)^2
+    prove:
+        # Rearranging: 0 <= 4b^2 + (a+1)^2 - 4b(a+1)
+        # = 4b^2 - 4b(a+1) + (a+1)^2
+        # = (2b)^2 - 2*(2b)*(a+1) + (a+1)^2
+        # = (2b - (a+1))^2 >= 0
+        
+        4 * b * (a + 1) <= 4 * b^2 + (a + 1)^2
+        0 <= 4 * b^2 + (a + 1)^2 - 4 * b * (a + 1)
+        0 <= 4 * b^2 - 4 * b * (a + 1) + (a + 1)^2
+        0 <= (2 * b)^2 - 2 * (2 * b) * (a + 1) + (a + 1)^2
+        0 <= (2 * b - (a + 1))^2

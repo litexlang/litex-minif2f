@@ -1,0 +1,17 @@
+run_file "commons.lit"
+
+# Problem: When 39,500 is divided by an integer n, the quotient is 123 and the remainder is 17. Find n.
+# Answer: 321
+
+claim:
+    forall n N_pos:
+        123 * n + 17 = 39500
+        =>:
+            n = 321
+    prove:
+        # Division algorithm: 39500 = 123 * n + 17
+        123 * n + 17 = 39500
+        123 * n = 39500 - 17
+        123 * n = 39483
+        n = 39483 / 123
+        n = 321

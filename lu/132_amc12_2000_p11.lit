@@ -1,0 +1,37 @@
+run_file "commons.lit"
+
+# Problem: If a*b = a - b with a != 0, b != 0, find a/b + b/a - a*b
+# Answer: 2
+
+claim:
+    forall a, b R:
+        a != 0
+        b != 0
+        a * b = a - b
+        =>:
+            a / b + b / a - a * b = 2
+    prove:
+        # Given: ab = a - b
+        a * b = a - b
+        
+        # We need: a/b + b/a - ab
+        # = (a^2 + b^2)/(ab) - ab
+        # = (a^2 + b^2)/(a-b) - (a-b)
+        # Since ab = a - b, we have:
+        
+        # a/b + b/a = (a^2 + b^2)/(ab) = (a^2 + b^2)/(a - b)
+        # a/b + b/a - ab = (a^2 + b^2)/(a - b) - (a - b)
+        # = (a^2 + b^2 - (a - b)^2) / (a - b)
+        # = (a^2 + b^2 - (a^2 - 2ab + b^2)) / (a - b)
+        # = (2ab) / (a - b)
+        # = 2(a - b) / (a - b)  [since ab = a - b]
+        # = 2
+        
+        # More directly:
+        a / b + b / a - a * b = (a^2 + b^2) / (a * b) - a * b
+        a / b + b / a - a * b = (a^2 + b^2) / (a - b) - (a - b)
+        a / b + b / a - a * b = (a^2 + b^2 - (a - b)^2) / (a - b)
+        a / b + b / a - a * b = (a^2 + b^2 - a^2 + 2 * a * b - b^2) / (a - b)
+        a / b + b / a - a * b = (2 * a * b) / (a - b)
+        a / b + b / a - a * b = (2 * (a - b)) / (a - b)
+        a / b + b / a - a * b = 2

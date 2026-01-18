@@ -1,0 +1,43 @@
+run_file "commons.lit"
+
+# Problem: Fibonacci-like sequence with S_n = S_{n-2} + S_{n-1}
+# Given S_9 = 110 and S_7 = 42, find S_4
+# Answer: 10
+
+let fn s(n N_pos) R:
+    forall n N_pos:
+        n >= 3 => s(n) = s(n - 2) + s(n - 1)
+
+claim:
+    forall s N_pos -> R:
+        forall n N_pos: n >= 3 => s(n) = s(n - 2) + s(n - 1)
+        s(9) = 110
+        s(7) = 42
+        =>:
+            s(4) = 10
+    prove:
+        # Working backwards:
+        # s(9) = s(8) + s(7), so s(8) = 110 - 42 = 68
+        # s(8) = s(7) + s(6), so s(6) = 68 - 42 = 26
+        # s(7) = s(6) + s(5), so s(5) = 42 - 26 = 16
+        # s(6) = s(5) + s(4), so s(4) = 26 - 16 = 10
+        
+        s(9) = s(8) + s(7)
+        110 = s(8) + 42
+        s(8) = 110 - 42
+        s(8) = 68
+        
+        s(8) = s(7) + s(6)
+        68 = 42 + s(6)
+        s(6) = 68 - 42
+        s(6) = 26
+        
+        s(7) = s(6) + s(5)
+        42 = 26 + s(5)
+        s(5) = 42 - 26
+        s(5) = 16
+        
+        s(6) = s(5) + s(4)
+        26 = 16 + s(4)
+        s(4) = 26 - 16
+        s(4) = 10

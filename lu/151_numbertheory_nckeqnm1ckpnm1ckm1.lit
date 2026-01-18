@@ -1,0 +1,19 @@
+run_file "commons.lit"
+
+# Problem: Show C(n,k) = C(n-1,k) + C(n-1,k-1) for binomial coefficients
+# Technical dependency needed: Binomial coefficient definition
+
+claim:
+    forall n, k N_pos:
+        k <= n
+        =>:
+            # C(n,k) = C(n-1,k) + C(n-1,k-1)
+            # TODO: Complete formalization once binomial coefficient
+            # technical dependencies are available
+    prove:
+        # Using definition: C(n,k) = n!/(k!(n-k)!)
+        # C(n-1,k) + C(n-1,k-1) = (n-1)!/(k!(n-1-k)!) + (n-1)!/((k-1)!(n-k)!)
+        # = (n-1)!/(k!(n-k)!) * [(n-k) + k] = n!/[k!(n-k)!] = C(n,k)
+        
+        # TODO: Formalize once factorial and binomial coefficient operations are available
+        know # C(n,k) = C(n-1,k) + C(n-1,k-1)

@@ -1,0 +1,16 @@
+run_file "commons.lit"
+
+# Problem: If j is positive integer, and (7j+3) is multiplied by 3 and divided by 7,
+# what is the remainder?
+# Answer: 2
+
+claim:
+    forall j N_pos:
+        3 * (7 * j + 3) % 7 = 2
+    prove:
+        # 3(7j + 3) = 21j + 9
+        # 21j + 9 mod 7 = 0 + (9 mod 7) = 9 mod 7 = 2
+        3 * (7 * j + 3) = 21 * j + 9
+        (21 * j + 9) % 7 = 9 % 7
+        9 % 7 = 2
+        3 * (7 * j + 3) % 7 = 2

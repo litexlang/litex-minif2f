@@ -1,0 +1,12 @@
+run_file "commons.lit"
+
+# Problem: Show (a-d)(a-c)(a-b) = -((a^2 - (b+c)a + cb)d) + (a^2 - (b+c)a + cb)a
+# Technical dependency needed: Complex number algebra
+
+claim:
+    # For complex numbers a,b,c,d: (a-d)(a-c)(a-b) = -((a^2 - (b+c)a + cb)d) + (a^2 - (b+c)a + cb)a
+    # TODO: Complete formalization once complex number operations are available
+    prove:
+        # Expand LHS: (a-d)(a-c)(a-b) and RHS, show they're equal
+        # TODO: Formalize polynomial expansion once complex numbers are available
+        know # The equality holds

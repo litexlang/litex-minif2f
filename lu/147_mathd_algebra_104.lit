@@ -1,0 +1,21 @@
+run_file "commons.lit"
+
+# Problem: 8 fluid ounces has 125 calories. How many calories in 12 fluid ounces?
+# Answer: 187.5
+
+claim:
+    forall x R:
+        125 / 8 = x / 12
+        =>:
+            x = 375 / 2
+    prove:
+        # Proportion: 125/8 = x/12
+        # Cross multiply: 125 * 12 = 8 * x
+        # So: x = (125 * 12) / 8 = 1500 / 8 = 375 / 2 = 187.5
+        
+        125 / 8 = x / 12
+        125 * 12 = 8 * x
+        x = (125 * 12) / 8
+        x = 1500 / 8
+        x = 375 / 2
+        x = 187.5

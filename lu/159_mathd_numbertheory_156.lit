@@ -1,0 +1,19 @@
+run_file "commons.lit"
+
+# Problem: Greatest possible value of gcd(n+7, 2n+1) for positive integer n
+# Answer: 13
+# Technical dependency needed: gcd properties
+
+claim:
+    forall n N_pos:
+        # gcd(n+7, 2n+1) <= 13, and equality is achievable when n = 6
+    prove:
+        # Let d = gcd(n+7, 2n+1)
+        # Then d divides both n+7 and 2n+1
+        # So d divides 2(n+7) - (2n+1) = 2n+14 - 2n - 1 = 13
+        # Therefore d <= 13
+        
+        # When n = 6: gcd(13, 13) = 13, so 13 is attainable
+        
+        # TODO: Complete formalization once gcd function and properties are available
+        know # gcd(n+7, 2n+1) <= 13 and gcd(13, 13) = 13

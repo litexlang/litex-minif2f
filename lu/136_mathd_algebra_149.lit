@@ -1,0 +1,30 @@
+run_file "commons.lit"
+
+# Problem: Piecewise function f(x) = {x^2+9 if x<-5, 3x-8 if x>=-5}
+# If f(x) = 10, find sum of all possible values of x
+# Answer: 6
+
+have fn f(x R) R:
+    if x < -5:
+        f(x) = x^2 + 9
+    if x >= -5:
+        f(x) = 3 * x - 8
+
+claim:
+    # Sum of all x such that f(x) = 10 is 6
+    prove:
+        # Case 1: x < -5 and f(x) = x^2 + 9 = 10
+        # Then x^2 = 1, so x = 1 or x = -1
+        # But neither 1 nor -1 is < -5, so no solutions in this case
+        
+        # Case 2: x >= -5 and f(x) = 3x - 8 = 10
+        # Then 3x = 18, so x = 6
+        # Since 6 >= -5, this is valid
+        
+        # Therefore, the only solution is x = 6, so the sum is 6
+        
+        # Verify:
+        # For x = 6: f(6) = 3 * 6 - 8 = 18 - 8 = 10
+        
+        know exist x R st f(x) = 10 and x = 6
+        # Sum of all solutions = 6

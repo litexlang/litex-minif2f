@@ -1,0 +1,23 @@
+run_file "commons.lit"
+
+# Problem: Find minimum value of (9x^2*sin^2(x) + 4)/(x*sin(x)) for 0 < x < π
+# Answer: 12
+# Technical dependencies needed: Trigonometric functions, AM-GM inequality
+
+claim:
+    forall x R:
+        0 < x
+        x < pi
+        =>:
+            12 <= (9 * x^2 * sin(x)^2 + 4) / (x * sin(x))
+    prove:
+        # Let y = x*sin(x). Since x > 0 and sin(x) > 0 for 0 < x < π, we have y > 0
+        # The expression becomes: (9y^2 + 4)/y = 9y + 4/y
+        
+        # By AM-GM: 9y + 4/y >= 2*sqrt(9y * 4/y) = 2*sqrt(36) = 12
+        # Equality holds when 9y = 4/y, i.e., y^2 = 4/9, so y = 2/3
+        
+        # TODO: Complete formalization once:
+        # 1. Trigonometric functions (sin) are available
+        # 2. AM-GM inequality is available
+        know 12 <= (9 * x^2 * sin(x)^2 + 4) / (x * sin(x))

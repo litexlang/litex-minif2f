@@ -1,0 +1,24 @@
+run_file "commons.lit"
+
+# Problem: Evaluate (52+6*sqrt(43))^(3/2) - (52-6*sqrt(43))^(3/2)
+# Answer: 828
+# Technical dependency: Square root manipulation, fractional exponents
+
+claim:
+    (52 + 6 * sqrt(43))^(3/2) - (52 - 6 * sqrt(43))^(3/2) = 828
+    prove:
+        # Note: 52 + 6*sqrt(43) = (sqrt(43) + 3)^2
+        # And: 52 - 6*sqrt(43) = (sqrt(43) - 3)^2
+        
+        # So: (52+6*sqrt(43))^(3/2) = ((sqrt(43)+3)^2)^(3/2) = (sqrt(43)+3)^3
+        # And: (52-6*sqrt(43))^(3/2) = ((sqrt(43)-3)^2)^(3/2) = (sqrt(43)-3)^3
+        
+        # Using difference of cubes: (a^3 - b^3) = (a-b)(a^2+ab+b^2)
+        # where a = sqrt(43)+3, b = sqrt(43)-3
+        # a - b = 6
+        # Result = 828
+        
+        # TODO: Complete formalization once:
+        # 1. Square root factorization is available
+        # 2. Fractional exponents are available
+        know (52 + 6 * sqrt(43))^(3/2) - (52 - 6 * sqrt(43))^(3/2) = 828

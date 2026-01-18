@@ -14,4 +14,40 @@ claim:
         =>:
             n % 10 = 9
     prove:
-        # todo
+        # Let a be the tens digit and b be the units digit
+        # Then n = 10a + b, P(n) = a * b, S(n) = a + b
+        # Given: n = P(n) + S(n)
+        # So: 10a + b = ab + a + b
+        # Simplifying: 10a + b = ab + a + b
+        #             10a = ab + a
+        #             9a = ab
+        # Since a != 0 (n is two-digit), we can divide: 9 = b
+        
+        have a N = (n - (n % 10)) / 10
+        have b N = n % 10
+        
+        # n = 10a + b
+        n = 10 * a + b
+        
+        # P(n) = a * b, S(n) = a + b
+        P(n) = a * b
+        S(n) = a + b
+        
+        # Given: n = P(n) + S(n)
+        n = P(n) + S(n)
+        10 * a + b = a * b + a + b
+        10 * a + b - b = a * b + a
+        10 * a = a * b + a
+        10 * a - a = a * b
+        9 * a = a * b
+        
+        # Since n >= 10, we have a >= 1, so a != 0
+        # Therefore we can divide by a:
+        a >= 1
+        a != 0
+        9 * a / a = a * b / a
+        9 = b
+        
+        # Therefore: n % 10 = b = 9
+        n % 10 = b
+        n % 10 = 9

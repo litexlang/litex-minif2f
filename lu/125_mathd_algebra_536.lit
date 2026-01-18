@@ -1,9 +1,30 @@
 run_file "commons.lit"
 
-# based on theorem mathd_algebra_536 from minif2f.jsonl
+# Problem: Simplify 3!(2^3 + sqrt(9)) ÷ 2
+# Answer: 33
 
 claim:
-    # TODO: formalize statement
+    3! * (2^3 + sqrt(9)) / 2 = 33
     prove:
-        # todo
+        # Evaluate step by step:
+        # 3! = 3 * 2 * 1 = 6
+        3! = 6
+        
+        # 2^3 = 8
+        2^3 = 8
+        
+        # sqrt(9) = 3
+        sqrt(9) = 3
+        
+        # 2^3 + sqrt(9) = 8 + 3 = 11
+        2^3 + sqrt(9) = 8 + 3
+        2^3 + sqrt(9) = 11
+        
+        # 3!(2^3 + sqrt(9)) = 6 * 11 = 66
+        3! * (2^3 + sqrt(9)) = 6 * 11
+        3! * (2^3 + sqrt(9)) = 66
+        
+        # Divide by 2: 66 / 2 = 33
+        3! * (2^3 + sqrt(9)) / 2 = 66 / 2
+        3! * (2^3 + sqrt(9)) / 2 = 33
 

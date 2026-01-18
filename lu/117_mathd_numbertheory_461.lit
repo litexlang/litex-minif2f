@@ -1,9 +1,28 @@
 run_file "commons.lit"
 
-# based on theorem mathd_numbertheory_461 from minif2f.jsonl
+# Problem: Count integers m in [1,8] with gcd(m,8) = 1, then find 3^n mod 8
+# Technical dependency needed: gcd function
+
+# The integers in [1,8] relatively prime to 8 are: {1, 3, 5, 7}
+# So n = 4
+# 3^4 = 81 ≡ 1 (mod 8)
+
+# TODO: Need gcd function to formalize the set definition
 
 claim:
-    # TODO: formalize statement
+    # Let n = count of integers m in [1,8] such that gcd(m,8) = 1
+    # Then 3^n mod 8 = 1
     prove:
-        # todo
+        # The integers m in [1,8] with gcd(m,8) = 1 are: 1, 3, 5, 7
+        # So n = 4
+        
+        # 3^4 = 81
+        # 81 mod 8 = 1 (since 81 = 8*10 + 1)
+        
+        # TODO: Complete formalization once gcd function is available
+        # For now, we can show: 3^4 = 81, and 81 % 8 = 1
+        have n N = 4
+        have result N = 3^4
+        result = 81
+        81 % 8 = 1
 

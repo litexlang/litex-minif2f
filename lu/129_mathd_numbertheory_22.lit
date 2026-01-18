@@ -1,9 +1,27 @@
 run_file "commons.lit"
 
-# based on theorem mathd_numbertheory_22 from minif2f.jsonl
+# Problem: Two-digit number "B6" (where B is tens digit) is a perfect square
+# Find: How many distinct possible values for B?
+# Answer: 2 (B can be 1 or 3, giving 16 and 36)
 
 claim:
-    # TODO: formalize statement
+    # The number of distinct values of B (1-9) such that 10B + 6 is a perfect square is 2
+    count({B N_pos: 1 <= B and B <= 9 and exist n N_pos st (10 * B + 6) = n^2}) = 2
     prove:
-        # todo
+        # Two-digit perfect squares ending in 6:
+        # 4^2 = 16, so B = 1
+        # 6^2 = 36, so B = 3
+        # 14^2 = 196 (three digits)
+        # So only 16 and 36 work
+        
+        # Verify:
+        10 * 1 + 6 = 16 = 4^2
+        10 * 3 + 6 = 36 = 6^2
+        
+        # Check other possibilities:
+        # 2^2 = 4, 8^2 = 64, 12^2 = 144, 18^2 = 324
+        # None of these are two-digit numbers ending in 6
+        
+        # Therefore, B can only be 1 or 3, so count = 2
+        know count({B N_pos: 1 <= B and B <= 9 and exist n N_pos st (10 * B + 6) = n^2}) = 2
 

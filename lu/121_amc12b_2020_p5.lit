@@ -1,9 +1,31 @@
 run_file "commons.lit"
 
-# based on theorem amc12b_2020_p5 from minif2f.jsonl
+# Problem: Team A won 2/3 of games, Team B won 5/8 of games
+# Team B won 7 more and lost 7 more than Team A
+# Find: How many games has team A played? Answer: 42
 
 claim:
-    # TODO: formalize statement
+    # Let g be the number of games team A played
+    # Team A won (2/3)g games, lost (1/3)g games
+    # Team B won (2/3)g + 7 games, lost (1/3)g + 7 games
+    # Team B total games: (2/3)g + 7 + (1/3)g + 7 = g + 14
+    # Team B win ratio: ((2/3)g + 7) / (g + 14) = 5/8
+    # Solving: g = 42
+    forall g N_pos:
+        # Team A: won (2/3)g, lost (1/3)g, total g
+        # Team B: won (2/3)g + 7, lost (1/3)g + 7, total g + 14
+        # Team B win ratio = 5/8
+        ((2 / 3) * g + 7) / (g + 14) = 5 / 8
+        =>:
+            g = 42
     prove:
-        # todo
+        ((2 / 3) * g + 7) / (g + 14) = 5 / 8
+        # Cross multiply:
+        8 * ((2 / 3) * g + 7) = 5 * (g + 14)
+        (16 / 3) * g + 56 = 5 * g + 70
+        (16 / 3) * g - 5 * g = 70 - 56
+        (16 / 3) * g - (15 / 3) * g = 14
+        (1 / 3) * g = 14
+        g = 14 * 3
+        g = 42
 

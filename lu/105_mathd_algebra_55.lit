@@ -1,3 +1,33 @@
 run_file "commons.lit"
 
-(2 - 4 + 6 - 8 + 10 - 12 + 14) / (3 - 6 + 9 - 12 + 15 - 18 + 21) = 2 / 3
+claim:
+    (2 - 4 + 6 - 8 + 10 - 12 + 14) / (3 - 6 + 9 - 12 + 15 - 18 + 21) = 2 / 3
+    prove:
+        # Factor out 2 from numerator and 3 from denominator
+        # Numerator: 2 - 4 + 6 - 8 + 10 - 12 + 14 = 2(1 - 2 + 3 - 4 + 5 - 6 + 7)
+        # Denominator: 3 - 6 + 9 - 12 + 15 - 18 + 21 = 3(1 - 2 + 3 - 4 + 5 - 6 + 7)
+        
+        have numerator R = 2 - 4 + 6 - 8 + 10 - 12 + 14
+        numerator = 2 * 1 - 2 * 2 + 2 * 3 - 2 * 4 + 2 * 5 - 2 * 6 + 2 * 7
+        numerator = 2 * (1 - 2 + 3 - 4 + 5 - 6 + 7)
+        
+        have denominator R = 3 - 6 + 9 - 12 + 15 - 18 + 21
+        denominator = 3 * 1 - 3 * 2 + 3 * 3 - 3 * 4 + 3 * 5 - 3 * 6 + 3 * 7
+        denominator = 3 * (1 - 2 + 3 - 4 + 5 - 6 + 7)
+        
+        have common_factor R = 1 - 2 + 3 - 4 + 5 - 6 + 7
+        numerator = 2 * common_factor
+        denominator = 3 * common_factor
+        
+        # Cancel the common factor (assuming it's non-zero)
+        # common_factor = 1 - 2 + 3 - 4 + 5 - 6 + 7 = -1 + 3 - 4 + 5 - 6 + 7 = 2 - 4 + 5 - 6 + 7 = -2 + 5 - 6 + 7 = 3 - 6 + 7 = -3 + 7 = 4
+        common_factor = 1 - 2 + 3 - 4 + 5 - 6 + 7
+        common_factor = -1 + 3 - 4 + 5 - 6 + 7
+        common_factor = 2 - 4 + 5 - 6 + 7
+        common_factor = -2 + 5 - 6 + 7
+        common_factor = 3 - 6 + 7
+        common_factor = -3 + 7
+        common_factor = 4
+        
+        # Since common_factor = 4 != 0, we can divide
+        numerator / denominator = (2 * common_factor) / (3 * common_factor) = 2 / 3

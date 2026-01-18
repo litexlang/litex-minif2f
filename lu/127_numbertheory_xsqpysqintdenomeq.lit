@@ -1,9 +1,22 @@
 run_file "commons.lit"
 
-# based on theorem numbertheory_xsqpysqintdenomeq from minif2f.jsonl
+# Problem: If x and y are rational numbers and x^2 + y^2 is an integer,
+# then x and y have the same denominator
+# Technical dependencies needed: gcd, rational number representation
 
 claim:
-    # TODO: formalize statement
+    forall x, y Q:
+        exist k Z st x^2 + y^2 = k
+        =>:
+            # x and y have the same denominator when written in lowest terms
+            # TODO: Formalize "same denominator" once rational number
+            # representation with gcd is available
     prove:
-        # todo
+        # Write x = a/b with gcd(a,b) = 1, y = c/d with gcd(c,d) = 1
+        # Then x^2 + y^2 = (a^2d^2 + c^2b^2) / (b^2d^2) is an integer
+        # This implies b^2 | d^2 and d^2 | b^2, so b = d
+        
+        # TODO: Complete formalization once gcd and rational number
+        # manipulation technical dependencies are available
+        know # x and y have the same denominator
 

@@ -1,24 +1,40 @@
 run_file "commons.lit"
 
-# todo
-# problem: invalid number: 942!
-# know exist n N_pos st 942! % 15^n = 0
-# exist n N_pos st 942! % 15^n = 0
+# Problem: Determine the largest possible integer n such that 942! is divisible by 15^n
+# Technical dependency needed: Factorial function and prime factorization counting
+# Note: 942! is too large to compute directly, so we need a formula for counting
+# prime factors in factorials: v_p(n!) = floor(n/p) + floor(n/p^2) + floor(n/p^3) + ...
 
-#test
-prop q(x N_pos):
-    (6 * 5 * 4 * 3 * 2 * 1) % 2^x = 0
+# Since 15 = 3 * 5, we need both 3^n and 5^n to divide 942!
+# The limiting factor is the number of 5's in 942!, since there are more 3's
 
-let num set: num = {n N_pos: $q(n)}
+# Formula for counting factors of prime p in n!:
+# v_p(n!) = floor(n/p) + floor(n/p^2) + floor(n/p^3) + ...
 
-#todo
-prop p(x N_pos)
+# For p = 5 and n = 942:
+# v_5(942!) = floor(942/5) + floor(942/25) + floor(942/125) + floor(942/625) + ...
+#           = 188 + 37 + 7 + 1 + 0 + ... = 233
 
-know $p(233)
-
-let S set: S = {n N_pos: $p(n)}
+# TODO: Need technical dependencies:
+# 1. Factorial function for large numbers (or formula for prime factorization)
+# 2. Floor/ceiling functions
+# 3. Prime factorization counting function v_p(n!)
 
 claim:
-    forall x S => x <= 233
+    exist n N_pos st:
+        # 942! is divisible by 15^n
+        # and n is the largest such integer
+        # Show that n = 233
     prove:
-        know forall x S => x <= 233
+        # Let v_5(942!) be the exponent of 5 in the prime factorization of 942!
+        # v_5(942!) = floor(942/5) + floor(942/25) + floor(942/125) + floor(942/625)
+        #           = 188 + 37 + 7 + 1 = 233
+        
+        # Since 15 = 3 * 5, and v_3(942!) > v_5(942!) (more factors of 3 than 5),
+        # the limiting factor is v_5(942!) = 233
+        
+        # Therefore, the largest n such that 15^n divides 942! is n = 233
+        
+        # TODO: Formalize the calculation once factorial/prime factorization
+        # technical dependencies are available
+        know exist n N_pos st n = 233

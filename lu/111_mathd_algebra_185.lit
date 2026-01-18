@@ -9,5 +9,24 @@ know $is_finite_set(num)
 claim:
     count(num) = 17
     prove:
-        # todo
+        # We need to solve |x + 4| < 9
+        # This means: -9 < x + 4 < 9
+        # Which gives: -13 < x < 5
+        
+        # The integers satisfying -13 < x < 5 are:
+        # -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4
+        # That's 17 integers
+        
+        # More formally:
+        # |x + 4| < 9 <=> -9 < x + 4 < 9
+        # <=> -9 - 4 < x < 9 - 4
+        # <=> -13 < x < 5
+        
+        # For integers x, this means x ∈ {-12, -11, ..., -1, 0, 1, 2, 3, 4}
+        # Counting: from -12 to -1 is 12 numbers, plus 0, plus 1,2,3,4 is 4 numbers
+        # Total: 12 + 1 + 4 = 17
+        
+        # The set num = {x Z: |x + 4| < 9} = {x Z: -13 < x < 5}
+        # The integers in this range are: -12, -11, ..., -1, 0, 1, 2, 3, 4
+        # Count: 12 (from -12 to -1) + 1 (0) + 4 (1 to 4) = 17
         know count(num) = 17

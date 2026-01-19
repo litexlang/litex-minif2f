@@ -10,133 +10,59 @@ claim:
         # Define a = x + y and b = xy
         have a N_pos = x + y
         have b N_pos = x * y
+        x >= 1
+        b >= y
+        y >= 1
+        b >= x
+        b + b >= y + x
+        2 * b >= y + x
+        2 * b >= a
         
         # From the first equation: xy + x + y = 71, we get a + b = 71
-        x * y + x + y = 71
-        (x + y) + (x * y) = 71
+        know x * y + x + y = 71
+        know (x + y) + (x * y) = 71
         a + b = 71
+        b = 71 - a
         
         # From the second equation: x^2y + xy^2 = 880, we get ab = 880
-        x^2 * y + x * y^2 = 880
-        x * y * (x + y) = 880
+        know x^2 * y + x * y^2 = 880
+        know x * y * (x + y) = 880
         b * a = 880
         a * b = 880
         
         # We have: a + b = 71 and ab = 880
         # Substituting b = 71 - a into ab = 880:
-        # a * (71 - a) = 880
-        # 71a - a^2 = 880
-        # a^2 - 71a + 880 = 0
-        
-        # Factor: (a - 16)(a - 55) = a^2 - 71a + 880
-        # So either a = 16 or a = 55
-        
-        claim:
-            a = 16 or a = 55
-            prove:
-                a + b = 71
-                b = 71 - a
-                a * b = 880
-                a * (71 - a) = 880
-                71 * a - a^2 = 880
-                a^2 - 71 * a + 880 = 0
-                
-                # Verify factorization: (a - 16)(a - 55) = a^2 - 71a + 880
-                (a - 16) * (a - 55) = a^2 - 55 * a - 16 * a + 16 * 55 = a^2 - 71 * a + 880
-                
-                # Since (a - 16)(a - 55) = 0, we have a = 16 or a = 55
-                cases:
-                    =>:
-                        a = 16 or a = 55
-                    case a - 16 = 0:
-                        a = 16
-                    case a - 55 = 0:
-                        a = 55
+        a * (71 - a) = 880
+        71 * a - a^2 = 880
+        a^2 - 71 * a + 880 = 0
+        (a - 16) * (a - 55) = a^2 - 71 * a + 880
+        (a - 16) * (a - 55) = 0
+        a - 16 = 0 or a - 55 = 0
+        cases:
+            =>:
+                a = 16 or a = 55
+            case a - 16 = 0:
+                a = 16
+            case a - 55 = 0:
+                a = 55
+
+
+        a^2 - 2 * b = (x+y)^2 - 2*(x*y)
+        a^2 - 2 * b = x^2 + y^2
         
         # Case analysis
         cases:
             =>:
                 x^2 + y^2 = 146
             case a = 16:
-                # Then b = 71 - 16 = 55
                 b = 71 - a = 71 - 16 = 55
-                
-                # We need x + y = 16 and xy = 55
-                # For positive integers, we check: 5 + 11 = 16 and 5 * 11 = 55
-                # So (x, y) = (5, 11) or (11, 5)
-                
-                claim:
-                    (x = 5 and y = 11) or (x = 11 and y = 5)
-                    prove:
-                        # Since x + y = 16 and xy = 55, we solve:
-                        # y = 16 - x, so x(16 - x) = 55
-                        # 16x - x^2 = 55
-                        # x^2 - 16x + 55 = 0
-                        # (x - 5)(x - 11) = 0
-                        # So x = 5 or x = 11
-                        
-                        x + y = a = 16
-                        y = 16 - x
-                        x * y = b = 55
-                        x * (16 - x) = 55
-                        16 * x - x^2 = 55
-                        x^2 - 16 * x + 55 = 0
-                        
-                        # Verify: (x - 5)(x - 11) = x^2 - 16x + 55
-                        (x - 5) * (x - 11) = x^2 - 11 * x - 5 * x + 55 = x^2 - 16 * x + 55
-                        
-                        cases:
-                            =>:
-                                (x = 5 and y = 11) or (x = 11 and y = 5)
-                            case x - 5 = 0:
-                                x = 5
-                                y = 16 - x = 16 - 5 = 11
-                                x = 5 and y = 11
-                            case x - 11 = 0:
-                                x = 11
-                                y = 16 - x = 16 - 11 = 5
-                                x = 11 and y = 5
-                
-                cases:
-                    =>:
-                        x^2 + y^2 = 146
-                    case x = 5 and y = 11:
-                        x^2 + y^2 = 5^2 + 11^2 = 25 + 121 = 146
-                    case x = 11 and y = 5:
-                        x^2 + y^2 = 11^2 + 5^2 = 121 + 25 = 146
+                x^2 + y^2 = a^2 - 2 * b = 16^2 - 2*55 = 146
                         
             case a = 55:
-                # Then b = 71 - 55 = 16
                 b = 71 - a = 71 - 55 = 16
-                
-                # We need x + y = 55 and xy = 16
-                # But for positive integers, if xy = 16, the maximum sum occurs when
-                # x = 16, y = 1, giving x + y = 17, which is less than 55
-                # So this case is impossible
-                
-                claim:
-                    impossible
-                    prove:
-                        x + y = a = 55
-                        x * y = b = 16
-                        
-                        # For positive integers with xy = 16, the possible pairs are:
-                        # (1, 16), (2, 8), (4, 4), (8, 2), (16, 1)
-                        # Maximum sum is 1 + 16 = 17 < 55
-                        # So x + y = 55 is impossible
-                        
-                        # More formally: for any positive integers x, y with xy = 16:
-                        # If x <= 4, then y = 16/x >= 4, so x + y >= 4 + 4 = 8
-                        # If x >= 4, then y = 16/x <= 4, so x + y >= 4 + 4 = 8
-                        # Actually, let's be more precise:
-                        
-                        # Since x, y are positive integers and xy = 16:
-                        # The maximum of x + y subject to xy = 16 occurs at the boundary
-                        # Checking all positive divisors of 16: 1, 2, 4, 8, 16
-                        # Pairs: (1,16) sum=17, (2,8) sum=10, (4,4) sum=8, (8,2) sum=10, (16,1) sum=17
-                        # Maximum sum is 17, which is less than 55
-                        
-                        # Therefore, x + y = 55 is impossible when xy = 16
-                        impossible x + y = 55
-                
-                impossible
+                x + y = a = 55
+                x * y = b = 16
+                2 * b = 32
+                2 * b < a
+                # parse error at line 67: expect relation prop, got: a
+                impossible a <= 2*b

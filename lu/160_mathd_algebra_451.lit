@@ -1,21 +1,13 @@
-run_file "commons.lit"
-
-# Problem: g(x) = f^(-1)(x). Given g(-15)=0, g(0)=3, g(3)=9, g(9)=20
-# Find f(f(9))
-# Answer: 0
+let fn f(x R) R
+let fn g(x R) R
 
 claim:
-    # For inverse functions f and g where g = f^(-1):
-    # If g(3) = 9, then f(9) = 3
-    # If g(0) = 3, then f(3) = 0
-    # Therefore: f(f(9)) = f(3) = 0
+    f(f(9)) = 0
     prove:
-        # Since g = f^(-1), we have f(g(x)) = x and g(f(x)) = x
-        
-        # Given: g(3) = 9, so f(9) = 3
-        # Given: g(0) = 3, so f(3) = 0
-        
-        # Therefore: f(f(9)) = f(3) = 0
-        
-        # TODO: Complete formalization once inverse function properties are available
-        know # f(f(9)) = 0
+        know forall a, b R: g(a) = b <=> f(b) = a
+        know g(3) = 9
+        f(9) = 3
+        f(f(9)) = f(3)
+        know g(0) = 3
+        f(3) = 0
+        f(f(9)) = 0

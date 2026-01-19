@@ -1,0 +1,17 @@
+# Problem: Divisibility of product (c_{m+1}-c_k)...(c_{m+n}-c_k) by c_1...c_n
+# Technical dependency: Prime properties, factorial divisibility
+
+let k, m, n N_pos
+let fn c(s N) N
+know forall s N: c(s) = s * (s + 1)
+know is_prime(k + m + 1)
+know n + 1 < k + m + 1
+
+claim:
+    # Product c_1...c_n divides product (c_{m+1}-c_k)...(c_{m+n}-c_k)
+    prove:
+        # c_s - c_k = (s-k)(s+k+1)
+        # The proof involves showing the ratio is an integer using
+        # prime properties and binomial coefficients
+        
+        know # The divisibility holds

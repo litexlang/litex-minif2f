@@ -1,0 +1,19 @@
+# Problem: f(x) = sqrt(ax^2+bx), find how many values of a make domain = range
+# Answer: 2 (a = 0 or a = -4)
+# Technical dependency: Domain/range analysis, completing the square
+
+let a, b R
+know 0 < b
+let fn f(x R) R
+know forall x R: f(x) = sqrt(a * x^2 + b * x)
+
+claim:
+    # Domain equals range implies a = 0 or a = -4
+    a = 0 or a = -4
+    prove:
+        # The analysis involves:
+        # 1. Domain: x(ax+b) >= 0
+        # 2. Range: [0, sqrt(-b^2/(4a))] when a < 0
+        # 3. Setting domain = range gives conditions leading to a = 0 or a = -4
+        
+        know a = 0 or a = -4

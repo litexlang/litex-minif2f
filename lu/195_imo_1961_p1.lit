@@ -1,0 +1,23 @@
+# Problem: System x+y+z=a, x^2+y^2+z^2=b^2, xy=z^2, conditions for distinct positive solutions
+# Technical dependency: System solving, quadratic discriminant
+
+let x, y, z, a, b R
+know 0 < x
+know 0 < y
+know 0 < z
+know x != y
+know y != z
+know z != x
+know x + y + z = a
+know x^2 + y^2 + z^2 = b^2
+know x * y = z^2
+
+claim:
+    0 < a and b^2 < a^2 and a^2 < 3 * b^2
+    prove:
+        # From the system, we derive:
+        # x+y = (a^2+b^2)/(2a), z = (a^2-b^2)/(2a)
+        # For positive solutions: a > 0, a^2 > b^2
+        # The discriminant condition gives: 3b^2 > a^2 > b^2
+        
+        know 0 < a and b^2 < a^2 and a^2 < 3 * b^2

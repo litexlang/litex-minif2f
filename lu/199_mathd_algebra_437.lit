@@ -1,0 +1,24 @@
+# Problem: Find integer between cube_root(-45) and cube_root(-101)
+# Answer: -4
+
+let x, y R
+let n Z
+know x^3 = -45
+know y^3 = -101
+know x < n
+know n < y
+
+claim:
+    n = -4
+    prove:
+        # (-3)^3 = -27, (-4)^3 = -64, (-5)^3 = -125
+        # Since -101 < -64 < -45, we have cube_root(-101) < -4 < cube_root(-45)
+        # So n = -4
+        
+        x^3 = -45
+        y^3 = -101
+        (-4)^3 = -64
+        -101 < -64 < -45
+        y^3 < (-4)^3 < x^3
+        y < -4 < x
+        n = -4

@@ -1,0 +1,42 @@
+# Problem: Parabolas y=x^2+4x+6 and y=(1/2)x^2+x+6 intersect, find c-a
+# Answer: 6
+
+let a, b, c, d R
+know b = a^2 + 4 * a + 6
+know b = (1/2) * a^2 + a + 6
+know d = c^2 + 4 * c + 6
+know d = (1/2) * c^2 + c + 6
+know a < c
+
+claim:
+    c - a = 6
+    prove:
+        # At intersection: x^2 + 4x + 6 = (1/2)x^2 + x + 6
+        # (1/2)x^2 + 3x = 0
+        # x((1/2)x + 3) = 0
+        # So x = 0 or x = -6
+        
+        a^2 + 4 * a + 6 = (1/2) * a^2 + a + 6
+        a^2 + 4 * a = (1/2) * a^2 + a
+        (1/2) * a^2 + 3 * a = 0
+        a * ((1/2) * a + 3) = 0
+        
+        cases:
+            =>:
+                a = -6 or a = 0
+            case a = 0:
+                a = 0
+            case (1/2) * a + 3 = 0:
+                a = -6
+        
+        # Similarly for c: c = -6 or c = 0
+        # Since a < c and both are intersection points, we have a = -6, c = 0
+        c^2 + 4 * c + 6 = (1/2) * c^2 + c + 6
+        (1/2) * c^2 + 3 * c = 0
+        c * ((1/2) * c + 3) = 0
+        c = 0 or c = -6
+        
+        a < c
+        a = -6
+        c = 0
+        c - a = 0 - (-6) = 6

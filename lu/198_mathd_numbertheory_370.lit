@@ -1,0 +1,18 @@
+# Problem: n mod 7 = 3, find (2n+1) mod 7
+# Answer: 0
+
+let n N
+know n % 7 = 3
+
+claim:
+    (2 * n + 1) % 7 = 0
+    prove:
+        # n mod 7 = 3 means n = 7k + 3 for some integer k
+        # 2n + 1 = 2(7k + 3) + 1 = 14k + 6 + 1 = 14k + 7 = 7(2k + 1)
+        # So (2n+1) mod 7 = 0
+        
+        n % 7 = 3
+        (2 * n + 1) % 7 = (2 * (n % 7) + 1) % 7
+        (2 * n + 1) % 7 = (2 * 3 + 1) % 7
+        (2 * n + 1) % 7 = 7 % 7
+        (2 * n + 1) % 7 = 0

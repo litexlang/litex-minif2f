@@ -1,0 +1,17 @@
+# Problem: a+b = 2c, c = i (imaginary unit), show ac+bc = -2
+# Technical dependency: Complex numbers
+
+claim:
+    forall a, b, c C:
+        a + b = 2 * c
+        c = i
+        =>:
+            a * c + b * c = -2
+    prove:
+        a + b = 2 * c
+        c = i
+        a * c + b * c = (a + b) * c
+        a * c + b * c = 2 * c * c
+        a * c + b * c = 2 * i^2
+        a * c + b * c = 2 * (-1)
+        a * c + b * c = -2

@@ -1,0 +1,17 @@
+# Problem: sqrt(x + sqrt(x + sqrt(x + ...))) = 9, find x
+# Answer: 72
+
+let x R
+know sqrt(x + sqrt(x + sqrt(x + ...))) = 9
+
+claim:
+    x = 72
+    prove:
+        # If the nested radical equals 9, then:
+        # sqrt(x + 9) = 9
+        # x + 9 = 81
+        # x = 72
+        
+        sqrt(x + 9) = 9
+        x + 9 = 81
+        x = 72

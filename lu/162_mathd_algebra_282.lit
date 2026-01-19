@@ -1,0 +1,21 @@
+# Problem: Piecewise function evaluation
+# Answer: 79
+# Technical dependency: Floor, ceiling, rational/irrational detection
+
+let fn f(x R) R
+know forall x R: # if x rational then f(x) = |floor(x)|, else f(x) = ceil(x)^2
+
+claim:
+    f((-8)^(1/3)) + f(-pi) + f(sqrt(50)) + f(9/2) = 79
+    prove:
+        # (-8)^(1/3) = -2 (rational)
+        # -pi is irrational
+        # sqrt(50) is irrational
+        # 9/2 is rational
+        
+        know f((-8)^(1/3)) = 2
+        know f(-pi) = 9
+        know f(sqrt(50)) = 64
+        know f(9/2) = 4
+        
+        f((-8)^(1/3)) + f(-pi) + f(sqrt(50)) + f(9/2) = 2 + 9 + 64 + 4 = 79

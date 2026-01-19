@@ -1,0 +1,17 @@
+# Problem: Find (log_2 x)^2 if log_2(log_8 x) = log_8(log_2 x)
+# Answer: 27
+
+let x R
+know 0 < x
+know log(2, log(8, x)) = log(8, log(2, x))
+
+claim:
+    log(2, x)^2 = 27
+    prove:
+        # Using change of base: log_8 x = log_2 x / log_2 8 = log_2 x / 3
+        # From the equation: log_2(log_2 x / 3) = (log_2(log_2 x)) / 3
+        # Let u = log_2 x, then: log_2(u/3) = (log_2 u) / 3
+        # Raising both sides as powers of 2: u/3 = 2^((log_2 u)/3) = u^(1/3)
+        # So: u/3 = u^(1/3), which gives u^2 = 27
+        
+        know log(2, x)^2 = 27

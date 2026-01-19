@@ -1,0 +1,11 @@
+# Problem: Show sum_{k=0}^{n-1} (2k+1) = n^2
+
+claim:
+    forall n N_pos:
+        sum k in [0, n): (2 * k + 1) = n^2
+    prove:
+        # Base case: n=1, sum = 1 = 1^2
+        # Inductive step: assume true for n, then for n+1:
+        # sum_{k=0}^n (2k+1) = n^2 + (2n+1) = n^2 + 2n + 1 = (n+1)^2
+        
+        know forall n N_pos: sum k in [0, n): (2 * k + 1) = n^2

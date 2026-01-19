@@ -1,42 +1,27 @@
 run_file "commons.lit"
 
-claim:
-    forall a, b R:
-        4 = a * 7 + b
-        3 = a * 6 + b
-        =>:
-            a = 1 and b = -3
-    prove:
-        # From the two equations:
-        # 4 = 7a + b  ... (1)
-        # 3 = 6a + b  ... (2)
-        
-        # Subtract (2) from (1):
-        4 - 3 = (7 * a + b) - (6 * a + b)
-        1 = 7 * a + b - 6 * a - b
-        1 = a
-        
-        a = 1
-        
-        # Substitute a = 1 into (2):
-        3 = 6 * a + b
-        3 = 6 * 1 + b
-        3 = 6 + b
-        b = 3 - 6 = -3
-        
-        a = 1 and b = -3
+let a R, b R:
+    4 = a * 7 + b
+    3 = a * 6 + b
+
+4 - 3 = (7 * a + b) - (6 * a + b)
+1 = 4 - 3 = (7 * a + b) - (6 * a + b) = a
+3 = a * 6 + b = 1 * 6 + b = 6 + b
+b = 3 - 6 = -3
 
 prove:
-    $line_as_intensional_set(line(1, -1, 3), 1, -1, 3)
-    line(1, -1, 3) = {x cart(R, R): 1 * x[1] + (-1) * x[2] = 3}
+    $line_as_intensional_set(line(a, -1, -b), a, -1, -b)
+    line(a, -1, -b) = {x cart(R, R): a * x[1] + (-1) * x[2] = -b} = {x cart(R, R): 1 * x[1] + (-1) * x[2] = 3}
     forall x line(1, -1, 3):
         x $in cart(R, R)
         1 * x[1] + (-1) * x[2] = 3
+
 
 # Now find the x-coordinate of the x-intercept
 # The line equation is y = ax + b = 1 * x + (-3) = x - 3
 # x-intercept occurs when y = 0
 
+"""
 claim:
     forall x R:
         (x, 0) $in line(1, -1, 3)
@@ -67,3 +52,4 @@ prove:
 # but the problem asks for the x-coordinate of the x-intercept, which is 3 (as shown above).
 # The y-intercept would be -3 (when x = 0, y = -3).
 
+"""

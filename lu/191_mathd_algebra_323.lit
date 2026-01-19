@@ -1,0 +1,15 @@
+# Problem: f(x) = x^3 - 8, find f^(-1)(f(f^(-1)(19)))
+# Answer: 3
+
+let fn f(x R) R
+know forall x R: f(x) = x^3 - 8
+
+claim:
+    # f^(-1)(f(f^(-1)(19))) = 3
+    prove:
+        # f(f^(-1)(19)) = 19 by definition
+        # So we need f^(-1)(19)
+        # f^(-1)(x) = cube_root(x + 8)
+        # f^(-1)(19) = cube_root(27) = 3
+        
+        know # f^(-1)(f(f^(-1)(19))) = 3

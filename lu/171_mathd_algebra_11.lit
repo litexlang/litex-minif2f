@@ -1,0 +1,29 @@
+# Problem: Find (a+11b)/(a-b) if (4a+3b)/(a-2b) = 5
+# Answer: 2
+
+let a, b R
+know a != b
+know a != 2 * b
+know (4 * a + 3 * b) / (a - 2 * b) = 5
+
+claim:
+    (a + 11 * b) / (a - b) = 2
+    prove:
+        (4 * a + 3 * b) / (a - 2 * b) = 5
+        4 * a + 3 * b = 5 * (a - 2 * b)
+        4 * a + 3 * b = 5 * a - 10 * b
+        3 * b + 10 * b = 5 * a - 4 * a
+        13 * b = a
+        
+        # Actually, let's solve more carefully:
+        4 * a + 3 * b = 5 * a - 10 * b
+        3 * b + 10 * b = 5 * a - 4 * a
+        13 * b = a
+        
+        # But wait, the proof says 12b = a - b, so a = 13b
+        # Then: (a+11b)/(a-b) = (13b+11b)/(13b-b) = 24b/12b = 2
+        
+        a = 13 * b
+        (a + 11 * b) / (a - b) = (13 * b + 11 * b) / (13 * b - b)
+        (a + 11 * b) / (a - b) = (24 * b) / (12 * b)
+        (a + 11 * b) / (a - b) = 2

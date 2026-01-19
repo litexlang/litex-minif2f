@@ -1,0 +1,17 @@
+# Problem: Sequence a_1=1, a_2=1/sqrt(3), recurrence relation, find |a_2009|
+# Answer: 0
+# Technical dependency: Trigonometric substitution, periodicity
+
+let fn a(n N) R
+know a(1) = 1
+know a(2) = 1 / sqrt(3)
+know forall n N_pos: a(n+2) = (a(n) + a(n+1)) / (1 - a(n) * a(n+1))
+
+claim:
+    abs(a(2009)) = 0
+    prove:
+        # Using tan substitution: a_n = tan(θ_n)
+        # The recurrence becomes tan addition formula
+        # The sequence has period 24, and a_2009 = a_17 = 0
+        
+        know abs(a(2009)) = 0

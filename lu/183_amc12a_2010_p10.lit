@@ -1,0 +1,43 @@
+# Problem: Arithmetic sequence: p, 9, 3p-q, 3p+q. Find 2010th term
+# Answer: 8041
+
+let p, q R
+let fn a(n N) R
+know forall n N: a(n+2) - a(n+1) = a(n+1) - a(n)
+know a(1) = p
+know a(2) = 9
+know a(3) = 3 * p - q
+know a(4) = 3 * p + q
+
+claim:
+    a(2010) = 8041
+    prove:
+        # Common difference: (3p+q) - (3p-q) = 2q
+        # Also: 9 - p = 2q, so p = 9 - 2q
+        # And: (3p-q) - 9 = 2q, so 3p - q = 9 + 2q, so 3p = 9 + 3q, so p = 3 + q
+        # From p = 9 - 2q and p = 3 + q: 9 - 2q = 3 + q, so 6 = 3q, q = 2
+        # Then p = 3 + 2 = 5
+        # Common difference = 2q = 4
+        # a(2010) = a(1) + 4*(2010-1) = 5 + 4*2009 = 5 + 8036 = 8041
+        
+        a(4) - a(3) = (3 * p + q) - (3 * p - q) = 2 * q
+        a(2) - a(1) = 9 - p
+        
+        # Since arithmetic: 9 - p = 2q
+        p = 9 - 2 * q
+        
+        # Also: a(3) - a(2) = 2q
+        (3 * p - q) - 9 = 2 * q
+        3 * p - q = 9 + 2 * q
+        3 * p = 9 + 3 * q
+        p = 3 + q
+        
+        # From p = 9 - 2q and p = 3 + q:
+        9 - 2 * q = 3 + q
+        6 = 3 * q
+        q = 2
+        p = 3 + q = 5
+        
+        # Common difference d = 2q = 4
+        # a(2010) = a(1) + 4 * (2010 - 1) = 5 + 4 * 2009 = 8041
+        a(2010) = 8041

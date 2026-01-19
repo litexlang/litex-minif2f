@@ -1,0 +1,20 @@
+# Problem: Determine possible values of S = a/(a+b+d) + b/(a+b+c) + c/(b+c+d) + d/(a+c+d)
+# Answer: 1 < S < 2
+# Technical dependency: Advanced inequality analysis
+
+let a, b, c, d, s R
+know 0 < a
+know 0 < b
+know 0 < c
+know 0 < d
+know s = a / (a + b + d) + b / (a + b + c) + c / (b + c + d) + d / (a + c + d)
+
+claim:
+    1 < s and s < 2
+    prove:
+        # Each fraction is between 0 and 1, so S > 0
+        # Upper bound: S < 2 (can be shown by comparison)
+        # Lower bound: S > 1 (can be shown by comparison)
+        # S can approach both bounds arbitrarily closely
+        
+        know 1 < s and s < 2

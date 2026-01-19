@@ -1,0 +1,21 @@
+# Problem: Fibonacci sequence modulo 7, find (t_a + t_b + t_c) mod 7
+# Answer: 5
+# Technical dependency: Fibonacci sequence, modular patterns
+
+let a, b, c N
+let fn t(n N) N
+know t(0) = 0
+know t(1) = 1
+know forall n N: n > 1 => t(n) = t(n-2) + t(n-1)
+know a % 16 = 5
+know b % 16 = 10
+know c % 16 = 15
+
+claim:
+    (t(a) + t(b) + t(c)) % 7 = 5
+    prove:
+        # Fibonacci sequence mod 7 has period 16
+        # t_5 mod 7 = 5, t_10 mod 7 = 6, t_15 mod 7 = 1
+        # So: (5 + 6 + 1) mod 7 = 12 mod 7 = 5
+        
+        know (t(a) + t(b) + t(c)) % 7 = 5

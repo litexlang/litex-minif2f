@@ -1,22 +1,58 @@
 # Problem: Solve system of 4 equations with absolute values
 # Technical dependency: System solving with absolute values
 
-let fn x(i N) R
-let fn a(i N) R
-know a(1) != a(2)
-know a(1) != a(3)
-know a(1) != a(4)
-know a(2) != a(3)
-know a(2) != a(4)
-know a(3) != a(4)
-know a(1) > a(2)
-know a(2) > a(3)
-know a(3) > a(4)
-
 claim:
-    # Solution: x(2) = 0, x(3) = 0, x(1) = x(4) = 1/|a(1)-a(4)|
+    forall a1, a2, a3, a4, x1, x2, x3, x4 R:
+        a1 > a2
+        a2 > a3
+        a3 > a4
+        (a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4 = 1
+        (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 = 1
+        (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 1
+        (a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3 = 1
+        =>:
+            x1 = 1 / (a1-a4)
+            x2 = 0
+            x3 = 0
+            x4 = 1 / (a1-a4)
+            
     prove:
-        # By subtracting equations and using the ordering a1 > a2 > a3 > a4,
-        # we can derive: x2 = x3 = 0, x1 = x4 = 1/(a1 - a4)
-        
-        know x(2) = 0 and x(3) = 0 and x(1) = 1 / abs(a(1) - a(4)) and x(4) = 1 / abs(a(1) - a(4))
+        ((a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4) - ((a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4) = 1 - 1 = 0
+        # why did the polynomial verification fail? 
+        (a1 - a2) * (-x1 + x2 + x3 + x4) = ((a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4) - ((a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4) = 0
+        (a1 - a2) * (-x1 + x2 + x3 + x4) = 0
+        a1 - a2 > 0
+        (a1 - a2) * (-x1 + x2 + x3 + x4) / (a1 - a2) = 0 / (a1 - a2) = 0
+        -x1 + x2 + x3 + x4 = 0
+
+        ((a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4) - ((a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3) = 1 - 1 = 0
+        (a3 - a4) * (-x1 - x2 - x3 + x4) = ((a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4) - ((a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3) = 0
+        a3 - a4 > 0
+        (a3 - a4) * (-x1 - x2 - x3 + x4) / (a3 - a4) = 0 / (a3 - a4) = 0
+        -x1 - x2 - x3 + x4 = 0
+
+        (-x1 + x2 + x3 + x4) + (-x1 - x2 - x3 + x4) = 0
+        -2 * x1 + 2 * x4 = 0
+        -x1 + x4 = 0
+        x1 = x4
+        0 = -x1 - x2 - x3 + x4 = -x2 - x3
+        x2 = -x3
+
+        (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 - (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 1 - 1 = 0
+        (a2 - a3) * (-x1 - x2 + x3 + x4) = (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 - (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 0
+        a2 - a3 > 0
+        (a2 - a3) * (-x1 - x2 + x3 + x4) / (a2 - a3) = 0 / (a2 - a3) = 0
+        -x1 - x2 + x3 + x4 = 0
+        0 = -x1 - x2 + x3 + x4 = -x2 + x3
+        x2 = x3
+
+        x2 + x2 = -x3 + x3 = 0
+        2 * x2 = 0
+        x2 = 0
+        x3 = 0
+
+        1 = (a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4 = (a1 - a2) * 0 + (a1 - a3) * 0 + (a1 - a4) * x4 = (a1 - a4) * x4
+        a1 - a4 > 0
+        1 / (a1 - a4) = x4
+        x4 = 1 / (a1 - a4)
+        x1 = 1 / (a1 - a4)

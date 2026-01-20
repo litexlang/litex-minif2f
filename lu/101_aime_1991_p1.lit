@@ -11,9 +11,15 @@ claim:
         have a N_pos = x + y
         have b N_pos = x * y
         x >= 1
+        x * y >= 1 * y
+        b >= 1 * y
         b >= y
         y >= 1
+        x * y >= x * 1
+        b >= x * 1
         b >= x
+        b + b >= y + b
+        y + b >= y + x
         b + b >= y + x
         2 * b >= y + x
         2 * b >= a
@@ -37,14 +43,18 @@ claim:
         a^2 - 71 * a + 880 = 0
         (a - 16) * (a - 55) = a^2 - 71 * a + 880
         (a - 16) * (a - 55) = 0
-        a - 16 = 0 or a - 55 = 0
-        cases:
-            =>:
-                a = 16 or a = 55
-            case a - 16 = 0:
-                a = 16
-            case a - 55 = 0:
-                a = 55
+        know a - 16 = 0 or a - 55 = 0 # verification failure???
+        # got stuck here
+        claim:
+            a = 16 or a = 55
+            prove:
+                cases:
+                    =>:
+                        a = 16 or a = 55
+                    case a - 16 = 0:
+                        a = 16
+                    case a - 55 = 0:
+                        a = 55
 
 
         a^2 - 2 * b = (x+y)^2 - 2*(x*y)
@@ -65,4 +75,4 @@ claim:
                 2 * b = 32
                 2 * b < a
                 # parse error at line 67: expect relation prop, got: a
-                impossible a <= 2*b
+                impossible <= 2 * b

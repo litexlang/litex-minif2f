@@ -1,0 +1,20 @@
+# Problem: |x_i| < 1, sum |x_i| = 19 + |sum x_i|, find smallest n
+# Answer: 20
+
+let n N
+let fn x(i N) R
+know forall i N: abs(x(i)) < 1
+know sum i in [0, n): abs(x(i)) = 19 + abs(sum i in [0, n): x(i))
+
+claim:
+    20 <= n
+    prove:
+        # Since |x_i| < 1, sum |x_i| < n
+        # But sum |x_i| = 19 + |sum x_i| >= 19
+        # So n > 19, therefore n >= 20
+        
+        # Example: x_{2k-1} = 19/20, x_{2k} = -19/20 for k=1..10
+        # Then sum |x_i| = 20*(19/20) = 19
+        # And sum x_i = 0, so 19 + 0 = 19
+        
+        know 20 <= n

@@ -1,0 +1,15 @@
+# Problem: Point (a,b) on line 3x + 2y = 12, find b when a = 4
+# Answer: 0
+
+let a, b R
+know 3 * a + 2 * b = 12
+know a = 4
+
+claim:
+    b = 0
+    prove:
+        3 * a + 2 * b = 12
+        3 * 4 + 2 * b = 12
+        12 + 2 * b = 12
+        2 * b = 0
+        b = 0

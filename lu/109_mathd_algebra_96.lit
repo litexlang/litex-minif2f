@@ -1,35 +1,26 @@
 run_file "commons.lit"
 
-let a R
-let x, y, z R_pos
-
-# why doesn't the built-in logarithm calculate numeric value automatically
-# log(2, 4) = 2 receives 'unknown'
-
-# another problem: where's e?
-
-# tried resorting to self_log defined in "comprehensive examples", but it didnt work either
-
-"""
-let fn self_log(n, b R) R: 
-        dom:
-            n > 0  
-            n != 1    
-            b > 0  
-        =>:
-            n  \pow  self_log(n, b) = b
-
-self_log(2, 8) = 3
-"""
-
-# considering the problem in fact has nothing to do with the base, we resort to log(2, x) temporarily
-
-know log(2, x) - log(2, y) = a
-know log(2, y) - log(2, z) = 15
-know log(2, z) - log(2, x) = -7
-
 claim:
-    a = -8
+    forall a R, x, y, z R_pos:
+        log(2, x) - log(2, y) = a
+        log(2, y) - log(2, z) = 15
+        log(2, z) - log(2, x) = -7
+        =>:
+            a = -8
     prove:
-        # todo
-        know a = -8
+        # Using logarithmic identities:
+        # log(x) - log(y) = log(x/y)
+        # log(x) + log(y) = log(xy)
+        
+        # From the given equations:
+        log(2, x) - log(2, y) = a
+        log(2, y) - log(2, z) = 15
+        log(2, z) - log(2, x) = -7
+        
+        # Add all three equations:
+        (log(2, x) - log(2, y)) + (log(2, y) - log(2, z)) + (log(2, z) - log(2, x)) = a + 15 + (-7)
+        log(2, x) - log(2, y) + log(2, y) - log(2, z) + log(2, z) - log(2, x) = a + 8
+        0 = a + 8
+        
+        # Therefore: a = -8
+        a = -8

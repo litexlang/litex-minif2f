@@ -1,0 +1,46 @@
+run_file "commons.lit"
+
+# Problem: Given x + y = 7 and 3x + y = 45, evaluate x^2 - y^2
+# Answer: 217
+
+claim:
+    forall x, y R:
+        x + y = 7
+        3 * x + y = 45
+        =>:
+            x^2 - y^2 = 217
+    prove:
+        # Solve the system:
+        # From first equation: y = 7 - x
+        # Substitute into second: 3x + (7 - x) = 45
+        # 2x + 7 = 45
+        # 2x = 38
+        # x = 19
+        
+        # Then: y = 7 - x = 7 - 19 = -12
+        
+        # Now compute x^2 - y^2:
+        # x^2 - y^2 = 19^2 - (-12)^2 = 361 - 144 = 217
+        
+        # Or use difference of squares: x^2 - y^2 = (x+y)(x-y)
+        # x + y = 7
+        # x - y = 19 - (-12) = 31
+        # So x^2 - y^2 = 7 * 31 = 217
+        
+        x + y = 7
+        3 * x + y = 45
+        
+        # Subtract first from second:
+        (3 * x + y) - (x + y) = 45 - 7
+        2 * x = 38
+        x = 19
+        
+        # From first equation:
+        y = 7 - x
+        y = 7 - 19
+        y = -12
+        
+        # Compute x^2 - y^2:
+        x^2 - y^2 = 19^2 - (-12)^2
+        x^2 - y^2 = 361 - 144
+        x^2 - y^2 = 217

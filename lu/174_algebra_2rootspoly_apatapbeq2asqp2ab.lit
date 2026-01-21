@@ -1,0 +1,11 @@
+# Problem: Show (a+a)(a+b) = 2a^2 + 2ab for complex numbers
+# Technical dependency: Complex number algebra
+
+claim:
+    forall a, b C:
+        (a + a) * (a + b) = 2 * a^2 + 2 * a * b
+    prove:
+        (a + a) * (a + b) = 2 * a * (a + b)
+        2 * a * (a + b) = 2 * a * a + 2 * a * b
+        2 * a * (a + b) = 2 * a^2 + 2 * a * b
+        (a + a) * (a + b) = 2 * a^2 + 2 * a * b

@@ -1,0 +1,43 @@
+# Problem: Greatest possible value of gcd(n+7, 2n+1) for positive integer n
+# Answer: 13
+# Technical dependency needed: gcd properties
+"""
+claim:
+    forall n N_pos:
+        gcd(n+7, 2n+1) <= 13
+    prove:
+        # Let d = gcd(n+7, 2n+1)
+        # Then d divides both n+7 and 2n+1
+        # So d divides 2(n+7) - (2n+1) = 2n+14 - 2n - 1 = 13
+        # Therefore d <= 13
+        
+        # When n = 6: gcd(13, 13) = 13, so 13 is attainable
+        
+        # TODO: Complete formalization once gcd function and properties are available
+        know # gcd(n+7, 2n+1) <= 13 and gcd(13, 13) = 13
+"""
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+have gcd fn(Z, Z) N_pos
+know forall x, y, z Z: z $dvd x, z $dvd y <=> z $dvd gcd(x, y)
+know forall x, y Z => gcd(x, y) $dvd x, gcd(x, y) $dvd y
+
+claim:
+    forall n N_pos:
+        gcd(n+7, 2*n+1) <= 13
+    prove:
+        let d N_pos: d = gcd(n+7, 2*n+1)
+        d $dvd n+7
+        d $dvd 2*n+1
+        (2*n + 1) % d = 0
+        (n+7) % d = 0
+        ((2*n + 1) - (n+7) - (n+7)) % d = 0
+        13 % d = 0
+        d $dvd 13
+        d <= 13
+        gcd(n+7, 2*n+1) <= 13
+

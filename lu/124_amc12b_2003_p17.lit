@@ -1,9 +1,41 @@
 run_file "commons.lit"
 
-# based on theorem amc12b_2003_p17 from minif2f.jsonl
+# Problem: If log(xy^3) = 1 and log(x^2y) = 1, find log(xy)
+# Answer: 3/5
 
 claim:
-    # TODO: formalize statement
+    forall x, y R_pos:
+        log(2, x * y^3) = 1
+        log(2, x^2 * y) = 1
+        =>:
+            log(2, x * y) = 3 / 5
     prove:
-        # todo
+        # Using logarithmic identities:
+        # log(xy^3) = log(x) + 3log(y) = log(xy) + 2log(y) = 1
+        # log(x^2y) = 2log(x) + log(y) = 2log(xy) - log(y) = 1
+        
+        # From log(xy^3) = 1:
+        log(2, x * y^3) = 1
+        log(2, x) + log(2, y^3) = 1
+        log(2, x) + 3 * log(2, y) = 1
+        log(2, x * y) + 2 * log(2, y) = 1
+        
+        # From log(x^2y) = 1:
+        log(2, x^2 * y) = 1
+        log(2, x^2) + log(2, y) = 1
+        2 * log(2, x) + log(2, y) = 1
+        
+        # Multiply second equation by 2:
+        2 * (2 * log(2, x) + log(2, y)) = 2 * 1
+        4 * log(2, x) + 2 * log(2, y) = 2
+        
+        # Add to first equation:
+        (log(2, x * y) + 2 * log(2, y)) + (4 * log(2, x) + 2 * log(2, y)) = 1 + 2
+        log(2, x * y) + 4 * log(2, x) + 4 * log(2, y) = 3
+        
+        # Note: 4log(x) + 4log(y) = 4log(xy)
+        log(2, x * y) + 4 * (log(2, x) + log(2, y)) = 3
+        log(2, x * y) + 4 * log(2, x * y) = 3
+        5 * log(2, x * y) = 3
+        log(2, x * y) = 3 / 5
 

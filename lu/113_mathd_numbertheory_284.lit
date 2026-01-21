@@ -8,6 +8,73 @@ prop p(x N_pos):
 
 let two_digit set: two_digit = {x N_pos: 10 <= x and x < 100}
 claim:
-    forall x two_digit: $p(x) <=> x = 18
+    forall x two_digit:
+        $p(x) <=> x = 18
     prove:
-        know forall x two_digit: $p(x) <=> x = 18
+        # Let x be a two-digit number with tens digit a and units digit b
+        # Then x = 10a + b, and S(x) = a + b
+        # Given: x = 2 * S(x), so 10a + b = 2(a + b)
+        
+        # =>:
+        # If x = 18, then a = 1, b = 8, S(x) = 9, and 2 * S(x) = 18 = x
+        # So $p(18) holds
+        
+        # <=:
+        # If $p(x), then 10a + b = 2(a + b) = 2a + 2b
+        # So 10a + b = 2a + 2b
+        # => 8a = b
+        # Since b is a digit (0-9) and a >= 1 (two-digit number):
+        # If a = 1, then b = 8, so x = 18
+        # If a >= 2, then b = 8a >= 16 > 9, which is impossible
+        # Therefore x = 18
+        
+        # =>: If x = 18, then $p(x)
+        claim:
+            x = 18 => $p(x)
+            prove:
+                x = 18
+                # x = 18 means a = 1, b = 8
+                have a N = (x - (x % 10)) / 10
+                have b N = x % 10
+                x = 10 * a + b
+                a = 1
+                b = 8
+                S(x) = a + b = 1 + 8 = 9
+                x = 18 = 2 * 9 = 2 * S(x)
+                $p(x)
+        
+        # <=: If $p(x), then x = 18
+        claim:
+            $p(x) => x = 18
+            prove:
+                $p(x)
+                x = 2 * S(x)
+                
+                have a N = (x - (x % 10)) / 10
+                have b N = x % 10
+                x = 10 * a + b
+                S(x) = a + b
+                
+                x = 2 * S(x)
+                10 * a + b = 2 * (a + b)
+                10 * a + b = 2 * a + 2 * b
+                10 * a - 2 * a = 2 * b - b
+                8 * a = b
+                
+                # Since x is two-digit: 10 <= x < 100, so a >= 1
+                # b is a digit: 0 <= b <= 9
+                # If a = 1, then b = 8, so x = 18
+                # If a >= 2, then b = 8a >= 16 > 9, impossible
+                
+                a >= 1
+                b <= 9
+                
+                cases:
+                    =>:
+                        x = 18
+                    case a = 1:
+                        b = 8 * a = 8
+                        x = 10 * a + b = 10 * 1 + 8 = 18
+                    case a >= 2:
+                        b = 8 * a >= 16
+                        impossible b <= 9

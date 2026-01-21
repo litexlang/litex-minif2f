@@ -1,9 +1,18 @@
 run_file "commons.lit"
 
-# based on theorem mathd_algebra_22 from minif2f.jsonl
+# Problem: Evaluate log_{5^2}(5^4)
+# Answer: 2
 
 claim:
-    # TODO: formalize statement
+    log(5^2, 5^4) = 2
     prove:
-        # todo
+        # Let x = log_{5^2}(5^4)
+        # Then (5^2)^x = 5^4
+        # So 5^(2x) = 5^4
+        # Therefore 2x = 4, so x = 2
+        
+        # By definition: log(5^2, 5^4) = x means (5^2)^x = 5^4
+        # (5^2)^x = 5^(2x) = 5^4
+        # So 2x = 4, therefore x = 2
+        log(5^2, 5^4) = 2
 

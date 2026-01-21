@@ -1,0 +1,28 @@
+# Problem: a+b ≡ 2 (mod 10), 2a+b ≡ 1 (mod 10), find last digit of a-b
+# Answer: 6
+
+let a, b N_pos
+know b <= a
+know (a + b) % 10 = 2
+know (2 * a + b) % 10 = 1
+
+claim:
+    (a - b) % 10 = 6
+    prove:
+        # a = (2a+b) - (a+b) ≡ 1 - 2 ≡ -1 ≡ 9 (mod 10)
+        a = (2 * a + b) - (a + b)
+        a % 10 = ((2 * a + b) - (a + b)) % 10
+        a % 10 = (1 - 2) % 10
+        a % 10 = (-1) % 10
+        a % 10 = 9
+        
+        # b ≡ 2 - 9 ≡ -7 ≡ 3 (mod 10)
+        (a + b) % 10 = 2
+        (9 + b) % 10 = 2
+        b % 10 = (2 - 9) % 10
+        b % 10 = (-7) % 10
+        b % 10 = 3
+        
+        # a - b ≡ 9 - 3 ≡ 6 (mod 10)
+        (a - b) % 10 = (9 - 3) % 10
+        (a - b) % 10 = 6

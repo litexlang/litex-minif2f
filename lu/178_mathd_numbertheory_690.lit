@@ -1,0 +1,16 @@
+# Problem: Smallest non-negative integer a satisfying multiple congruences
+# Answer: 314
+# Technical dependency: Chinese Remainder Theorem
+
+claim:
+    # Smallest a >= 0 such that:
+    # a ≡ 2 (mod 3), a ≡ 4 (mod 5), a ≡ 6 (mod 7), a ≡ 8 (mod 9)
+    # is 314
+    prove:
+        # Note: a ≡ 8 (mod 9) implies a ≡ 2 (mod 3)
+        # So we need: a ≡ 4 (mod 5), a ≡ 6 (mod 7), a ≡ 8 (mod 9)
+        # Which is: a ≡ -1 (mod 5), a ≡ -1 (mod 7), a ≡ -1 (mod 9)
+        # So: a ≡ -1 (mod lcm(5,7,9)) = a ≡ -1 (mod 315)
+        # Therefore: a = 314 mod 315, smallest is 314
+        
+        know # a = 314

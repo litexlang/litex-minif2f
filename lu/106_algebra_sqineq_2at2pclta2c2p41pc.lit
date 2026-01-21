@@ -1,9 +1,33 @@
 run_file "commons.lit"
 
-let a, c R
-
 claim:
-    2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)
+    forall a, c R:
+        2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)
     prove:
-        # todo
-        know 2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)
+        # Rearranging: 2a(2+c) <= a^2 + c^2 + 4(1+c)
+        # <=> 4a + 2ac <= a^2 + c^2 + 4 + 4c
+        # <=> 0 <= a^2 + c^2 + 4 + 4c - 4a - 2ac
+        # <=> 0 <= a^2 - 2ac + c^2 - 4a + 4c + 4
+        # <=> 0 <= (a-c)^2 - 4(a-c) + 4
+        # Let d = a - c, then we need: 0 <= d^2 - 4d + 4 = (d-2)^2
+        
+        # Expand both sides:
+        # Left: 2a(2+c) = 4a + 2ac
+        # Right: a^2 + c^2 + 4(1+c) = a^2 + c^2 + 4 + 4c
+        
+        # Rearranging the inequality:
+        2 * a * (2 + c) <= a^2 + c^2 + 4 * (1 + c)
+        4 * a + 2 * a * c <= a^2 + c^2 + 4 + 4 * c
+        0 <= a^2 + c^2 + 4 + 4 * c - 4 * a - 2 * a * c
+        0 <= a^2 - 2 * a * c + c^2 - 4 * a + 4 * c + 4
+        0 <= (a - c)^2 - 4 * (a - c) + 4
+        
+        # Let d = a - c, then we need to show: 0 <= d^2 - 4d + 4
+        have d R = a - c
+        0 <= d^2 - 4 * d + 4
+        
+        # Complete the square: d^2 - 4d + 4 = (d - 2)^2
+        d^2 - 4 * d + 4 = (d - 2)^2
+        
+        # Since (d - 2)^2 >= 0 for all real d, the inequality holds
+        0 <= (d - 2)^2

@@ -1,0 +1,20 @@
+run_file "commons.lit"
+
+# Problem: Count positive integers n (multiple of 5) such that
+# lcm(5!, n) = 5 * gcd(10!, n)
+# Answer: 48
+# Technical dependency needed: gcd, lcm, prime factorization
+
+claim:
+    # Count of n satisfying the conditions is 48
+    prove:
+        # Using prime factorizations:
+        # 5! = 2^3 * 3 * 5
+        # 10! = 2^8 * 3^4 * 5^2 * 7
+        
+        # The equation lcm(5!, n) = 5*gcd(10!, n) constrains n's prime factorization
+        # n must be multiple of 5, and we can determine constraints on powers of 2,3,5,7
+        
+        # TODO: Complete formalization once gcd, lcm, and prime factorization
+        # technical dependencies are available
+        know # count = 48

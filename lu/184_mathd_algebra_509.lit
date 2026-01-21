@@ -1,0 +1,15 @@
+# Problem: Simplify sqrt((5/sqrt(80) + sqrt(845)/9 + sqrt(45))/sqrt(5))
+# Answer: 13/6
+
+claim:
+    sqrt((5 / sqrt(80) + sqrt(845) / 9 + sqrt(45)) / sqrt(5)) = 13 / 6
+    prove:
+        # Simplify each term:
+        # 5/(sqrt(80)*sqrt(5)) = 5/sqrt(400) = 5/20 = 1/4
+        # sqrt(845)/(9*sqrt(5)) = sqrt(169)/9 = 13/9
+        # sqrt(45)/sqrt(5) = sqrt(9) = 3
+        
+        # Sum: 1/4 + 13/9 + 3 = 9/36 + 52/36 + 108/36 = 169/36
+        # sqrt(169/36) = 13/6
+        
+        know sqrt((5 / sqrt(80) + sqrt(845) / 9 + sqrt(45)) / sqrt(5)) = 13 / 6

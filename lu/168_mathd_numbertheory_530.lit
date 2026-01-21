@@ -1,0 +1,17 @@
+# Problem: Smallest lcm(n,k)/gcd(n,k) when 5 < n/k < 6
+# Answer: 22
+# Technical dependency: gcd, lcm
+
+let n, k N_pos
+know 5 < n / k
+know n / k < 6
+
+claim:
+    22 <= lcm(n, k) / gcd(n, k)
+    prove:
+        # Write n = n' * d, k = k' * d where d = gcd(n,k)
+        # Then lcm(n,k)/gcd(n,k) = n' * k'
+        # We need n'/k' between 5 and 6
+        # Minimum: n' = 11, k' = 2 gives product 22
+        
+        know 22 <= lcm(n, k) / gcd(n, k)

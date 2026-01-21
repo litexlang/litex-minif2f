@@ -1,9 +1,24 @@
 run_file "commons.lit"
 
-# based on theorem numbertheory_sqmod3in01d from minif2f.jsonl
+# Show that for any integer a, a^2 mod 3 is either 0 or 1
 
 claim:
-    # TODO: formalize statement
+    forall a Z:
+        a^2 % 3 = 0 or a^2 % 3 = 1
     prove:
-        # todo
+        # Any integer a mod 3 is in {0, 1, 2}
+        # Case analysis:
+        # If a ≡ 0 (mod 3), then a^2 ≡ 0^2 = 0 (mod 3)
+        # If a ≡ 1 (mod 3), then a^2 ≡ 1^2 = 1 (mod 3)
+        # If a ≡ 2 (mod 3), then a^2 ≡ 2^2 = 4 ≡ 1 (mod 3)
+        
+        cases:
+            =>:
+                a^2 % 3 = 0 or a^2 % 3 = 1
+            case a % 3 = 0:
+                a^2 % 3 = 0^2 % 3 = 0
+            case a % 3 = 1:
+                a^2 % 3 = 1^2 % 3 = 1
+            case a % 3 = 2:
+                a^2 % 3 = 2^2 % 3 = 4 % 3 = 1
 

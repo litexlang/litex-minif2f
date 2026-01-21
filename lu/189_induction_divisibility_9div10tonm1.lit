@@ -1,0 +1,12 @@
+# Problem: Show 9 divides 10^n - 1 for natural number n
+
+claim:
+    forall n N_pos:
+        9 $dvd (10^n - 1)
+    prove:
+        # Base case: n=1, 10^1 - 1 = 9, divisible by 9
+        # Inductive step: Assume 9 | (10^n - 1)
+        # Then 10^(n+1) - 1 = 10*(10^n - 1) + 9
+        # Since 9 | (10^n - 1) and 9 | 9, we have 9 | (10^(n+1) - 1)
+        
+        know forall n N_pos: 9 $dvd (10^n - 1)

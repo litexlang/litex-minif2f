@@ -1,9 +1,26 @@
 run_file "commons.lit"
 
-# based on theorem amc12a_2013_p8 from minif2f.jsonl
-
 claim:
-    # TODO: formalize statement
+    forall x, y R:
+        x != 0
+        y != 0
+        x != y
+        x + 2 / x = y + 2 / y
+        =>:
+            x * y = 2
     prove:
-        # todo
+        # Given: x + 2/x = y + 2/y, with x != y, x != 0, y != 0
+        # Rearranging: x - y = 2/y - 2/x = 2(x - y)/(xy)
+        # Since x != y, we can divide: 1 = 2/(xy)
+        # Therefore: xy = 2
+        
+        x + 2 / x = y + 2 / y
+        x - y = 2 / y - 2 / x
+        x - y = (2 * x - 2 * y) / (x * y)
+        x - y = 2 * (x - y) / (x * y)
+        
+        # Since x != y, we have x - y != 0, so we can divide:
+        x - y != 0
+        1 = 2 / (x * y)
+        x * y = 2
 

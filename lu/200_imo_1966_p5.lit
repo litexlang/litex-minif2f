@@ -1,0 +1,58 @@
+# Problem: Solve system of 4 equations with absolute values
+# Technical dependency: System solving with absolute values
+
+claim:
+    forall a1, a2, a3, a4, x1, x2, x3, x4 R:
+        a1 > a2
+        a2 > a3
+        a3 > a4
+        (a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4 = 1
+        (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 = 1
+        (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 1
+        (a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3 = 1
+        =>:
+            x1 = 1 / (a1-a4)
+            x2 = 0
+            x3 = 0
+            x4 = 1 / (a1-a4)
+            
+    prove:
+        ((a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4) - ((a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4) = 1 - 1 = 0
+        # why did the polynomial verification fail? 
+        (a1 - a2) * (-x1 + x2 + x3 + x4) = ((a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4) - ((a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4) = 0
+        (a1 - a2) * (-x1 + x2 + x3 + x4) = 0
+        a1 - a2 > 0
+        (a1 - a2) * (-x1 + x2 + x3 + x4) / (a1 - a2) = 0 / (a1 - a2) = 0
+        -x1 + x2 + x3 + x4 = 0
+
+        ((a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4) - ((a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3) = 1 - 1 = 0
+        (a3 - a4) * (-x1 - x2 - x3 + x4) = ((a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4) - ((a1 - a4) * x1 + (a2 - a4) * x2 + (a3 - a4) * x3) = 0
+        a3 - a4 > 0
+        (a3 - a4) * (-x1 - x2 - x3 + x4) / (a3 - a4) = 0 / (a3 - a4) = 0
+        -x1 - x2 - x3 + x4 = 0
+
+        (-x1 + x2 + x3 + x4) + (-x1 - x2 - x3 + x4) = 0
+        -2 * x1 + 2 * x4 = 0
+        -x1 + x4 = 0
+        x1 = x4
+        0 = -x1 - x2 - x3 + x4 = -x2 - x3
+        x2 = -x3
+
+        (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 - (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 1 - 1 = 0
+        (a2 - a3) * (-x1 - x2 + x3 + x4) = (a1 - a2) * x1 + (a2 - a3) * x3 + (a2 - a4) * x4 - (a1 - a3) * x1 + (a2 - a3) * x2 + (a3 - a4) * x4 = 0
+        a2 - a3 > 0
+        (a2 - a3) * (-x1 - x2 + x3 + x4) / (a2 - a3) = 0 / (a2 - a3) = 0
+        -x1 - x2 + x3 + x4 = 0
+        0 = -x1 - x2 + x3 + x4 = -x2 + x3
+        x2 = x3
+
+        x2 + x2 = -x3 + x3 = 0
+        2 * x2 = 0
+        x2 = 0
+        x3 = 0
+
+        1 = (a1 - a2) * x2 + (a1 - a3) * x3 + (a1 - a4) * x4 = (a1 - a2) * 0 + (a1 - a3) * 0 + (a1 - a4) * x4 = (a1 - a4) * x4
+        a1 - a4 > 0
+        1 / (a1 - a4) = x4
+        x4 = 1 / (a1 - a4)
+        x1 = 1 / (a1 - a4)

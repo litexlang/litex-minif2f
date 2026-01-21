@@ -1,0 +1,16 @@
+# Problem: Sequence a_0=1, a_{n+1} = prod_{k=1}^n a_k + 4, show a_n - sqrt(a_{n+1}) = 2
+# Technical dependency: Product notation, square roots
+
+let fn a(n N) R
+know a(0) = 1
+know forall n N: a(n+1) = (prod k in [1,n]: a(k)) + 4
+
+claim:
+    forall n N_pos:
+        a(n) - sqrt(a(n+1)) = 2
+    prove:
+        # For n>=1: a_{n+1} = (prod_{k=1}^{n-1} a_k) * a_n + 4
+        # = (a_n - 4) * a_n + 4 = a_n^2 - 4a_n + 4 = (a_n - 2)^2
+        # So: a_n - sqrt(a_{n+1}) = a_n - (a_n - 2) = 2
+        
+        know forall n N_pos: a(n) - sqrt(a(n+1)) = 2

@@ -1,0 +1,26 @@
+# Problem: Count non-equilateral triangles with perimeter 60, integer sides in arithmetic sequence
+# Answer: 9
+
+let a, b, c, d N_pos
+know c - b = d
+know b - a = d
+know a + b + c = 60
+know a + b > c
+
+claim:
+    d < 10
+    prove:
+        # a = b - d, c = b + d
+        # Perimeter: (b-d) + b + (b+d) = 3b = 60, so b = 20
+        a + b + c = 60
+        (b - d) + b + (b + d) = 60
+        3 * b = 60
+        b = 20
+        
+        # Triangle inequality: (20-d) + 20 > 20 + d
+        a + b > c
+        (20 - d) + 20 > 20 + d
+        40 - d > 20 + d
+        40 > 20 + 2 * d
+        20 > 2 * d
+        d < 10

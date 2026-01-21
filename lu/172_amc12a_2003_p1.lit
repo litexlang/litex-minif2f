@@ -1,0 +1,16 @@
+# Problem: Difference between sum of first 2003 evens and sum of first 2003 odds
+# Answer: 2003
+
+let fn u(n N) N
+let fn v(n N) N
+know forall n N: u(n) = 2 * n + 2
+know forall n N: v(n) = 2 * n + 1
+
+claim:
+    (sum k in [0,2003): u(k)) - (sum k in [0,2003): v(k)) = 2003
+    prove:
+        # u(k) - v(k) = (2k+2) - (2k+1) = 1
+        # So the difference is sum of 2003 ones = 2003
+        
+        forall k N: u(k) - v(k) = (2 * k + 2) - (2 * k + 1) = 1
+        (sum k in [0,2003): u(k)) - (sum k in [0,2003): v(k)) = sum k in [0,2003): 1 = 2003

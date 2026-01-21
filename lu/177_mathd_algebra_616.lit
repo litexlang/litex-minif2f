@@ -1,0 +1,15 @@
+# Problem: f(x) = x^3 + 2x + 1, g(x) = x - 1, find f(g(1))
+# Answer: 1
+
+let fn f(x R) R
+let fn g(x R) R
+know forall x R: f(x) = x^3 + 2 * x + 1
+know forall x R: g(x) = x - 1
+
+claim:
+    f(g(1)) = 1
+    prove:
+        g(1) = 1 - 1 = 0
+        f(g(1)) = f(0)
+        f(0) = 0^3 + 2 * 0 + 1 = 1
+        f(g(1)) = 1

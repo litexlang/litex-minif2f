@@ -1,0 +1,35 @@
+run_file "commons.lit"
+
+# Problem: f(x) = x + 2, g(x) = x^2
+# Find x such that f(g(x)) = g(f(x))
+# Answer: -1/2
+
+have fn f(x R) R:
+    f(x) = x + 2
+
+have fn g(x R) R:
+    g(x) = x^2
+
+claim:
+    forall x R:
+        f(g(x)) = g(f(x))
+        =>:
+            x = -1 / 2
+    prove:
+        # f(g(x)) = f(x^2) = x^2 + 2
+        f(g(x)) = f(x^2)
+        f(g(x)) = x^2 + 2
+        
+        # g(f(x)) = g(x + 2) = (x + 2)^2 = x^2 + 4x + 4
+        g(f(x)) = g(x + 2)
+        g(f(x)) = (x + 2)^2
+        g(f(x)) = x^2 + 4 * x + 4
+        
+        # Set equal:
+        f(g(x)) = g(f(x))
+        x^2 + 2 = x^2 + 4 * x + 4
+        2 = 4 * x + 4
+        4 * x = 2 - 4
+        4 * x = -2
+        x = -2 / 4
+        x = -1 / 2

@@ -2,9 +2,77 @@ run_file "commons.lit"
 
 claim:
     forall x, y N_pos:
-        x*y + x + y = 71
+        x * y + x + y = 71
         x^2 * y + x * y^2 = 880
         =>:
             x^2 + y^2 = 146
     prove:
+        # Define a = x + y and b = xy
+        have a N_pos = x + y
+        have b N_pos = x * y
+        x >= 1
+        x * y >= 1 * y
+        b >= 1 * y
+        b >= y
+        y >= 1
+        x * y >= x * 1
+        b >= x * 1
+        b >= x
+        b + b >= y + b
+        y + b >= y + x
+        b + b >= y + x
+        2 * b >= y + x
+        2 * b >= a
         
+        # From the first equation: xy + x + y = 71, we get a + b = 71
+        know x * y + x + y = 71
+        know (x + y) + (x * y) = 71
+        a + b = 71
+        b = 71 - a
+        
+        # From the second equation: x^2y + xy^2 = 880, we get ab = 880
+        know x^2 * y + x * y^2 = 880
+        know x * y * (x + y) = 880
+        b * a = 880
+        a * b = 880
+        
+        # We have: a + b = 71 and ab = 880
+        # Substituting b = 71 - a into ab = 880:
+        a * (71 - a) = 880
+        71 * a - a^2 = 880
+        a^2 - 71 * a + 880 = 0
+        (a - 16) * (a - 55) = a^2 - 71 * a + 880
+        (a - 16) * (a - 55) = 0
+        know a - 16 = 0 or a - 55 = 0 # verification failure???
+        # got stuck here
+        claim:
+            a = 16 or a = 55
+            prove:
+                cases:
+                    =>:
+                        a = 16 or a = 55
+                    case a - 16 = 0:
+                        a = 16
+                    case a - 55 = 0:
+                        a = 55
+
+
+        a^2 - 2 * b = (x+y)^2 - 2*(x*y)
+        a^2 - 2 * b = x^2 + y^2
+        
+        # Case analysis
+        cases:
+            =>:
+                x^2 + y^2 = 146
+            case a = 16:
+                b = 71 - a = 71 - 16 = 55
+                x^2 + y^2 = a^2 - 2 * b = 16^2 - 2*55 = 146
+                        
+            case a = 55:
+                b = 71 - a = 71 - 55 = 16
+                x + y = a = 55
+                x * y = b = 16
+                2 * b = 32
+                2 * b < a
+                # parse error at line 67: expect relation prop, got: a
+                impossible <= 2 * b

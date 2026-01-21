@@ -1,0 +1,18 @@
+# Problem: Minimum value of y = x^2 - 6x + 13
+# Answer: 4
+
+claim:
+    forall x, y R:
+        y = x^2 - 6 * x + 13
+        =>:
+            4 <= y
+    prove:
+        # Complete the square: x^2 - 6x = (x-3)^2 - 9
+        y = x^2 - 6 * x + 13
+        y = (x - 3)^2 - 9 + 13
+        y = (x - 3)^2 + 4
+        
+        know forall z R: z^2 >= 0
+        (x - 3)^2 >= 0
+        y = (x - 3)^2 + 4 >= 0 + 4 = 4
+        4 <= y

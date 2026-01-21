@@ -1,0 +1,48 @@
+# Problem: x^2 + ax + b = 0 has roots a and b, find (a,b)
+# Answer: (1, -2)
+
+let a, b R
+know a != 0
+know b != 0
+know a != b
+
+let fn f(x R) R
+know forall x R: f(x) = x^2 + a * x + b
+know f(a) = 0
+know f(b) = 0
+
+claim:
+    a = 1 and b = -2
+    prove:
+        # By Vieta: a + b = -a, so 2a + b = 0, b = -2a
+        # Also: ab = b, so a*b = b
+        # Since b != 0: a = 1
+        # Then: b = -2
+        
+        f(a) = 0
+        a^2 + a * a + b = 0
+        2 * a^2 + b = 0
+        
+        f(b) = 0
+        b^2 + a * b + b = 0
+        b * (b + a + 1) = 0
+        
+        know b != 0
+        b + a + 1 = 0
+        b = -a - 1
+        
+        # From 2a^2 + b = 0 and b = -a - 1:
+        2 * a^2 - a - 1 = 0
+        (2a + 1)(a - 1) = 0
+        
+        cases:
+            =>:
+                a = 1
+            case 2 * a + 1 = 0:
+                a = -1/2
+                b = -a - 1 = 1/2 - 1 = -1/2
+                impossible a != b
+            case a - 1 = 0:
+                a = 1
+                b = -a - 1 = -2
+                a = 1 and b = -2

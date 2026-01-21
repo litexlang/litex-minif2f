@@ -1,0 +1,25 @@
+run_file "commons.lit"
+
+# Problem: f(x) = x^2 - 4*sqrt(x) + 1. Find f(f(4))
+# Answer: 70
+
+have fn f(x R) R:
+    f(x) = x^2 - 4 * sqrt(x) + 1
+
+claim:
+    f(f(4)) = 70
+    prove:
+        # First compute f(4):
+        f(4) = 4^2 - 4 * sqrt(4) + 1
+        f(4) = 16 - 4 * 2 + 1
+        f(4) = 16 - 8 + 1
+        f(4) = 9
+        
+        # Now compute f(f(4)) = f(9):
+        f(f(4)) = f(9)
+        f(9) = 9^2 - 4 * sqrt(9) + 1
+        f(9) = 81 - 4 * 3 + 1
+        f(9) = 81 - 12 + 1
+        f(9) = 70
+        
+        f(f(4)) = 70

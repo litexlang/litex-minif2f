@@ -1,0 +1,19 @@
+# Problem: gcd = x+3, lcm = x(x+3), one number is 40, find smallest other
+# Answer: 8
+# Technical dependency: gcd, lcm
+
+let x, a N_pos
+know gcd(a, 40) = x + 3
+know lcm(a, 40) = x * (x + 3)
+
+claim:
+    # Smallest possible a is 8
+    prove:
+        # Using: gcd(a,40) * lcm(a,40) = a * 40
+        # So: (x+3) * x(x+3) = a * 40
+        # a = x(x+3)^2 / 40
+        
+        # For x=5: a = 5*8^2/40 = 5*64/40 = 8
+        # Verify: gcd(8,40) = 8 = 5+3, lcm(8,40) = 40 = 5*8
+        
+        know # a = 8

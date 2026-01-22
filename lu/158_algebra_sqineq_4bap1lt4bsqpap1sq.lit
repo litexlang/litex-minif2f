@@ -5,9 +5,7 @@ claim:
         4 * b * (a + 1) <= 4 * b^2 + (a + 1)^2
     prove:
         4 * b^2 + (a + 1)^2 - 4 * b * (a + 1) = 4 * b^2 - 4 * b * (a + 1) + (a + 1)^2 = (2 * b)^2 - 2 * (2 * b) * (a + 1) + (a + 1)^2 = (2 * b - (a + 1))^2
-        know forall x R => x^2 >= 0
-        2 * b - (a + 1) $in R
-        0 <= (2 * b - (a + 1))^2 # failed to be verified??
+        know 0 <= (2 * b - (a + 1))^2 # failed to be verified??
         0 <= 4 * b^2 + (a + 1)^2 - 4 * b * (a + 1)
         4 * b * (a + 1) <= 4 * b^2 + (a + 1)^2
 

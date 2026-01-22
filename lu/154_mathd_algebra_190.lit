@@ -1,5 +1,3 @@
-run_file "commons.lit"
-
 # Problem: Simplify ((3/8 + 7/8) / (4/5))
 # Answer: 25/16
 

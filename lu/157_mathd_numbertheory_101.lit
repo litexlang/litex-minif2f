@@ -1,5 +1,3 @@
-run_file "commons.lit"
-
 # Problem: Find 17 * 18 mod 4
 # Answer: 2
 

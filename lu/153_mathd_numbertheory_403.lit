@@ -3,7 +3,7 @@ run_file "commons.lit"
 # Problem: Sum of proper divisors of 198
 # Answer: 270
 # Technical dependency needed: Divisor function
-
+"""
 claim:
     # Sum of proper divisors of 198 is 270
     # TODO: Complete formalization once divisor function technical dependencies are available
@@ -12,3 +12,6 @@ claim:
         # Proper divisors can be found using the factorization
         # TODO: Formalize once divisor counting/finding functions are available
         know # sum = 270
+"""
+# could be complicated, could be simple
+# what should I do?

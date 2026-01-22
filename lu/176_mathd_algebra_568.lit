@@ -1,6 +1,8 @@
 # Problem: Simplify (a-1)(a+1)(a+2) - (a-2)(a+1)
 # Answer: a^3 + a^2
 
+# cursor generated the correct solutioon
+
 claim:
     forall a R:
         (a - 1) * (a + 1) * (a + 2) - (a - 2) * (a + 1) = a^3 + a^2

@@ -1,5 +1,5 @@
-let fn f(x R) R
-let fn g(x R) R
+have f fn(R) R
+have g fn(R) R
 
 claim:
     f(f(9)) = 0

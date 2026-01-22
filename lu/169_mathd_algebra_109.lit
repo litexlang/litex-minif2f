@@ -1,6 +1,6 @@
 # Problem: Point (a,b) on line 3x + 2y = 12, find b when a = 4
 # Answer: 0
-
+"""
 let a, b R
 know 3 * a + 2 * b = 12
 know a = 4
@@ -13,3 +13,17 @@ claim:
         12 + 2 * b = 12
         2 * b = 0
         b = 0
+"""
+# the above content was generted by cursor
+
+claim:
+    forall p cart(R, R):
+        3 * p[1] + 2 * p[2] = 12
+        p[1] = 4
+        =>:
+            p[2] = 0
+    prove:
+        3 * 4 + 2 * p[2] = 12
+        12 + 2 * p[2] = 12
+        2 * p[2] = 12 - 12 = 0
+        p[2] = 2 * p[2] / 2 = 0 / 2 = 0

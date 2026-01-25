@@ -1,0 +1,16 @@
+# Problem: (n+5)/(n-3) = 2, find n
+# Answer: 11
+
+let n R
+know n != 3
+know (n + 5) / (n - 3) = 2
+
+claim:
+    n = 11
+    prove:
+        (n + 5) / (n - 3) = 2
+        n + 5 = 2 * (n - 3)
+        n + 5 = 2*n - 6
+        5 + 6 = 2*n - n
+        11 = n
+        n = 11

@@ -1,0 +1,26 @@
+# Problem: Maximum value of log_a(a/b) + log_b(b/a) for a >= b > 1
+# Answer: 0
+# Technical dependency: Logarithms, AM-GM inequality
+
+claim:
+    forall a, b R:
+        1 < b
+        b <= a
+        =>:
+            log_a(a/b) + log_b(b/a) <= 0
+            exist a0, b0 R st:
+                1 < b0
+                b0 <= a0
+                log_a0(a0/b0) + log_b0(b0/a0) = 0
+    prove:
+        # log_a(a/b) + log_b(b/a) = 1 - log_a(b) + 1 - log_b(a)
+        # = 2 - (log_a(b) + log_b(a))
+        # = 2 - (log_a(b) + 1/log_a(b))
+        # By AM-GM: log_a(b) + 1/log_a(b) >= 2
+        # So maximum is 2 - 2 = 0, achieved when a = b
+        
+        know log_a(a/b) + log_b(b/a) = 2 - (log_a(b) + 1/log_a(b))
+        know forall x R_pos: x + 1/x >= 2
+        know log_a(b) + 1/log_a(b) >= 2
+        log_a(a/b) + log_b(b/a) <= 0
+        know when a = b: log_a(a/b) + log_b(b/a) = 0

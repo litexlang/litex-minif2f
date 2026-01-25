@@ -1,7 +1,6 @@
-run_file "commons.lit"
-
 # Problem: When 39,500 is divided by an integer n, the quotient is 123 and the remainder is 17. Find n.
 # Answer: 321
+# cursor generated the correct answer
 
 claim:
     forall n N_pos:

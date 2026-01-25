@@ -1,0 +1,23 @@
+# Problem: 7^(x+7) = 8^x, express x = log_b(7^7), find b
+# Answer: b = 8/7
+# Technical dependency: Logarithms, change of base
+
+let x, b R
+know 0 < b
+know 7^(x + 7) = 8^x
+know x = log_b(7^7)
+
+claim:
+    b = 8 / 7
+    prove:
+        # 7^(x+7) = 8^x
+        # 7^x * 7^7 = 8^x
+        # (8/7)^x = 7^7
+        # x = log_(8/7)(7^7)
+        # Therefore b = 8/7
+        
+        know 7^(x + 7) = 7^x * 7^7
+        know 7^x * 7^7 = 8^x
+        know (8/7)^x = 7^7
+        know x = log_(8/7)(7^7)
+        b = 8 / 7

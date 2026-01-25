@@ -1,0 +1,9 @@
+# Problem: Positive difference between 120% of 30 and 130% of 20
+# Answer: 10
+
+claim:
+    abs((120/100) * 30 - (130/100) * 20) = 10
+    prove:
+        (120/100) * 30 = 36
+        (130/100) * 20 = 26
+        abs(36 - 26) = abs(10) = 10

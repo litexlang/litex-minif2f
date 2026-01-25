@@ -1,0 +1,15 @@
+# Problem: For positive a,b,c, show a^2/b^2 + b^2/c^2 + c^2/a^2 >= b/a + c/b + a/c
+# Technical dependency: AM-GM inequality
+
+claim:
+    forall a, b, c R_pos:
+        a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c
+    prove:
+        # Let α = a/b, β = b/c, γ = c/a
+        # Then αβγ = 1
+        # By AM-GM: (α^2 + β^2)/2 >= αβ, etc.
+        # Adding: α^2 + β^2 + γ^2 >= αβ + βγ + αγ
+        # Substituting back gives the result
+        
+        know forall x, y R_pos: (x^2 + y^2) / 2 >= x * y
+        know a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c

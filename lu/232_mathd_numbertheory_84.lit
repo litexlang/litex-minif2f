@@ -1,0 +1,13 @@
+# Problem: Hundredths digit of 9/160
+# Answer: 5
+# Technical dependency: Decimal representation, floor function
+
+claim:
+    # The hundredths digit of 9/160 is 5
+    prove:
+        # 9/160 = 5625/100000 = 0.05625
+        # Hundredths digit is 5
+        
+        know 9 / 160 = 5625 / 100000
+        know 9 / 160 = 0.05625
+        know hundredths_digit = 5

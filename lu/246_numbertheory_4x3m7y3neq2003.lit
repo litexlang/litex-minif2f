@@ -1,0 +1,16 @@
+# Problem: Show no integers x,y such that 4x^3 - 7y^3 = 2003
+# Technical dependency: Modular arithmetic, cubic residues
+
+claim:
+    forall x, y Z:
+        4 * x^3 - 7 * y^3 != 2003
+    prove:
+        # 2003 = 1 + 7*286, so 4x^3 - 7y^3 = 2003 <=> 4x^3 - 1 = 7(y^3 + 286)
+        # For any integer x, x^3 mod 7 is 0, 1, or 6
+        # So 4x^3 - 1 mod 7 is 6, 3, or 2 (none are 0)
+        # But 7(y^3 + 286) is divisible by 7
+        # Contradiction
+        
+        # TODO: Complete formalization once modular arithmetic
+        # technical dependencies for cubic residues are available
+        know 4 * x^3 - 7 * y^3 != 2003

@@ -1,0 +1,12 @@
+# Problem: Units digit of sum of squares of first 9 positive integers
+# Answer: 5
+
+claim:
+    (sum_{k=1}^{9} k^2) % 10 = 5
+    prove:
+        # Sum = 1^2 + 2^2 + ... + 9^2 = 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81
+        # = 285
+        # Units digit is 5
+        
+        know sum_{k=1}^{9} k^2 = 285
+        (sum_{k=1}^{9} k^2) % 10 = 285 % 10 = 5

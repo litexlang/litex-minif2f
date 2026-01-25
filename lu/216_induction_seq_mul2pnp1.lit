@@ -1,0 +1,16 @@
+# Problem: Sequence u_0=0, u_{n+1}=2u_n+(n+1), show u_n = 2^(n+1) - (n+2)
+# Technical dependency: Induction, sequence manipulation
+
+have fn u(n N) N
+know u(0) = 0
+know forall n N: u(n+1) = 2 * u(n) + (n + 1)
+
+claim:
+    forall n N:
+        u(n) = 2^(n+1) - (n+2)
+    prove:
+        # Base case: n=0, u(0) = 0 = 2^1 - 2 = 0
+        # Inductive step: u(n+1) = 2(2^(n+1) - (n+2)) + (n+1) = 2^(n+2) - 2(n+2) + n + 1
+        # = 2^(n+2) - (n+3) = 2^((n+1)+1) - ((n+1)+2)
+        
+        know forall n N: u(n) = 2^(n+1) - (n+2)

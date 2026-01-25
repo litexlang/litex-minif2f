@@ -1,0 +1,25 @@
+# Problem: Two primes are roots of x^2 - 12x + k = 0, find k
+# Answer: 35
+# Technical dependency: Prime properties, Vieta's formulas
+
+let m, n N_pos
+let k R
+let fn f(x R) R
+know is_prime(m)
+know is_prime(n)
+know forall x R: f(x) = x^2 - 12 * x + k
+know f(m) = 0
+know f(n) = 0
+know m != n
+
+claim:
+    k = 35
+    prove:
+        # By Vieta: m + n = 12, m*n = k
+        # Since both are primes and sum is 12, possibilities: (5,7) or (7,5)
+        # k = 5 * 7 = 35
+        
+        know m + n = 12
+        know m * n = k
+        know (m = 5 and n = 7) or (m = 7 and n = 5)
+        k = 35

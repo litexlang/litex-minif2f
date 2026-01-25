@@ -1,0 +1,16 @@
+# Problem: x + y = 4xy for nonzero x,y, find 1/x + 1/y
+# Answer: 4
+
+let x, y R
+know x != 0
+know y != 0
+know x + y = 4 * x * y
+
+claim:
+    1 / x + 1 / y = 4
+    prove:
+        x + y = 4 * x * y
+        1 / x + 1 / y = (y + x) / (x * y)
+        1 / x + 1 / y = (x + y) / (x * y)
+        1 / x + 1 / y = (4 * x * y) / (x * y)
+        1 / x + 1 / y = 4

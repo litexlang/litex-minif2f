@@ -1,0 +1,23 @@
+# Problem: x + e = 7, 2x + e = 3, find e and x
+# Answer: e = 11, x = -4
+# Technical dependency: Complex number arithmetic
+
+claim:
+    forall x, e C:
+        x + e = 7
+        2 * x + e = 3
+        =>:
+            e = 11 and x = -4
+    prove:
+        x + e = 7
+        2 * x + e = 3
+        
+        # Subtract first from second:
+        (2 * x + e) - (x + e) = 3 - 7
+        x = -4
+        
+        # Substitute into first:
+        -4 + e = 7
+        e = 11
+        
+        e = 11 and x = -4

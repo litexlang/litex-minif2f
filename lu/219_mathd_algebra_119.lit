@@ -1,0 +1,19 @@
+# Problem: 2d = 17e - 8, 2e = d - 9, find e
+# Answer: 2
+
+let d, e R
+know 2 * d = 17 * e - 8
+know 2 * e = d - 9
+
+claim:
+    e = 2
+    prove:
+        2 * e = d - 9
+        d = 2 * e + 9
+        
+        2 * d = 17 * e - 8
+        2 * (2 * e + 9) = 17 * e - 8
+        4 * e + 18 = 17 * e - 8
+        18 + 8 = 17 * e - 4 * e
+        26 = 13 * e
+        e = 2

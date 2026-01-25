@@ -1,0 +1,26 @@
+# Problem: lcm(12,t)^3 = (12t)^2, find smallest t
+# Answer: 18
+# Technical dependency: LCM, GCD properties
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+have gcd fn(Z, Z) N_pos
+have lcm fn(Z, Z) N_pos
+know forall x, y Z: lcm(x, y) * gcd(x, y) = x * y
+
+claim:
+    # Smallest positive integer t such that lcm(12, t)^3 = (12*t)^2 is 18
+    prove:
+        # Using lcm(12,t) * gcd(12,t) = 12t
+        # We get gcd(12,t)^3 = 12t
+        # Since 12 = 2^2 * 3, smallest cube is 2^3 * 3^3 = 216
+        # This gives t = 18
+        
+        know lcm(12, t) * gcd(12, t) = 12 * t
+        know lcm(12, t)^3 = (12 * t)^2
+        know gcd(12, t)^3 = 12 * t
+        know t = 18 satisfies the condition

@@ -1,0 +1,19 @@
+# Problem: Sum of roots of (2x+3)(x-4) + (2x+3)(x-6) = 0
+# Answer: 7/2
+
+let fn f(x R) R
+know forall x R: f(x) = (2*x + 3) * (x - 4) + (2*x + 3) * (x - 6)
+
+claim:
+    # Sum of roots of f(x) = 0 is 7/2
+    prove:
+        # Factor: (2x+3)(x-4) + (2x+3)(x-6) = (2x+3)(2x-10) = 4x^2 - 14x - 30
+        # By Vieta: sum of roots = 14/4 = 7/2
+        
+        f(x) = (2*x + 3) * (x - 4) + (2*x + 3) * (x - 6)
+        f(x) = (2*x + 3) * ((x - 4) + (x - 6))
+        f(x) = (2*x + 3) * (2*x - 10)
+        f(x) = 4*x^2 - 14*x - 30
+        
+        # Sum of roots = 14/4 = 7/2
+        know sum_of_roots = 7/2

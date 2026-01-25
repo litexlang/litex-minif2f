@@ -1,0 +1,13 @@
+# Problem: Prove sum_{k=1}^n 1/sin(2^k x) = cot(x) - cot(2^n x)
+# Technical dependency: Trigonometric functions, cotangent, sine
+
+claim:
+    # For natural number n and real x (with appropriate restrictions),
+    # sum_{k=1}^n 1/sin(2^k x) = cot(x) - cot(2^n x)
+    prove:
+        # Base case: cot(x) - cot(2x) = 1/sin(2x)
+        # Inductive step: The sum telescopes as cot(2^k x) - cot(2^(k+1) x) = 1/sin(2^(k+1) x)
+        
+        # TODO: Complete formalization once trigonometric functions
+        # (sin, cos, cot) are available
+        know # The identity holds

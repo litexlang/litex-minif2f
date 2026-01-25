@@ -1,0 +1,22 @@
+# Problem: If 7 divides 2^n - 1, then 3 divides n
+# Technical dependency: Modular arithmetic, order of elements
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    forall n N_pos:
+        7 $dvd (2^n - 1)
+        =>:
+            3 $dvd n
+    prove:
+        # 2^n ≡ 1 (mod 7) means the order of 2 mod 7 divides n
+        # The order of 2 mod 7 is 3 (since 2^3 = 8 ≡ 1 mod 7)
+        # Therefore 3|n
+        
+        # TODO: Complete formalization once order/modular arithmetic
+        # technical dependencies are available
+        know 3 $dvd n

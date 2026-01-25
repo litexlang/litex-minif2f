@@ -1,0 +1,34 @@
+# Problem: Polynomial x^2+ax+b has distinct roots 2a and b, find a+b
+# Answer: -1
+
+let a, b R
+let fn f(x R) R
+know forall x R: f(x) = x^2 + a * x + b
+know 2*a != b
+know f(2*a) = 0
+know f(b) = 0
+
+claim:
+    a + b = -1
+    prove:
+        # By Vieta: sum of roots = -a, product = b
+        # So: 2a + b = -a, and (2a)(b) = b
+        # From second: either 2a = 1 or b = 0
+        # If b = 0, then 2a = -a, so a = 0, but then roots are not distinct
+        # So 2a = 1, a = 1/2, then b = -3a = -3/2
+        # a + b = 1/2 - 3/2 = -1
+        
+        # Sum of roots: 2a + b = -a
+        2*a + b = -a
+        3*a + b = 0
+        b = -3*a
+        
+        # Product of roots: (2a)(b) = b
+        (2*a) * b = b
+        # If b != 0, then 2a = 1, so a = 1/2
+        # If b = 0, then a = 0, but then 2a = b, contradicting distinctness
+        b != 0
+        2*a = 1
+        a = 1/2
+        b = -3 * (1/2) = -3/2
+        a + b = 1/2 + (-3/2) = -1

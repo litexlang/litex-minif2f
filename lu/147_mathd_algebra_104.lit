@@ -1,5 +1,3 @@
-run_file "commons.lit"
-
 # Problem: 8 fluid ounces has 125 calories. How many calories in 12 fluid ounces?
 # Answer: 187.5
 

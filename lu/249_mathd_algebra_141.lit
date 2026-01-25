@@ -1,0 +1,26 @@
+# Problem: Rectangle with area 180 and perimeter 54, find diagonal^2
+# Answer: 369
+
+let a, b R
+know a * b = 180
+know 2 * (a + b) = 54
+
+claim:
+    a^2 + b^2 = 369
+    prove:
+        # Perimeter: 2a + 2b = 54, so a + b = 27, b = 27 - a
+        # Area: a * b = 180, so a(27 - a) = 180
+        # a^2 - 27a + 180 = 0
+        # (a - 12)(a - 15) = 0
+        # So a = 12, b = 15 or a = 15, b = 12
+        # Diagonal^2 = a^2 + b^2 = 12^2 + 15^2 = 144 + 225 = 369
+        
+        2 * (a + b) = 54
+        a + b = 27
+        b = 27 - a
+        a * b = 180
+        a * (27 - a) = 180
+        a^2 - 27*a + 180 = 0
+        (a - 12) * (a - 15) = 0
+        (a = 12 and b = 15) or (a = 15 and b = 12)
+        a^2 + b^2 = 12^2 + 15^2 = 144 + 225 = 369

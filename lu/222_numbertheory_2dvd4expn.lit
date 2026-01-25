@@ -1,0 +1,16 @@
+# Problem: Show 2 divides 4^n for positive integer n
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    forall n N_pos:
+        2 $dvd 4^n
+    prove:
+        4^n = (2^2)^n = 2^(2*n)
+        2*n > 0
+        2 $dvd 2^(2*n)
+        2 $dvd 4^n

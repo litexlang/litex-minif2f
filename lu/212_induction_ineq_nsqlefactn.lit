@@ -1,0 +1,19 @@
+# Problem: Show n^2 <= n! for n >= 4
+# Technical dependency: Factorial, induction
+
+have factorial fn(N) N_pos
+know:
+    factorial(0) = 1
+    forall n N: factorial(n+1) = factorial(n) * (n+1)
+
+claim:
+    forall n N:
+        4 <= n
+        =>:
+            n^2 <= factorial(n)
+    prove:
+        # Base case: n=4, 4^2 = 16 <= 24 = 4!
+        # Inductive step: (n+1)^2 = n^2 + 2n + 1 <= n! + 2n + 1 <= n! * (n+1) = (n+1)!
+        # since for n>=4: 2n+1 <= n*n <= n*n! (for n>=4)
+        
+        know forall n N: 4 <= n => n^2 <= factorial(n)

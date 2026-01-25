@@ -1,0 +1,19 @@
+# Problem: Larry and Lenny have $35 total, Larry has 2/5 of Lenny's, how much more does Lenny have?
+# Answer: 15
+
+let a, b R
+know 0 < a
+know 0 < b
+know a + b = 35
+know a = (2/5) * b
+
+claim:
+    b - a = 15
+    prove:
+        a + b = 35
+        a = (2/5) * b
+        (2/5) * b + b = 35
+        (7/5) * b = 35
+        b = 25
+        a = (2/5) * 25 = 10
+        b - a = 25 - 10 = 15

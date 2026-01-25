@@ -1,7 +1,5 @@
-run_file "commons.lit"
-
 # Show that for any integer a, a^2 mod 3 is either 0 or 1
-
+"""
 claim:
     forall a Z:
         a^2 % 3 = 0 or a^2 % 3 = 1
@@ -21,4 +19,21 @@ claim:
                 a^2 % 3 = 1^2 % 3 = 1
             case a % 3 = 2:
                 a^2 % 3 = 2^2 % 3 = 4 % 3 = 1
+"""
+# content above was generted by cursor
 
+claim:
+    forall a N => a^2 % 3 = 0 or a^2 % 3 = 1
+    prove:
+        know a % 3 = 0 or a % 3 = 1 or a % 3 = 2
+        know forall n N, k N_pos => n^2 % k = ((n % k)^2) % k
+        a^2 % 3 = ((a % 3)^2) % 3
+        cases:
+            =>:
+                a^2 % 3 = 0 or a^2 % 3 = 1
+            case a % 3 = 0:
+                a^2 % 3 = ((a % 3)^2) % 3 = 0^2 % 3 = 0 % 3 = 0
+            case a % 3 = 1:
+                a^2 % 3 = ((a % 3)^2) % 3 = 1^2 % 3 = 1 % 3 = 1
+            case a % 3 = 2:
+                a^2 % 3 = ((a % 3)^2) % 3 = 2^2 % 3 = 4 % 3 = 1

@@ -1,0 +1,19 @@
+# Problem: For a^2 + b^2 = 2, show ab <= 1
+
+claim:
+    forall a, b R:
+        a^2 + b^2 = 2
+        =>:
+            a * b <= 1
+    prove:
+        # (a - b)^2 >= 0
+        # a^2 - 2ab + b^2 >= 0
+        # (a^2 + b^2) - 2ab >= 0
+        # 2 - 2ab >= 0
+        # ab <= 1
+        
+        (a - b)^2 >= 0
+        a^2 - 2*a*b + b^2 >= 0
+        (a^2 + b^2) - 2*a*b >= 0
+        2 - 2*a*b >= 0
+        a * b <= 1

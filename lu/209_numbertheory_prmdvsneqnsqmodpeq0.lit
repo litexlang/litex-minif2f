@@ -1,0 +1,34 @@
+# Problem: For prime p and integer n, p|n <=> n^2 ≡ 0 (mod p)
+# Technical dependency: Prime properties
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+prop is_prime(p N_pos):
+    # p is prime
+    know # Definition of prime
+
+claim:
+    forall n Z, p N_pos:
+        $is_prime(p)
+        =>:
+            p $dvd n <=> n^2 % p = 0
+    prove:
+        # =>: If p|n, then p|n^2, so n^2 ≡ 0 (mod p)
+        # <=: If n^2 ≡ 0 (mod p), then p|n^2. Since p is prime, p|n
+        
+        # => direction:
+        p $dvd n
+        =>:
+            p $dvd (n * n)
+            n^2 % p = 0
+        
+        # <= direction:
+        n^2 % p = 0
+        p $dvd (n^2)
+        =>:
+            # Since p is prime and p|n^2, we have p|n
+            know p $dvd n

@@ -1,0 +1,19 @@
+# Problem: How many positive integers n such that n^2 - 3n + 2 is prime?
+# Answer: 1 (n = 3)
+# Technical dependency: Prime properties, factoring
+
+claim:
+    # Count of positive integers n such that n^2 - 3n + 2 is prime is 1
+    prove:
+        # n^2 - 3n + 2 = (n-1)(n-2)
+        # For n > 3, both factors are > 1, so product is composite
+        # For n = 1: 0, not prime
+        # For n = 2: 0, not prime
+        # For n = 3: 2, which is prime
+        # So answer is 1
+        
+        know forall n N_pos: n^2 - 3*n + 2 = (n - 1) * (n - 2)
+        know forall n N_pos: n > 3 => (n-1) > 1 and (n-2) > 1
+        know forall n N_pos: n > 3 => (n-1) * (n-2) is composite
+        know n = 3 => n^2 - 3*n + 2 = 2, which is prime
+        know count = 1

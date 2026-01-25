@@ -1,0 +1,20 @@
+# Problem: Find pairs (a,b) such that when dividing a^2+b^2 by a+b, q^2+r=1977
+# Answer: (37,50), (7,50) and permutations
+# Technical dependency: Advanced number theory, sum of two squares theorem
+
+let a, b, q, r N
+know r < a + b
+know a^2 + b^2 = (a + b) * q + r
+know q^2 + r = 1977
+
+claim:
+    # Solutions: (a,b) = (37,50), (7,50) and permutations
+    prove:
+        # Using r = 1977 - q^2, we get a^2 + b^2 = (a+b)q + 1977 - q^2
+        # This leads to q = 44, r = 41, and (a-22)^2 + (b-22)^2 = 1009
+        # By sum of two squares theorem, 1009 = 15^2 + 28^2 uniquely
+        # This gives the solutions
+        
+        # TODO: Complete formalization once advanced number theory
+        # technical dependencies are available
+        know # Solutions are (37,50), (7,50) and permutations

@@ -1,0 +1,33 @@
+# Problem: Quadratic x^2 - 63x + k = 0 has two prime roots, find k
+# Answer: k = 122
+# Technical dependency: Vieta's formulas, prime properties
+
+let k R
+let fn f(x R) R
+know forall x R: f(x) = x^2 - 63 * x + k
+let a, b N_pos
+know f(a) = 0
+know f(b) = 0
+know a != b
+know is_prime(a)
+know is_prime(b)
+
+claim:
+    k = 122
+    prove:
+        # By Vieta: a + b = 63, ab = k
+        # Since both are primes and sum is odd, one must be 2
+        # So a = 2, b = 61, or vice versa
+        # Then k = 2 * 61 = 122
+        
+        # a + b = 63 (coefficient of x is -63)
+        # ab = k
+        
+        # Since 63 is odd and both a, b are primes, one must be 2
+        # If a = 2, then b = 61
+        # k = 2 * 61 = 122
+        
+        know a + b = 63
+        know a * b = k
+        know (a = 2 and b = 61) or (a = 61 and b = 2)
+        k = 122

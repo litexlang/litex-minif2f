@@ -1,0 +1,29 @@
+# Problem: log_x(w) = 24, log_y(w) = 40, log_{xyz}(w) = 12, find log_z(w)
+# Answer: 60
+# Technical dependency: Logarithmic identities, change of base
+
+let x, y, z, w N_pos
+know 1 < x
+know 1 < y
+know 1 < z
+know log_x(w) = 24
+know log_y(w) = 40
+know log_{x*y*z}(w) = 12
+
+claim:
+    log_z(w) = 60
+    prove:
+        # x^24 = w, y^40 = w, (xyz)^12 = w
+        # Converting to power of 120: x^120 = w^5, y^120 = w^3, (xyz)^120 = w^10
+        # Then z^120 = w^10 / (w^5 * w^3) = w^2
+        # So z^60 = w, therefore log_z(w) = 60
+        
+        know x^24 = w
+        know y^40 = w
+        know (x * y * z)^12 = w
+        know x^120 = w^5
+        know y^120 = w^3
+        know (x * y * z)^120 = w^10
+        know z^120 = w^10 / (w^5 * w^3) = w^2
+        know z^60 = w
+        log_z(w) = 60

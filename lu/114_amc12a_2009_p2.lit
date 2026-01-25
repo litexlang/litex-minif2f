@@ -1,5 +1,3 @@
-run_file "commons.lit"
-
 # Evaluate: 1 + 1/(1 + 1/(1 + 1))
 
 claim:

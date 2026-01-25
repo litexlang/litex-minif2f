@@ -1,0 +1,22 @@
+# Problem: Product of three consecutive integers is 720, find largest
+# Answer: 10
+
+let n Z
+know (n - 1) * n * (n + 1) = 720
+
+claim:
+    n + 1 = 10
+    prove:
+        # n^3 - n = 720, so n^3 = 720 + n
+        # Try n = 9: 9^3 = 729 = 720 + 9, so n = 9
+        # Largest is n + 1 = 10
+        
+        (n - 1) * n * (n + 1) = 720
+        n * (n - 1) * (n + 1) = 720
+        n * (n^2 - 1) = 720
+        n^3 - n = 720
+        n^3 = 720 + n
+        
+        # Check n = 9: 9^3 = 729, 720 + 9 = 729
+        know n = 9
+        n + 1 = 10

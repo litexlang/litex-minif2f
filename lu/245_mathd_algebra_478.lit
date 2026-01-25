@@ -1,0 +1,18 @@
+# Problem: Volume of cone with base area 30 and height 6.5
+# Answer: 65
+
+let b, h, v R
+know 0 < b
+know 0 < h
+know 0 < v
+know v = (1/3) * b * h
+know b = 30
+know h = 13/2
+
+claim:
+    v = 65
+    prove:
+        v = (1/3) * b * h
+        v = (1/3) * 30 * (13/2)
+        v = 10 * (13/2)
+        v = 65

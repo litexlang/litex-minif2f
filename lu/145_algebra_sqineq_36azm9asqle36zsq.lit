@@ -1,23 +1,15 @@
-run_file "commons.lit"
-
 # Problem: For real numbers a and z, show 36az - 9a^2 <= 36z^2
 
 claim:
-    forall a, z R:
-        36 * a * z - 9 * a^2 <= 36 * z^2
+    forall a, z R => 36 * a * z - 9 * a^2 <= 36 * z^2
     prove:
-        # Rearranging: 36az - 9a^2 <= 36z^2
-        # <=> 0 <= 36z^2 - 36az + 9a^2
-        # <=> 0 <= 36z^2 - 36az + 9a^2
-        
-        # Complete the square or use AM-GM:
-        # For x = 3a and y = 6z, we have x^2 + y^2 >= 2xy
-        # (3a)^2 + (6z)^2 >= 2(3a)(6z)
-        # 9a^2 + 36z^2 >= 36az
-        # Therefore: 36az - 9a^2 <= 36z^2
-        
-        36 * a * z - 9 * a^2 <= 36 * z^2
-        0 <= 36 * z^2 - 36 * a * z + 9 * a^2
-        0 <= 9 * a^2 - 36 * a * z + 36 * z^2
-        0 <= (3 * a)^2 - 2 * (3 * a) * (6 * z) + (6 * z)^2
-        0 <= (3 * a - 6 * z)^2
+        (3 * a - 6 * z)^2 >= 0
+        (3 * a - 6 * z)^2 = 9 * a^2 - 36 * a * z + 36 * z^2
+        9 * a^2 - 36 * a * z + 36 * z^2 >= 0
+        9 * a^2 - 36 * a * z + 36 * z^2 + 36 * a * z >= 0 + 36 * a * z
+        9 * a^2 - 36 * a * z + 36 * z^2 + 36 * a * z = 9 * a^2 + 36 * z^2
+        0 + 36 * a * z = 36 * a * z
+        9 * a^2 + 36 * z^2 >= 36 * a * z
+        9 * a^2 + 36 * z^2 - 9 * a^2 >= 36 * a * z - 9 * a^2
+        9 * a^2 + 36 * z^2 - 9 * a^2 = 36 * z^2
+        36 * z^2 >= 36 * a * z - 9 * a^2

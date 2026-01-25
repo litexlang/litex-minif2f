@@ -1,0 +1,13 @@
+# Problem: Does there exist strictly increasing f: N -> N with f(1)=2 and f(f(n))=f(n)+n?
+# Technical dependency: Functional equation, existence proof
+
+claim:
+    exist f N_pos -> N_pos st:
+        f(1) = 2
+        forall n N_pos: f(f(n)) = f(n) + n
+        forall n N_pos: f(n) < f(n+1)
+    prove:
+        # The function exists and can be constructed recursively
+        # TODO: Complete formalization once functional equation solving
+        # technical dependencies are available
+        know # Such a function exists

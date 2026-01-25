@@ -1,0 +1,15 @@
+# Problem: 3 + 1/x = 7/x, find x
+# Answer: 2
+
+let x R
+know x != 0
+know 3 + 1 / x = 7 / x
+
+claim:
+    x = 2
+    prove:
+        3 + 1 / x = 7 / x
+        3 = 7 / x - 1 / x
+        3 = 6 / x
+        3 * x = 6
+        x = 2

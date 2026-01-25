@@ -1,0 +1,17 @@
+# Problem: Amy and Betty have 20 apples total, Amy has 3 times Betty's. How many more does Amy have?
+# Answer: 10
+
+let a, b N_pos
+know a + b = 20
+know a = 3 * b
+
+claim:
+    a - b = 10
+    prove:
+        a + b = 20
+        a = 3 * b
+        3 * b + b = 20
+        4 * b = 20
+        b = 5
+        a = 3 * b = 15
+        a - b = 15 - 5 = 10

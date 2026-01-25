@@ -1,0 +1,17 @@
+# Problem: Find all integers n > 1 such that (2^n + 1)/n^2 is an integer
+# Answer: n = 3
+# Technical dependency: Advanced number theory, order of elements
+
+claim:
+    forall n N_pos:
+        2 <= n
+        n^2 $dvd (2^n + 1)
+        =>:
+            n = 3
+    prove:
+        # The only solution is n = 3
+        # Proof involves showing that for n > 3, n^2 cannot divide 2^n + 1
+        
+        # TODO: Complete formalization once advanced number theory
+        # technical dependencies are available
+        know n = 3

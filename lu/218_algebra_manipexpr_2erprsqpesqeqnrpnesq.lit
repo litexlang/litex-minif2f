@@ -1,0 +1,12 @@
+# Problem: Show 2er + e^2 + r^2 = (-r - e)^2 for complex numbers
+# Technical dependency: Complex number algebra
+
+claim:
+    forall e, r C:
+        2 * e * r + e^2 + r^2 = (-r - e)^2
+    prove:
+        # Expand RHS: (-r - e)^2 = (-r)^2 + 2(-r)(-e) + (-e)^2 = r^2 + 2er + e^2
+        (-r - e)^2 = (-r)^2 + 2 * (-r) * (-e) + (-e)^2
+        (-r - e)^2 = r^2 + 2 * e * r + e^2
+        (-r - e)^2 = 2 * e * r + e^2 + r^2
+        2 * e * r + e^2 + r^2 = (-r - e)^2

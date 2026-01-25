@@ -1,0 +1,14 @@
+# Problem: Remainder when 2003 is divided by 11
+# Answer: 1
+
+claim:
+    2003 % 11 = 1
+    prove:
+        # 11 * 182 = 2002
+        # So 2003 = 11 * 182 + 1
+        # Therefore 2003 % 11 = 1
+        
+        11 * 182 = 2002
+        2003 = 2002 + 1
+        2003 = 11 * 182 + 1
+        2003 % 11 = 1

@@ -1,0 +1,23 @@
+# Problem: If p/q = 1 - 1/2 + 1/3 - ... - 1/1318 + 1/1319, show 1979 divides p
+# Technical dependency: Advanced number theory, prime factorization
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    forall p, q N:
+        0 < q
+        p / q = sum_{k=1}^{1319} (-1)^(k+1) / k
+        =>:
+            1979 $dvd p
+    prove:
+        # The sum can be rewritten as sum from 660 to 1319 of 1/k
+        # Pairing terms: 1/660 + 1/1319 = 1979/(660*1319), etc.
+        # This shows p is divisible by 1979
+        
+        # TODO: Complete formalization once advanced number theory
+        # technical dependencies are available
+        know 1979 $dvd p

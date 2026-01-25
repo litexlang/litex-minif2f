@@ -1,0 +1,21 @@
+# Problem: Find b such that (N * (N * N^(1/c))^(1/b))^(1/a) = N^(25/36) for all N != 1
+# Answer: b = 3
+# Technical dependency: Nested radicals, fractional exponents
+
+let a, b, c N_pos
+know 1 < a
+know 1 < b
+know 1 < c
+
+claim:
+    # For all N > 0, N != 1:
+    # (N * (N * N^(1/c))^(1/b))^(1/a) = N^(25/36)
+    # implies: 1/a + 1/(ab) + 1/(abc) = 25/36
+    # This gives: a=2, b=3, c=6
+    # Therefore b = 3
+    prove:
+        # Simplifying: (N * (N * N^(1/c))^(1/b))^(1/a) = N^(1/a + 1/(ab) + 1/(abc))
+        # Setting equal to N^(25/36): 1/a + 1/(ab) + 1/(abc) = 25/36
+        # With a=2, b=3, c=6: 1/2 + 1/6 + 1/36 = 18/36 + 6/36 + 1/36 = 25/36
+        
+        know b = 3

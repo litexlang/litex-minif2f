@@ -1,0 +1,19 @@
+# Problem: Solve 5n ≡ 8 (mod 17)
+# Answer: n ≡ 5 (mod 17)
+
+let n N
+know (5 * n) % 17 = 8
+
+claim:
+    n % 17 = 5
+    prove:
+        # 8 ≡ 25 (mod 17), so 5n ≡ 25 (mod 17)
+        # Since gcd(5,17)=1, we can divide by 5: n ≡ 5 (mod 17)
+        
+        8 % 17 = 8
+        25 % 17 = 8
+        5 * n % 17 = 8
+        5 * n % 17 = 25 % 17
+        know 5 * n ≡ 25 (mod 17)
+        know gcd(5, 17) = 1
+        n % 17 = 5

@@ -1,11 +1,9 @@
-run_file "commons.lit"
-
 # Problem: Find largest positive integer n for which there is a unique integer k
 # such that 8/15 < n/(n+k) < 7/13
 # Answer: 112
 
 # Technical dependencies needed: Inequality manipulation, range analysis
-
+"""
 claim:
     # The largest n for which there is a unique k satisfying
     # 8/15 < n/(n+k) < 7/13 is n = 112
@@ -27,4 +25,7 @@ claim:
         # TODO: Complete formalization once inequality range analysis
         # technical dependencies are available
         know exist n N_pos st n = 112
+"""
+# content above was generted by cursor
 
+# doesn't seem simple, skip

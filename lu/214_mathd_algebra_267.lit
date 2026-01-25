@@ -1,0 +1,17 @@
+# Problem: Solve (x+1)/(x-1) = (x-2)/(x+2)
+# Answer: x = 0
+
+let x R
+know x != 1
+know x != -2
+know (x + 1) / (x - 1) = (x - 2) / (x + 2)
+
+claim:
+    x = 0
+    prove:
+        (x + 1) / (x - 1) = (x - 2) / (x + 2)
+        (x + 1) * (x + 2) = (x - 2) * (x - 1)
+        x^2 + 3*x + 2 = x^2 - 3*x + 2
+        3*x + 2 = -3*x + 2
+        6*x = 0
+        x = 0

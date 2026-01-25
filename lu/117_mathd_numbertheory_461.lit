@@ -1,5 +1,3 @@
-run_file "commons.lit"
-
 # Problem: Count integers m in [1,8] with gcd(m,8) = 1, then find 3^n mod 8
 # Technical dependency needed: gcd function
 
@@ -8,7 +6,7 @@ run_file "commons.lit"
 # 3^4 = 81 ≡ 1 (mod 8)
 
 # TODO: Need gcd function to formalize the set definition
-
+"""
 claim:
     # Let n = count of integers m in [1,8] such that gcd(m,8) = 1
     # Then 3^n mod 8 = 1
@@ -25,4 +23,25 @@ claim:
         have result N = 3^4
         result = 81
         81 % 8 = 1
+"""
+
+have gcd fn(Z, Z) N_pos # TODO
+
+prop p(x N_pos):
+    x <= 8
+    gcd(x, 8) = 1
+
+have s set = {m N_pos: $p(m)}
+know $is_finite_set(s) # TODO
+
+know forall n Z, m, k N_pos => n^k % m = ((n % m)^k) % m
+
+claim:
+    forall n N_pos:
+        n = count(s)
+        =>:
+            3^n % 8 = 1
+    prove:
+        know count(s) = 4
+        3^n % 8 = 3^4 % 8 = ((3 % 8)^4) % 8 = 3^4 % 8 = 81 % 8 = 1
 

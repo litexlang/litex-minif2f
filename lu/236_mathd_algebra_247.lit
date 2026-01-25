@@ -1,0 +1,15 @@
+# Problem: t = 2s - s^2, s = n^2 - 2^n + 1, find t when n=3
+# Answer: 0
+
+let t, s R
+let n Z
+know t = 2 * s - s^2
+know s = n^2 - 2^n + 1
+know n = 3
+
+claim:
+    t = 0
+    prove:
+        n = 3
+        s = n^2 - 2^n + 1 = 9 - 8 + 1 = 2
+        t = 2 * s - s^2 = 2 * 2 - 4 = 0

@@ -1,7 +1,7 @@
 # Problem: log_2(log_16(n)) = log_4(log_4(n)), find sum of digits of n
 # Answer: 13 (n = 256)
 # Technical dependency: Logarithmic identities, change of base
-
+"""
 let n N_pos
 know log_2(log_16(n)) = log_4(log_4(n))
 
@@ -18,3 +18,16 @@ claim:
         know log_2(n) = 8
         know n = 256
         know sum_of_digits(256) = 13
+"""
+# todo
+
+# missing technical dependency: logarithm
+
+claim:
+    forall n N_pos:
+        n > 1
+        log(2, log(16, n)) = log(4, log(4, n))
+        =>:
+            n = 256 # todo
+    prove:
+        know n = 256

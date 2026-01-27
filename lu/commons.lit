@@ -211,3 +211,14 @@ algo factorial(n):
 
 eval factorial(10)
 factorial(10) = 3628800
+
+
+# sum
+have sum fn(N) N_pos
+know:
+    sum(1) = 1
+    forall n N: sum(n) = sum(n - 1) + n
+algo sum(n):
+    if n = 1:
+        return 1
+    return sum(n - 1) + n

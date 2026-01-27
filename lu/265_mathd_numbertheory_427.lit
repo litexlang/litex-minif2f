@@ -13,3 +13,5 @@ claim:
         know A = (1+2+4) * (1+5+25+125) = 7 * 156 = 1092
         know 1092 = 2^2 * 3 * 7 * 13
         know sum_of_distinct_primes = 2 + 3 + 7 + 13 = 25
+
+# todo

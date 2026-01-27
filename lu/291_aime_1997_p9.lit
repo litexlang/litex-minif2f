@@ -17,3 +17,5 @@ claim:
         # TODO: Complete formalization once fractional part
         # and golden ratio technical dependencies are available
         know a^12 - 144 * (1/a) = 233
+
+# todo: floor function!

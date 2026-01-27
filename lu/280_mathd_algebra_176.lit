@@ -1,9 +1,9 @@
 # Problem: Expand (x+1)^2 * x
 # Answer: x^3 + 2x^2 + x
+# cursor generated the correct answer
 
 claim:
-    forall x R:
-        (x + 1)^2 * x = x^3 + 2 * x^2 + x
+    forall x R => (x + 1)^2 * x = x^3 + 2 * x^2 + x
     prove:
         (x + 1)^2 = x^2 + 2 * x + 1
         (x + 1)^2 * x = (x^2 + 2 * x + 1) * x

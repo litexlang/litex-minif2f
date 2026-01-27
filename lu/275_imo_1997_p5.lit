@@ -14,3 +14,5 @@ claim:
         # TODO: Complete formalization once advanced number theory
         # technical dependencies are available
         know (x, y) = (1, 1) or (x, y) = (16, 2) or (x, y) = (27, 3)
+
+# skip. not as simple as it seems

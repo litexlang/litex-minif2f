@@ -1,13 +1,11 @@
 # Problem: Evaluate -a - b^2 + 3ab when a = -1, b = 5
 # Answer: -39
 
-let a, b R
-know a = -1
-know b = 5
-
 claim:
-    -a - b^2 + 3 * a * b = -39
+    forall a, b Z:
+        a = -1
+        b = 5
+        =>:
+            -a - b^2 + 3 * a * b = -39
     prove:
-        -a - b^2 + 3 * a * b = -(-1) - 5^2 + 3 * (-1) * 5
-        -a - b^2 + 3 * a * b = 1 - 25 - 15
-        -a - b^2 + 3 * a * b = -39
+        -a - b^2 + 3 * a * b = -(-1) - 5^2 + 3 * (-1) * 5 = -39

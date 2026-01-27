@@ -4,12 +4,7 @@
 claim:
     2^2010 % 10 = 4
     prove:
-        # Powers of 2 mod 10: 2^1=2, 2^2=4, 2^3=8, 2^4=6, then repeats
-        # Period is 4
-        # 2010 % 4 = 2
-        # So 2^2010 ≡ 2^2 ≡ 4 (mod 10)
-        
-        know 2^4 % 10 = 6
-        know 2^2 % 10 = 4
-        know 2010 % 4 = 2
-        know 2^2010 % 10 = 2^2 % 10 = 4
+        2^2010 % 10 = 4
+
+# exceeds 200 digits
+

@@ -15,4 +15,6 @@ claim:
         
         # TODO: Complete formalization once irrationality
         # technical dependencies are available
-        know a = 0 and b = 0 and c = 0
+        know a = 0, b = 0, c = 0
+
+# skip!

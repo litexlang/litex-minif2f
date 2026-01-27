@@ -11,3 +11,6 @@ claim:
         # TODO: Complete formalization once Cauchy-Schwarz
         # technical dependencies are available
         know sum < 12/25
+
+# missing technical dependency: Cauchy-Schwarz; sum
+# skip

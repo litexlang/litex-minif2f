@@ -10,3 +10,5 @@ claim:
         # TODO: Complete formalization once trigonometric functions
         # technical dependencies are available
         know cos(pi / 7) - cos(2 * pi / 7) + cos(3 * pi / 7) = 1 / 2
+
+# todo: trigonometric functions

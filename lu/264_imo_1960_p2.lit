@@ -18,3 +18,5 @@ claim:
         # TODO: Complete formalization once square root
         # technical dependencies are available
         know -1/2 <= x and x < 45/8 and x != 0
+
+# todo

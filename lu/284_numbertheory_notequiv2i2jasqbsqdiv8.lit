@@ -13,3 +13,6 @@ claim:
         a^2 + b^2 = 4
         not (exist k Z st 4 = 8*k)
         not (forall a, b Z: (exist i, j Z st a = 2*i and b = 2*j) <=> (exist k Z st a^2 + b^2 = 8*k))
+
+# skip
+# prove by contradiction? Counterexample?

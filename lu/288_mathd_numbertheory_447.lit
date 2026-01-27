@@ -17,3 +17,6 @@ claim:
         know sum_units_digits(0_to_30) = 45
         know sum_units_digits(33_to_48) = 33
         know total = 78
+
+# todo
+# sum_over_finite_set or something else?

@@ -30,3 +30,7 @@ claim:
         
         know m + n >= 60
         know exist m0, n0 st m0 + n0 = 60
+
+
+# skip
+# deal with this problem once gcd and lcm are ready

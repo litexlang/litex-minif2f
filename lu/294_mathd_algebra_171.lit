@@ -1,0 +1,9 @@
+# Problem: f(x) = 5x + 4, find f(1)
+# Answer: 9
+
+have fn f(x R) R = 5 * x + 4
+
+claim:
+    f(1) = 9
+    prove:
+        f(1) = 5 * 1 + 4 = 9

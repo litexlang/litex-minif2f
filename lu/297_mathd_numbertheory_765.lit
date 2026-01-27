@@ -1,0 +1,22 @@
+# Problem: Largest negative integer x such that 24x ≡ 15 (mod 1199)
+# Answer: -449
+
+let x Z
+know x < 0
+know (24 * x) % 1199 = 15
+
+claim:
+    x <= -449
+    exist x0 Z st:
+        x0 < 0
+        (24 * x0) % 1199 = 15
+        x0 = -449
+    prove:
+        # 24 * 50 ≡ 1 (mod 1199), so 50 is inverse of 24
+        # x ≡ 15 * 50 = 750 (mod 1199)
+        # Largest negative: 750 - 1199 = -449
+        
+        know 24 * 50 % 1199 = 1
+        know x ≡ 750 (mod 1199)
+        know x = -449 satisfies the condition
+        x <= -449

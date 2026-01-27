@@ -1,0 +1,13 @@
+# Problem: sum a_{n+1}^2 = 1, show sum a_{n+1}^2 * a_{n+2} + a_{100}^2 * a_1 < 12/25
+# Technical dependency: Cauchy-Schwarz inequality, series manipulation
+
+claim:
+    # For sequence a_n with sum_{n=0}^{99} a_{n+1}^2 = 1,
+    # sum_{n=0}^{98} (a_{n+1}^2 * a_{n+2}) + a_{100}^2 * a_1 < 12/25
+    prove:
+        # Using Cauchy-Schwarz and careful manipulation,
+        # the sum can be bounded above by 12/25
+        
+        # TODO: Complete formalization once Cauchy-Schwarz
+        # technical dependencies are available
+        know sum < 12/25

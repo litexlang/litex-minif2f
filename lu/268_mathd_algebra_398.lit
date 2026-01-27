@@ -1,0 +1,24 @@
+# Problem: 7 ligs = 4 lags, 9 lags = 20 lugs, how many ligs = 80 lugs?
+# Answer: 63
+
+let a, b, c R
+know 0 < a
+know 0 < b
+know 0 < c
+know 7 * a = 4 * b
+know 9 * b = 20 * c
+
+claim:
+    63 * a = 80 * c
+    prove:
+        # 9 * b = 20 * c, multiply by 4: 36 * b = 80 * c
+        # 7 * a = 4 * b, multiply by 9: 63 * a = 36 * b
+        # Therefore 63 * a = 36 * b = 80 * c
+        
+        9 * b = 20 * c
+        36 * b = 80 * c
+        
+        7 * a = 4 * b
+        63 * a = 36 * b
+        
+        63 * a = 80 * c

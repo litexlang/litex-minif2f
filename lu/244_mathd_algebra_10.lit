@@ -1,5 +1,6 @@
 # Problem: Positive difference between 120% of 30 and 130% of 20
 # Answer: 10
+# cursor generated the correct answer
 
 claim:
     abs((120/100) * 30 - (130/100) * 20) = 10

@@ -1,0 +1,19 @@
+# Problem: a > 0, <a^(-1)> = <a^2>, 2 < a^2 < 3, find a^12 - 144a^(-1)
+# Answer: 233
+# Technical dependency: Fractional part, golden ratio properties
+
+claim:
+    forall a R_pos:
+        2 < a^2
+        a^2 < 3
+        fractional_part(1/a) = fractional_part(a^2)
+        =>:
+            a^12 - 144 * (1/a) = 233
+    prove:
+        # a = (1+sqrt(5))/2 (golden ratio)
+        # a^2 = (3+sqrt(5))/2
+        # After computation: a^12 - 144a^(-1) = 233
+        
+        # TODO: Complete formalization once fractional part
+        # and golden ratio technical dependencies are available
+        know a^12 - 144 * (1/a) = 233

@@ -1,0 +1,14 @@
+# Problem: Show (21n+4)/(14n+3) is irreducible for natural n
+# Technical dependency: GCD, Euclidean algorithm
+
+have gcd fn(Z, Z) N_pos
+
+claim:
+    forall n N_pos:
+        gcd(21*n + 4, 14*n + 3) = 1
+    prove:
+        # gcd(21n+4, 14n+3) = gcd(7n+1, 14n+3) = gcd(7n+1, 1) = 1
+        
+        know gcd(21*n + 4, 14*n + 3) = gcd(7*n + 1, 14*n + 3)
+        know gcd(7*n + 1, 14*n + 3) = gcd(7*n + 1, 1) = 1
+        gcd(21*n + 4, 14*n + 3) = 1

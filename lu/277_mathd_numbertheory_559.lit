@@ -1,0 +1,23 @@
+# Problem: X ≡ 2 (mod 3), units digit same as number ≡ 4 (mod 5), find smallest X
+# Answer: 14
+
+claim:
+    forall x, y N_pos:
+        x % 3 = 2
+        y % 5 = 4
+        x % 10 = y % 10
+        =>:
+            x >= 14
+            exist x0 N_pos st:
+                x0 % 3 = 2
+                x0 % 10 = 4 or x0 % 10 = 9
+                x0 = 14
+    prove:
+        # Numbers ≡ 4 (mod 5) have units digit 4 or 9
+        # Check: 4 % 3 = 1, 9 % 3 = 0, 14 % 3 = 2
+        # So smallest is 14
+        
+        know y % 10 = 4 or y % 10 = 9
+        know x % 10 = y % 10
+        know x = 14 satisfies the conditions
+        x >= 14

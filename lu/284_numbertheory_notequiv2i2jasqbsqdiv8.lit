@@ -1,0 +1,15 @@
+# Problem: Show "a and b both even iff 8|(a^2+b^2)" is false
+
+claim:
+    not (forall a, b Z:
+        (exist i, j Z st a = 2*i and b = 2*j) <=> (exist k Z st a^2 + b^2 = 8*k))
+    prove:
+        # Counterexample: a = 2, b = 0
+        # Both are even, but a^2 + b^2 = 4, which is not divisible by 8
+        
+        let a Z = 2
+        let b Z = 0
+        exist i, j Z st a = 2*i and b = 2*j
+        a^2 + b^2 = 4
+        not (exist k Z st 4 = 8*k)
+        not (forall a, b Z: (exist i, j Z st a = 2*i and b = 2*j) <=> (exist k Z st a^2 + b^2 = 8*k))

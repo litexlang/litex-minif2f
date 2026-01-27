@@ -1,0 +1,15 @@
+# Problem: Show x^5 != y^2 + 4 for any integers x, y
+# Technical dependency: Modular arithmetic, fifth powers, quadratic residues
+
+claim:
+    forall x, y Z:
+        x^5 != y^2 + 4
+    prove:
+        # x^5 mod 11 is 0, 1, or 10
+        # y^2 mod 11 is 0, 1, 3, 4, 5, or 9
+        # y^2 + 4 mod 11 is 4, 5, 7, 8, 9, or 2
+        # These sets don't overlap, so x^5 != y^2 + 4
+        
+        # TODO: Complete formalization once modular arithmetic
+        # technical dependencies for powers and residues are available
+        know x^5 != y^2 + 4

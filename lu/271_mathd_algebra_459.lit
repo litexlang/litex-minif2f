@@ -1,0 +1,28 @@
+# Problem: System of equations for breath-holding times, find sum of numerator and denominator of David's time
+# Answer: 28 (d = 13/15)
+
+let a, b, c, d R
+know 3 * a = b + c + d
+know 4 * b = a + c + d
+know 2 * c = a + b + d
+know 8 * a + 10 * b + 6 * c = 24
+
+claim:
+    # d = 13/15, so numerator + denominator = 13 + 15 = 28
+    prove:
+        # From first and third: 3a - 2c = c - a, so 4a = 3c
+        # From second and third: 4b - 2c = c - b, so 5b = 3c
+        # So 4a = 5b = 3c = x, say
+        # From fourth: 8a + 10b + 6c = 2x + 2x + 2x = 6x = 24, so x = 4
+        # a = 1, b = 4/5, c = 4/3
+        # From first: 3 = 4/5 + 4/3 + d, so d = 13/15
+        
+        know 4 * a = 3 * c
+        know 5 * b = 3 * c
+        know 4 * a = 5 * b = 3 * c
+        know 8 * a + 10 * b + 6 * c = 24
+        know a = 1
+        know b = 4/5
+        know c = 4/3
+        know d = 13/15
+        know numerator(d) + denominator(d) = 13 + 15 = 28

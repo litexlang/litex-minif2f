@@ -1,0 +1,15 @@
+# Problem: A = sum of divisors of 500, find sum of distinct prime divisors of A
+# Answer: 25
+# Technical dependency: Divisor sum formula, prime factorization
+
+claim:
+    # A = sum of divisors of 500
+    # 500 = 2^2 * 5^3
+    # A = (1+2+4)(1+5+25+125) = 7 * 156 = 1092
+    # Prime factorization of 1092: 2^2 * 3 * 7 * 13
+    # Sum of distinct primes: 2 + 3 + 7 + 13 = 25
+    prove:
+        know 500 = 2^2 * 5^3
+        know A = (1+2+4) * (1+5+25+125) = 7 * 156 = 1092
+        know 1092 = 2^2 * 3 * 7 * 13
+        know sum_of_distinct_primes = 2 + 3 + 7 + 13 = 25

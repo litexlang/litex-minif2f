@@ -1,0 +1,20 @@
+# Problem: Find x such that 4x^2/(1 - sqrt(2x+1))^2 < 2x + 9
+# Answer: -1/2 <= x < 45/8, x != 0
+# Technical dependency: Square roots, inequality manipulation
+
+claim:
+    forall x R:
+        0 <= 1 + 2*x
+        (1 - sqrt(1 + 2*x))^2 != 0
+        4*x^2 / (1 - sqrt(1 + 2*x))^2 < 2*x + 9
+        =>:
+            -1/2 <= x and x < 45/8 and x != 0
+    prove:
+        # Using substitution x = -1/2 + a^2/2, we get (a+1)^2 < a^2 + 8
+        # This gives a < 7/2, so x < 45/8
+        # Also x >= -1/2 from domain of sqrt(2x+1)
+        # x = 0 makes denominator 0, so excluded
+        
+        # TODO: Complete formalization once square root
+        # technical dependencies are available
+        know -1/2 <= x and x < 45/8 and x != 0

@@ -1,0 +1,14 @@
+# Problem: Show sum_{k=0}^{n-1} k^3 = (sum_{k=0}^{n-1} k)^2
+# Technical dependency: Induction, sum formulas
+
+claim:
+    forall n N:
+        sum_{k=0}^{n-1} k^3 = (sum_{k=0}^{n-1} k)^2
+    prove:
+        # Base case: n=1, both sides are 0
+        # Inductive step: uses that sum_{k=0}^{n-1} k = n(n-1)/2
+        # and expands (sum + n)^2 = sum^2 + n^2 + 2n*sum = sum^3 + n^3
+        
+        # TODO: Complete formalization once induction
+        # and sum formula technical dependencies are available
+        know sum_{k=0}^{n-1} k^3 = (sum_{k=0}^{n-1} k)^2

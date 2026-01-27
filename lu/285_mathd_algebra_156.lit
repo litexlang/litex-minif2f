@@ -1,0 +1,29 @@
+# Problem: Intersection of y=x^4 and y=5x^2-6, find m-n where x = ±sqrt(m), ±sqrt(n), m>n
+# Answer: 1 (m=3, n=2)
+
+let x, y R
+have fn f(t R) R = t^4
+have fn g(t R) R = 5 * t^2 - 6
+know f(x) = g(x)
+know f(y) = g(y)
+know x^2 < y^2
+
+claim:
+    y^2 - x^2 = 1
+    prove:
+        # At intersection: x^4 = 5x^2 - 6
+        # x^4 - 5x^2 + 6 = 0
+        # (x^2 - 3)(x^2 - 2) = 0
+        # So x^2 = 2 or 3, y^2 = 3 or 2
+        # Since x^2 < y^2, x^2 = 2, y^2 = 3
+        # y^2 - x^2 = 3 - 2 = 1
+        
+        f(x) = g(x)
+        x^4 = 5 * x^2 - 6
+        x^4 - 5 * x^2 + 6 = 0
+        (x^2 - 3) * (x^2 - 2) = 0
+        (x^2 = 2 and y^2 = 3) or (x^2 = 3 and y^2 = 2)
+        x^2 < y^2
+        x^2 = 2
+        y^2 = 3
+        y^2 - x^2 = 1

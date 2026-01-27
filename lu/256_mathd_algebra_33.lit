@@ -1,0 +1,18 @@
+# Problem: 2x = 5y, 7y = 10z, find z/x
+# Answer: 7/25
+
+claim:
+    forall x, y, z R:
+        x != 0
+        y != 0
+        z != 0
+        2 * x = 5 * y
+        7 * y = 10 * z
+        =>:
+            z / x = 7 / 25
+    prove:
+        2 = 5 * y / x
+        y / x = 2 / 5
+        7 = 10 * z / y
+        z / y = 7 / 10
+        z / x = (y / x) * (z / y) = (2 / 5) * (7 / 10) = 7 / 25

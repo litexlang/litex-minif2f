@@ -1,7 +1,7 @@
 # Problem: Maximum value of log_a(a/b) + log_b(b/a) for a >= b > 1
 # Answer: 0
 # Technical dependency: Logarithms, AM-GM inequality
-
+"""
 claim:
     forall a, b R:
         1 < b
@@ -24,3 +24,33 @@ claim:
         know log_a(b) + 1/log_a(b) >= 2
         log_a(a/b) + log_b(b/a) <= 0
         know when a = b: log_a(a/b) + log_b(b/a) = 0
+"""
+# missing technical dependency: logarithm; AM-GM
+know forall a, b, c R_pos => log(a, b / c) = log(a, b) - log(a, c)
+know:
+    forall a, b R_pos:
+        a > 1
+        b > 1
+        =>:
+            log(a, b) > 0
+            log(b, a) > 0
+            log(a, b) = 1 / log(b, a)
+
+know forall a R_pos => a + 1 / a >= 2
+
+claim:
+    forall a, b R_pos:
+        a >= b
+        a > 1
+        b > 1
+        =>:
+            log(a, a / b) + log(b, b / a) <= 0
+    prove:
+        log(a, a / b) = log(a, a) - log(a, b) = 1 - log(a, b)
+        log(b, b / a) = log(b, b) - log(b, a) = 1 - log(b, a)
+        log(a, a / b) + log(b, b / a) = 1 - log(a, b) + (1 - log(b, a)) = 2 - (log(a, b) + log(b, a))
+        log(a, b) + log(b, a) = log(a, b) + 1 / log(a, b)
+        know log(a, b) + 1 / log(a, b) >= 2
+        log(a, b) + log(b, a) >= 2
+        know 2 - (log(a, b) + log(b, a)) <= 0
+        log(a, a / b) + log(b, b / a) <= 0

@@ -1,6 +1,6 @@
 # Problem: t = 2s - s^2, s = n^2 - 2^n + 1, find t when n=3
 # Answer: 0
-
+"""
 let t, s R
 let n Z
 know t = 2 * s - s^2
@@ -13,3 +13,15 @@ claim:
         n = 3
         s = n^2 - 2^n + 1 = 9 - 8 + 1 = 2
         t = 2 * s - s^2 = 2 * 2 - 4 = 0
+"""
+
+claim:
+    forall s, t R, n N_pos:
+        n = 3
+        s = n^2 - 2^n + 1
+        t = 2 * s - s^2
+        =>:
+            t = 0
+    prove:
+        s = 3^2 - 2^3 + 1 = 9 - 8 + 1 = 2
+        t = 2 * 2 - 2^2 = 4 - 4 = 0

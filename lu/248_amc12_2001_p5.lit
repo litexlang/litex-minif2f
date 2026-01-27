@@ -15,3 +15,7 @@ claim:
         # = 10000! / (2^5000 * 5000!)
         
         know product_of_odds = 10000! / (2^5000 * 5000!)
+
+
+# skip
+# the result may exceed the 200-digit limit

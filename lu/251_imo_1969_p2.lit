@@ -1,0 +1,16 @@
+# Problem: f(x) = sum of cos terms, if f(x1)=f(x2)=0, show x2-x1 = m*pi
+# Technical dependency: Trigonometric functions, periodicity
+
+claim:
+    # For f(x) = cos(a1+x) + (1/2)cos(a2+x) + ... + (1/2^(n-1))cos(an+x)
+    # If f(x1) = f(x2) = 0, then x2 - x1 = m*pi for some integer m
+    prove:
+        # The period of f(x) is 2*pi, so if f(x1) = f(x2) = 0,
+        # then x2 - x1 is a multiple of pi
+        
+        # TODO: Complete formalization once trigonometric functions
+        # technical dependencies are available
+        know exist m Z st x2 - x1 = m * pi
+
+# skip
+# missing technical dependencies: trigonometric functions; pi

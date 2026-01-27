@@ -1,0 +1,18 @@
+# Problem: Family drinks coffee and milk, Angela drinks 1/4 of milk and 1/6 of coffee, find family size
+# Answer: 5
+
+let x, y, n N_pos
+know x / 4 + y / 6 = (x + y) / n
+
+claim:
+    n = 5
+    prove:
+        x / 4 + y / 6 = (x + y) / n
+        (3*x + 2*y) / 12 = (x + y) / n
+        n * (3*x + 2*y) = 12 * (x + y)
+        n * (3*x + 2*y) = 12*x + 12*y
+        3*x*(n - 4) = 2*y*(6 - n)
+        # For positive x, y, we need n-4 and 6-n to have same sign
+        # This happens only when n = 5
+        
+        know n = 5

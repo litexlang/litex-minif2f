@@ -1,15 +1,51 @@
 # Problem: For positive a,b,c, show a^2/b^2 + b^2/c^2 + c^2/a^2 >= b/a + c/b + a/c
 # Technical dependency: AM-GM inequality
 
+forall x, y R_pos:
+    =>:
+        (x - y)^2 >= 0
+        (x - y)^2 = x^2 + y^2 - 2 * x * y
+        x^2 + y^2 - 2 * x * y >= 0
+        x^2 + y^2 - 2 * x * y + 2 * x * y >= 0 + 2 * x * y
+        x^2 + y^2 - 2 * x * y + 2 * x * y = x^2 + y^2
+        0 + 2 * x * y = 2 * x * y
+        x^2 + y^2 >= 2 * x * y
+
+know:
+    forall x, y R_pos:
+        =>:
+            x / y $in R_pos # we need this
+            (x / y)^2 = x^2 / y^2
+
 claim:
-    forall a, b, c R_pos:
-        a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c
+    forall a, b, c R_pos => a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c
     prove:
-        # Let α = a/b, β = b/c, γ = c/a
-        # Then αβγ = 1
-        # By AM-GM: (α^2 + β^2)/2 >= αβ, etc.
-        # Adding: α^2 + β^2 + γ^2 >= αβ + βγ + αγ
-        # Substituting back gives the result
-        
-        know forall x, y R_pos: (x^2 + y^2) / 2 >= x * y
-        know a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c
+        (a / b)^2 + (b / c)^2 = a^2 / b^2 + b^2 / c^2
+        (a / b)^2 + (b / c)^2 >= 2 * (a / b) * (b / c)
+        2 * (a / b) * (b / c) = 2 * a / c
+        a^2 / b^2 + b^2 / c^2 >= 2 * a / c
+
+        (b / c)^2 + (c / a)^2 = b^2 / c^2 + c^2 / a^2
+        (b / c)^2 + (c / a)^2 >= 2 * (b / c) * (c / a)
+        2 * (b / c) * (c / a) = 2 * b / a
+        b^2 / c^2 + c^2 / a^2 >= 2 * b / a
+
+        (c / a)^2 + (a / b)^2 = c^2 / a^2 + a^2 / b^2
+        (c / a)^2 + (a / b)^2 >= 2 * (c / a) * (a / b)
+        2 * (c / a) * (a / b) = 2 * c / b
+        c^2 / a^2 + a^2 / b^2 >= 2 * c / b
+
+        a^2 / b^2 + b^2 / c^2 + (b^2 / c^2 + c^2 / a^2) >= 2 * a / c + (b^2 / c^2 + c^2 / a^2)
+        2 * a / c + (b^2 / c^2 + c^2 / a^2) >= 2 * a / c + 2 * b / a # should have been simplified
+        a^2 / b^2 + b^2 / c^2 + (b^2 / c^2 + c^2 / a^2) >= 2 * a / c + 2 * b / a
+        a^2 / b^2 + b^2 / c^2 + (b^2 / c^2 + c^2 / a^2) + (c^2 / a^2 + a^2 / b^2) >= 2 * a / c + 2 * b / a + (c^2 / a^2 + a^2 / b^2)
+        2 * a / c + 2 * b / a + (c^2 / a^2 + a^2 / b^2) >= 2 * a / c + 2 * b / a + 2 * c / b
+        a^2 / b^2 + b^2 / c^2 + (b^2 / c^2 + c^2 / a^2) + (c^2 / a^2 + a^2 / b^2) >= 2 * a / c + 2 * b / a + 2 * c / b
+
+        a^2 / b^2 + b^2 / c^2 + (b^2 / c^2 + c^2 / a^2) + (c^2 / a^2 + a^2 / b^2) = 2 * (a^2 / b^2 + b^2 / c^2 + c^2 / a^2)
+        2 * a / c + 2 * b / a + 2 * c / b = 2 * (b / a + c / b + a / c)
+        2 * (a^2 / b^2 + b^2 / c^2 + c^2 / a^2) >= 2 * (b / a + c / b + a / c)
+        2 * (a^2 / b^2 + b^2 / c^2 + c^2 / a^2) / 2 >= 2 * (b / a + c / b + a / c) / 2
+        2 * (a^2 / b^2 + b^2 / c^2 + c^2 / a^2) / 2 = a^2 / b^2 + b^2 / c^2 + c^2 / a^2
+        2 * (b / a + c / b + a / c) / 2 = b / a + c / b + a / c
+        a^2 / b^2 + b^2 / c^2 + c^2 / a^2 >= b / a + c / b + a / c

@@ -1,0 +1,14 @@
+# Problem: Enrollment increased 4% to 598, find last year's enrollment
+# Answer: 575
+
+let x N
+know x + (4/100) * x = 598
+
+claim:
+    x = 575
+    prove:
+        x + (4/100) * x = 598
+        x * (1 + 4/100) = 598
+        x * (104/100) = 598
+        x = 598 * 100 / 104
+        x = 575

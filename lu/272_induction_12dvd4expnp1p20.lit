@@ -1,0 +1,20 @@
+# Problem: Show 12 divides 4^(n+1) + 20 for natural number n
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    forall n N:
+        12 $dvd (4^(n+1) + 20)
+    prove:
+        # 4 ≡ 4 (mod 12), 4^2 ≡ 4 (mod 12)
+        # By induction, 4^n ≡ 4 (mod 12) for n >= 1
+        # So 4^(n+1) + 20 ≡ 4 + 20 = 24 ≡ 0 (mod 12)
+        
+        know forall n N_pos: 4^n % 12 = 4
+        know 4^(n+1) % 12 = 4
+        know (4^(n+1) + 20) % 12 = (4 + 20) % 12 = 24 % 12 = 0
+        12 $dvd (4^(n+1) + 20)

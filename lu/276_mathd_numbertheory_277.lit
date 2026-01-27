@@ -1,0 +1,32 @@
+# Problem: gcd(m,n) = 6, lcm(m,n) = 126, find minimum m+n
+# Answer: 60
+# Technical dependency: GCD, LCM properties
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+have gcd fn(Z, Z) N_pos
+have lcm fn(Z, Z) N_pos
+know forall x, y Z: lcm(x, y) * gcd(x, y) = x * y
+
+claim:
+    forall m, n N_pos:
+        gcd(m, n) = 6
+        lcm(m, n) = 126
+        =>:
+            m + n >= 60
+            exist m0, n0 N_pos st:
+                gcd(m0, n0) = 6
+                lcm(m0, n0) = 126
+                m0 + n0 = 60
+    prove:
+        # m = 6x, n = 6y where gcd(x,y) = 1
+        # lcm(m,n) = 6 * lcm(x,y) = 126, so lcm(x,y) = 21 = 3 * 7
+        # To minimize m+n, take x=3, y=7 or x=7, y=3
+        # Then m+n = 6(3+7) = 60
+        
+        know m + n >= 60
+        know exist m0, n0 st m0 + n0 = 60

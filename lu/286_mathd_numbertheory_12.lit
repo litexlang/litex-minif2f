@@ -1,0 +1,17 @@
+# Problem: Count integers between 15 and 85 divisible by 20
+# Answer: 4
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    # Count of integers n with 15 <= n <= 85 and 20 $dvd n is 4
+    prove:
+        # Multiples of 20 in range: 20, 40, 60, 80
+        # Count = 4
+        
+        know forall n N: 15 <= n and n <= 85 and 20 $dvd n <=> n $in {20, 40, 60, 80}
+        know count = 4

@@ -1,7 +1,7 @@
 # Problem: rem(3/8, -2/5) where rem(x,y) = x - y*floor(x/y)
 # Answer: -1/40
 # Technical dependency: Floor function, remainder definition
-
+"""
 have fn rem(x, y R) R
 know forall x, y R: y != 0 => rem(x, y) = x - y * floor(x / y)
 
@@ -16,3 +16,17 @@ claim:
         rem(3/8, -2/5) = 3/8 - 2/5
         rem(3/8, -2/5) = 15/40 - 16/40
         rem(3/8, -2/5) = -1/40
+"""
+
+# todo
+have rem fn(R, R) R
+know:
+    forall x, y R:
+        y != 0
+        =>:
+            rem(x, y) = x - y * floor(x / y)
+
+claim:
+    rem(3/8, -2/5) = -1/40
+    prove:
+        know rem(3/8, -2/5) = -1/40

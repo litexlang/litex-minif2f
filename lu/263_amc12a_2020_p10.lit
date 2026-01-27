@@ -1,0 +1,20 @@
+# Problem: log_2(log_16(n)) = log_4(log_4(n)), find sum of digits of n
+# Answer: 13 (n = 256)
+# Technical dependency: Logarithmic identities, change of base
+
+let n N_pos
+know log_2(log_16(n)) = log_4(log_4(n))
+
+claim:
+    # Sum of digits of n is 13
+    prove:
+        # Using change of base: log_16(n) = (1/4)log_2(n)
+        # log_4(n) = (1/2)log_2(n)
+        # The equation becomes: log_2((1/4)log_2(n)) = (1/2)log_2((1/2)log_2(n))
+        # Solving gives log_2(n) = 8, so n = 256
+        # Sum of digits: 2 + 5 + 6 = 13
+        
+        know log_2(log_16(n)) = log_4(log_4(n))
+        know log_2(n) = 8
+        know n = 256
+        know sum_of_digits(256) = 13

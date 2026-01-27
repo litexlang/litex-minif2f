@@ -4,13 +4,4 @@
 claim:
     (19^19 + 99^99) % 10 = 8
     prove:
-        # Units digit of 19^19 = units digit of 9^19
-        # 9^1 = 9, 9^2 = 81 (ends in 1), 9^3 = 729 (ends in 9)
-        # Pattern: odd powers end in 9, even powers end in 1
-        # 19 is odd, so 9^19 ends in 9
-        # 99^99: 9^99 ends in 9 (99 is odd)
-        # Sum: 9 + 9 = 18, units digit is 8
-        
-        know 19^19 % 10 = 9^19 % 10 = 9
-        know 99^99 % 10 = 9^99 % 10 = 9
-        (19^19 + 99^99) % 10 = (9 + 9) % 10 = 18 % 10 = 8
+        (19^19 + 99^99) % 10 = 8

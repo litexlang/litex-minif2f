@@ -1,0 +1,12 @@
+# Problem: 40 calories is 2% of daily requirement, find daily requirement
+# Answer: 2000
+
+let x R
+know x / 50 = 40
+
+claim:
+    x = 2000
+    prove:
+        x / 50 = 40
+        x = 40 * 50
+        x = 2000

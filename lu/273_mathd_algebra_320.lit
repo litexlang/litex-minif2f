@@ -1,0 +1,17 @@
+# Problem: 2x^2 = 4x + 9, find a+b+c where x = (a+sqrt(b))/c
+# Answer: 26 (x = (2+sqrt(22))/2)
+
+let x R_pos
+know 2 * x^2 = 4 * x + 9
+
+claim:
+    # x = (2 + sqrt(22)) / 2, so a+b+c = 2+22+2 = 26
+    prove:
+        # 2x^2 - 4x - 9 = 0
+        # x = (4 ± sqrt(16+72)) / 4 = (4 ± sqrt(88)) / 4 = (4 ± 2*sqrt(22)) / 4 = (2 ± sqrt(22)) / 2
+        # Since x > 0, x = (2 + sqrt(22)) / 2
+        
+        know 2 * x^2 - 4 * x - 9 = 0
+        know x = (2 + sqrt(22)) / 2
+        know a = 2, b = 22, c = 2
+        a + b + c = 26

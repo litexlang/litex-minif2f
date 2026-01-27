@@ -1,0 +1,17 @@
+# Problem: f: N+ -> N+ with f(n+1) > f(f(n)), prove f(n) = n
+# Technical dependency: Functional equation, induction, infinite descent
+
+claim:
+    forall f N_pos -> N_pos:
+        forall n N_pos: f(n+1) > f(f(n))
+        =>:
+            forall n N_pos: f(n) = n
+    prove:
+        # Proof uses infinite descent to show f(1) = 1,
+        # then induction to show f(n) = n for all n
+        
+        # TODO: Complete formalization once functional equation
+        # technical dependencies are available
+        know forall n N_pos: f(n) = n
+
+# skip

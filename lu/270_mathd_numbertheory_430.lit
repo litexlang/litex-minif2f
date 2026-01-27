@@ -1,0 +1,37 @@
+# Problem: A+B=C, AA-B=2*C, C*B=AA+A, find A+B+C
+# Answer: 8 (A=1, B=3, C=4)
+
+let a, b, c N
+know 1 <= a and a <= 9
+know 1 <= b and b <= 9
+know 1 <= c and c <= 9
+know a != b
+know a != c
+know b != c
+know a + b = c
+know 10 * a + a - b = 2 * c
+know c * b = 10 * a + a + a
+
+claim:
+    a + b + c = 8
+    prove:
+        # From second equation: 11a - b = 2c = 2(a+b) = 2a + 2b
+        # So 11a - b = 2a + 2b, giving 9a = 3b, so b = 3a
+        # From third: c*b = 12a, so (a+b)*b = 12a
+        # Substituting b = 3a: (a+3a)*3a = 12a, so 12a^2 = 12a
+        # Therefore a = 1, b = 3, c = 4, sum = 8
+        
+        10 * a + a - b = 2 * c
+        11 * a - b = 2 * (a + b)
+        11 * a - b = 2 * a + 2 * b
+        9 * a = 3 * b
+        b = 3 * a
+        
+        c * b = 12 * a
+        (a + b) * b = 12 * a
+        (a + 3 * a) * 3 * a = 12 * a
+        12 * a^2 = 12 * a
+        a = 1
+        b = 3
+        c = 4
+        a + b + c = 8

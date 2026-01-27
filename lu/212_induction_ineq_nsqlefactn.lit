@@ -4,16 +4,40 @@
 have factorial fn(N) N_pos
 know:
     factorial(0) = 1
-    forall n N: factorial(n+1) = factorial(n) * (n+1)
+    factorial(1) = 1
+    forall n N: factorial(n) = factorial(n - 1) * n
+
+algo factorial(n):
+    if n = 0:
+        return 1
+    if n = 1:
+        return 1
+    return factorial(n - 1) * n
+
+prop p(n N_pos):
+    n >= 4
+    n^2 <= factorial(n)
 
 claim:
-    forall n N:
+    forall n N_pos:
         4 <= n
         =>:
-            n^2 <= factorial(n)
+            $p(n)
     prove:
+        """
         # Base case: n=4, 4^2 = 16 <= 24 = 4!
         # Inductive step: (n+1)^2 = n^2 + 2n + 1 <= n! + 2n + 1 <= n! * (n+1) = (n+1)!
         # since for n>=4: 2n+1 <= n*n <= n*n! (for n>=4)
         
         know forall n N: 4 <= n => n^2 <= factorial(n)
+        """
+        4^2 = 16
+        eval factorial(4)
+        factorial(4) = 24
+        16 < 24
+        4^2 < factorial(4)
+        $p(4)
+        know forall n N_pos: $p(n) => $p(n + 1) # todo
+        induc n N_pos: $p(n):
+            do_nothing
+        know forall n N_pos: 4 <= n => n^2 <= factorial(n)

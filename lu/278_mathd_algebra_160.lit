@@ -1,0 +1,17 @@
+# Problem: N + x = 97, N + 5x = 265, find N + 2x
+# Answer: 139
+
+let n, x R
+know n + x = 97
+know n + 5 * x = 265
+
+claim:
+    n + 2 * x = 139
+    prove:
+        n + 5 * x = 265
+        n + x = 97
+        (n + 5 * x) - (n + x) = 265 - 97
+        4 * x = 168
+        x = 42
+        n = 97 - x = 55
+        n + 2 * x = 55 + 2 * 42 = 139

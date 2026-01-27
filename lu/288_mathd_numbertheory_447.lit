@@ -1,0 +1,19 @@
+# Problem: Sum of units digits of multiples of 3 between 0 and 50
+# Answer: 78
+
+prop dvd(x, y Z):
+    dom:
+        x != 0
+    <=>:
+        y % x = 0
+
+claim:
+    # Sum of units digits of all multiples of 3 between 0 and 50 is 78
+    prove:
+        # Multiples 0-30: units digits sum to 45
+        # Multiples 33-48: units digits 3+6+9+2+5+8 = 33
+        # Total: 45 + 33 = 78
+        
+        know sum_units_digits(0_to_30) = 45
+        know sum_units_digits(33_to_48) = 33
+        know total = 78

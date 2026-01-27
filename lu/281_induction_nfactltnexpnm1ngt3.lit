@@ -1,0 +1,19 @@
+# Problem: Show n! < n^(n-1) for n >= 3
+# Technical dependency: Factorial, induction
+
+have factorial fn(N) N_pos
+know:
+    factorial(0) = 1
+    forall n N: factorial(n+1) = factorial(n) * (n+1)
+
+claim:
+    forall n N:
+        3 <= n
+        =>:
+            factorial(n) < n^(n-1)
+    prove:
+        # Base case: 3! = 6 < 9 = 3^2
+        # Inductive step uses that n(n-1)...(n-(n-3)) <= n^(n-2)
+        # and n! = n(n-1)...(n-(n-3)) * 2 * 1 < n^(n-2) * n = n^(n-1)
+        
+        know forall n N: 3 <= n => factorial(n) < n^(n-1)

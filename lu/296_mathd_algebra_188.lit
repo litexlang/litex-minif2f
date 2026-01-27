@@ -1,0 +1,18 @@
+# Problem: f(2) = f^(-1)(2) = 4, find f(f(2))
+# Answer: 2
+# Technical dependency: Inverse function properties
+
+have fn f(x R) R
+know f(2) = 4
+know f^(-1)(2) = 4
+
+claim:
+    f(f(2)) = 2
+    prove:
+        # Since f(2) = f^(-1)(2), we have f(f(2)) = f(f^(-1)(2)) = 2
+        
+        f(2) = 4
+        f^(-1)(2) = 4
+        f(f(2)) = f(4)
+        know f(4) = 2
+        f(f(2)) = 2

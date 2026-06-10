@@ -1,0 +1,12 @@
+# name: mathd_numbertheory_156
+# informal_prefix:
+# /-- Let $n$ be a positive integer.  What is the greatest possible value of $\gcd(n + 7, 2n + 1)$? Show that it is 13.-/
+# formal_statement:
+# theorem mathd_numbertheory_156 (n : ℕ) (h₀ : 0 < n) : Nat.gcd (n + 7) (2 * n + 1) ≤ 13 := by
+
+claim:
+    prove:
+        forall n N:
+            n = 6
+            =>:
+                n + 7 = 2 * n + 1 = 13

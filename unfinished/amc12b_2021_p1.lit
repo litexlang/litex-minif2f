@@ -1,0 +1,29 @@
+# name: amc12b_2021_p1
+# informal_prefix:
+# /-- How many integer values of $x$ satisfy $|x|<3\pi$?
+# 
+# $\textbf{(A)} ~9 \qquad\textbf{(B)} ~10 \qquad\textbf{(C)} ~18 \qquad\textbf{(D)} ~19 \qquad\textbf{(E)} Show that it is \textbf{(D)} ~19.-/
+# formal_statement:
+# theorem amc12b_2021_p1 (S : Finset ℤ) (h₀ : ∀ x : ℤ, x ∈ S ↔ ↑(abs x) < 3 * Real.pi) :
+#     S.card = 19 := by
+
+# Natural-language idea:
+# Because 9 < 3*pi < 10, the integer solutions of |x| < 3*pi
+# are exactly -9, -8, ..., 8, 9, for 19 total values.
+
+claim:
+    prove:
+        forall S finite_set:
+            forall x Z:
+                x $in S
+                =>:
+                    abs(x) < 3 * pi
+            forall x Z:
+                abs(x) < 3 * pi
+                =>:
+                    x $in S
+            =>:
+                count(S) = 19
+    # proof_debt: needs finite integer interval enumeration from 9 < 3*pi < 10.
+    know S = {-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+    count(S) = count({-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9}) = 19

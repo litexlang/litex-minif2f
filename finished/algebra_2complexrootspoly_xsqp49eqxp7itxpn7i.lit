@@ -1,0 +1,19 @@
+# name: algebra_2complexrootspoly_xsqp49eqxp7itxpn7i
+# informal_prefix:
+# /-- Show that for any complex number $x$, $x^2 + 49 = (x + 7i)(x - 7i)$.-/
+# formal_statement:
+# theorem algebra_2complexrootspoly_xsqp49eqxp7itxpn7i (x : ℂ) :
+#     x ^ 2 + 49 = (x + 7 * Complex.I) * (x + -7 * Complex.I) := by
+
+import complex
+
+forall x &C:
+    C_mul((7, 0), C_i) = (7 * 0 - 0 * 1, 7 * 1 + 0 * 0) = (0, 7)
+    C_mul((-7, 0), C_i) = (-7 * 0 - 0 * 1, -7 * 1 + 0 * 0) = (0, -7)
+    C_add(x, (0, 7)) = (&C{x}.re + 0, &C{x}.im + 7) = (&C{x}.re, &C{x}.im + 7)
+    C_add(x, (0, -7)) = (&C{x}.re + 0, &C{x}.im + -7) = (&C{x}.re, &C{x}.im - 7)
+    C_mul(x, x) = (&C{x}.re * &C{x}.re - &C{x}.im * &C{x}.im, &C{x}.re * &C{x}.im + &C{x}.im * &C{x}.re)
+    C_add(C_mul(x, x), (49, 0)) = C_add((&C{x}.re * &C{x}.re - &C{x}.im * &C{x}.im, &C{x}.re * &C{x}.im + &C{x}.im * &C{x}.re), (49, 0)) = (&C{x}.re * &C{x}.re - &C{x}.im * &C{x}.im + 49, &C{x}.re * &C{x}.im + &C{x}.im * &C{x}.re + 0)
+    C_mul(C_add(x, (0, 7)), C_add(x, (0, -7))) = (&C{x}.re * &C{x}.re - (&C{x}.im + 7) * (&C{x}.im - 7), &C{x}.re * (&C{x}.im - 7) + (&C{x}.im + 7) * &C{x}.re)
+    (&C{x}.re * &C{x}.re - &C{x}.im * &C{x}.im + 49, &C{x}.re * &C{x}.im + &C{x}.im * &C{x}.re + 0) = (&C{x}.re * &C{x}.re - (&C{x}.im + 7) * (&C{x}.im - 7), &C{x}.re * (&C{x}.im - 7) + (&C{x}.im + 7) * &C{x}.re)
+    C_add(C_mul(x, x), (49, 0)) = (&C{x}.re * &C{x}.re - &C{x}.im * &C{x}.im + 49, &C{x}.re * &C{x}.im + &C{x}.im * &C{x}.re + 0) = (&C{x}.re * &C{x}.re - (&C{x}.im + 7) * (&C{x}.im - 7), &C{x}.re * (&C{x}.im - 7) + (&C{x}.im + 7) * &C{x}.re) = C_mul(C_add(x, (0, 7)), C_add(x, (0, -7))) = C_mul(C_add(x, C_mul((7, 0), C_i)), C_add(x, C_mul((-7, 0), C_i)))

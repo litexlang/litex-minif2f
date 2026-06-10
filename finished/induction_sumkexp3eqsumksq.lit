@@ -1,0 +1,47 @@
+# name: induction_sumkexp3eqsumksq
+# informal_prefix:
+# /-- Show that for all natural numbers $n$, we have $\sum_{k=0}^{n-1}k^3 = \left(\sum_{k=0}^{n-1}k\right)^2$.-/
+# formal_statement:
+# theorem induction_sumkexp3eqsumksq (n : ℕ) :
+#     (∑ k in Finset.range n, k ^ 3) = (∑ k in Finset.range n, k) ^ 2 := by
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(0, n - 1, 'R(k){k}) = n * (n - 1) / 2
+
+    by induc n from 1:
+        prove:
+            sum(0, n - 1, 'R(k){k}) = n * (n - 1) / 2
+
+        prove from n = 1:
+            sum(0, 0, 'R(k){k}) = 0
+            sum(0, 1 - 1, 'R(k){k}) = sum(0, 0, 'R(k){k}) = 0 = 1 * (1 - 1) / 2
+
+        prove induc:
+            sum(0, n, 'R(k){k}) = sum(0, n - 1, 'R(k){k}) + 'R(k){k}(n)
+            'R(k){k}(n) = n
+            sum(0, n + 1 - 1, 'R(k){k}) = sum(0, n, 'R(k){k}) = sum(0, n - 1, 'R(k){k}) + n = n * (n - 1) / 2 + n = (n + 1) * ((n + 1) - 1) / 2
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(0, n - 1, 'R(k){k^3}) = sum(0, n - 1, 'R(k){k})^2
+
+    by induc n from 1:
+        prove:
+            sum(0, n - 1, 'R(k){k^3}) = sum(0, n - 1, 'R(k){k})^2
+
+        prove from n = 1:
+            sum(0, 0, 'R(k){k^3}) = 0
+            sum(0, 0, 'R(k){k}) = 0
+            sum(0, 1 - 1, 'R(k){k^3}) = sum(0, 0, 'R(k){k^3}) = 0 = 0^2 = sum(0, 0, 'R(k){k})^2 = sum(0, 1 - 1, 'R(k){k})^2
+
+        prove induc:
+            sum(0, n, 'R(k){k^3}) = sum(0, n - 1, 'R(k){k^3}) + 'R(k){k^3}(n)
+            'R(k){k^3}(n) = n^3
+            sum(0, n, 'R(k){k}) = sum(0, n - 1, 'R(k){k}) + 'R(k){k}(n)
+            'R(k){k}(n) = n
+            sum(0, n - 1, 'R(k){k}) = n * (n - 1) / 2
+            sum(0, n, 'R(k){k}) = sum(0, n - 1, 'R(k){k}) + n = n * (n - 1) / 2 + n = (n + 1) * n / 2
+            sum(0, n + 1 - 1, 'R(k){k^3}) = sum(0, n, 'R(k){k^3}) = sum(0, n - 1, 'R(k){k^3}) + n^3 = sum(0, n - 1, 'R(k){k})^2 + n^3 = (n * (n - 1) / 2)^2 + n^3 = ((n + 1) * n / 2)^2 = sum(0, n, 'R(k){k})^2 = sum(0, n + 1 - 1, 'R(k){k})^2

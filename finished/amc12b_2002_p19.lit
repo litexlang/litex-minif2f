@@ -1,0 +1,48 @@
+# name: amc12b_2002_p19
+# informal_prefix:
+# /-- If $a,b,$ and $c$ are positive [[real number]]s such that $a(b+c) = 152, b(c+a) = 162,$ and $c(a+b) = 170$, then $abc$ is
+# 
+# $\mathrm{(A)}\ 672
+# \qquad\mathrm{(B)}\ 688
+# \qquad\mathrm{(C)}\ 704
+# \qquad\mathrm{(D)}\ 720
+# \qquad\mathrm{(E)}\ 750$ Show that it is 720.-/
+# formal_statement:
+# theorem amc12b_2002_p19 (a b c : ℝ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c) (h₁ : a * (b + c) = 152)
+#     (h₂ : b * (c + a) = 162) (h₃ : c * (a + b) = 170) : a * b * c = 720 := by
+
+claim:
+    prove:
+        forall a, b, c R:
+            a > 0
+            b > 0
+            c > 0
+            a * (b + c) = 152
+            b * (c + a) = 162
+            c * (a + b) = 170
+            =>:
+                a * b * c = 720
+    a * b + a * c = a * (b + c) = 152
+    b * c + a * b = b * (c + a) = 162
+    a * c + b * c = c * (a + b) = 170
+    2 * (a * b + a * c + b * c) = (a * b + a * c) + (b * c + a * b) + (a * c + b * c) = 152 + 162 + 170 = 484
+    a * b + a * c + b * c = 242
+    b * c = (a * b + a * c + b * c) - (a * b + a * c) = 242 - 152 = 90
+    a * c = (a * b + a * c + b * c) - (b * c + a * b) = 242 - 162 = 80
+    a * b = (a * b + a * c + b * c) - (a * c + b * c) = 242 - 170 = 72
+    (a * b * c)^2 = (a * b) * (a * c) * (b * c) = 72 * 80 * 90 = 518400
+    a * b * c > 0
+    sqrt((a * b * c)^2) = a * b * c
+    sqrt(518400) = 720
+    a * b * c = sqrt((a * b * c)^2) = sqrt(518400) = 720
+
+# Natural-language idea:
+# Let ab, ac, bc be the pairwise products. Adding the three equations gives
+# 2(ab+ac+bc)=484, so ab+ac+bc=242. Subtracting the original pairwise sums
+# gives bc=90, ac=80, ab=72. Then (abc)^2=(ab)(ac)(bc)=518400=720^2,
+# and positivity forces abc=720.
+#
+# Litex plan:
+# Expand the three hypotheses into pairwise sums, compute ab/ac/bc explicitly,
+# square abc through the pairwise products, then use sqrt on the positive
+# quantity to choose the positive square root.

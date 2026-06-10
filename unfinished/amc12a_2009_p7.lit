@@ -1,0 +1,31 @@
+# name: amc12a_2009_p7
+# informal_prefix:
+# /-- The first three terms of an arithmetic sequence are $2x - 3$, $5x - 11$, and $3x + 1$ respectively. The $n$th term of the sequence is $2009$. What is $n$?
+# 
+# $\textbf{(A)}\ 255 \qquad \textbf{(B)}\ 502 \qquad \textbf{(C)}\ 1004 \qquad \textbf{(D)}\ 1506 \qquad \textbf{(E)}\ 8037$ Show that it is 502.-/
+# formal_statement:
+# theorem amc12a_2009_p7 (x : ℝ) (n : ℕ) (a : ℕ → ℝ)
+#     (h₁ : ∀ m, a (m + 1) - a m = a (m + 2) - a (m + 1)) (h₂ : a 1 = 2 * x - 3)
+#     (h₃ : a 2 = 5 * x - 11) (h₄ : a 3 = 3 * x + 1) (h₅ : a n = 2009) : n = 502 := by
+
+# Natural-language idea:
+# Equal consecutive differences give 3x-8 = 12-2x, hence x=4.
+# The arithmetic sequence is then a(k)=4k+1, so a(n)=2009 gives n=502.
+
+claim:
+    prove:
+        forall x R, n N, a fn(k N) R:
+            forall m N:
+                a(m + 1) - a(m) = a(m + 2) - a(m + 1)
+            a(1) = 2 * x - 3
+            a(2) = 5 * x - 11
+            a(3) = 3 * x + 1
+            a(n) = 2009
+            =>:
+                n = 502
+    # proof_debt: needs arithmetic-sequence bridge from the first three terms to a(k)=4*k+1.
+    know a(n) = 4 * n + 1
+    2009 = a(n) = 4 * n + 1
+    4 * n + 1 = 2009
+    4 * n = 2008
+    n = 502

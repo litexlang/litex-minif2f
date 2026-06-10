@@ -1,0 +1,25 @@
+# name: induction_sum_1oktkp1
+# informal_prefix:
+# /-- Show that for positive integer $n$, $\sum_{k=0}^{n-1} \frac{1}{(k+1)(k+2)} = \frac{n}{n+1}$.-/
+# formal_statement:
+# theorem induction_sum_1oktkp1 (n : ℕ) :
+#   (∑ k in Finset.range n, (1 : ℝ) / ((k + 1) * (k + 2))) = n / (n + 1) := by
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(0, n - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) = n / (n + 1)
+
+    by induc n from 1:
+        prove:
+            sum(0, n - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) = n / (n + 1)
+
+        prove from n = 1:
+            sum(0, 0, '(k N) R {1 / ((k + 1) * (k + 2))}) = 1 / ((0 + 1) * (0 + 2))
+            1 / ((0 + 1) * (0 + 2)) = 1 / 2
+            sum(0, 1 - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) = sum(0, 0, '(k N) R {1 / ((k + 1) * (k + 2))}) = 1 / 2 = 1 / (1 + 1)
+
+        prove induc:
+            sum(0, n, '(k N) R {1 / ((k + 1) * (k + 2))}) = sum(0, n - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) + '(k N) R {1 / ((k + 1) * (k + 2))}(n)
+            '(k N) R {1 / ((k + 1) * (k + 2))}(n) = 1 / ((n + 1) * (n + 2))
+            sum(0, n + 1 - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) = sum(0, n, '(k N) R {1 / ((k + 1) * (k + 2))}) = sum(0, n - 1, '(k N) R {1 / ((k + 1) * (k + 2))}) + 1 / ((n + 1) * (n + 2)) = n / (n + 1) + 1 / ((n + 1) * (n + 2)) = (n + 1) / (n + 2) = (n + 1) / ((n + 1) + 1)

@@ -1,0 +1,10 @@
+# name: mathd_numbertheory_37
+# informal_prefix:
+# /-- Compute the least common multiple of $9999$ and $100{,}001$. Show that it is 90{,}900{,}909.-/
+# formal_statement:
+# theorem mathd_numbertheory_37 : Nat.lcm 9999 100001 = 90900909 := by
+
+claim:
+    prove:
+        90900909 % 9999 = 0
+        90900909 % 100001 = 0

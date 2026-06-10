@@ -1,0 +1,29 @@
+import Nat
+
+# name: induction_divisibility_9div10tonm1
+# informal_prefix:
+# /-- Show that 9 divides $10^n - 1$ for any natural number n.-/
+# formal_statement:
+# theorem induction_divisibility_9div10tonm1 (n : ℕ) (h₀ : 0 < n) : 9 ∣ 10 ^ n - 1 := by
+
+claim:
+    prove:
+        forall n Z:
+            n >= 1
+            =>:
+                $divides(9, 10^n - 1)
+
+    by induc n from 1:
+        prove:
+            $divides(9, 10^n - 1)
+
+        prove from n = 1:
+            witness exist t Z st {10^1 - 1 = 9 * t} from 1:
+                10^1 - 1 = 9 = 9 * 1
+            $divides(9, 10^1 - 1)
+
+        prove induc:
+            have by exist t Z st {10^n - 1 = 9 * t}: t
+            witness exist r Z st {10^(n + 1) - 1 = 9 * r} from 10 * t + 1:
+                10^(n + 1) - 1 = 10 * 10^n - 1 = 10 * (10^n - 1) + 9 = 10 * (9 * t) + 9 = 9 * (10 * t + 1)
+            $divides(9, 10^(n + 1) - 1)

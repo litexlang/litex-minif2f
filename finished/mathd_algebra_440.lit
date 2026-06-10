@@ -1,0 +1,6 @@
+claim:
+    prove:
+        forall x R:
+            3 / 2 / 3 = x / 10
+            =>:
+                x = 5

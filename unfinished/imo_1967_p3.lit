@@ -1,0 +1,30 @@
+# name: imo_1967_p3
+# informal_prefix:
+# /-- Let $k, m, n$ be natural numbers such that $m+k+1$ is a prime greater than $n+1.$ Let $c_s=s(s+1).$ Prove that the product $(c_{m+1}-c_k)(c_{m+2}-c_k)\cdots (c_{m+n}-c_k)$ is divisible by the product $c_1c_2\cdots c_n$.-/
+# formal_statement:
+# theorem imo_1967_p3 (k m n : ℕ) (c : ℕ → ℕ) (h₀ : 0 < k ∧ 0 < m ∧ 0 < n)
+#   (h₁ : ∀ s, c s = s * (s + 1)) (h₂ : Nat.Prime (k + m + 1)) (h₃ : n + 1 < k + m + 1) :
+#   (∏ i in Finset.Icc 1 n, c i) ∣ ∏ i in Finset.Icc 1 n, c (m + i) - c k := by
+
+import Nat
+
+claim:
+    prove:
+        forall k, m, n N_pos, c fn(s N) N:
+            forall s N:
+                c(s) = s * (s + 1)
+            $Prime(m + k + 1)
+            n + 1 < m + k + 1
+            =>:
+                $Dvd(product(1, n, '(i N_pos) N {c(i)}), product(1, n, '(i N_pos) N {c(m + i) - c(k)}))
+
+    # Natural-language idea: factor
+    # c(m+i)-c(k) = (m+i-k)(m+i+k+1). With p = m+k+1 prime and p > n+1,
+    # the product over i = 1..n can be compared p-adically with
+    # product i(i+1), or equivalently with a binomial/product divisibility
+    # argument in which the p-shifted factors p+i supply the needed residues.
+    # proof_debt: the current number-theory layer does not expose the
+    # p-adic/binomial product-divisibility lemma needed for this IMO product.
+    know:
+        $Dvd(product(1, n, '(i N_pos) N {c(i)}), product(1, n, '(i N_pos) N {c(m + i) - c(k)}))
+    $Dvd(product(1, n, '(i N_pos) N {c(i)}), product(1, n, '(i N_pos) N {c(m + i) - c(k)}))

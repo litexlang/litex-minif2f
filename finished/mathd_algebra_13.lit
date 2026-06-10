@@ -1,0 +1,15 @@
+# name: mathd_algebra_13
+# informal_prefix:
+# /-- Find $A$ and $B$ such that
+# \[\frac{4x}{x^2-8x+15} = \frac{A}{x-3} + \frac{B}{x-5}\]for all $x$ besides 3 and 5. Express your answer as an ordered pair in the form $(A, B).$ Show that it is (-6, 10).-/
+# formal_statement:
+# theorem mathd_algebra_13 (a b : ℝ)
+#   (h₀ : ∀ x, x - 3 ≠ 0 ∧ x - 5 ≠ 0 → 4 * x / (x ^ 2 - 8 * x + 15) = a / (x - 3) + b / (x - 5)) :
+#   a = -6 ∧ b = 10 := by
+
+claim:
+    prove:
+        forall x R:
+            x ^ 2 - 8 * x + 15 = (x - 3) * (x - 5)
+        forall x R:
+            -6 * (x - 5) + 10 * (x - 3) = 4 * x

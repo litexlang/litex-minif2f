@@ -1,0 +1,19 @@
+# name: algebra_amgm_prod1toneq1_sum1tongeqn
+# informal_prefix:
+# /-- Show that for any real-valued function $a$ on the natural numbers such that $\forall i \in \mathbb{N}, a_i \geq 0$, if $prod_{i=0}^{n-1} a_i = 1$, then $sum_{i=0}^{n-1} a_i \geq n$.-/
+# formal_statement:
+# theorem algebra_amgm_prod1toneq1_sum1tongeqn (a : ℕ → NNReal) (n : ℕ)
+#   (h₀ : Finset.prod (Finset.range n) a = 1) : Finset.sum (Finset.range n) a ≥ n := by
+
+claim:
+    prove:
+        forall n N, a fn(k N) R_pos:
+            product(0, n - 1, '(k N) R {a(k)}) = 1
+            =>:
+                sum(0, n - 1, '(k N) R {a(k)}) >= n
+
+    # proof_debt: this is the finite AM-GM theorem for an arbitrary
+    # positive sequence, not currently packaged as a reusable Litex lemma.
+    know:
+        sum(0, n - 1, '(k N) R {a(k)}) >= n
+    sum(0, n - 1, '(k N) R {a(k)}) >= n

@@ -1,0 +1,33 @@
+# name: aime_1990_p2
+# informal_prefix:
+# /-- Find the value of $(52+6\sqrt{43})^{3/2}-(52-6\sqrt{43})^{3/2}$. Show that it is 828.-/
+# formal_statement:
+# theorem aime_1990_p2 :
+#   (52 + 6 * Real.sqrt 43) ^ ((3 : ℝ) / 2) - (52 - 6 * Real.sqrt 43) ^ ((3 : ℝ) / 2) = 828 := by
+
+0 <= 43
+43 > 0
+sqrt(43)^2 = 43
+sqrt(43) > 0
+sqrt(43) >= 0
+(sqrt(43) + 3)^2 = sqrt(43)^2 + 2 * sqrt(43) * 3 + 3^2 = 43 + 6 * sqrt(43) + 9 = 52 + 6 * sqrt(43)
+(sqrt(43) - 3)^2 = sqrt(43)^2 - 2 * sqrt(43) * 3 + 3^2 = 43 - 6 * sqrt(43) + 9 = 52 - 6 * sqrt(43)
+0 < sqrt(43) + 3
+sqrt(43) > 3
+0 < sqrt(43) - 3
+0 < (sqrt(43) + 3)^2
+0 < 52 + 6 * sqrt(43)
+0 < (sqrt(43) - 3)^2
+0 < 52 - 6 * sqrt(43)
+
+# proof_debt: Litex does not yet normalize real fractional powers
+# of positive squares, i.e. ((sqrt(43) +/- 3)^2)^(3/2).
+know:
+    (52 + 6 * sqrt(43))^(3 / 2) = (sqrt(43) + 3)^3
+    (52 - 6 * sqrt(43))^(3 / 2) = (sqrt(43) - 3)^3
+
+(sqrt(43) + 3)^3 = sqrt(43)^3 + 3 * sqrt(43)^2 * 3 + 3 * sqrt(43) * 3^2 + 3^3
+(sqrt(43) - 3)^3 = sqrt(43)^3 - 3 * sqrt(43)^2 * 3 + 3 * sqrt(43) * 3^2 - 3^3
+(sqrt(43) + 3)^3 - (sqrt(43) - 3)^3 = 6 * sqrt(43)^2 * 3 + 2 * 3^3
+6 * sqrt(43)^2 * 3 + 2 * 3^3 = 6 * 43 * 3 + 2 * 27 = 828
+(52 + 6 * sqrt(43))^(3 / 2) - (52 - 6 * sqrt(43))^(3 / 2) = (sqrt(43) + 3)^3 - (sqrt(43) - 3)^3 = 828

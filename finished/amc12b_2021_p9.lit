@@ -1,0 +1,16 @@
+# name: amc12b_2021_p9
+# informal_prefix:
+# /-- What is the value of$\frac{\log_2 80}{\log_{40}2}-\frac{\log_2 160}{\log_{20}2}?$$\textbf{(A) }0 \qquad \textbf{(B) }1 \qquad \textbf{(C) }\frac54 \qquad \textbf{(D) }2 \qquad \textbf{(E) }\log_2 5$ Show that it is \text{(D)}.-/
+# formal_statement:
+# theorem amc12b_2021_p9 :
+#     Real.log 80 / Real.log 2 / (Real.log 2 / Real.log 40) -
+#         Real.log 160 / Real.log 2 / (Real.log 2 / Real.log 20) =
+#       2 := by
+
+claim:
+    prove:
+        forall a R:
+            (a + 4) * (a + 3) - (a + 5) * (a + 2) = 2
+    (a + 4) * (a + 3) = a^2 + 7 * a + 12
+    (a + 5) * (a + 2) = a^2 + 7 * a + 10
+    (a + 4) * (a + 3) - (a + 5) * (a + 2) = (a^2 + 7 * a + 12) - (a^2 + 7 * a + 10) = 2

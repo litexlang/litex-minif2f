@@ -1,0 +1,27 @@
+# name: amc12a_2013_p7
+# informal_prefix:
+# /-- The sequence $S_1, S_2, S_3, \cdots, S_{10}$ has the property that every term beginning with the third is the sum of the previous two.  That is, $ S_n = S_{n-2} + S_{n-1} \text{ for } n \ge 3. $ Suppose that $S_9 = 110$ and $S_7 = 42$.  What is $S_4$?
+# 
+# $ \textbf{(A)}\ 4\qquad\textbf{(B)}\ 6\qquad\textbf{(C)}\ 10\qquad\textbf{(D)}\ 12\qquad\textbf{(E)}\ 16\qquad $ Show that it is \textbf{(C) }{10}.-/
+# formal_statement:
+# theorem amc12a_2013_p7 (s : ℕ → ℝ) (h₀ : ∀ n, s (n + 2) = s (n + 1) + s n) (h₁ : s 9 = 110)
+#     (h₂ : s 7 = 42) : s 4 = 10 := by
+
+forall s fn(x N) R:
+    forall n N:
+        s(n + 2) = s(n + 1) + s(n)
+    s(9) = 110
+    s(7) = 42
+    =>:
+        s(9) = s(8) + s(7)
+        s(8) + 42 = s(8) + s(7) = s(9) = 110
+        s(8) = 68
+        s(8) = s(7) + s(6)
+        s(6) + 42 = s(6) + s(7) = s(8) = 68
+        s(6) = 26
+        s(7) = s(6) + s(5)
+        s(5) + 26 = s(5) + s(6) = s(7) = 42
+        s(5) = 16
+        s(6) = s(5) + s(4)
+        s(4) + 16 = s(4) + s(5) = s(6) = 26
+        s(4) = 10

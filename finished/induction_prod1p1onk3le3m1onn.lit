@@ -1,0 +1,38 @@
+# name: induction_prod1p1onk3le3m1onn
+# informal_prefix:
+# /-- Show that for any positive integer $n$, we have $\prod_{k=1}^n (1 + 1/k^3) \leq 3 - 1/n$.-/
+# formal_statement:
+# theorem induction_prod1p1onk3le3m1onn (n : ℕ) (h₀ : 0 < n) :
+#     (∏ k in Finset.Icc 1 n, 1 + (1 : ℝ) / k ^ 3) ≤ (3 : ℝ) - 1 / ↑n := by
+
+claim:
+    prove:
+        forall n N_pos:
+            product(1, n, '(k N_pos) R {1 + 1 / k^3}) <= 3 - 1 / n
+
+    by induc n from 1:
+        prove:
+            product(1, n, '(k N_pos) R {1 + 1 / k^3}) <= 3 - 1 / n
+
+        prove from n = 1:
+            product(1, 1, '(k N_pos) R {1 + 1 / k^3}) = 1 + 1 / 1^3 = 2
+            3 - 1 / 1 = 2
+            product(1, 1, '(k N_pos) R {1 + 1 / k^3}) <= 3 - 1 / 1
+
+        prove induc:
+            product(1, n + 1, '(k N_pos) R {1 + 1 / k^3}) = product(1, n, '(k N_pos) R {1 + 1 / k^3}) * '(k N_pos) R {1 + 1 / k^3}(n + 1)
+            '(k N_pos) R {1 + 1 / k^3}(n + 1) = 1 + 1 / (n + 1)^3
+            product(1, n + 1, '(k N_pos) R {1 + 1 / k^3}) = product(1, n, '(k N_pos) R {1 + 1 / k^3}) * (1 + 1 / (n + 1)^3)
+            0 < 1 + 1 / (n + 1)^3
+            product(1, n, '(k N_pos) R {1 + 1 / k^3}) * (1 + 1 / (n + 1)^3) <= (3 - 1 / n) * (1 + 1 / (n + 1)^3)
+            0 <= (n - 1)^2
+            0 <= n + 1
+            0 <= (n - 1)^2 + (n + 1)
+            n^2 - n + 2 = (n - 1)^2 + (n + 1)
+            0 <= n^2 - n + 2
+            0 < n * (n + 1)^3
+            0 <= (n^2 - n + 2) / (n * (n + 1)^3)
+            3 - 1 / (n + 1) - (3 - 1 / n) * (1 + 1 / (n + 1)^3) = (n^2 - n + 2) / (n * (n + 1)^3)
+            0 <= 3 - 1 / (n + 1) - (3 - 1 / n) * (1 + 1 / (n + 1)^3)
+            (3 - 1 / n) * (1 + 1 / (n + 1)^3) <= 3 - 1 / (n + 1)
+            product(1, n + 1, '(k N_pos) R {1 + 1 / k^3}) <= (3 - 1 / n) * (1 + 1 / (n + 1)^3) <= 3 - 1 / (n + 1)

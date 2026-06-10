@@ -1,0 +1,17 @@
+# name: amc12a_2021_p14
+# informal_prefix:
+# /-- What is the value of $\left(\sum_{k=1}^{20} \log_{5^k} 3^{k^2}\right)\cdot\left(\sum_{k=1}^{100} \log_{9^k} 25^k\right)?$
+# 
+# $\textbf{(A) }21 \qquad \textbf{(B) }100\log_5 3 \qquad \textbf{(C) }200\log_3 5 \qquad \textbf{(D) }2{,}200\qquad \textbf{(E) }21{,}000$ Show that it is \textbf{(E) }21{,}000.-/
+# formal_statement:
+# theorem amc12a_2021_p14 :
+#     ((∑ k in Finset.Icc 1 20, Real.logb (5 ^ k) (3 ^ k ^ 2)) *
+#         ∑ k in Finset.Icc 1 100, Real.logb (9 ^ k) (25 ^ k)) = 21000 := by
+
+claim:
+    prove:
+        1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 + 19 + 20 = 210
+
+claim:
+    prove:
+        210 * 100 = 21000

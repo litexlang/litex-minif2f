@@ -1,0 +1,7 @@
+forall a, lx, ly, lz R:
+    lx - ly = a
+    ly - lz = 15
+    lz - lx = -7
+    =>:
+        0 = (lx - ly) + (ly - lz) + (lz - lx) = a + 15 + (-7)
+        a = (a + 15 + (-7)) - 8 = -8

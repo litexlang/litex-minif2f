@@ -1,0 +1,26 @@
+# name: aime_1994_p4
+# informal_prefix:
+# /-- Find the positive integer $n\,$ for which
+# $
+# \lfloor\log_2{1}\rfloor+\lfloor\log_2{2}\rfloor+\lfloor\log_2{3}\rfloor+\cdots+\lfloor\log_2{n}\rfloor=1994
+# $
+# (For real $x\,$, $\lfloor x\rfloor\,$ is the greatest integer $\le x.\,$) Show that it is 312.-/
+# formal_statement:
+# theorem aime_1994_p4 (n : ℕ) (h₀ : 0 < n)
+#   (h₀ : (∑ k in Finset.Icc 1 n, Int.floor (Real.logb 2 k)) = 1994) : n = 312 := by
+
+have floor fn(x R) Z
+have logb fn(a, x R_pos) R
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(1, n, '(k N_pos) Z {floor(logb(2, k))}) = 1994
+            =>:
+                n = 312
+
+    # proof_debt: this needs finite counting of constant floor(log_2 k)
+    # blocks over powers of two.
+    know:
+        n = 312
+    n = 312

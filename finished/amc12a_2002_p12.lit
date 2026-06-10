@@ -1,0 +1,85 @@
+# name: amc12a_2002_p12
+# informal_prefix:
+# /-- Both roots of the quadratic equation $x^2 - 63x + k = 0$ are prime numbers. The number of possible values of $k$ is 
+# 
+# $\text{(A)}\ 0 \qquad \text{(B)}\ 1 \qquad \text{(C)}\ 2 \qquad \text{(D)}\ 4 \qquad \text{(E) more than 4}$ Show that it is \text{(B)}\ 1.-/
+# formal_statement:
+# theorem amc12a_2002_p12 (f : ℝ → ℝ) (k : ℝ) (a b : ℕ) (h₀ : ∀ x, f x = x ^ 2 - 63 * x + k)
+#   (h₁ : f a = 0 ∧ f b = 0) (h₂ : a ≠ b) (h₃ : Nat.Prime a ∧ Nat.Prime b) : k = 122 := by
+
+import Nat
+
+# Natural-language idea:
+# If the two prime roots are a and b, Vieta gives a+b=63 and k=ab.
+# Since the sum is odd, one prime root must be 2, so the other is 61 and
+# k=122.
+claim:
+    prove:
+        forall k R, a, b N:
+            $Prime(a)
+            $Prime(b)
+            a != b
+            a^2 - 63 * a + k = 0
+            b^2 - 63 * b + k = 0
+            =>:
+                k = 122
+
+    (a^2 - 63 * a + k) - (b^2 - 63 * b + k) = 0 - 0 = 0
+    (a^2 - 63 * a + k) - (b^2 - 63 * b + k) = (a - b) * (a + b - 63)
+    (a - b) * (a + b - 63) = 0
+    a - b != 0
+    a + b - 63 = 0 / (a - b) = 0
+    a + b = 63
+    a^2 - 63 * a + k + (63 * a - a^2) = 0 + (63 * a - a^2)
+    a^2 - 63 * a + k + (63 * a - a^2) = k
+    0 + (63 * a - a^2) = 63 * a - a^2
+    k = 63 * a - a^2
+    (a + b) - a = 63 - a
+    (a + b) - a = b
+    b = 63 - a
+    k = 63 * a - a^2 = a * (63 - a) = a * b
+    by cases:
+        prove:
+            a = 2 or b = 2
+        case a % 2 = 0:
+            $Dvd(2, a)
+            2 = 1 or 2 = a
+            by cases:
+                prove:
+                    a = 2 or b = 2
+                case 2 = 1:
+                    impossible 2 = 1
+                case 2 = a:
+                    a = 2
+                    a = 2 or b = 2
+        case a % 2 = 1:
+            b % 2 = ((a + b) - a) % 2
+            ((a + b) - a) % 2 = ((a + b) % 2 - a % 2) % 2
+            (a + b) % 2 = 63 % 2 = 1
+            b % 2 = ((a + b) % 2 - a % 2) % 2 = (1 - 1) % 2 = 0
+            $Dvd(2, b)
+            2 = 1 or 2 = b
+            by cases:
+                prove:
+                    a = 2 or b = 2
+                case 2 = 1:
+                    impossible 2 = 1
+                case 2 = b:
+                    b = 2
+                    a = 2 or b = 2
+    by cases:
+        prove:
+            a * b = 122
+        case a = 2:
+            (a + b) - a = 63 - a
+            (a + b) - a = b
+            b = 63 - a
+            b = 61
+            a * b = 2 * 61 = 122
+        case b = 2:
+            (a + b) - b = 63 - b
+            (a + b) - b = a
+            a = 63 - b
+            a = 61
+            a * b = 61 * 2 = 122
+    k = a * b = 122

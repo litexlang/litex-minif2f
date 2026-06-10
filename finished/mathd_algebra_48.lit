@@ -1,0 +1,14 @@
+# name: mathd_algebra_48
+# informal_prefix:
+# /-- Simplify $(9-4i)-(-3-4i)$. Show that it is 12.-/
+# formal_statement:
+# theorem mathd_algebra_48 (q e : ℂ) (h₀ : q = 9 - 4 * Complex.I) (h₁ : e = -3 - 4 * Complex.I) :
+#   q - e = 12 := by
+
+import complex
+
+forall q, e &C:
+    q = (9, -4)
+    e = (-3, -4)
+    =>:
+        C_sub(q, e) = (&C{q}.re - &C{e}.re, &C{q}.im - &C{e}.im) = (9 - (-3), -4 - (-4)) = (12, 0)

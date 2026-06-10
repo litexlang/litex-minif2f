@@ -1,0 +1,59 @@
+# name: amc12_2000_p15
+# informal_prefix:
+# /-- Let $f$ be a [[function]] for which $f\left(\dfrac{x}{3}\right) = x^2 + x + 1$. Find the sum of all values of $z$ for which $f(3z) = 7$.
+# 
+# $\text {(A)}\ -1/3 \qquad \text {(B)}\ -1/9 \qquad \text {(C)}\ 0 \qquad \text {(D)}\ 5/9 \qquad \text {(E)}\ 5/3$ Show that it is \textbf{(B) }-\frac19.-/
+# formal_statement:
+# theorem amc12_2000_p15 (f : ℂ → ℂ) (h₀ : ∀ x, f (x / 3) = x ^ 2 + x + 1)
+#   (h₁ : Fintype (f ⁻¹' {7})) : (∑ y in (f ⁻¹' {7}).toFinset, y / 3) = -1 / 9 := by
+
+# Natural-language idea:
+# From f(x / 3) = x^2 + x + 1, substitute x = 9z to get
+# f(3z) = 81z^2 + 9z + 1.  The equation f(3z)=7 becomes
+# 27z^2 + 3z - 2 = 0, which factors as (9z-2)(3z+1)=0.
+# Thus the z-values are 2/9 and -1/3, and their sum is -1/9.
+
+claim:
+    prove:
+        forall z R, f fn(x R) R:
+            forall x R:
+                f(x / 3) = x^2 + x + 1
+            f(3 * z) = 7
+            =>:
+                z = 2 / 9 or z = -1 / 3
+    f(3 * z) = f((9 * z) / 3) = (9 * z)^2 + 9 * z + 1
+    (9 * z)^2 + 9 * z + 1 = 7
+    (9 * z)^2 + 9 * z + 1 - 7 = 0
+    (9 * z)^2 = 81 * z^2
+    (9 * z)^2 + 9 * z + 1 - 7 = 81 * z^2 + 9 * z - 6
+    81 * z^2 + 9 * z - 6 = 0
+    3 * (27 * z^2 + 3 * z - 2) = 81 * z^2 + 9 * z - 6 = 0
+    27 * z^2 + 3 * z - 2 = 0 / 3 = 0
+    (9 * z - 2) * (3 * z + 1) = 27 * z^2 + 3 * z - 2 = 0
+    by cases:
+        prove:
+            z = 2 / 9 or z = -1 / 3
+        case 9 * z - 2 = 0:
+            9 * z = 2
+            z = 2 / 9
+            z = 2 / 9 or z = -1 / 3
+        case 9 * z - 2 != 0:
+            3 * z + 1 = 0 / (9 * z - 2) = 0
+            3 * z = -1
+            z = -1 / 3
+            z = 2 / 9 or z = -1 / 3
+
+claim:
+    prove:
+        forall f fn(x R) R:
+            forall x R:
+                f(x / 3) = x^2 + x + 1
+            =>:
+                f(3 * (2 / 9)) = 7
+                f(3 * (-1 / 3)) = 7
+                2 / 9 > -1 / 3
+                2 / 9 + (-1 / 3) = -1 / 9
+    f(3 * (2 / 9)) = f((9 * (2 / 9)) / 3) = (9 * (2 / 9))^2 + 9 * (2 / 9) + 1 = 7
+    f(3 * (-1 / 3)) = f((9 * (-1 / 3)) / 3) = (9 * (-1 / 3))^2 + 9 * (-1 / 3) + 1 = 7
+    2 / 9 > -1 / 3
+    2 / 9 + (-1 / 3) = -1 / 9

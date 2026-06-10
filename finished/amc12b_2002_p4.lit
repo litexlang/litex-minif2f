@@ -1,0 +1,54 @@
+# name: amc12b_2002_p4
+# informal_prefix:
+# /-- Let $n$ be a positive [[integer]] such that $\frac 12 + \frac 13 + \frac 17 + \frac 1n$ is an integer. Which of the following statements is '''not ''' true:
+# 
+# $\mathrm{(A)}\ 2\ \text{divides\ }n
+# \qquad\mathrm{(B)}\ 3\ \text{divides\ }n
+# \qquad\mathrm{(C)}$ $\ 6\ \text{divides\ }n 
+# \qquad\mathrm{(D)}\ 7\ \text{divides\ }n
+# \qquad\mathrm{(E)}\ n > 84$ Show that it is \mathrm{(E)}\ n>84.-/
+# formal_statement:
+# theorem amc12b_2002_p4 (n : ℕ) (h₀ : 0 < n) (h₁ : (1 /. 2 + 1 /. 3 + 1 /. 7 + 1 /. ↑n).den = 1) : n = 42 := by
+
+import Rat
+
+claim:
+    prove:
+        forall n N:
+            0 < n
+            den(1 / 2 + 1 / 3 + 1 / 7 + 1 / n) = 1
+            =>:
+                n = 42
+    have q Q = 1 / 2 + 1 / 3 + 1 / 7 + 1 / n
+    q = 41 / 42 + 1 / n
+    den(q) = 1
+    by thm num_div_den(q)
+    q = num(q) / den(q) = num(q) / 1 = num(q)
+    num(q) $in Z
+    n != 0
+    1 / n > 0
+    41 / 42 < 41 / 42 + 1 / n = q
+    n >= 1
+    1 / n <= n / n
+    n / n = 1
+    1 / n <= 1
+    41 / 42 + 1 / n <= 41 / 42 + 1
+    41 / 42 + 1 = 83 / 42
+    q <= 83 / 42
+    q $in Z
+    41 / 42 < 1
+    83 / 42 < 2
+    q <= 83 / 42 < 2
+    0 < 41 / 42 < q
+    q > 0
+    q >= 1
+    q <= 1
+    q = 1
+    41 / 42 + 1 / n = q = 1
+    (41 / 42 + 1 / n) - 41 / 42 = 1 - 41 / 42
+    1 / n = (41 / 42 + 1 / n) - 41 / 42 = 1 - 41 / 42 = 1 / 42
+    n * (1 / n) = 1
+    n * (1 / 42) = n / 42
+    1 = n * (1 / n) = n * (1 / 42) = n / 42
+    42 = n
+    n = 42

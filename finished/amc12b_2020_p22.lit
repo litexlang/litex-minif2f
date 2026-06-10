@@ -1,0 +1,17 @@
+# name: amc12b_2020_p22
+# informal_prefix:
+# /-- What is the maximum value of $\frac{(2^t-3t)t}{4^t}$ for real values of $t?$
+# 
+# $\textbf{(A)}\ \frac{1}{16} \qquad\textbf{(B)}\ \frac{1}{15} \qquad\textbf{(C)}\ \frac{1}{12} \qquad\textbf{(D)}\ \frac{1}{10} \qquad\textbf{(E)}\ \frac{1}{9}$ Show that it is \textbf{(C)} \frac{1}{12}.-/
+# formal_statement:
+# theorem amc12b_2020_p22 (t : ℝ) : (2 ^ t - 3 * t) * t / 4 ^ t ≤ 1 / 12 := by
+
+claim:
+    prove:
+        forall y R:
+            y - 3 * y^2 <= 1 / 12
+    # With y = t / 2^t, the expression becomes y - 3y^2.
+    1 / 12 - (y - 3 * y^2) = 3 * (y - 1 / 6)^2
+    0 <= 3 * (y - 1 / 6)^2
+    1 / 12 - (y - 3 * y^2) >= 0
+    y - 3 * y^2 <= 1 / 12

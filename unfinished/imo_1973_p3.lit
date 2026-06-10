@@ -1,0 +1,25 @@
+# name: imo_1973_p3
+# informal_prefix:
+# /-- Let $a$ and $b$ be real numbers for which the equation
+# $x^4 + ax^3 + bx^2 + ax + 1 = 0$
+# has at least one real solution. For all such pairs $(a, b)$, find the minimum value of $a^2 + b^2$.-/
+# formal_statement:
+# theorem imo_1973_p3 (a b : ℝ) (h₀ : ∃ x, x ^ 4 + a * x ^ 3 + b * x ^ 2 + a * x + 1 = 0) :
+#   4 / 5 ≤ a ^ 2 + b ^ 2 := by
+
+claim:
+    prove:
+        forall a, b R:
+            exist x R st {x^4 + a * x^3 + b * x^2 + a * x + 1 = 0}
+            =>:
+                4 / 5 <= a^2 + b^2
+
+    # Natural-language idea: a real root x is nonzero. Divide by x^2 and set
+    # t = x + 1/x, so |t| >= 2 and b = 2 - t^2 - a*t. For fixed t, minimizing
+    # a^2+b^2 is the distance from the origin to that line, equal to
+    # (t^2-2)^2/(t^2+1), which is at least 4/5 for t^2 >= 4.
+    # proof_debt: this needs the reciprocal substitution, the
+    # |x+1/x| >= 2 lemma, and the one-variable quadratic optimization step.
+    know:
+        4 / 5 <= a^2 + b^2
+    4 / 5 <= a^2 + b^2

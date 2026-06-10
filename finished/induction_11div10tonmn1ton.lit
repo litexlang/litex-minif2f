@@ -1,0 +1,36 @@
+import Nat
+
+# name: induction_11div10tonmn1ton
+# informal_prefix:
+# /-- Show that for any natural number $n$, we have $11\mid 10^n-(-1)^n$.-/
+# formal_statement:
+# theorem induction_11div10tonmn1ton (n : ℕ) : 11 ∣ 10 ^ n - (-1 : ℤ) ^ n := by
+
+claim:
+    prove:
+        forall n Z:
+            n >= 0
+            =>:
+                $divides(11, 10^n - (-1)^n)
+
+    by induc n from 0:
+        prove:
+            $divides(11, 10^n - (-1)^n)
+
+        prove from n = 0:
+            witness exist t Z st {10^0 - (-1)^0 = 11 * t} from 0:
+                10^0 - (-1)^0 = 0 = 11 * 0
+            $divides(11, 10^0 - (-1)^0)
+
+        prove induc:
+            have by exist t Z st {10^n - (-1)^n = 11 * t}: t
+            10^(n + 1) = 10^n * 10^1
+            (-1)^(n + 1) = -((-1)^n)
+            10^(n + 1) - (-1)^(n + 1) = 10^n * 10^1 - (-((-1)^n))
+            10^n * 10^1 - (-((-1)^n)) = 10 * (10^n - (-1)^n) + 11 * (-1)^n
+            n $in N
+            (-1)^n $in Z
+            10 * t + (-1)^n $in Z
+            witness exist r Z st {10^(n + 1) - (-1)^(n + 1) = 11 * r} from 10 * t + (-1)^n:
+                10^(n + 1) - (-1)^(n + 1) = 10 * (10^n - (-1)^n) + 11 * (-1)^n = 10 * (11 * t) + 11 * (-1)^n = 11 * (10 * t + (-1)^n)
+            $divides(11, 10^(n + 1) - (-1)^(n + 1))

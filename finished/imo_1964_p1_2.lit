@@ -1,0 +1,64 @@
+# name: imo_1964_p1_2
+# informal_prefix:
+# /-- Show that for any natural number $n$, $7$ does not divide $2^n + 1$.
+# -/
+# formal_statement:
+# theorem imo_1964_p1_2 (n : ℕ) : ¬7 ∣ 2 ^ n + 1 := by
+
+import Nat
+
+claim:
+    prove:
+        forall k N:
+            2^(3 * k) % 7 = 1
+            2^(3 * k + 1) % 7 = 2
+            2^(3 * k + 2) % 7 = 4
+
+    by induc k from 0:
+        prove:
+            2^(3 * k) % 7 = 1
+            2^(3 * k + 1) % 7 = 2
+            2^(3 * k + 2) % 7 = 4
+
+        prove from k = 0:
+            2^(3 * 0) % 7 = 2^0 % 7 = 1
+            2^(3 * 0 + 1) % 7 = 2^1 % 7 = 2
+            2^(3 * 0 + 2) % 7 = 2^2 % 7 = 4
+
+        prove induc:
+            2^3 % 7 = 1
+            2^(3 * (k + 1)) = 2^(3 * k + 3) = 2^(3 * k) * 2^3
+            2^(3 * (k + 1)) % 7 = (2^(3 * k) * 2^3) % 7 = ((2^(3 * k) % 7) * (2^3 % 7)) % 7 = (1 * 1) % 7 = 1
+            2^(3 * (k + 1) + 1) = 2^(3 * k + 1 + 3) = 2^(3 * k + 1) * 2^3
+            2^(3 * (k + 1) + 1) % 7 = (2^(3 * k + 1) * 2^3) % 7 = ((2^(3 * k + 1) % 7) * (2^3 % 7)) % 7 = (2 * 1) % 7 = 2
+            2^(3 * (k + 1) + 2) = 2^(3 * k + 2 + 3) = 2^(3 * k + 2) * 2^3
+            2^(3 * (k + 1) + 2) % 7 = (2^(3 * k + 2) * 2^3) % 7 = ((2^(3 * k + 2) % 7) * (2^3 % 7)) % 7 = (4 * 1) % 7 = 4
+
+claim:
+    prove:
+        forall n N:
+            not $divides(7, 2^n + 1)
+    by contra:
+        prove:
+            not $divides(7, 2^n + 1)
+        $divides(7, 2^n + 1)
+        (2^n + 1) % 7 = 0
+        by cases:
+            prove:
+                (2^n + 1) % 7 != 0
+            case n % 3 = 0:
+                have by exist k N st {n = 3 * k}: k
+                2^n % 7 = 2^(3 * k) % 7 = 1
+                (2^n + 1) % 7 = ((2^n % 7) + (1 % 7)) % 7 = (1 + 1) % 7 = 2
+                impossible (2^n + 1) % 7 = 0
+            case n % 3 = 1:
+                have by exist k N st {n = 3 * k + 1}: k
+                2^n % 7 = 2^(3 * k + 1) % 7 = 2
+                (2^n + 1) % 7 = ((2^n % 7) + (1 % 7)) % 7 = (2 + 1) % 7 = 3
+                impossible (2^n + 1) % 7 = 0
+            case n % 3 = 2:
+                have by exist k N st {n = 3 * k + 2}: k
+                2^n % 7 = 2^(3 * k + 2) % 7 = 4
+                (2^n + 1) % 7 = ((2^n % 7) + (1 % 7)) % 7 = (4 + 1) % 7 = 5
+                impossible (2^n + 1) % 7 = 0
+        impossible (2^n + 1) % 7 = 0

@@ -1,0 +1,33 @@
+# name: imo_1977_p6
+# informal_prefix:
+# /-- Let $f(n)$ be a function $f: \mathbb{N}^{+}\to\mathbb{N}^{+}$. Prove that if $ f(n+1) > f(f(n)) $ for each positive integer $n$, then $f(n)=n$.-/
+# formal_statement:
+# theorem imo_1977_p6 (f : ℕ → ℕ) (h₀ : ∀ n, 0 < f n) (h₁ : ∀ n, 0 < n → f (f n) < f (n + 1)) :
+#     ∀ n, 0 < n → f n = n := by
+
+# Natural-language idea:
+# First prove f(n) >= n for every positive n by a least-counterexample
+# argument: if f(n) < n, then h at n - 1 contradicts the induction-minimal
+# identity below n.  If some least n has f(n) > n, then h forces f to be
+# strictly increasing on the tail beginning at n.  Comparing n + 1 and f(n)
+# then gives either f(n + 1) > f(f(n)) > f(n + 1), or the immediate special
+# case f(n) = n + 1 gives f(n + 1) > f(n + 1).
+claim:
+    prove:
+        forall f fn(n N_pos) N_pos, n N_pos:
+            forall k N_pos:
+                f(k + 1) > f(f(k))
+            =>:
+                f(n) = n
+
+    # proof_debt: this is the first well-ordering/minimal-counterexample
+    # step on positive naturals, using h(k - 1) below a least bad n.
+    know:
+        forall t N_pos:
+            f(t) >= t
+
+    # proof_debt: after f(t) >= t, the remaining step needs the
+    # tail-monotonicity/minimal-counterexample argument described above.
+    know:
+        f(n) = n
+    f(n) = n

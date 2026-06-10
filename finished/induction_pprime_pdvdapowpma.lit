@@ -1,0 +1,31 @@
+import Nat
+
+# name: induction_pprime_pdvdapowpma
+# informal_prefix:
+# /-- Let $p$ be a prime number and $a$ a positive integer. Show that $p$ divides $a^p - a$.-/
+# formal_statement:
+# theorem induction_pprime_pdvdapowpma (p a : ℕ) (h₀ : 0 < a) (h₁ : Nat.Prime p) : p ∣ a ^ p - a := by
+
+claim:
+    prove:
+        forall p N_pos, a N_pos:
+            $prime(p)
+            =>:
+                $divides(p, a^p - a)
+
+    by induc a from 1:
+        prove:
+            $divides(p, a^p - a)
+
+        prove from a = 1:
+            witness exist t Z st {1^p - 1 = p * t} from 0:
+                1^p - 1 = 0 = p * 0
+            $divides(p, 1^p - 1)
+
+        prove induc:
+            have by exist t Z st {a^p - a = p * t}: t
+            (a + 1)^p - (a + 1) = (a^p - a) + ((a + 1)^p - a^p - 1)
+            $divides(p, a^p - a)
+            $divides(p, (a + 1)^p - a^p - 1)
+            $divides(p, (a^p - a) + ((a + 1)^p - a^p - 1))
+            $divides(p, (a + 1)^p - (a + 1))

@@ -1,0 +1,54 @@
+# name: aime_1990_p4
+# informal_prefix:
+# /-- Find the positive solution to
+# <center>$\frac 1{x^2-10x-29}+\frac1{x^2-10x-45}-\frac 2{x^2-10x-69}=0$</center> Show that it is 013.-/
+# formal_statement:
+# theorem aime_1990_p4 (x : ℝ) (h₀ : 0 < x) (h₁ : x ^ 2 - 10 * x - 29 ≠ 0)
+#     (h₂ : x ^ 2 - 10 * x - 45 ≠ 0) (h₃ : x ^ 2 - 10 * x - 69 ≠ 0)
+#     (h₄ : 1 / (x ^ 2 - 10 * x - 29) + 1 / (x ^ 2 - 10 * x - 45) - 2 / (x ^ 2 - 10 * x - 69) = 0) :
+#     x = 13 := by
+
+# Natural-language idea:
+# Put u = x^2 - 10x - 45.  The denominators become u+16, u, and u-24.
+# Clearing denominators gives (u+8)(u-24)=u(u+16), hence u=-6.  Then
+# x^2 - 10x - 39 = 0, so (x-13)(x+3)=0; positivity rules out x=-3.
+
+claim:
+    prove:
+        forall x R:
+            0 < x
+            x^2 - 10 * x - 29 != 0
+            x^2 - 10 * x - 45 != 0
+            x^2 - 10 * x - 69 != 0
+            1 / (x^2 - 10 * x - 29) + 1 / (x^2 - 10 * x - 45) - 2 / (x^2 - 10 * x - 69) = 0
+            =>:
+                x = 13
+    have u R = x^2 - 10 * x - 45
+    u + 16 = (x^2 - 10 * x - 45) + 16 = x^2 - 10 * x - 29
+    u = x^2 - 10 * x - 45
+    u - 24 = (x^2 - 10 * x - 45) - 24 = x^2 - 10 * x - 69
+    u + 16 != 0
+    u != 0
+    u - 24 != 0
+    1 / (u + 16) + 1 / u - 2 / (u - 24) = 1 / (x^2 - 10 * x - 29) + 1 / (x^2 - 10 * x - 45) - 2 / (x^2 - 10 * x - 69) = 0
+    (1 / (u + 16) + 1 / u - 2 / (u - 24)) * (u + 16) * u * (u - 24) = 0
+    (1 / (u + 16) + 1 / u - 2 / (u - 24)) * (u + 16) * u * (u - 24) = u * (u - 24) + (u + 16) * (u - 24) - 2 * (u + 16) * u
+    u * (u - 24) + (u + 16) * (u - 24) - 2 * (u + 16) * u = 0
+    u * (u - 24) + (u + 16) * (u - 24) - 2 * (u + 16) * u = -64 * u - 384
+    -64 * u - 384 = 0
+    -64 * u = 384
+    u = 384 / (-64)
+    384 / (-64) = -6
+    u = -6
+    x^2 - 10 * x - 45 = -6
+    x^2 - 10 * x - 39 = 0
+    (x - 13) * (x + 3) = x^2 - 10 * x - 39 = 0
+    x - 13 = 0 or x + 3 = 0
+    by cases:
+        prove:
+            x = 13
+        case x - 13 = 0:
+            x = 13
+        case x + 3 = 0:
+            x = -3
+            impossible 0 < x

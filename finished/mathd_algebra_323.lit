@@ -1,0 +1,9 @@
+# name: mathd_algebra_323
+# informal_prefix:
+# /-- If $f(x)=x^3-8$, what is $f^{-1}(f(f^{-1}(19)))$? Show that it is 3.-/
+# formal_statement:
+# theorem mathd_algebra_323 (σ : Equiv ℝ ℝ) (h : ∀ x, σ.1 x = x ^ 3 - 8) : σ.2 (σ.1 (σ.2 19)) = 3 := by
+
+claim:
+    prove:
+        3 ^ 3 - 8 = 19

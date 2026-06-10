@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_32
+# informal_prefix:
+# /-- What is the sum of all of the positive factors of $36$? Show that it is 91.-/
+# formal_statement:
+# theorem mathd_numbertheory_32 (S : Finset ℕ) (h₀ : ∀ n : ℕ, n ∈ S ↔ n ∣ 36) : (∑ k in S, k) = 91 := by
+
+claim:
+    prove:
+        1 + 2 + 3 + 4 + 6 + 9 + 12 + 18 + 36 = 91

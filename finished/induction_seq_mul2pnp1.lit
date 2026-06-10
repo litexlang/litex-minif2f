@@ -1,0 +1,35 @@
+# name: induction_seq_mul2pnp1
+# informal_prefix:
+# /-- Let $u_n$ a sequence defined by $u_0 = 0$ and $\forall n \geq 0, u_{n+1} = 2 u_n + (n + 1)$. Show that $\forall n \geq 0, u(n) = 2^{n+1} - (n+2)$.-/
+# formal_statement:
+# theorem induction_seq_mul2pnp1 (n : ℕ) (u : ℕ → ℕ) (h₀ : u 0 = 0)
+#   (h₁ : ∀ n, u (n + 1) = 2 * u n + (n + 1)) : u n = 2 ^ (n + 1) - (n + 2) := by
+
+claim:
+    prove:
+        forall u fn(n N) N, n N:
+            u(0) = 0
+            forall m N:
+                u(m + 1) = 2 * u(m) + (m + 1)
+            =>:
+                u(n) = 2^(n + 1) - (n + 2)
+
+    by induc n from 0:
+        prove:
+            u(n) = 2^(n + 1) - (n + 2)
+
+        prove from n = 0:
+            u(0) = 0
+            2^(0 + 1) - (0 + 2) = 2^1 - 2 = 0
+            u(0) = 2^(0 + 1) - (0 + 2)
+
+        prove induc:
+            u(n + 1) = 2 * u(n) + (n + 1)
+            u(n) = 2^(n + 1) - (n + 2)
+            2^(n + 1) >= n + 2
+            2 * (2^(n + 1) - (n + 2)) + (n + 1) = 2 * 2^(n + 1) - 2 * (n + 2) + (n + 1)
+            2^(n + 2) = 2^(n + 1 + 1) = 2^(n + 1) * 2^1 = 2^(n + 1) * 2 = 2 * 2^(n + 1)
+            2 * (n + 2) - (n + 1) = n + 3
+            2 * 2^(n + 1) - 2 * (n + 2) + (n + 1) = 2^(n + 2) - 2 * (n + 2) + (n + 1)
+            2^(n + 2) - 2 * (n + 2) + (n + 1) = 2^(n + 2) - (2 * (n + 2) - (n + 1)) = 2^(n + 2) - (n + 3)
+            u(n + 1) = 2 * u(n) + (n + 1) = 2 * (2^(n + 1) - (n + 2)) + (n + 1) = 2 * 2^(n + 1) - 2 * (n + 2) + (n + 1) = 2^(n + 2) - (n + 3) = 2^((n + 1) + 1) - ((n + 1) + 2)

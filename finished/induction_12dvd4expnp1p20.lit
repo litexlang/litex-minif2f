@@ -1,0 +1,29 @@
+import Nat
+
+# name: induction_12dvd4expnp1p20
+# informal_prefix:
+# /-- Show that for any natural number $n$, 12 divides $4^{n+1} + 20$.-/
+# formal_statement:
+# theorem induction_12dvd4expnp1p20 (n : ℕ) : 12 ∣ 4 ^ (n + 1) + 20 := by
+
+claim:
+    prove:
+        forall n Z:
+            n >= 0
+            =>:
+                $divides(12, 4^(n + 1) + 20)
+
+    by induc n from 0:
+        prove:
+            $divides(12, 4^(n + 1) + 20)
+
+        prove from n = 0:
+            witness exist t Z st {4^(0 + 1) + 20 = 12 * t} from 2:
+                4^(0 + 1) + 20 = 24 = 12 * 2
+            $divides(12, 4^(0 + 1) + 20)
+
+        prove induc:
+            have by exist t Z st {4^(n + 1) + 20 = 12 * t}: t
+            witness exist r Z st {4^((n + 1) + 1) + 20 = 12 * r} from 4 * t - 5:
+                4^((n + 1) + 1) + 20 = 4 * 4^(n + 1) + 20 = 4 * (4^(n + 1) + 20) - 60 = 4 * (12 * t) - 60 = 12 * (4 * t - 5)
+            $divides(12, 4^((n + 1) + 1) + 20)

@@ -1,0 +1,20 @@
+# name: mathd_algebra_139
+# informal_prefix:
+# /-- If $a \star b = \dfrac{\left(\dfrac{1}{b} - \dfrac{1}{a}\right)}{(a - b)}$, express $3 \star 11$ as a common fraction. Show that it is \frac{1}{33}.-/
+# formal_statement:
+# theorem mathd_algebra_139 (s : ℝ → ℝ → ℝ)
+#     (h₀ : ∀ (x) (_ : x ≠ 0), ∀ (y) (_ : y ≠ 0), s x y = (1 / y - 1 / x) / (x - y)) :
+#     s 3 11 = 1 / 33 := by
+
+forall s fn(x, y R) R:
+    forall x, y R:
+        x != 0
+        y != 0
+        x != y
+        =>:
+            s(x, y) = (1 / y - 1 / x) / (x - y)
+    =>:
+        3 != 0
+        11 != 0
+        3 != 11
+        s(3, 11) = (1 / 11 - 1 / 3) / (3 - 11) = (-8 / 33) / (-8) = 1 / 33

@@ -1,0 +1,24 @@
+# name: imosl_2007_algebra_p6
+# informal_prefix:
+# /-- For a series $\{a_n\}$, we have $\sum_{n=0}^{99} a_{n+1}^2 = 1$. Show that $\sum_{n=0}^{98} (a_{n+1}^2 a_{n+2}) + a_{100}^2 * a_1 < \frac{12}{25}$.-/
+# formal_statement:
+# theorem imosl_2007_algebra_p6 (a : ℕ → NNReal) (h₀ : (∑ x in Finset.range 100, a (x + 1) ^ 2) = 1) :
+#     (∑ x in Finset.range 99, a (x + 1) ^ 2 * a (x + 2)) + a 100 ^ 2 * a 1 < 12 / 25 := by
+
+# Natural-language idea:
+# Treat the expression as a cyclic weighted sum
+# sum a_i^2 a_{i+1} under sum a_i^2 = 1.  The intended proof is a finite
+# inequality/maximization argument for a nonnegative 100-cycle, with the last
+# term a_100^2 a_1 closing the cycle.
+claim:
+    prove:
+        forall a fn(k N) R_pos:
+            sum(0, 99, '(k N) R {a(k + 1)^2}) = 1
+            =>:
+                sum(0, 98, '(k N) R {a(k + 1)^2 * a(k + 2)}) + a(100)^2 * a(1) < 12 / 25
+
+    # proof_debt: this needs a finite cyclic inequality/maximization
+    # theorem for nonnegative sequences under a quadratic normalization.
+    know:
+        sum(0, 98, '(k N) R {a(k + 1)^2 * a(k + 2)}) + a(100)^2 * a(1) < 12 / 25
+    sum(0, 98, '(k N) R {a(k + 1)^2 * a(k + 2)}) + a(100)^2 * a(1) < 12 / 25

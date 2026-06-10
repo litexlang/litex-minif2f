@@ -1,0 +1,22 @@
+# name: imo_1987_p4
+# informal_prefix:
+# /-- Prove that there is no function $f $ from the set of non-negative  integers into itself such that $f(f(n)) = n + 1987 $ for every $n $.-/
+# formal_statement:
+# theorem imo_1987_p4 (f : ℕ → ℕ) : ∃ n, f (f n) ≠ n + 1987 := by
+
+# Natural-language idea:
+# If f(f(n))=n+1987 for every n, then f commutes with the shift by 1987.
+# Modulo 1987 this induces an involution on an odd finite set, so one residue
+# class is fixed.  On that class the induced map on a copy of N would have
+# square equal to the successor map, impossible by looking at the least
+# element in the orbit.
+claim:
+    prove:
+        forall f fn(n N) N:
+            exist n N st {f(f(n)) != n + 1987}
+
+    # proof_debt: this needs the finite-residue involution fixed-point
+    # argument and the no-square-root-of-successor lemma on N.
+    know:
+        exist n N st {f(f(n)) != n + 1987}
+    exist n N st {f(f(n)) != n + 1987}

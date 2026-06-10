@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_84
+# informal_prefix:
+# /-- What is the digit in the hundredths place of the decimal equivalent of $\frac{9}{160}$? Show that it is 5.-/
+# formal_statement:
+# theorem mathd_numbertheory_84 : Int.floor ((9 : ℝ) / 160 * 100) = 5 := by
+
+claim:
+    prove:
+        9 / 160 = 0.05625

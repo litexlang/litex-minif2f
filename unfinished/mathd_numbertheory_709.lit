@@ -1,0 +1,23 @@
+# name: mathd_numbertheory_709
+# informal_prefix:
+# /-- If $n$ is a positive integer such that $2n$ has 28 positive divisors and $3n$ has 30 positive divisors, then how many positive divisors does $6n$ have? Show that it is 35.-/
+# formal_statement:
+# theorem mathd_numbertheory_709 (n : ℕ) (h₀ : 0 < n) (h₁ : Finset.card (Nat.divisors (2 * n)) = 28)
+#   (h₂ : Finset.card (Nat.divisors (3 * n)) = 30) : Finset.card (Nat.divisors (6 * n)) = 35 := by
+
+import Nat
+import Finset
+
+claim:
+    prove:
+        forall n N_pos:
+            Finset::card(Nat::divisors(2 * n)) = 28
+            Finset::card(Nat::divisors(3 * n)) = 30
+            =>:
+                Finset::card(Nat::divisors(6 * n)) = 35
+    # proof_debt: the missing step is the divisor-count factorization
+    # theorem relating tau(2n), tau(3n), and tau(6n) through the 2- and
+    # 3-adic exponents of n.
+    know:
+        Finset::card(Nat::divisors(6 * n)) = 35
+    Finset::card(Nat::divisors(6 * n)) = 35

@@ -1,0 +1,26 @@
+# name: numbertheory_nckeqnm1ckpnm1ckm1
+# informal_prefix:
+# /-- Show that for positive integers $n$ and $k$ with $k \leq n$, we have 
+# $\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$.-/
+# formal_statement:
+# theorem numbertheory_nckeqnm1ckpnm1ckm1 (n k : ℕ) (h₀ : 0 < n ∧ 0 < k) (h₁ : k ≤ n) :
+#   Nat.choose n k = Nat.choose (n - 1) k + Nat.choose (n - 1) (k - 1) := by
+
+import Nat
+
+# Natural-language idea: apply Pascal's rule to `n - 1` and `k - 1`, then
+# rewrite `(n - 1) + 1 = n` and `(k - 1) + 1 = k`.
+claim:
+    prove:
+        forall n, k N_pos:
+            k <= n
+            =>:
+                choose(n, k) = choose(n - 1, k) + choose(n - 1, k - 1)
+
+    k - 1 <= n - 1
+    choose((n - 1) + 1, (k - 1) + 1) = choose(n - 1, k - 1) + choose(n - 1, (k - 1) + 1)
+    (n - 1) + 1 = n
+    (k - 1) + 1 = k
+    choose(n, k) = choose(n - 1, k - 1) + choose(n - 1, k)
+    choose(n - 1, k - 1) + choose(n - 1, k) = choose(n - 1, k) + choose(n - 1, k - 1)
+    choose(n, k) = choose(n - 1, k) + choose(n - 1, k - 1)

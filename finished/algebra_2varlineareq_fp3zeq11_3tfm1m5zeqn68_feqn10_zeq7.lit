@@ -1,0 +1,16 @@
+# name: algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7
+# informal_prefix:
+# /-- Given that $f + 3z = 11$ and $3(f - 1) - 5z = -68$, show that $f = -10$ and $z = 7$.-/
+# formal_statement:
+# theorem algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7 (f z : ℂ) (h₀ : f + 3 * z = 11)
+#     (h₁ : 3 * (f - 1) - 5 * z = -68) : f = -10 ∧ z = 7 := by
+
+forall f, z R:
+    f + 3 * z = 11
+    3 * (f - 1) - 5 * z = -68
+    =>:
+        3 * (f + 3 * z) - (3 * (f - 1) - 5 * z) = 3 * 11 - (-68)
+        14 * z + 3 = 3 * (f + 3 * z) - (3 * (f - 1) - 5 * z) = 3 * 11 - (-68) = 101
+        14 * z = 98
+        z = (14 * z) / 14 = 98 / 14 = 7
+        f = (f + 3 * z) - 3 * z = 11 - 21 = -10

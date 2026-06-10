@@ -1,0 +1,30 @@
+# name: imo_1974_p5
+# informal_prefix:
+# /-- Determine all possible values of $S = \frac{a}{a+b+d}+\frac{b}{a+b+c}+\frac{c}{b+c+d}+\frac{d}{a+c+d}$ where $a, b, c, d,$ are arbitrary positive numbers.-/
+# formal_statement:
+# theorem imo_1974_p5 (a b c d s : ℝ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d)
+#   (h₁ : s = a / (a + b + d) + b / (a + b + c) + c / (b + c + d) + d / (a + c + d)) :
+#   1 < s ∧ s < 2 := by
+
+claim:
+    prove:
+        forall a, b, c, d, s R:
+            0 < a
+            0 < b
+            0 < c
+            0 < d
+            s = a / (a + b + d) + b / (a + b + c) + c / (b + c + d) + d / (a + c + d)
+            =>:
+                1 < s and s < 2
+
+    # Natural-language idea: this is the four-variable Shapiro inequality.
+    # Positivity gives the lower bound by comparing denominators with the full
+    # sum a+b+c+d. The upper bound follows from the standard cyclic rational
+    # inequality after rewriting each denominator as the total sum minus one
+    # variable and pairing the complementary terms.
+    # proof_debt: the verifier lacks the reusable cyclic rational
+    # inequality/Shapiro lemma and the denominator-positivity automation needed
+    # for this proof.
+    know:
+        1 < s and s < 2
+    1 < s and s < 2

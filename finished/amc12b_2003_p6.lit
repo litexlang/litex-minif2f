@@ -1,0 +1,46 @@
+# name: amc12b_2003_p6
+# informal_prefix:
+# /-- The second and fourth terms of a geometric sequence are $2$ and $6$. Which of the following is a possible first term?
+# 
+# $\textbf{(A) } -\sqrt{3}  \qquad\textbf{(B) } -\frac{2\sqrt{3}}{3} \qquad\textbf{(C) } -\frac{\sqrt{3}}{3} \qquad\textbf{(D) } \sqrt{3} \qquad\textbf{(E) } 3$ Show that it is \textbf{(B)}\ -\frac{2\sqrt{3}}{3}.-/
+# formal_statement:
+# theorem amc12b_2003_p6 (a r : ℝ) (u : ℕ → ℝ) (h₀ : ∀ k, u k = a * r ^ k) (h₁ : u 1 = 2)
+#   (h₂ : u 3 = 6) : u 0 = 2 / Real.sqrt 3 ∨ u 0 = -(2 / Real.sqrt 3) := by
+
+import Real
+
+claim:
+    prove:
+        forall a, r R, u fn(k N) R:
+            u(0) = a
+            u(1) = a * r
+            u(3) = a * r^3
+            u(1) = 2
+            u(3) = 6
+            =>:
+                u(0) = 2 / sqrt(3) or u(0) = -1 * (2 / sqrt(3))
+    u(0) = a
+    u(1) = a * r = 2
+    u(3) = a * r^3 = 6
+    sqrt(3)^2 = 3
+    a * r = 2
+    a * r != 0
+    a * r^3 = 6
+    (a * r^3) / (a * r) = 6 / 2
+    (a * r^3) / (a * r) = r^2
+    6 / 2 = 3
+    r^2 = 3
+    r^2 - sqrt(3)^2 = 3 - 3 = 0
+    (r - sqrt(3)) * (r + sqrt(3)) = r^2 - sqrt(3)^2 = 0
+    r - sqrt(3) = 0 or r + sqrt(3) = 0
+    by cases:
+        prove:
+            u(0) = 2 / sqrt(3) or u(0) = -1 * (2 / sqrt(3))
+        case r - sqrt(3) = 0:
+            r = sqrt(3)
+            a = 2 / r = 2 / sqrt(3)
+            u(0) = a = 2 / sqrt(3)
+        case r + sqrt(3) = 0:
+            r = (r + sqrt(3)) - sqrt(3) = 0 - sqrt(3) = -1 * sqrt(3)
+            a = 2 / r = 2 / (-1 * sqrt(3)) = -1 * (2 / sqrt(3))
+            u(0) = a = -1 * (2 / sqrt(3))

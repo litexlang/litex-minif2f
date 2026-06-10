@@ -1,0 +1,6 @@
+claim:
+    prove:
+        forall x R:
+            x / 50 = 40
+            =>:
+                x = 2000

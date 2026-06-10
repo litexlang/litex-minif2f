@@ -1,0 +1,114 @@
+# name: aime_1996_p5
+# informal_prefix:
+# /-- Suppose that the [[root]]s of $x^3+3x^2+4x-11=0$ are $a$, $b$, and $c$, and that the roots of $x^3+rx^2+sx+t=0$ are $a+b$, $b+c$, and $c+a$. Find $t$. Show that it is 23.-/
+# formal_statement:
+# theorem aime_1996_p5 (a b c r s t : ℝ) (f g : ℝ → ℝ)
+#   (h₀ : ∀ x, f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 11) (h₁ : ∀ x, g x = x ^ 3 + r * x ^ 2 + s * x + t)
+#   (h₂ : f a = 0) (h₃ : f b = 0) (h₄ : f c = 0) (h₅ : g (a + b) = 0) (h₆ : g (b + c) = 0)
+#   (h₇ : g (c + a) = 0) (h₈ : List.Pairwise (· ≠ ·) [a, b, c]) : t = 23 := by
+
+claim:
+    prove:
+        forall a, b, c, r, s, t R, f, g fn(x R) R:
+            forall x R:
+                f(x) = x^3 + 3 * x^2 + 4 * x - 11
+            forall x R:
+                g(x) = x^3 + r * x^2 + s * x + t
+            f(a) = 0
+            f(b) = 0
+            f(c) = 0
+            g(a + b) = 0
+            g(b + c) = 0
+            g(c + a) = 0
+            a != b
+            b != c
+            c != a
+            =>:
+                t = 23
+    a - b != 0
+    b - c != 0
+    c - a != 0
+    a - c != 0
+    f(a) = a^3 + 3 * a^2 + 4 * a - 11
+    f(b) = b^3 + 3 * b^2 + 4 * b - 11
+    f(c) = c^3 + 3 * c^2 + 4 * c - 11
+    a^3 + 3 * a^2 + 4 * a - 11 = f(a) = 0
+    b^3 + 3 * b^2 + 4 * b - 11 = f(b) = 0
+    c^3 + 3 * c^2 + 4 * c - 11 = f(c) = 0
+    (a^3 + 3 * a^2 + 4 * a - 11) - (b^3 + 3 * b^2 + 4 * b - 11) = 0
+    (b^3 + 3 * b^2 + 4 * b - 11) - (c^3 + 3 * c^2 + 4 * c - 11) = 0
+    (a^3 + 3 * a^2 + 4 * a - 11) - (b^3 + 3 * b^2 + 4 * b - 11) = (a - b) * (a^2 + a * b + b^2 + 3 * a + 3 * b + 4)
+    (b^3 + 3 * b^2 + 4 * b - 11) - (c^3 + 3 * c^2 + 4 * c - 11) = (b - c) * (b^2 + b * c + c^2 + 3 * b + 3 * c + 4)
+    (a - b) * (a^2 + a * b + b^2 + 3 * a + 3 * b + 4) = 0
+    (b - c) * (b^2 + b * c + c^2 + 3 * b + 3 * c + 4) = 0
+    a^2 + a * b + b^2 + 3 * a + 3 * b + 4 = 0 / (a - b) = 0
+    b^2 + b * c + c^2 + 3 * b + 3 * c + 4 = 0 / (b - c) = 0
+    (a^2 + a * b + b^2 + 3 * a + 3 * b + 4) - (b^2 + b * c + c^2 + 3 * b + 3 * c + 4) = (a - c) * (a + b + c + 3)
+    (a - c) * (a + b + c + 3) = 0
+    a + b + c + 3 = 0 / (a - c) = 0
+    a + b + c = -3
+    c = a + b + c - a - b = -3 - a - b
+    a * b + b * c + c * a = a * b + c * (a + b)
+    a * b + c * (a + b) = a * b + (-3 - a - b) * (a + b)
+    a * b + (-3 - a - b) * (a + b) = -(a^2 + a * b + b^2 + 3 * a + 3 * b)
+    a^2 + a * b + b^2 + 3 * a + 3 * b = -4
+    -(a^2 + a * b + b^2 + 3 * a + 3 * b) = 4
+    a * b + b * c + c * a = 4
+    a * b * c = a * b * (-3 - a - b)
+    a * b * (-3 - a - b) = -(a^2 * b) - a * b^2 - 3 * a * b
+    a * (a^2 + a * b + b^2 + 3 * a + 3 * b + 4) = 0
+    a^3 + a^2 * b + a * b^2 + 3 * a^2 + 3 * a * b + 4 * a = 0
+    a^2 * b + a * b^2 + 3 * a * b = (a^3 + a^2 * b + a * b^2 + 3 * a^2 + 3 * a * b + 4 * a) - (a^3 + 3 * a^2 + 4 * a)
+    (a^3 + a^2 * b + a * b^2 + 3 * a^2 + 3 * a * b + 4 * a) - (a^3 + 3 * a^2 + 4 * a) = 0 - (a^3 + 3 * a^2 + 4 * a)
+    0 - (a^3 + 3 * a^2 + 4 * a) = -(a^3 + 3 * a^2 + 4 * a)
+    a^2 * b + a * b^2 + 3 * a * b = -(a^3 + 3 * a^2 + 4 * a)
+    -(a^2 * b + a * b^2 + 3 * a * b) = a^3 + 3 * a^2 + 4 * a
+    -(a^2 * b) - a * b^2 - 3 * a * b = -(a^2 * b + a * b^2 + 3 * a * b)
+    -(a^2 * b) - a * b^2 - 3 * a * b = a^3 + 3 * a^2 + 4 * a
+    a^3 + 3 * a^2 + 4 * a = 11
+    a * b * c = 11
+    have u R = a + b
+    have v R = b + c
+    have w R = c + a
+    u != v
+    v != w
+    w != u
+    g(u) = u^3 + r * u^2 + s * u + t
+    g(v) = v^3 + r * v^2 + s * v + t
+    g(w) = w^3 + r * w^2 + s * w + t
+    u^3 + r * u^2 + s * u + t = g(u) = 0
+    v^3 + r * v^2 + s * v + t = g(v) = 0
+    w^3 + r * w^2 + s * w + t = g(w) = 0
+    u - v != 0
+    v - w != 0
+    u - w != 0
+    (u^3 + r * u^2 + s * u + t) - (v^3 + r * v^2 + s * v + t) = (u - v) * (u^2 + u * v + v^2 + r * u + r * v + s)
+    (v^3 + r * v^2 + s * v + t) - (w^3 + r * w^2 + s * w + t) = (v - w) * (v^2 + v * w + w^2 + r * v + r * w + s)
+    (u - v) * (u^2 + u * v + v^2 + r * u + r * v + s) = 0
+    (v - w) * (v^2 + v * w + w^2 + r * v + r * w + s) = 0
+    u^2 + u * v + v^2 + r * u + r * v + s = 0 / (u - v) = 0
+    v^2 + v * w + w^2 + r * v + r * w + s = 0 / (v - w) = 0
+    (u^2 + u * v + v^2 + r * u + r * v + s) - (v^2 + v * w + w^2 + r * v + r * w + s) = (u - w) * (u + v + w + r)
+    (u - w) * (u + v + w + r) = 0
+    u + v + w + r = 0 / (u - w) = 0
+    r = u + v + w + r - u - v - w = 0 - u - v - w = -(u + v + w)
+    u * v + v * w + w * u = u * v + w * (u + v)
+    w = u + v + w + r - u - v - r = 0 - u - v - r = -(u + v + r)
+    u * v + w * (u + v) = u * v + (-(u + v + r)) * (u + v)
+    u * v + (-(u + v + r)) * (u + v) = -(u^2 + u * v + v^2 + r * u + r * v)
+    u^2 + u * v + v^2 + r * u + r * v = (u^2 + u * v + v^2 + r * u + r * v + s) - s = 0 - s = -s
+    -(u^2 + u * v + v^2 + r * u + r * v) = -(-s) = s
+    u * v + v * w + w * u = s
+    (u^3 + r * u^2 + s * u + t) - (u^3 + r * u^2 + s * u) = 0 - (u^3 + r * u^2 + s * u)
+    t = 0 - (u^3 + r * u^2 + s * u)
+    0 - (u^3 + r * u^2 + s * u) = -(u^3 + r * u^2 + s * u)
+    t = -(u^3 + r * u^2 + s * u)
+    -(u^3 + r * u^2 + s * u) = -u^3 - r * u^2 - s * u
+    -u^3 - r * u^2 - s * u = -u^3 - (-(u + v + w)) * u^2 - (u * v + v * w + w * u) * u
+    -u^3 - (-(u + v + w)) * u^2 - (u * v + v * w + w * u) * u = -u * v * w
+    t = -u * v * w
+    u * v * w = (a + b) * (b + c) * (c + a)
+    (a + b) * (b + c) * (c + a) = (a + b + c) * (a * b + b * c + c * a) - a * b * c
+    u * v * w = (a + b + c) * (a * b + b * c + c * a) - a * b * c = (-3) * 4 - 11 = -23
+    -(u * v * w) = -(-23) = 23
+    t = -u * v * w = -(u * v * w) = 23

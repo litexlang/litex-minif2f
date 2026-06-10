@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_33
+# informal_prefix:
+# /-- Find an integer $n$ such that $0\leq n<398$ and $n$ is a multiplicative inverse to 7 modulo 398. Show that it is 57.-/
+# formal_statement:
+# theorem mathd_numbertheory_33 (n : ℕ) (h₀ : n < 398) (h₁ : n * 7 % 398 = 1) : n = 57 := by
+
+claim:
+    prove:
+        57 * 7 % 398 = 1

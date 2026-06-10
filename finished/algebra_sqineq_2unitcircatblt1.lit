@@ -1,0 +1,13 @@
+# name: algebra_sqineq_2unitcircatblt1
+# informal_prefix:
+# /-- Show that for any real numbers $a$ and $b$ such that $a^2 + b^2 = 2$, $ab \leq 1$.-/
+# formal_statement:
+# theorem algebra_sqineq_2unitcircatblt1 (a b : ℝ) (h₀ : a ^ 2 + b ^ 2 = 2) : a * b ≤ 1 := by
+
+forall a, b R:
+    a ^ 2 + b ^ 2 = 2
+    =>:
+        (a - b)^2 >= 0
+        (a^2 + b^2) - 2 * a * b = (a - b)^2 >= 0
+        2 * a * b <= a^2 + b^2 = 2
+        a * b = (2 * a * b) / 2 <= 2 / 2 = 1

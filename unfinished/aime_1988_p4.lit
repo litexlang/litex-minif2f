@@ -1,0 +1,36 @@
+# name: aime_1988_p4
+# informal_prefix:
+# /-- Suppose that $|x_i| < 1$ for $i = 1, 2, \dots, n$.  Suppose further that
+# $
+# |x_1| + |x_2| + \dots + |x_n| = 19 + |x_1 + x_2 + \dots + x_n|.
+# $
+# What is the smallest possible value of $n$? Show that it is 020.-/
+# formal_statement:
+# theorem aime_1988_p4 (n : ℕ) (a : ℕ → ℝ) (h₀ : ∀ n, abs (a n) < 1)
+#   (h₁ : (∑ k in Finset.range n, abs (a k)) = 19 + abs (∑ k in Finset.range n, a k)) : 20 ≤ n := by
+
+# Natural-language idea:
+# The equality says sum |x_i| is 19 plus a nonnegative term, so
+# sum |x_i| >= 19.  Since every |x_i| < 1, the finite sum of n such terms is
+# strictly less than n.  Therefore 19 < n, and because n is an integer,
+# 20 <= n.
+
+claim:
+    prove:
+        forall n N, a fn(k N) R:
+            forall k N:
+                abs(a(k)) < 1
+            sum(0, n - 1, '(k N) R {abs(a(k))}) = 19 + abs(sum(0, n - 1, '(k N) R {a(k)}))
+            =>:
+                20 <= n
+
+    0 <= abs(sum(0, n - 1, '(k N) R {a(k)}))
+    19 <= 19 + abs(sum(0, n - 1, '(k N) R {a(k)}))
+    19 <= sum(0, n - 1, '(k N) R {abs(a(k))})
+    # proof_debt: this is the finite-sum bound
+    # `sum_{k<n} abs(a_k) < n` from the pointwise facts `abs(a_k) < 1`.
+    know:
+        sum(0, n - 1, '(k N) R {abs(a(k))}) < n
+    19 <= sum(0, n - 1, '(k N) R {abs(a(k))}) < n
+    19 < n
+    20 <= n

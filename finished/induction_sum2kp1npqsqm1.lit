@@ -1,0 +1,24 @@
+# name: induction_sum2kp1npqsqm1
+# informal_prefix:
+# /-- Show that for positive integer n, $\sum_{k=0}^{n-1} (2k + 3) = (n + 1)^2 - 1$.-/
+# formal_statement:
+# theorem induction_sum2kp1npqsqm1 (n : ℕ) :
+#   ∑ k in Finset.range n, (2 * k + 3) = (n + 1) ^ 2 - 1 := by
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(0, n - 1, 'R(k){2 * k + 3}) = (n + 1)^2 - 1
+
+    by induc n from 1:
+        prove:
+            sum(0, n - 1, 'R(k){2 * k + 3}) = (n + 1)^2 - 1
+
+        prove from n = 1:
+            sum(0, 0, 'R(k){2 * k + 3}) = 3
+            sum(0, 1 - 1, 'R(k){2 * k + 3}) = sum(0, 0, 'R(k){2 * k + 3}) = 3 = (1 + 1)^2 - 1
+
+        prove induc:
+            sum(0, n, 'R(k){2 * k + 3}) = sum(0, n - 1, 'R(k){2 * k + 3}) + 'R(k){2 * k + 3}(n)
+            'R(k){2 * k + 3}(n) = 2 * n + 3
+            sum(0, n + 1 - 1, 'R(k){2 * k + 3}) = sum(0, n, 'R(k){2 * k + 3}) = sum(0, n - 1, 'R(k){2 * k + 3}) + (2 * n + 3) = ((n + 1)^2 - 1) + (2 * n + 3) = ((n + 1) + 1)^2 - 1

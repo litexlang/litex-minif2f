@@ -1,0 +1,37 @@
+# name: imo_1984_p6
+# informal_prefix:
+# /-- Let $a,b,c,d$ be odd integers such that $0<a<b<c<d$ and $ad=bc$. Prove that if $a+d=2^k$ and $b+c=2^m$ for some integers $k$ and $m$, then $a=1$.-/
+# formal_statement:
+# theorem imo_1984_p6 (a b c d k m : ℕ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d)
+#     (h₁ : Odd a ∧ Odd b ∧ Odd c ∧ Odd d) (h₂ : a < b ∧ b < c ∧ c < d) (h₃ : a * d = b * c)
+#     (h₄ : a + d = 2 ^ k) (h₅ : b + c = 2 ^ m) : a = 1 := by
+
+import Nat
+
+# Natural-language idea:
+# From ad=bc, put the four odd numbers into the standard product-equality
+# parametrization, e.g. after removing gcds the middle terms share two
+# coprime odd factors.  The two sums being powers of 2 force the relevant odd
+# factors to be complementary in a very rigid way.  The strict ordering then
+# leaves only the possibility that the first factor a is 1.
+claim:
+    prove:
+        forall a, b, c, d N_pos, k, m N:
+            $Odd(a)
+            $Odd(b)
+            $Odd(c)
+            $Odd(d)
+            a < b
+            b < c
+            c < d
+            a * d = b * c
+            a + d = 2^k
+            b + c = 2^m
+            =>:
+                a = 1
+
+    # proof_debt: this needs the gcd/factor parametrization for
+    # ad=bc, parity facts for odd factors, and powers-of-two divisibility.
+    know:
+        a = 1
+    a = 1

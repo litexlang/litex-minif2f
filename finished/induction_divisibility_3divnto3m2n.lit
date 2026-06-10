@@ -1,0 +1,29 @@
+import Nat
+
+# name: induction_divisibility_3divnto3m2n
+# informal_prefix:
+# /-- Show that for any natural number $n \in \mathbb{N}$, $3 \mid n^3 + 2n$ .-/
+# formal_statement:
+# theorem induction_divisibility_3divnto3m2n (n : ℕ) : 3 ∣ n ^ 3 + 2 * n := by
+
+claim:
+    prove:
+        forall n Z:
+            n >= 0
+            =>:
+                $divides(3, n^3 + 2 * n)
+
+    by induc n from 0:
+        prove:
+            $divides(3, n^3 + 2 * n)
+
+        prove from n = 0:
+            witness exist t Z st {0^3 + 2 * 0 = 3 * t} from 0:
+                0^3 + 2 * 0 = 0 = 3 * 0
+            $divides(3, 0^3 + 2 * 0)
+
+        prove induc:
+            have by exist t Z st {n^3 + 2 * n = 3 * t}: t
+            witness exist r Z st {(n + 1)^3 + 2 * (n + 1) = 3 * r} from t + n^2 + n + 1:
+                (n + 1)^3 + 2 * (n + 1) = n^3 + 2 * n + 3 * (n^2 + n + 1) = 3 * t + 3 * (n^2 + n + 1) = 3 * (t + n^2 + n + 1)
+            $divides(3, (n + 1)^3 + 2 * (n + 1))

@@ -1,0 +1,86 @@
+# name: mathd_numbertheory_1124
+# informal_prefix:
+# /-- The four-digit number $\underline{374n}$ is divisible by 18. Find the units digit $n$. Show that it is 4.-/
+# formal_statement:
+# theorem mathd_numbertheory_1124 (n : ℕ) (h₀ : n ≤ 9) (h₁ : 18 ∣ 374 * 10 + n) : n = 4 := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N:
+            n <= 9
+            $Nat::Dvd(18, 374 * 10 + n)
+            =>:
+                n = 4
+    n >= 0
+    n $in closed_range(0, 9)
+    by closed_range as cases: n $in 0...9
+    by cases:
+        prove:
+            n = 4
+        case n = 0:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3740
+            3740 = 18 * k
+            k = 3740 / 18
+            not 3740 / 18 $in Z
+            impossible k $in Z
+        case n = 1:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3741
+            3741 = 18 * k
+            k = 3741 / 18
+            not 3741 / 18 $in Z
+            impossible k $in Z
+        case n = 2:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3742
+            3742 = 18 * k
+            k = 3742 / 18
+            not 3742 / 18 $in Z
+            impossible k $in Z
+        case n = 3:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3743
+            3743 = 18 * k
+            k = 3743 / 18
+            not 3743 / 18 $in Z
+            impossible k $in Z
+        case n = 4:
+            n = 4
+        case n = 5:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3745
+            3745 = 18 * k
+            k = 3745 / 18
+            not 3745 / 18 $in Z
+            impossible k $in Z
+        case n = 6:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3746
+            3746 = 18 * k
+            k = 3746 / 18
+            not 3746 / 18 $in Z
+            impossible k $in Z
+        case n = 7:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3747
+            3747 = 18 * k
+            k = 3747 / 18
+            not 3747 / 18 $in Z
+            impossible k $in Z
+        case n = 8:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3748
+            3748 = 18 * k
+            k = 3748 / 18
+            not 3748 / 18 $in Z
+            impossible k $in Z
+        case n = 9:
+            have by exist k N st {374 * 10 + n = 18 * k}: k
+            374 * 10 + n = 3749
+            3749 = 18 * k
+            k = 3749 / 18
+            not 3749 / 18 $in Z
+            impossible k $in Z

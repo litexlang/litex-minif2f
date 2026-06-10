@@ -1,0 +1,61 @@
+# name: imo_1964_p1_1
+# informal_prefix:
+# /-- Let $n$ be a natural number. Show that if $7$ divides $2^n-1$, then $3$ divides $n$.-/
+# formal_statement:
+# theorem imo_1964_p1_1 (n : ℕ) (h₀ : 7 ∣ 2 ^ n - 1) : 3 ∣ n := by
+
+import Nat
+
+claim:
+    prove:
+        forall k N:
+            2^(3 * k) % 7 = 1
+            2^(3 * k + 1) % 7 = 2
+            2^(3 * k + 2) % 7 = 4
+
+    by induc k from 0:
+        prove:
+            2^(3 * k) % 7 = 1
+            2^(3 * k + 1) % 7 = 2
+            2^(3 * k + 2) % 7 = 4
+
+        prove from k = 0:
+            2^(3 * 0) % 7 = 2^0 % 7 = 1
+            2^(3 * 0 + 1) % 7 = 2^1 % 7 = 2
+            2^(3 * 0 + 2) % 7 = 2^2 % 7 = 4
+
+        prove induc:
+            2^3 % 7 = 1
+            2^(3 * (k + 1)) = 2^(3 * k + 3) = 2^(3 * k) * 2^3
+            2^(3 * (k + 1)) % 7 = (2^(3 * k) * 2^3) % 7 = ((2^(3 * k) % 7) * (2^3 % 7)) % 7 = (1 * 1) % 7 = 1
+            2^(3 * (k + 1) + 1) = 2^(3 * k + 1 + 3) = 2^(3 * k + 1) * 2^3
+            2^(3 * (k + 1) + 1) % 7 = (2^(3 * k + 1) * 2^3) % 7 = ((2^(3 * k + 1) % 7) * (2^3 % 7)) % 7 = (2 * 1) % 7 = 2
+            2^(3 * (k + 1) + 2) = 2^(3 * k + 2 + 3) = 2^(3 * k + 2) * 2^3
+            2^(3 * (k + 1) + 2) % 7 = (2^(3 * k + 2) * 2^3) % 7 = ((2^(3 * k + 2) % 7) * (2^3 % 7)) % 7 = (4 * 1) % 7 = 4
+
+claim:
+    prove:
+        forall n N:
+            $divides(7, 2^n - 1)
+            =>:
+                $divides(3, n)
+    by cases:
+        prove:
+            $divides(3, n)
+        case n % 3 = 0:
+            have by exist k N st {n = 3 * k}: k
+            $divides(3, n)
+        case n % 3 = 1:
+            have by exist k N st {n = 3 * k + 1}: k
+            2^n % 7 = 2^(3 * k + 1) % 7 = 2
+            (2^n - 1) % 7 = ((2^n % 7) - (1 % 7)) % 7 = (2 - 1) % 7 = 1
+            (2^n - 1) % 7 != 0
+            (2^n - 1) % 7 = 0
+            impossible (2^n - 1) % 7 = 0
+        case n % 3 = 2:
+            have by exist k N st {n = 3 * k + 2}: k
+            2^n % 7 = 2^(3 * k + 2) % 7 = 4
+            (2^n - 1) % 7 = ((2^n % 7) - (1 % 7)) % 7 = (4 - 1) % 7 = 3
+            (2^n - 1) % 7 != 0
+            (2^n - 1) % 7 = 0
+            impossible (2^n - 1) % 7 = 0

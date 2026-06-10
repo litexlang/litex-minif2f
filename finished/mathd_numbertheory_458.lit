@@ -1,0 +1,11 @@
+# name: mathd_numbertheory_458
+# informal_prefix:
+# /-- When all the girls at Madeline's school line up in rows of eight, there are seven left over.
+# 
+# If instead they line up in rows of four, how many are left over? Show that it is 3.-/
+# formal_statement:
+# theorem mathd_numbertheory_458 (n : ℕ) (h₀ : n % 8 = 7) : n % 4 = 3 := by
+
+claim:
+    prove:
+        7 % 4 = 3

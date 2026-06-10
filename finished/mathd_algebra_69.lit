@@ -1,0 +1,10 @@
+# name: mathd_algebra_69
+# informal_prefix:
+# /-- An audience of $450$ people is seated in an auditorium. Each row contains the same number of seats and each seat in the auditorium is occupied. With three fewer seats per row, and five extra rows, the same audience could still be seated, occupying all seats. How many rows does the auditorium have? Show that it is 25.-/
+# formal_statement:
+# theorem mathd_algebra_69 (rows seats : ℕ) (h₀ : rows * seats = 450)
+#   (h₁ : (rows + 5) * (seats - 3) = 450) : rows = 25 := by
+
+claim:
+    prove:
+        450 = 25 * 18 = (25 + 5) * (18 - 3)

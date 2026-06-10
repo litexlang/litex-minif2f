@@ -1,0 +1,10 @@
+# name: algebra_3rootspoly_amdtamctambeqnasqmbpctapcbtdpasqmbpctapcbta
+# informal_prefix:
+# /-- Show that for any complex numbers $a$, $b$, $c$, $d$, $(a-d)(a-c)(a-b) = -(((a^2 - (b+c)a) + cb)d) + (a^2 - (b+c)a + cb)a$.-/
+# formal_statement:
+# theorem algebra_3rootspoly_amdtamctambeqnasqmbpctapcbtdpasqmbpctapcbta (b c d a : ℂ) :
+#     (a - d) * (a - c) * (a - b) =
+#       -((a ^ 2 - (b + c) * a + c * b) * d) + (a ^ 2 - (b + c) * a + c * b) * a := by
+
+forall a, b, c, d R:
+    (a - d) * (a - c) * (a - b) = -((a ^ 2 - (b + c) * a + c * b) * d) + (a ^ 2 - (b + c) * a + c * b) * a

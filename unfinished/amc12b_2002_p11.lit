@@ -1,0 +1,132 @@
+# name: amc12b_2002_p11
+# informal_prefix:
+# /-- The positive integers $A, B, A-B, $ and $A+B$ are all prime numbers. The sum of these four primes is
+# 
+# $\mathrm{(A)}\ \mathrm{even}
+# \qquad\mathrm{(B)}\ \mathrm{divisible\ by\ }3
+# \qquad\mathrm{(C)}\ \mathrm{divisible\ by\ }5
+# \qquad\mathrm{(D)}\ \mathrm{divisible\ by\ }7
+# \qquad\mathrm{(E)}\ \mathrm{prime}$ Show that it is \mathrm{(E)}\ \text{prime}.-/
+# formal_statement:
+# theorem amc12b_2002_p11 (a b : ℕ) (h₀ : Nat.Prime a) (h₁ : Nat.Prime b) (h₂ : Nat.Prime (a + b))
+#   (h₃ : Nat.Prime (a - b)) : Nat.Prime (a + b + (a - b + (a + b))) := by
+
+import Nat
+
+claim:
+    prove:
+        forall a, b N:
+            $Prime(a)
+            $Prime(b)
+            $Prime(a + b)
+            $Prime(a - b)
+            =>:
+                $Prime(a + b + (a - b + (a + b)))
+    claim:
+        prove:
+            b = 2
+        by cases:
+            prove:
+                b = 2
+            case b % 2 = 0:
+                $Dvd(2, b)
+                2 = 1 or 2 = b
+                by cases:
+                    prove:
+                        b = 2
+                    case 2 = 1:
+                        impossible 2 = 1
+                    case 2 = b:
+                        b = 2
+            case b % 2 = 1:
+                by cases:
+                    prove:
+                        b = 2
+                    case a % 2 = 0:
+                        $Dvd(2, a)
+                        2 = 1 or 2 = a
+                        by cases:
+                            prove:
+                                b = 2
+                            case 2 = 1:
+                                impossible 2 = 1
+                            case 2 = a:
+                                a = 2
+                                1 < b
+                                a - b = 0
+                                not $Prime(0)
+                                impossible $Prime(a - b)
+                    case a % 2 = 1:
+                        (a + b) % 2 = ((a % 2) + (b % 2)) % 2 = (1 + 1) % 2 = 0
+                        $Dvd(2, a + b)
+                        2 = 1 or 2 = a + b
+                        by cases:
+                            prove:
+                                b = 2
+                            case 2 = 1:
+                                impossible 2 = 1
+                            case 2 = a + b:
+                                1 < a
+                                1 < b
+                                2 < a + b
+                                impossible 2 = a + b
+
+    claim:
+        prove:
+            a = 5
+        a + b = a + 2
+        a - b = a - 2
+        by cases:
+            prove:
+                a = 5
+            case a % 3 = 0:
+                $Dvd(3, a)
+                3 = 1 or 3 = a
+                by cases:
+                    prove:
+                        a = 5
+                    case 3 = 1:
+                        impossible 3 = 1
+                    case 3 = a:
+                        a = 3
+                        a - b = 3 - 2 = 1
+                        not $Prime(1)
+                        impossible $Prime(a - b)
+            case a % 3 = 1:
+                (a + b) % 3 = ((a % 3) + (b % 3)) % 3 = (1 + 2) % 3 = 0
+                $Dvd(3, a + b)
+                3 = 1 or 3 = a + b
+                by cases:
+                    prove:
+                        a = 5
+                    case 3 = 1:
+                        impossible 3 = 1
+                    case 3 = a + b:
+                        a + b = 3
+                        (a + b) - b = 3 - b
+                        (a + b) - b = a
+                        a = 3 - b = 3 - 2 = 1
+                        not $Prime(1)
+                        impossible $Prime(a)
+            case a % 3 = 2:
+                (a - b) % 3 = ((a % 3) - (b % 3)) % 3 = (2 - 2) % 3 = 0
+                $Dvd(3, a - b)
+                3 = 1 or 3 = a - b
+                by cases:
+                    prove:
+                        a = 5
+                    case 3 = 1:
+                        impossible 3 = 1
+                    case 3 = a - b:
+                        a - b = 3
+                        (a - b) + b = 3 + b
+                        (a - b) + b = a
+                        a = 3 + b = 3 + 2 = 5
+
+    # proof_debt: the local Nat library currently exposes `$Prime(2)`
+    # but not concrete-prime facts beyond 2, such as 17.
+    know:
+        $Prime(17)
+    a + b + (a - b + (a + b)) = 5 + 2 + (5 - 2 + (5 + 2)) = 17
+    $Prime(17)
+    $Prime(a + b + (a - b + (a + b)))

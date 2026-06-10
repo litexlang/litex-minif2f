@@ -1,0 +1,8 @@
+forall f, g fn(x R) R:
+    forall x R:
+        f(g(x)) = x
+        g(f(x)) = x
+        f(x) = 4 * x ^ 3 + 1
+    =>:
+        f(2) = 4 * 2 ^ 3 + 1 = 33
+        g(33) = g(f(2)) = 2

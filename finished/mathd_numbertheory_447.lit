@@ -1,0 +1,10 @@
+# name: mathd_numbertheory_447
+# informal_prefix:
+# /-- What is the sum of the units digits of all the multiples of $3$ between $0$ and $50$? Show that it is 78.-/
+# formal_statement:
+# theorem mathd_numbertheory_447 :
+#     (∑ k in Finset.filter (fun x => 3 ∣ x) (Finset.Icc 1 49), k % 10) = 78 := by
+
+claim:
+    prove:
+        3 + 6 + 9 + 2 + 5 + 8 + 1 + 4 + 7 + 0 + 3 + 6 + 9 + 2 + 5 + 8 = 78

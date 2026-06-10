@@ -1,0 +1,21 @@
+# name: algebra_apb4leq8ta4pb4
+# informal_prefix:
+# /-- Show that for any positive real numbers $a$ and $b$, $(a+b)^4 \leq 8(a^4 + b^4)$.-/
+# formal_statement:
+# theorem algebra_apb4leq8ta4pb4 (a b : ℝ) (h₀ : 0 < a ∧ 0 < b) : (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) := by
+
+forall a, b R:
+    (a - b)^2 >= 0
+    (a^2 + b^2) - 2 * a * b = (a - b)^2 >= 0
+    2 * a * b <= a^2 + b^2
+    a^2 + 2 * a * b + b^2 <= a^2 + (a^2 + b^2) + b^2 = 2 * (a^2 + b^2)
+    (a + b)^2 = a^2 + 2 * a * b + b^2 <= 2 * (a^2 + b^2)
+    (a^2 - b^2)^2 >= 0
+    (a^4 + b^4) - 2 * a^2 * b^2 = (a^2 - b^2)^2 >= 0
+    2 * a^2 * b^2 <= a^4 + b^4
+    a^4 + 2 * a^2 * b^2 + b^4 <= a^4 + (a^4 + b^4) + b^4 = 2 * (a^4 + b^4)
+    (a^2 + b^2)^2 = a^4 + 2 * a^2 * b^2 + b^4 <= 2 * (a^4 + b^4)
+    (a + b)^4 = ((a + b)^2)^2 <= (2 * (a^2 + b^2))^2
+    4 * (a^2 + b^2)^2 <= 4 * (2 * (a^4 + b^4)) = 8 * (a^4 + b^4)
+    (2 * (a^2 + b^2))^2 = 4 * (a^2 + b^2)^2 <= 8 * (a^4 + b^4)
+    (a + b)^4 = ((a + b)^2)^2 <= (2 * (a^2 + b^2))^2 <= 8 * (a^4 + b^4)

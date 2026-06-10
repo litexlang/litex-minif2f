@@ -1,0 +1,34 @@
+# name: imo_1983_p6
+# informal_prefix:
+# /-- Let $a$, $b$ and $c$ be the lengths of the sides of a triangle. Prove that
+# 
+# $a^2 b(a-b) + b^2 c(b-c) + c^2 a(c-a) \geq 0$.
+# 
+# Determine when equality occurs.-/
+# formal_statement:
+# theorem imo_1983_p6 (a b c : ℝ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c) (h₁ : c < a + b) (h₂ : b < a + c)
+#     (h₃ : a < b + c) : 0 ≤ a ^ 2 * b * (a - b) + b ^ 2 * c * (b - c) + c ^ 2 * a * (c - a) := by
+
+# Natural-language idea:
+# Write triangle sides as a=y+z, b=z+x, c=x+y with x,y,z>0.  The cyclic
+# expression becomes
+# 2*x*y*z*(x^2/y + y^2/z + z^2/x - x - y - z).
+# The bracket is nonnegative by Cauchy/Schur, so the whole expression is
+# nonnegative.
+claim:
+    prove:
+        forall a, b, c R:
+            0 < a
+            0 < b
+            0 < c
+            c < a + b
+            b < a + c
+            a < b + c
+            =>:
+                0 <= a^2 * b * (a - b) + b^2 * c * (b - c) + c^2 * a * (c - a)
+
+    # proof_debt: this needs the triangle-side substitution and the
+    # cyclic Cauchy/Schur inequality after polynomial normalization.
+    know:
+        0 <= a^2 * b * (a - b) + b^2 * c * (b - c) + c^2 * a * (c - a)
+    0 <= a^2 * b * (a - b) + b^2 * c * (b - c) + c^2 * a * (c - a)

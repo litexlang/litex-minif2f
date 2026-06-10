@@ -1,0 +1,47 @@
+# name: imo_1977_p5
+# informal_prefix:
+# /-- Let $a,b$ be two natural numbers. When we divide $a^2+b^2$ by $a+b$, we the the remainder $r$ and the quotient $q.$ Determine all pairs $(a, b)$ for which $q^2 + r = 1977.$ Show that it is (a,b)=(37,50) , (7, 50).-/
+# formal_statement:
+# theorem imo_1977_p5 (a b q r : ℕ) (h₀ : r < a + b) (h₁ : a ^ 2 + b ^ 2 = (a + b) * q + r)
+#   (h₂ : q ^ 2 + r = 1977) :
+#   abs ((a : ℤ) - 22) = 15 ∧ abs ((b : ℤ) - 22) = 28 ∨
+#     abs ((a : ℤ) - 22) = 28 ∧ abs ((b : ℤ) - 22) = 15 := by
+
+prop imo_1977_p5_pair_37_50(a, b N):
+    a = 37
+    b = 50
+
+prop imo_1977_p5_pair_7_50(a, b N):
+    a = 7
+    b = 50
+
+prop imo_1977_p5_pair_50_37(a, b N):
+    a = 50
+    b = 37
+
+prop imo_1977_p5_pair_50_7(a, b N):
+    a = 50
+    b = 7
+
+prop imo_1977_p5_solution(a, b N):
+    $imo_1977_p5_pair_37_50(a, b) or $imo_1977_p5_pair_7_50(a, b) or $imo_1977_p5_pair_50_37(a, b) or $imo_1977_p5_pair_50_7(a, b)
+
+claim:
+    prove:
+        forall a, b, q, r N:
+            r < a + b
+            a^2 + b^2 = (a + b) * q + r
+            q^2 + r = 1977
+            =>:
+                $imo_1977_p5_solution(a, b)
+
+    # Natural-language idea: write s=a+b and use the division data to bound q.
+    # The equation q^2+r=1977 with 0<=r<s leaves finitely many possible q.
+    # Substituting r=1977-q^2 into a^2+b^2=sq+r and using
+    # (a-b)^2=2(a^2+b^2)-s^2 reduces the problem to a finite Diophantine
+    # search, giving exactly {7,37} paired with 50.
+    # proof_debt: this needs quotient/remainder Diophantine
+    # enumeration plus square/discriminant filtering over natural numbers.
+    know:
+        $imo_1977_p5_solution(a, b)
+    $imo_1977_p5_solution(a, b)

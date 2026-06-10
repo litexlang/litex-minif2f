@@ -1,0 +1,25 @@
+# name: imo_1997_p5
+# informal_prefix:
+# /-- Show that if $x$ and $y$ are positive integers such that $x^{y^2} = y^x$, then $(x, y)$ is equal to $(1, 1)$, $(16, 2)$, or $(27, 3)$.-/
+# formal_statement:
+# theorem imo_1997_p5 (x y : ℕ) (h₀ : 0 < x ∧ 0 < y) (h₁ : x ^ y ^ 2 = y ^ x) :
+#     (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3) := by
+
+import Nat
+
+# Natural-language idea:
+# If x or y is 1, the equation forces (1,1).  Otherwise prime valuations show
+# x and y have the same prime support; reducing to coprime exponent data and
+# comparing growth leaves only y=2 with x=16 and y=3 with x=27.
+claim:
+    prove:
+        forall x, y N_pos:
+            x^(y^2) = y^x
+            =>:
+                x = 1 and y = 1 or x = 16 and y = 2 or x = 27 and y = 3
+
+    # proof_debt: this needs prime-factor valuation/order reasoning and
+    # a small finite growth comparison after reducing the exponential equation.
+    know:
+        x = 1 and y = 1 or x = 16 and y = 2 or x = 27 and y = 3
+    x = 1 and y = 1 or x = 16 and y = 2 or x = 27 and y = 3

@@ -1,0 +1,33 @@
+# name: imo_1984_p2
+# informal_prefix:
+# /-- Find one pair of positive integers $a,b$ such that $ab(a+b)$ is not divisible by $7$, but $(a+b)^7-a^7-b^7$ is divisible by $7^7$.-/
+# formal_statement:
+# theorem imo_1984_p2 (a b : ℤ) (h₀ : 0 < a ∧ 0 < b) (h₁ : ¬7 ∣ a) (h₂ : ¬7 ∣ b) (h₃ : ¬7 ∣ a + b)
+#   (h₄ : 7 ^ 7 ∣ (a + b) ^ 7 - a ^ 7 - b ^ 7) : 19 ≤ a + b := by
+
+import Int
+
+# Natural-language idea:
+# Expand
+# (a+b)^7-a^7-b^7 = 7ab(a+b)(a^2+ab+b^2)^2.
+# Since 7 does not divide a, b, or a+b, the 7-adic valuation must come from
+# a^2+ab+b^2.  Reducing the resulting congruence modulo powers of 7 and
+# checking the small positive sums below 19 rules them out.
+claim:
+    prove:
+        forall a, b Z:
+            0 < a
+            0 < b
+            not $Dvd(7, a)
+            not $Dvd(7, b)
+            not $Dvd(7, a + b)
+            $Dvd(7^7, (a + b)^7 - a^7 - b^7)
+            =>:
+                19 <= a + b
+
+    (a + b)^7 - a^7 - b^7 = 7 * a * b * (a + b) * (a^2 + a * b + b^2)^2
+    # proof_debt: the remaining proof needs prime-power divisibility
+    # through the factorization and a finite modular check modulo powers of 7.
+    know:
+        19 <= a + b
+    19 <= a + b

@@ -1,0 +1,41 @@
+# name: algebra_absapbon1pabsapbleqsumabsaon1pabsa
+# informal_prefix:
+# /-- Show that for any real numbers $a$ and $b$, $\frac{|a+b|}{1+|a+b|}\leq \frac{|a|}{1+|a|}+\frac{|b|}{1+|b|}$.-/
+# formal_statement:
+# theorem algebra_absapbon1pabsapbleqsumabsaon1pabsa (a b : ℝ) :
+#     abs (a + b) / (1 + abs (a + b)) ≤ abs a / (1 + abs a) + abs b / (1 + abs b) := by
+
+claim:
+    prove:
+        forall t R:
+            1 + abs(t) != 0
+
+    0 <= abs(t)
+    1 <= 1 + abs(t)
+    1 + abs(t) > 0
+    1 + abs(t) != 0
+
+claim:
+    prove:
+        forall a, b R:
+            abs(a + b) / (1 + abs(a + b)) <= abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b))
+
+    abs(a + b) <= abs(a) + abs(b)
+    0 <= abs(a) * abs(b) * (2 + abs(a) + abs(b))
+    0 <= abs(a) + abs(b)
+    1 <= 1 + abs(a) + abs(b)
+    1 + abs(a) + abs(b) > 0
+    1 + abs(a) + abs(b) != 0
+    0 < (1 + abs(a)) * (1 + abs(b)) * (1 + abs(a) + abs(b))
+    0 <= (abs(a) * abs(b) * (2 + abs(a) + abs(b))) / ((1 + abs(a)) * (1 + abs(b)) * (1 + abs(a) + abs(b)))
+    abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - (abs(a) + abs(b)) / (1 + abs(a) + abs(b)) = (abs(a) * abs(b) * (2 + abs(a) + abs(b))) / ((1 + abs(a)) * (1 + abs(b)) * (1 + abs(a) + abs(b)))
+    0 <= abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - (abs(a) + abs(b)) / (1 + abs(a) + abs(b))
+    0 <= abs(a) + abs(b) - abs(a + b)
+    0 < (1 + abs(a + b)) * (1 + abs(a) + abs(b))
+    0 <= (abs(a) + abs(b) - abs(a + b)) / ((1 + abs(a + b)) * (1 + abs(a) + abs(b)))
+    (abs(a) + abs(b)) / (1 + abs(a) + abs(b)) - abs(a + b) / (1 + abs(a + b)) = (abs(a) + abs(b) - abs(a + b)) / ((1 + abs(a + b)) * (1 + abs(a) + abs(b)))
+    0 <= (abs(a) + abs(b)) / (1 + abs(a) + abs(b)) - abs(a + b) / (1 + abs(a + b))
+    0 <= (abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - (abs(a) + abs(b)) / (1 + abs(a) + abs(b))) + ((abs(a) + abs(b)) / (1 + abs(a) + abs(b)) - abs(a + b) / (1 + abs(a + b)))
+    (abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - (abs(a) + abs(b)) / (1 + abs(a) + abs(b))) + ((abs(a) + abs(b)) / (1 + abs(a) + abs(b)) - abs(a + b) / (1 + abs(a + b))) = abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - abs(a + b) / (1 + abs(a + b))
+    0 <= abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b)) - abs(a + b) / (1 + abs(a + b))
+    abs(a + b) / (1 + abs(a + b)) <= abs(a) / (1 + abs(a)) + abs(b) / (1 + abs(b))

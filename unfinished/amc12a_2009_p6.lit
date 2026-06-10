@@ -1,0 +1,23 @@
+# name: amc12a_2009_p6
+# informal_prefix:
+# /-- Suppose that $P = 2^m$ and $Q = 3^n$. Which of the following is equal to $12^{mn}$ for every pair of integers $(m,n)$?
+# 
+# $\textbf{(A)}\ P^2Q \qquad \textbf{(B)}\ P^nQ^m \qquad \textbf{(C)}\ P^nQ^{2m} \qquad \textbf{(D)}\ P^{2m}Q^n \qquad \textbf{(E)}\ P^{2n}Q^m$ Show that it is \bold{E)} P^{2n} Q^m.-/
+# formal_statement:
+# theorem amc12a_2009_p6 (m n p q : ℝ) (h₀ : p = 2 ^ m) (h₁ : q = 3 ^ n) :
+#     p ^ (2 * n) * q ^ m = 12 ^ (m * n) := by
+
+# Natural-language idea:
+# Substitute P = 2^m and Q = 3^n.  Then
+# P^(2n) Q^m = (2^m)^(2n) (3^n)^m = 2^(2mn) 3^(mn)
+# = (4*3)^(mn) = 12^(mn).
+
+claim:
+    prove:
+        forall m, n, p, q R:
+            p = 2^m
+            q = 3^n
+            =>:
+                p^(2 * n) * q^m = 12^(m * n)
+    # proof_debt: needs real-exponent laws for positive bases 2, 3, and 12.
+    know p^(2 * n) * q^m = 12^(m * n)

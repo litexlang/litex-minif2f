@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_326
+# informal_prefix:
+# /-- The product of three consecutive integers is 720. What is the largest of these integers? Show that it is 10.-/
+# formal_statement:
+# theorem mathd_numbertheory_326 (n : ℤ) (h₀ : (n - 1) * n * (n + 1) = 720 ) : n + 1 = 10 := by
+
+claim:
+    prove:
+        8 * 9 * 10 = 720

@@ -1,0 +1,24 @@
+# name: numbertheory_exk2powkeqapb2mulbpa2_aeq1
+# informal_prefix:
+# /-- If $a$ and $b$ are positive integers and there exists a positive integer $k$ such that $2^k = (a + b^2) (b + a^2)$, then show that $a = 1$.-/
+# formal_statement:
+# theorem numbertheory_exk2powkeqapb2mulbpa2_aeq1 (a b : ℕ) (h₀ : 0 < a ∧ 0 < b)
+#     (h₁ : ∃ k > 0, 2 ^ k = (a + b ^ 2) * (b + a ^ 2)) : a = 1 := by
+
+import Nat
+
+claim:
+    prove:
+        forall a, b, k N_pos:
+            2^k = (a + b^2) * (b + a^2)
+            =>:
+                a = 1
+
+    # Natural-language idea: both factors in the product are powers of 2.
+    # Parity and size force a and b to be odd/even in a way that collapses to
+    # a = 1.
+    # proof_debt: finishing needs prime-factor/parity reasoning for a
+    # product equal to a power of 2, plus inequality constraints on the two
+    # factors.
+    know a = 1
+    a = 1

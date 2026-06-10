@@ -1,0 +1,19 @@
+# name: amc12a_2020_p13
+# informal_prefix:
+# /-- There are integers $a, b,$ and $c,$ each greater than $1,$ such that
+# 
+# $\sqrt[a]{N\sqrt[b]{N\sqrt[c]{N}}} = \sqrt[36]{N^{25}}$
+# 
+# for all $N \neq 1$. What is $b$?
+# 
+# $\textbf{(A) } 2 \qquad \textbf{(B) } 3 \qquad \textbf{(C) } 4 \qquad \textbf{(D) } 5 \qquad \textbf{(E) } 6$ Show that it is \textbf{(B) } 3..-/
+# formal_statement:
+# theorem amc12a_2020_p13 (a b c : ℕ) (n : NNReal) (h₀ : n ≠ 1) (h₁ : 1 < a ∧ 1 < b ∧ 1 < c)
+#   (h₂ : (n * (n * n ^ (1 / c)) ^ (1 / b)) ^ (1 / a) = (n ^ 25) ^ (1 / 36)) : b = 3 := by
+
+claim:
+    prove:
+        1 / 2 + 1 / (2 * 3) + 1 / (2 * 3 * 6) = 25 / 36
+    1 / (2 * 3) = 1 / 6
+    1 / (2 * 3 * 6) = 1 / 36
+    1 / 2 + 1 / 6 + 1 / 36 = 25 / 36

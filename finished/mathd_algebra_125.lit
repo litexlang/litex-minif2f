@@ -1,0 +1,16 @@
+# name: mathd_algebra_125
+# informal_prefix:
+# /-- Today a father's age is five times his son's age. Exactly three years ago, the sum of their ages was 30. How old is the son today? Show that it is 6.-/
+# formal_statement:
+# theorem mathd_algebra_125 (x y : ℕ) (h₀ : 0 < x ∧ 0 < y) (h₁ : 5 * x = y)
+#     (h₂ : ↑x - (3 : ℤ) + (y - (3 : ℤ)) = 30) : x = 6 := by
+
+forall x, y R:
+    5 * x = y
+    (x - 3) + (y - 3) = 30
+    =>:
+        y = 5 * x
+        30 = (x - 3) + (y - 3) = (x - 3) + (5 * x - 3) = 6 * x - 6
+        6 * x - 6 = 30
+        6 * x = 36
+        x = 6

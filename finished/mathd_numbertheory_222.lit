@@ -1,0 +1,20 @@
+# name: mathd_numbertheory_222
+# informal_prefix:
+# /-- The least common multiple of two numbers is 3720, and their greatest common divisor is 8. Given that one of the numbers is 120, what is the other number? Show that it is 248.-/
+# formal_statement:
+# theorem mathd_numbertheory_222 (b : ℕ) (h₀ : Nat.lcm 120 b = 3720) (h₁ : Nat.gcd 120 b = 8) :
+#     b = 248 := by
+
+import Nat
+
+claim:
+    prove:
+        forall b N:
+            Nat::lcm(120, b) = 3720
+            Nat::gcd(120, b) = 8
+            =>:
+                b = 248
+    by thm Nat::lcm_mul_gcd(120, b)
+    Nat::lcm(120, b) * Nat::gcd(120, b) = 120 * b
+    120 * b = Nat::lcm(120, b) * Nat::gcd(120, b) = 3720 * 8 = 29760
+    b = 29760 / 120 = 248

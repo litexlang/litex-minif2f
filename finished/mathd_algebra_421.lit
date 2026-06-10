@@ -1,0 +1,12 @@
+# name: mathd_algebra_421
+# informal_prefix:
+# /-- The parabolas defined by the equations $y=x^2+4x+6$ and $y=\frac{1}{2}x^2+x+6$ intersect at points $(a,b)$ and $(c,d)$, where $c\ge a$. What is $c-a$? Show that it is 6.-/
+# formal_statement:
+# theorem mathd_algebra_421 (a b c d : ℝ) (h₀ : b = a ^ 2 + 4 * a + 6)
+#   (h₁ : b = 1 / 2 * a ^ 2 + a + 6) (h₂ : d = c ^ 2 + 4 * c + 6) (h₃ : d = 1 / 2 * c ^ 2 + c + 6)
+#   (h₄ : a < c) : c - a = 6 := by
+
+claim:
+    prove:
+        forall x R:
+            x ^ 2 + 4 * x + 6 - (1 / 2 * x ^ 2 + x + 6) = 1 / 2 * x * (x + 6)

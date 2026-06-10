@@ -1,0 +1,15 @@
+# name: mathd_algebra_263
+# informal_prefix:
+# /-- Find $y$: $\sqrt{19+3y} = 7$. Show that it is 10.-/
+# formal_statement:
+# theorem mathd_algebra_263 (y : ℝ) (h₀ : 0 ≤ 19 + 3 * y) (h₁ : Real.sqrt (19 + 3 * y) = 7) :
+#     y = 10 := by
+
+forall y R:
+    0 <= 19 + 3 * y
+    sqrt(19 + 3 * y) = 7
+    =>:
+        (sqrt(19 + 3 * y))^2 = 19 + 3 * y
+        7^2 = 49
+        19 + 3 * y = 49
+        y = 10

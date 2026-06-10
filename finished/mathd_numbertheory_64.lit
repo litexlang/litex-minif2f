@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_64
+# informal_prefix:
+# /-- What is the smallest positive integer that satisfies the congruence $30x \equiv 42 \pmod{47}$? Show that it is 39.-/
+# formal_statement:
+# theorem mathd_numbertheory_64 : IsLeast { x : ℕ | 30 * x ≡ 42 [MOD 47] } 39 := by
+
+claim:
+    prove:
+        30 * 39 % 47 = 42

@@ -1,0 +1,33 @@
+# name: mathd_algebra_288
+# informal_prefix:
+# /-- A point $(x,y)$ on the coordinate plane with both coordinates negative is a distance of 6 units from the $x$-axis. It is a distance of 15 units from the point $(8,3)$. It is a distance $\sqrt{n}$ from the origin. What is $n$? Show that it is 52.-/
+# formal_statement:
+# theorem mathd_algebra_288 (x y : ℝ) (n : NNReal) (h₀ : x < 0 ∧ y < 0) (h₁ : abs y = 6)
+#     (h₂ : Real.sqrt ((x - 8) ^ 2 + (y - 3) ^ 2) = 15)
+#     (h₃ : Real.sqrt (x ^ 2 + y ^ 2) = Real.sqrt n) : n = 52 := by
+
+forall x, y, n R:
+    x < 0
+    y < 0
+    n >= 0
+    abs(y) = 6
+    sqrt((x - 8)^2 + (y - 3)^2) = 15
+    sqrt(x^2 + y^2) = sqrt(n)
+    =>:
+        abs(y) = -y
+        -y = abs(y) = 6
+        y = (-y) / (-1) = 6 / (-1) = -6
+        (sqrt((x - 8)^2 + (y - 3)^2))^2 = (x - 8)^2 + (y - 3)^2
+        (sqrt((x - 8)^2 + (y - 3)^2))^2 = 15^2 = 225
+        (x - 8)^2 + (y - 3)^2 = 225
+        (x - 8)^2 + ((-6) - 3)^2 = (x - 8)^2 + (y - 3)^2 = 225
+        (x - 8)^2 = 144
+        (x - 8)^2 - 144 = 0
+        (x - 20) * (x + 4) = 0
+        x - 20 != 0
+        x + 4 = 0 / (x - 20) = 0
+        x = -4
+        x^2 + y^2 = (-4)^2 + (-6)^2 = 52
+        (sqrt(x^2 + y^2))^2 = x^2 + y^2
+        (sqrt(n))^2 = n
+        n = (sqrt(n))^2 = (sqrt(x^2 + y^2))^2 = x^2 + y^2 = 52

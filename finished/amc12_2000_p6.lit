@@ -1,0 +1,67 @@
+# name: amc12_2000_p6
+# informal_prefix:
+# /-- Two different prime numbers between $4$ and $18$ are chosen. When their sum is subtracted from their product, which of the following numbers could be obtained?
+# 
+# $\textbf{(A)}\ 22 \qquad\textbf{(B)}\ 60 \qquad\textbf{(C)}\ 119 \qquad\textbf{(D)}\ 180 \qquad\textbf{(E)}\ 231$ Show that it is \textbf{(C) }119.-/
+# formal_statement:
+# theorem amc12_2000_p6 (p q : ℕ) (h₀ : Nat.Prime p ∧ Nat.Prime q) (h₁ : 4 ≤ p ∧ p ≤ 18)
+#     (h₂ : 4 ≤ q ∧ q ≤ 18) : ↑p * ↑q - (↑p + ↑q) ≠ (194 : ℕ) := by
+
+import Nat
+
+# Natural-language idea:
+# The primes in the interval are 5, 7, 11, 13, and 17. The target equality
+# would be checked by a finite enumeration of those values.
+thm prime_between_4_18_is_odd:
+    prove:
+        forall p N:
+            $Prime(p)
+            4 <= p
+            p <= 18
+            =>:
+                p % 2 = 1
+    by cases:
+        prove:
+            p % 2 = 1
+        case p % 2 = 0:
+            $Dvd(2, p)
+            2 = 1 or 2 = p
+            by cases:
+                prove:
+                    p % 2 = 1
+                case 2 = 1:
+                    impossible 2 = 1
+                case 2 = p:
+                    p = 2
+                    impossible 4 <= p
+        case p % 2 = 1:
+            p % 2 = 1
+
+claim:
+    prove:
+        forall p, q N:
+            $Prime(p)
+            $Prime(q)
+            4 <= p
+            p <= 18
+            4 <= q
+            q <= 18
+            =>:
+                p * q - (p + q) != 194
+
+    p $in closed_range(4, 18)
+    q $in closed_range(4, 18)
+    by thm prime_between_4_18_is_odd(p)
+    p % 2 = 1
+    by thm prime_between_4_18_is_odd(q)
+    q % 2 = 1
+    by contra:
+        prove:
+            p * q - (p + q) != 194
+        p * q - (p + q) = 194
+        (p * q - (p + q)) % 2 = 194 % 2 = 0
+        (p * q) % 2 = ((p % 2) * (q % 2)) % 2 = (1 * 1) % 2 = 1
+        (p + q) % 2 = ((p % 2) + (q % 2)) % 2 = (1 + 1) % 2 = 0
+        (p * q - (p + q)) % 2 = (((p * q) % 2) - ((p + q) % 2)) % 2 = (1 - 0) % 2 = 1
+        impossible (p * q - (p + q)) % 2 = 0
+    p * q - (p + q) != 194

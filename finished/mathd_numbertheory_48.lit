@@ -1,0 +1,17 @@
+# name: mathd_numbertheory_48
+# informal_prefix:
+# /-- If $321_{b}$ is equal to the base 10 integer 57, find $b$ given that $b>0$. Show that it is 4.-/
+# formal_statement:
+# theorem mathd_numbertheory_48 (b : ℕ) (h₀ : 0 < b) (h₁ : 3 * b ^ 2 + 2 * b + 1 = 57) : b = 4 := by
+
+claim:
+    prove:
+        forall b N_pos:
+            3 * b ^ 2 + 2 * b + 1 = 57
+            =>:
+                b = 4
+    3 * b ^ 2 + 2 * b = 56
+    (b - 4) * (3 * b + 14) = (3 * b ^ 2 + 2 * b) - 56 = 0
+    3 * b + 14 > 0
+    b - 4 = 0 / (3 * b + 14) = 0
+    b = 4

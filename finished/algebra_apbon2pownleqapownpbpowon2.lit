@@ -1,0 +1,69 @@
+# name: algebra_apbon2pownleqapownpbpowon2
+# informal_prefix:
+# /-- Let $a$ and $b$ be two positive real numbers, and $n$ be a positive integer. Show that $(\frac{a+b}{2})^n \leq \frac{a^n+b^n}{2}$.-/
+# formal_statement:
+# theorem algebra_apbon2pownleqapownpbpowon2 (a b : ℝ) (n : ℕ) (h₀ : 0 < a ∧ 0 < b) (h₁ : 0 < n) :
+#     ((a + b) / 2) ^ n ≤ (a ^ n + b ^ n) / 2 := by
+
+thm power_mean_step:
+    prove:
+        forall a, b R, n N_pos:
+            0 < a
+            0 < b
+            =>:
+                ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2
+
+    by cases:
+        prove:
+            ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2
+
+        case a <= b:
+            a^n <= b^n
+            a^(n + 1) = a^n * a
+            b^(n + 1) = b^n * b
+            0 <= b - a
+            0 <= b^n - a^n
+            0 <= (b - a) * (b^n - a^n)
+            0 <= ((b - a) * (b^n - a^n)) / 4
+            (a^(n + 1) + b^(n + 1)) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2) = (a^n * a + b^n * b) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2) = ((b - a) * (b^n - a^n)) / 4
+            0 <= (a^(n + 1) + b^(n + 1)) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2)
+            ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2
+
+        case a > b:
+            b <= a
+            b^n <= a^n
+            a^(n + 1) = a^n * a
+            b^(n + 1) = b^n * b
+            0 <= a - b
+            0 <= a^n - b^n
+            0 <= (a - b) * (a^n - b^n)
+            0 <= ((a - b) * (a^n - b^n)) / 4
+            (a^(n + 1) + b^(n + 1)) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2) = (a^n * a + b^n * b) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2) = ((a - b) * (a^n - b^n)) / 4
+            0 <= (a^(n + 1) + b^(n + 1)) / 2 - ((a^n + b^n) / 2) * ((a + b) / 2)
+            ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2
+
+claim:
+    prove:
+        forall a, b R, n N_pos:
+            0 < a
+            0 < b
+            =>:
+                ((a + b) / 2)^n <= (a^n + b^n) / 2
+
+    by induc n from 1:
+        prove:
+            ((a + b) / 2)^n <= (a^n + b^n) / 2
+
+        prove from n = 1:
+            ((a + b) / 2)^1 = (a + b) / 2
+            (a^1 + b^1) / 2 = (a + b) / 2
+            ((a + b) / 2)^1 <= (a^1 + b^1) / 2
+
+        prove induc:
+            0 < a + b
+            0 < (a + b) / 2
+            ((a + b) / 2)^(n + 1) = ((a + b) / 2)^n * ((a + b) / 2)
+            ((a + b) / 2)^n * ((a + b) / 2) <= ((a^n + b^n) / 2) * ((a + b) / 2)
+            by thm power_mean_step(a, b, n)
+            ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2
+            ((a + b) / 2)^(n + 1) = ((a + b) / 2)^n * ((a + b) / 2) <= ((a^n + b^n) / 2) * ((a + b) / 2) <= (a^(n + 1) + b^(n + 1)) / 2

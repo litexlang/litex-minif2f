@@ -1,0 +1,29 @@
+# name: aime_1999_p11
+# informal_prefix:
+# /-- Given that $\sum_{k=1}^{35}\sin 5k=\tan \frac mn,$ where angles are measured in degrees, and $m_{}$ and $n_{}$ are relatively prime positive integers that satisfy $\frac mn<90,$ find $m+n.$ Show that it is 177.-/
+# formal_statement:
+# theorem aime_1999_p11 (m : ℚ) (h₀ : 0 < m)
+#     (h₁ : (∑ k in Finset.Icc (1 : ℕ) 35, Real.sin (5 * k * Real.pi / 180)) = Real.tan (m * Real.pi / 180))
+#     (h₂ : (m.num : ℝ) / m.den < 90) : ↑m.den + m.num = 177 := by
+
+have sin fn(x R) R
+have tan fn(x R) R
+have pi R
+have num fn(q Q) Z
+have den fn(q Q) N_pos
+
+claim:
+    prove:
+        forall m Q:
+            0 < m
+            sum(1, 35, '(k N_pos) R {sin(5 * k * pi / 180)}) = tan(m * pi / 180)
+            den(m) != 0
+            num(m) / den(m) < 90
+            =>:
+                den(m) + num(m) = 177
+
+    # proof_debt: this needs finite sine-sum-to-tangent identities and
+    # rational numerator/denominator normalization.
+    know:
+        den(m) + num(m) = 177
+    den(m) + num(m) = 177

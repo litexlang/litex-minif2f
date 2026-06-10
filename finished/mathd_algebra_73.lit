@@ -1,0 +1,11 @@
+# name: mathd_algebra_73
+# informal_prefix:
+# /-- Let $p$, $q$, and $r$ be constants. One solution to the equation $(x-p)(x-q) = (r-p)(r-q)$ is $x=r$. Find the other solution in terms of $p$, $q$, and $r$. Show that it is p+q-r.-/
+# formal_statement:
+# theorem mathd_algebra_73 (p q r x : ℂ) (h₀ : (x - p) * (x - q) = (r - p) * (r - q)) (h₁ : x ≠ r) :
+#   x = p + q - r := by
+
+claim:
+    prove:
+        forall p, q, r, x R:
+            (x - p) * (x - q) - (r - p) * (r - q) = (x - r) * (x + r - p - q)

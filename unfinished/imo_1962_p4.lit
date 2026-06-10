@@ -1,0 +1,38 @@
+# name: imo_1962_p4
+# informal_prefix:
+# /-- Solve the equation $\cos^2{x}+\cos^2{2x}+\cos^2{3x}=1$.-/
+# formal_statement:
+# theorem imo_1962_p4 (S : Set ℝ)
+#     (h₀ : S = { x : ℝ | Real.cos x ^ 2 + Real.cos (2 * x) ^ 2 + Real.cos (3 * x) ^ 2 = 1 }) :
+#     S =
+#       { x : ℝ |
+#         ∃ m : ℤ,
+#           x = Real.pi / 2 + m * Real.pi ∨
+#             x = Real.pi / 4 + m * Real.pi / 2 ∨ x = Real.pi / 6 + m * Real.pi / 6 ∨ x = 5 * Real.pi / 6 + m * Real.pi / 6 } := by
+
+import Trig
+
+prop imo_1962_p4_solution(x R):
+    exist m Z st {x = pi / 2 + m * pi or x = pi / 4 + m * pi / 2 or x = pi / 6 + m * pi / 6 or x = 5 * pi / 6 + m * pi / 6}
+
+claim:
+    prove:
+        forall x R:
+            cos(x)^2 + cos(2 * x)^2 + cos(3 * x)^2 = 1
+            =>:
+                $imo_1962_p4_solution(x)
+    # proof_debt: solving this trigonometric equation needs product-to-sum factorization and periodic zero classification.
+    know:
+        $imo_1962_p4_solution(x)
+    $imo_1962_p4_solution(x)
+
+claim:
+    prove:
+        forall x R:
+            $imo_1962_p4_solution(x)
+            =>:
+                cos(x)^2 + cos(2 * x)^2 + cos(3 * x)^2 = 1
+    # proof_debt: the converse needs exact evaluations for each periodic family in the solution set.
+    know:
+        cos(x)^2 + cos(2 * x)^2 + cos(3 * x)^2 = 1
+    cos(x)^2 + cos(2 * x)^2 + cos(3 * x)^2 = 1

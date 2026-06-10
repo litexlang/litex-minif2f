@@ -1,0 +1,37 @@
+# name: amc12a_2002_p1
+# informal_prefix:
+# /-- Compute the sum of all the roots of
+# $(2x+3)(x-4)+(2x+3)(x-6)=0 $
+# 
+# $ \textbf{(A) } \frac{7}{2}\qquad \textbf{(B) } 4\qquad \textbf{(C) } 5\qquad \textbf{(D) } 7\qquad \textbf{(E) } 13 $ Show that it is \textbf{(A) }7/2.-/
+# formal_statement:
+# theorem amc12a_2002_p1 (f : ℂ → ℂ) (h₀ : ∀ x, f x = (2 * x + 3) * (x - 4) + (2 * x + 3) * (x - 6))
+#   (h₁ : Fintype (f ⁻¹' {0})) : (∑ y in (f ⁻¹' {0}).toFinset, y) = 7 / 2 := by
+
+# Natural-language idea:
+# The polynomial factors as (2x+3)((x-4)+(x-6)) = (2x+3)(2x-10),
+# so the roots are -3/2 and 5, whose sum is 7/2.
+
+claim:
+    prove:
+        forall f fn(x R) R:
+            forall x R:
+                f(x) = (2 * x + 3) * (x - 4) + (2 * x + 3) * (x - 6)
+            =>:
+                f(-3 / 2) = 0
+                f(5) = 0
+                finite_set_sum({-3 / 2, 5}, 'R(y){y}) = 7 / 2
+    f(-3 / 2) = (2 * (-3 / 2) + 3) * ((-3 / 2) - 4) + (2 * (-3 / 2) + 3) * ((-3 / 2) - 6) = 0
+    f(5) = (2 * 5 + 3) * (5 - 4) + (2 * 5 + 3) * (5 - 6) = 0
+    finite_set_sum({-3 / 2, 5}, 'R(y){y}) = -3 / 2 + 5 = 7 / 2
+
+claim:
+    prove:
+        forall f fn(x R) R, y R:
+            forall x R:
+                f(x) = (2 * x + 3) * (x - 4) + (2 * x + 3) * (x - 6)
+            f(y) = 0
+            =>:
+                y = -3 / 2 or y = 5
+    # proof_debt: needs a polynomial root-classification bridge for this factored quadratic.
+    know y = -3 / 2 or y = 5

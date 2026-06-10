@@ -1,0 +1,22 @@
+# name: algebra_manipexpr_apbeq2cceqiacpbceqm2
+# informal_prefix:
+# /-- Given that $a+b = 2c$ and $c = \text{Im}(1)$, show that $ac+bc=-2$.-/
+# formal_statement:
+# theorem algebra_manipexpr_apbeq2cceqiacpbceqm2 (a b c : ℂ) (h₀ : a + b = 2 * c)
+#   (h₁ : c = Complex.I) : a * c + b * c = -2 := by
+
+import complex
+
+claim:
+    prove:
+        forall ar, ai, br, bi R:
+            ar + br = 0
+            ai + bi = 2
+            =>:
+                C_add(C_mul((ar, ai), C_i), C_mul((br, bi), C_i)) = (-2, 0)
+
+    C_i = (0, 1)
+    C_mul((ar, ai), C_i) = (ar * 0 - ai * 1, ar * 1 + ai * 0) = (-ai, ar)
+    C_mul((br, bi), C_i) = (br * 0 - bi * 1, br * 1 + bi * 0) = (-bi, br)
+    -ai + -bi = -(ai + bi) = -2
+    C_add(C_mul((ar, ai), C_i), C_mul((br, bi), C_i)) = C_add((-ai, ar), (-bi, br)) = (-ai + -bi, ar + br) = (-2, 0)

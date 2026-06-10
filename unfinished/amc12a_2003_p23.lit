@@ -1,0 +1,28 @@
+# name: amc12a_2003_p23
+# informal_prefix:
+# /-- How many perfect squares are divisors of the product $1! \cdot 2! \cdot 3! \cdot \hdots \cdot 9!$?
+# 
+# $ \textbf{(A)}\ 504\qquad\textbf{(B)}\ 672\qquad\textbf{(C)}\ 864\qquad\textbf{(D)}\ 936\qquad\textbf{(E)}\ 1008 $ Show that it is \mathrm{(B)}.-/
+# formal_statement:
+# theorem amc12a_2003_p23 (S : Finset ℕ)
+#     (h₀ : ∀ k : ℕ, k ∈ S ↔ 0 < k ∧ (k * k : ℕ) ∣ ∏ i in Finset.Icc 1 9, i !) : S.card = 672 := by
+
+# Natural-language idea:
+# Factor 1! * 2! * ... * 9! as 2^28 * 3^13 * 5^5 * 7^3. A square divisor
+# can use even exponents up to each prime exponent, giving
+# 15 * 7 * 3 * 2 = 672 choices.
+
+have factorial_product_1_to_9 N
+have square_divisor_count fn(m N) N
+
+claim:
+    prove:
+        square_divisor_count(factorial_product_1_to_9) = 672
+
+    # proof_debt: this needs factorial/product prime factorization and
+    # the divisor-count theorem turning exponents 2^28 * 3^13 * 5^5 * 7^3
+    # into (floor(28/2)+1)(floor(13/2)+1)(floor(5/2)+1)(floor(3/2)+1).
+    know:
+        factorial_product_1_to_9 = 2^28 * 3^13 * 5^5 * 7^3
+        square_divisor_count(2^28 * 3^13 * 5^5 * 7^3) = 672
+    square_divisor_count(factorial_product_1_to_9) = 672

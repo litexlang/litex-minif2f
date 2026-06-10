@@ -1,0 +1,38 @@
+# name: induction_ineq_nsqlefactn
+# informal_prefix:
+# /-- Show that for any integer $n \geq 4$, we have $n^2 \leq n!$.-/
+# formal_statement:
+# theorem induction_ineq_nsqlefactn (n : ℕ) (h₀ : 4 ≤ n) : n ^ 2 ≤ n ! := by
+
+claim:
+    prove:
+        forall n N:
+            4 <= n
+            =>:
+                n^2 <= product(1, n, 'N_pos(k){k})
+
+    by induc n from 4:
+        prove:
+            n^2 <= product(1, n, 'N_pos(k){k})
+
+        prove from n = 4:
+            product(1, 1, 'N_pos(k){k}) = 1
+            product(1, 2, 'N_pos(k){k}) = product(1, 1, 'N_pos(k){k}) * 'N_pos(k){k}(2) = 1 * 2 = 2
+            product(1, 3, 'N_pos(k){k}) = product(1, 2, 'N_pos(k){k}) * 'N_pos(k){k}(3) = 2 * 3 = 6
+            product(1, 4, 'N_pos(k){k}) = product(1, 3, 'N_pos(k){k}) * 'N_pos(k){k}(4) = 6 * 4 = 24
+            4^2 = 16 <= 24 = product(1, 4, 'N_pos(k){k})
+
+        prove induc:
+            product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * 'N_pos(k){k}(n + 1)
+            'N_pos(k){k}(n + 1) = n + 1
+            product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1)
+            0 < n + 1
+            n^2 * (n + 1) <= product(1, n, 'N_pos(k){k}) * (n + 1)
+            4 <= n
+            1 <= n
+            n + 1 <= n + n
+            2 <= n
+            n + n = 2 * n <= n * n = n^2
+            n + 1 <= n + n = 2 * n <= n * n = n^2
+            (n + 1)^2 = (n + 1) * (n + 1) <= n^2 * (n + 1)
+            (n + 1)^2 <= n^2 * (n + 1) <= product(1, n, 'N_pos(k){k}) * (n + 1) = product(1, n + 1, 'N_pos(k){k})

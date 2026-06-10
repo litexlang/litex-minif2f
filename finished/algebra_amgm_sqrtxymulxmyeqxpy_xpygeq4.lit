@@ -1,0 +1,46 @@
+# name: algebra_amgm_sqrtxymulxmyeqxpy_xpygeq4
+# informal_prefix:
+# /-- Suppose that $x$ and $y$ are positive real numbers with $y\leq x$, and that $\sqrt{xy}(x-y)=(x+y)$.
+# Prove that $x+y\geq 4$.-/
+# formal_statement:
+# theorem algebra_amgm_sqrtxymulxmyeqxpy_xpygeq4 (x y : ℝ) (h₀ : 0 < x ∧ 0 < y) (h₁ : y ≤ x)
+#   (h₂ : Real.sqrt (x * y) * (x - y) = x + y) : x + y ≥ 4 := by
+
+claim:
+    prove:
+        forall x, y R_pos:
+            y <= x
+            sqrt(x * y) * (x - y) = x + y
+            =>:
+                x + y >= 4
+
+    have s R = sqrt(x)
+    have t R = sqrt(y)
+    sqrt(x) > 0
+    sqrt(y) > 0
+    0 < s
+    0 < t
+    sqrt(x)^2 = x
+    sqrt(y)^2 = y
+    s^2 = sqrt(x)^2 = x
+    t^2 = sqrt(y)^2 = y
+    sqrt(x * y) = sqrt(x) * sqrt(y) = s * t
+    x - y = s^2 - t^2
+    x + y = s^2 + t^2
+    s * t * (s^2 - t^2) = s^2 + t^2
+    s * t * (s^2 - t^2) = x + y
+    4 * s * t * (s^2 - t^2) = 4 * (s * t * (s^2 - t^2)) = 4 * (x + y)
+    (s^2 + t^2)^2 = (x + y)^2
+    0 <= (s^2 - 2 * s * t - t^2)^2
+    (s^2 - 2 * s * t - t^2)^2 = s^4 - 4 * s^3 * t + 2 * s^2 * t^2 + 4 * s * t^3 + t^4
+    (s^2 + t^2)^2 - 4 * s * t * (s^2 - t^2) = s^4 - 4 * s^3 * t + 2 * s^2 * t^2 + 4 * s * t^3 + t^4
+    (s^2 - 2 * s * t - t^2)^2 = (s^2 + t^2)^2 - 4 * s * t * (s^2 - t^2)
+    (s^2 + t^2)^2 - 4 * s * t * (s^2 - t^2) = (x + y)^2 - 4 * (x + y)
+    0 <= (x + y)^2 - 4 * (x + y)
+    (x + y)^2 - 4 * (x + y) = (x + y) * (x + y - 4)
+    0 <= (x + y) * (x + y - 4)
+    0 < x + y
+    0 <= ((x + y) * (x + y - 4)) / (x + y)
+    ((x + y) * (x + y - 4)) / (x + y) = x + y - 4
+    x + y - 4 >= 0
+    x + y >= 4

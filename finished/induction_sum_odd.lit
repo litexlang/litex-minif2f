@@ -1,0 +1,23 @@
+# name: induction_sum_odd
+# informal_prefix:
+# /-- Show that for positive integer $n$, $\sum_{k=0}^{n-1} (2k + 1) = n^2$.-/
+# formal_statement:
+# theorem induction_sum_odd (n : ℕ) : (∑ k in Finset.range n, 2 * k) + 1 = n ^ 2 := by
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(0, n - 1, 'R(k){2 * k + 1}) = n^2
+
+    by induc n from 1:
+        prove:
+            sum(0, n - 1, 'R(k){2 * k + 1}) = n^2
+
+        prove from n = 1:
+            sum(0, 0, 'R(k){2 * k + 1}) = 1
+            sum(0, 1 - 1, 'R(k){2 * k + 1}) = sum(0, 0, 'R(k){2 * k + 1}) = 1 = 1^2
+
+        prove induc:
+            sum(0, n, 'R(k){2 * k + 1}) = sum(0, n - 1, 'R(k){2 * k + 1}) + 'R(k){2 * k + 1}(n)
+            'R(k){2 * k + 1}(n) = 2 * n + 1
+            sum(0, n + 1 - 1, 'R(k){2 * k + 1}) = sum(0, n, 'R(k){2 * k + 1}) = sum(0, n - 1, 'R(k){2 * k + 1}) + (2 * n + 1) = n^2 + (2 * n + 1) = (n + 1)^2

@@ -1,0 +1,21 @@
+# name: amc12_2000_p11
+# informal_prefix:
+# /-- $\textbf{(A)} \ - 2 \qquad \textbf{(B)} \ \frac { -1 }{2} \qquad \textbf{(C)} \ \frac {1}{3} \qquad \textbf{(D)} \ \frac {1}{2} \qquad \textbf{(E)} \ 2$ Show that it is $\text{E}$.-/
+# formal_statement:
+# theorem amc12_2000_p11 (a b : ℝ) (h₀ : a ≠ 0 ∧ b ≠ 0) (h₁ : a * b = a - b) :
+#     a / b + b / a - a * b = 2 := by
+
+claim:
+    prove:
+        forall a, b R:
+            a != 0
+            b != 0
+            a * b = a - b
+            =>:
+                a / b + b / a - a * b = 2
+
+    a * b != 0
+    (a * b)^2 = (a - b)^2
+    a^2 * b^2 = (a * b)^2 = (a - b)^2
+    a^2 + b^2 - a^2 * b^2 = a^2 + b^2 - (a - b)^2 = 2 * a * b
+    a / b + b / a - a * b = (a^2 + b^2 - a^2 * b^2) / (a * b) = (2 * a * b) / (a * b) = 2

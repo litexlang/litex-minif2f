@@ -1,0 +1,34 @@
+# name: imo_1985_p6
+# informal_prefix:
+# /-- For every real number $x_1$, construct the sequence $x_1,x_2,\ldots$ by setting $x_{n+1}=x_n \left(x_n + \frac{1}{n}\right)$ for each $n \geq 1$.  Prove that there exists exactly one value of $x_1$ for which $0<x_n<x_{n+1}<1$ for every $n$.-/
+# formal_statement:
+# theorem imo_1985_p6 (f : ℕ → NNReal → ℝ) (h₀ : ∀ x, f 1 x = x)
+#     (h₁ : ∀ x n, f (n + 1) x = f n x * (f n x + 1 / n)) :
+#     ∃! a, ∀ n, 0 < n → 0 < f n a ∧ f n a < f (n + 1) a ∧ f (n + 1) a < 1 := by
+
+# Natural-language idea:
+# For a fixed initial value a, the recurrence is monotone in a.  The desired
+# initial values are nested intervals cut out by 0<x_n<x_{n+1}<1.  Compactness
+# or a monotone limiting argument gives existence, and strict monotonicity of
+# the iterates gives uniqueness.
+prop Imo1985Good(f fn(n N_pos, x R_pos) R, a R_pos):
+    forall n N_pos:
+        0 < f(n, a)
+        f(n, a) < f(n + 1, a)
+        f(n + 1, a) < 1
+
+claim:
+    prove:
+        forall f fn(n N_pos, x R_pos) R:
+            forall x R_pos:
+                f(1, x) = x
+            forall x R_pos, n N_pos:
+                f(n + 1, x) = f(n, x) * (f(n, x) + 1 / n)
+            =>:
+                exist! a R_pos st {$Imo1985Good(f, a)}
+
+    # proof_debt: this needs infinite recurrence analysis, nested
+    # interval/limit existence, and strict monotonicity for uniqueness.
+    know:
+        exist! a R_pos st {$Imo1985Good(f, a)}
+    exist! a R_pos st {$Imo1985Good(f, a)}

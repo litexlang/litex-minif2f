@@ -1,0 +1,39 @@
+# name: algebra_others_exirrpowirrrat
+# informal_prefix:
+# /-- Show that there exist real numbers $a$ and $b$ such that $a$ is irrational, $b$ is irrational, and $a^b$ is rational.-/
+# formal_statement:
+# theorem algebra_others_exirrpowirrrat : ∃ a b, Irrational a ∧ Irrational b ∧ ¬Irrational (a ^ b) := by
+
+abstract_prop Irrational(x)
+
+claim:
+    prove:
+        exist a, b, c R st {0 < a, $Irrational(a), $Irrational(b), c = a^b, not $Irrational(c)}
+
+    sqrt(2) > 0
+    # proof_debt: the local predicate is abstract, so sqrt(2)
+    # irrationality and rationality of 2 must be supplied as background facts.
+    know:
+        $Irrational(sqrt(2))
+        not $Irrational(2)
+        (sqrt(2)^sqrt(2))^sqrt(2) = 2
+
+    by cases:
+        prove:
+            exist a, b, c R st {0 < a, $Irrational(a), $Irrational(b), c = a^b, not $Irrational(c)}
+
+        case not $Irrational(sqrt(2)^sqrt(2)):
+            witness exist a, b, c R st {0 < a, $Irrational(a), $Irrational(b), c = a^b, not $Irrational(c)} from sqrt(2), sqrt(2), sqrt(2)^sqrt(2):
+                0 < sqrt(2)
+                $Irrational(sqrt(2))
+                $Irrational(sqrt(2))
+                sqrt(2)^sqrt(2) = sqrt(2)^sqrt(2)
+                not $Irrational(sqrt(2)^sqrt(2))
+
+        case $Irrational(sqrt(2)^sqrt(2)):
+            witness exist a, b, c R st {0 < a, $Irrational(a), $Irrational(b), c = a^b, not $Irrational(c)} from sqrt(2)^sqrt(2), sqrt(2), 2:
+                0 < sqrt(2)^sqrt(2)
+                $Irrational(sqrt(2)^sqrt(2))
+                $Irrational(sqrt(2))
+                2 = (sqrt(2)^sqrt(2))^sqrt(2)
+                not $Irrational(2)

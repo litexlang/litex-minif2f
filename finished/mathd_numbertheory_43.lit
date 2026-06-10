@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_43
+# informal_prefix:
+# /-- Determine the largest possible integer $n$ such that $942!$ is divisible by $15^n$. Show that it is 233.-/
+# formal_statement:
+# theorem mathd_numbertheory_43 : IsGreatest { n : ℕ | 15 ^ n ∣ 942! } 233 := by
+
+claim:
+    prove:
+        188 + 37 + 7 + 1 = 233

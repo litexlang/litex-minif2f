@@ -1,0 +1,20 @@
+# name: numbertheory_sumkmulnckeqnmul2pownm1
+# informal_prefix:
+# /-- Show that for positive integers $n$ and $k$, if $k \leq n$, then $\sum_{k=1}^n (k*C_n^k) = n * 2^{n-1}$.-/
+# formal_statement:
+# theorem numbertheory_sumkmulnckeqnmul2pownm1 (n : ℕ) (h₀ : 0 < n) :
+#   (∑ k in Finset.Icc 1 n, k * Nat.choose n k) = n * 2 ^ (n - 1) := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N_pos:
+            sum(1, n, '(k N_pos) N {k * choose(n, k)}) = n * 2^(n - 1)
+
+    # Natural-language idea: use k*C(n,k) = n*C(n-1,k-1), then shift the sum
+    # to n * sum_{j=0}^{n-1} C(n-1,j) = n*2^(n-1).
+    # proof_debt: this needs binomial coefficient identities plus
+    # finite-sum reindexing over `choose`.
+    know sum(1, n, '(k N_pos) N {k * choose(n, k)}) = n * 2^(n - 1)
+    sum(1, n, '(k N_pos) N {k * choose(n, k)}) = n * 2^(n - 1)

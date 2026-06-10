@@ -1,0 +1,25 @@
+# name: imo_2006_p3
+# informal_prefix:
+# /-- Show that for any real numbers $a$, $b$, and $c$, we have $(ab(a^2 - b^2)) + (bc(b^2 - c^2)) + (ca(c^2 - a^2)) \leq \frac{9\sqrt{2}}{32}(a^2 + b^2 + c^2)^2$.-/
+# formal_statement:
+# theorem imo_2006_p3 (a b c : ℝ) :
+#   a * b * (a ^ 2 - b ^ 2) + b * c * (b ^ 2 - c ^ 2) + c * a * (c ^ 2 - a ^ 2) ≤
+#   9 * Real.sqrt 2 / 32 * (a ^ 2 + b ^ 2 + c ^ 2) ^ 2 := by
+
+# Natural-language idea:
+# The inequality is homogeneous of degree four.  Normalize
+# a^2+b^2+c^2=1 and maximize the cyclic quartic expression, or equivalently
+# use the known sharp sum-of-squares/trigonometric form whose maximum is
+# 9*sqrt(2)/32.
+claim:
+    prove:
+        forall a, b, c R:
+            a * b * (a^2 - b^2) + b * c * (b^2 - c^2) + c * a * (c^2 - a^2) <= 9 * sqrt(2) / 32 * (a^2 + b^2 + c^2)^2
+
+    0 <= 2
+    0 <= (a^2 + b^2 + c^2)^2
+    # proof_debt: this needs the sharp homogeneous cyclic quartic
+    # inequality, likely as a reusable sum-of-squares or maximization lemma.
+    know:
+        a * b * (a^2 - b^2) + b * c * (b^2 - c^2) + c * a * (c^2 - a^2) <= 9 * sqrt(2) / 32 * (a^2 + b^2 + c^2)^2
+    a * b * (a^2 - b^2) + b * c * (b^2 - c^2) + c * a * (c^2 - a^2) <= 9 * sqrt(2) / 32 * (a^2 + b^2 + c^2)^2

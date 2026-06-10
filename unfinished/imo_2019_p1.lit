@@ -1,0 +1,52 @@
+# name: imo_2019_p1
+# informal_prefix:
+# /-- 'Let $\mathbb{Z}$ be the set of integers. Determine all functions $f : \mathbb{Z} \to \mathbb{Z}$ such that, for all
+# ''integers $a$ and $b$, $f(2a) + 2f(b) = f(f(a + b)).$''-/
+# formal_statement:
+# theorem imo_2019_p1 (f : ℤ → ℤ) :
+#     (∀ a b, f (2 * a) + 2 * f b = f (f (a + b))) ↔ ∀ z, f z = 0 ∨ ∃ c, ∀ z, f z = 2 * z + c := by
+
+prop imo_2019_equation(f fn(z Z) Z):
+    forall a, b Z:
+        f(2 * a) + 2 * f(b) = f(f(a + b))
+
+prop imo_2019_zero(f fn(z Z) Z):
+    forall z Z:
+        f(z) = 0
+
+prop imo_2019_affine_with(f fn(z Z) Z, c Z):
+    forall z Z:
+        f(z) = 2 * z + c
+
+prop imo_2019_affine(f fn(z Z) Z):
+    exist c Z st {$imo_2019_affine_with(f, c)}
+
+# Natural-language idea:
+# Put b=0 and compare shifted equations to show either the image collapses to
+# 0 or f has constant second difference 0 and slope 2.  The reverse direction
+# is then a direct substitution for the zero and affine families.
+claim:
+    prove:
+        forall f fn(z Z) Z:
+            $imo_2019_equation(f)
+            =>:
+                $imo_2019_zero(f) or $imo_2019_affine(f)
+
+    # proof_debt: this is the full functional-equation classification,
+    # including the image-collapse/affine dichotomy.
+    know:
+        $imo_2019_zero(f) or $imo_2019_affine(f)
+    $imo_2019_zero(f) or $imo_2019_affine(f)
+
+claim:
+    prove:
+        forall f fn(z Z) Z:
+            $imo_2019_zero(f) or $imo_2019_affine(f)
+            =>:
+                $imo_2019_equation(f)
+
+    # proof_debt: the reverse direction needs a function-extensional
+    # case split plus substitution into f(2*a)+2*f(b)=f(f(a+b)).
+    know:
+        $imo_2019_equation(f)
+    $imo_2019_equation(f)

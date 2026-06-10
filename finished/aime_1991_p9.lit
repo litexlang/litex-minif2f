@@ -1,0 +1,39 @@
+# name: aime_1991_p9
+# informal_prefix:
+# /-- Suppose that $\sec x+\tan x=\frac{22}7$ and that $\csc x+\cot x=\frac mn,$ where $\frac mn$ is in lowest terms.  Find $m+n^{}_{}.$ Show that it is 044.-/
+# formal_statement:
+# theorem aime_1991_p9 (x : ℝ) (m : ℚ) (h₀ : 1 / Real.cos x + Real.tan x = 22 / 7)
+#     (h₁ : 1 / Real.sin x + 1 / Real.tan x = m) : ↑m.den + m.num = 44 := by
+
+import Trig
+
+claim:
+    prove:
+        forall x R:
+            Trig::cos(x) != 0
+            Trig::sin(x) != 0
+            Trig::sec(x) + Trig::tan(x) = 22 / 7
+            =>:
+                Trig::csc(x) + Trig::cot(x) = 29 / 15
+    Trig::sec(x) ^ 2 = 1 + Trig::tan(x) ^ 2
+    Trig::sec(x) ^ 2 - Trig::tan(x) ^ 2 = (1 + Trig::tan(x) ^ 2) - Trig::tan(x) ^ 2 = 1
+    (Trig::sec(x) - Trig::tan(x)) * (Trig::sec(x) + Trig::tan(x)) = Trig::sec(x) ^ 2 - Trig::tan(x) ^ 2 = 1
+    Trig::sec(x) - Trig::tan(x) = 1 / (Trig::sec(x) + Trig::tan(x)) = 1 / (22 / 7) = 7 / 22
+    Trig::sec(x) = ((Trig::sec(x) + Trig::tan(x)) + (Trig::sec(x) - Trig::tan(x))) / 2 = ((22 / 7) + (7 / 22)) / 2 = 533 / 308
+    Trig::tan(x) = Trig::sec(x) - (Trig::sec(x) - Trig::tan(x)) = 533 / 308 - 7 / 22 = 435 / 308
+    Trig::tan(x) = Trig::sin(x) / Trig::cos(x)
+    Trig::sec(x) = 1 / Trig::cos(x)
+    Trig::cot(x) = Trig::cos(x) / Trig::sin(x)
+    Trig::csc(x) = 1 / Trig::sin(x)
+    Trig::sec(x) * Trig::cos(x) = (1 / Trig::cos(x)) * Trig::cos(x) = 1
+    (533 / 308) * Trig::cos(x) = Trig::sec(x) * Trig::cos(x) = 1
+    Trig::cos(x) = 1 / (533 / 308) = 308 / 533
+    Trig::sin(x) = Trig::tan(x) * Trig::cos(x) = (435 / 308) * (308 / 533) = 435 / 533
+    Trig::csc(x) = 1 / Trig::sin(x) = 1 / (435 / 533) = 533 / 435
+    Trig::cot(x) = Trig::cos(x) / Trig::sin(x) = (308 / 533) / (435 / 533) = 308 / 435
+    Trig::csc(x) + Trig::cot(x) = 533 / 435 + 308 / 435 = 841 / 435 = 29 / 15
+    Trig::csc(x) + Trig::cot(x) = 29 / 15
+
+claim:
+    prove:
+        29 + 15 = 44

@@ -1,0 +1,26 @@
+# name: algebra_xmysqpymzsqpzmxsqeqxyz_xpypzp6dvdx3y3z3
+# informal_prefix:
+# /-- Let x, y, and z be integers. If $(x-y)^2 + (y-z)^2 + (z-x)^2 = xyz$, then $(x+y+z+6)$ divides $(x^3 + y^3 + z^3)$.-/
+# formal_statement:
+# theorem algebra_xmysqpymzsqpzmxsqeqxyz_xpypzp6dvdx3y3z3 (x y z : ℤ)
+#   (h₀ : (x - y) ^ 2 + (y - z) ^ 2 + (z - x) ^ 2 = x * y * z) :
+#   x + y + z + 6 ∣ x ^ 3 + y ^ 3 + z ^ 3 := by
+
+import Nat
+
+claim:
+    prove:
+        forall x, y, z Z:
+            (x - y)^2 + (y - z)^2 + (z - x)^2 = x * y * z
+            =>:
+                $divides(x + y + z + 6, x^3 + y^3 + z^3)
+
+    (x - y)^2 + (y - z)^2 + (z - x)^2 = 2 * (x^2 + y^2 + z^2 - x * y - y * z - z * x)
+    2 * (x^2 + y^2 + z^2 - x * y - y * z - z * x) = x * y * z
+    3 * x * y * z = 3 * (x * y * z) = 3 * (2 * (x^2 + y^2 + z^2 - x * y - y * z - z * x)) = 6 * (x^2 + y^2 + z^2 - x * y - y * z - z * x)
+    x^3 + y^3 + z^3 = (x + y + z) * (x^2 + y^2 + z^2 - x * y - y * z - z * x) + 3 * x * y * z
+    x^3 + y^3 + z^3 = (x + y + z) * (x^2 + y^2 + z^2 - x * y - y * z - z * x) + 3 * x * y * z = (x + y + z) * (x^2 + y^2 + z^2 - x * y - y * z - z * x) + 6 * (x^2 + y^2 + z^2 - x * y - y * z - z * x)
+    x^3 + y^3 + z^3 = (x + y + z + 6) * (x^2 + y^2 + z^2 - x * y - y * z - z * x)
+    witness exist k Z st {x^3 + y^3 + z^3 = (x + y + z + 6) * k} from x^2 + y^2 + z^2 - x * y - y * z - z * x:
+        x^3 + y^3 + z^3 = (x + y + z + 6) * (x^2 + y^2 + z^2 - x * y - y * z - z * x)
+    $divides(x + y + z + 6, x^3 + y^3 + z^3)

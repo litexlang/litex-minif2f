@@ -1,0 +1,13 @@
+# name: mathd_numbertheory_232
+# informal_prefix:
+# /-- Compute $(3^{-1}+5^{-1})^{-1}\pmod{31}$. Express your answer as an integer from $0$ to $30$, inclusive. Show that it is 29.-/
+# formal_statement:
+# theorem mathd_numbertheory_232 (x y z : ZMod 31) (h₀ : x = 3⁻¹) (h₁ : y = 5⁻¹)
+#   (h₂ : z = (x + y)⁻¹) : z = 29 := by
+
+claim:
+    prove:
+        3 * 21 % 31 = 1
+        5 * 25 % 31 = 1
+        (21 + 25) % 31 = 15
+        15 * 29 % 31 = 1

@@ -1,0 +1,25 @@
+# name: numbertheory_xsqpysqintdenomeq
+# informal_prefix:
+# /-- Let $x$ and $y$ be rational numbers. Show that if $x^2 + y^2$ is an integer, then $x$ and $y$ have the same denominator.-/
+# formal_statement:
+# theorem numbertheory_xsqpysqintdenomeq (x y : ℚ) (h₀ : (x ^ 2 + y ^ 2).den = 1) : x.den = y.den := by
+
+claim:
+    prove:
+        forall x_num, x_den, y_num, y_den Z:
+            x_den > 0
+            y_den > 0
+            $Coprime(x_num, x_den)
+            $Coprime(y_num, y_den)
+            (x_num / x_den)^2 + (y_num / y_den)^2 $in Z
+            =>:
+                x_den = y_den
+
+    # Natural-language idea: write x and y in lowest terms. If x^2+y^2 is an
+    # integer, then each prime appearing in one denominator must also appear in
+    # the other denominator with the same exponent; otherwise the reduced
+    # denominator of the sum cannot be 1.
+    # proof_debt: this needs rational reduced-denominator arithmetic and
+    # prime-valuation reasoning for sums of squares.
+    know x_den = y_den
+    x_den = y_den

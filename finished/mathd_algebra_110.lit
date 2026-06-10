@@ -1,0 +1,17 @@
+# name: mathd_algebra_110
+# informal_prefix:
+# /-- Simplify $(2-2i)(5+5i)$, where $i^2 = -1.$ Show that it is 20.-/
+# formal_statement:
+# theorem mathd_algebra_110 (q e : ℂ) (h₀ : q = 2 - 2 * Complex.I) (h₁ : e = 5 + 5 * Complex.I) :
+#     q * e = 20 := by
+
+import complex
+
+C_mul((2, 0), C_i) = (2 * 0 - 0 * 1, 2 * 1 + 0 * 0) = (0, 2)
+C_mul((5, 0), C_i) = (5 * 0 - 0 * 1, 5 * 1 + 0 * 0) = (0, 5)
+C_sub((2, 0), (0, 2)) = (2 - 0, 0 - 2) = (2, -2)
+C_add((5, 0), (0, 5)) = (5 + 0, 0 + 5) = (5, 5)
+C_mul((2, -2), (5, 5)) = (2 * 5 - (-2) * 5, 2 * 5 + (-2) * 5) = (20, 0)
+C_sub((2, 0), C_mul((2, 0), C_i)) = C_sub((2, 0), (0, 2)) = (2, -2)
+C_add((5, 0), C_mul((5, 0), C_i)) = C_add((5, 0), (0, 5)) = (5, 5)
+C_mul(C_sub((2, 0), C_mul((2, 0), C_i)), C_add((5, 0), C_mul((5, 0), C_i))) = C_mul((2, -2), (5, 5)) = (20, 0)

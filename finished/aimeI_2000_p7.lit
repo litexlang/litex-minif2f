@@ -1,0 +1,49 @@
+# name: aimeI_2000_p7
+# informal_prefix:
+# /-- Suppose that $x,$ $y,$ and $z$ are three positive numbers that satisfy the equations $xyz = 1,$ $x + \frac {1}{z} = 5,$ and $y + \frac {1}{x} = 29.$ Then $z + \frac {1}{y} = \frac {m}{n},$ where $m$ and $n$ are [[relatively prime]] positive integers. Find $m + n$.
+# 
+# 
+# note: this is the type of problem that makes you think symmetry, but actually can be solved easily with substitution, and other normal technniques Show that it is 005.-/
+# formal_statement:
+# theorem aimeI_2000_p7 (x y z : ℝ) (m : ℚ) (h₀ : 0 < x ∧ 0 < y ∧ 0 < z) (h₁ : x * y * z = 1)
+#   (h₂ : x + 1 / z = 5) (h₃ : y + 1 / x = 29) (h₄ : z + 1 / y = m) (h₅ : 0 < m) :
+#   ↑m.den + m.num = 5 := by
+
+# Natural-language idea:
+# Use xyz = 1 to rewrite 1/z as xy and 1/x as yz.  The two linearized
+# equations give x = 1/5, then y = 24 and z = 5/24, so z + 1/y = 1/4.
+
+claim:
+    prove:
+        forall x, y, z R_pos:
+            x * y * z = 1
+            x + 1 / z = 5
+            y + 1 / x = 29
+            =>:
+                z + 1 / y = 1 / 4
+    x != 0
+    y != 0
+    z != 0
+    x * y = 1 / z
+    x + x * y = x + 1 / z = 5
+    x * y + 1 = x * (y + 1 / x) = x * 29
+    x * y + 1 = 29 * x
+    x * y = 29 * x - 1
+    x + x * y = 5
+    x + (29 * x - 1) = x + x * y = 5
+    x + (29 * x - 1) = 30 * x - 1
+    30 * x - 1 = 5
+    30 * x = 6
+    x = 1 / 5
+    y + 1 / x = 29
+    y + 1 / x = y + 1 / (1 / 5) = y + 5
+    y + 5 = 29
+    y = 24
+    x * y = (1 / 5) * 24 = 24 / 5
+    z = 1 / (x * y) = 1 / (24 / 5) = 5 / 24
+    1 / y = 1 / 24
+    z + 1 / y = 5 / 24 + 1 / 24 = 1 / 4
+
+claim:
+    prove:
+        1 + 4 = 5

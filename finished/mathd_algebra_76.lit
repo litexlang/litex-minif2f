@@ -1,0 +1,31 @@
+# name: mathd_algebra_76
+# informal_prefix:
+# /-- For integers $n$, let \[f(n) = \left\{
+# \begin{array}{cl}
+# n^2 & \text{ if }n\text{ is odd}, \\
+# n^2 - 4n - 1 & \text{ if }n\text{ is even}.
+# \end{array}
+# \right.\]Find $f(f(f(f(f(4)))))$. Show that it is 1.-/
+# formal_statement:
+# theorem mathd_algebra_76 (f : ℤ → ℤ) (h₀ : ∀ n, Odd n → f n = n ^ 2)
+#     (h₁ : ∀ n, Even n → f n = n ^ 2 - 4 * n - 1) : f 4 = -1 := by
+
+import Int
+
+forall f fn(n Z) Z:
+    forall n Z:
+        $Int::Odd(n)
+        =>:
+            f(n) = n ^ 2
+    forall n Z:
+        $Int::Even(n)
+        =>:
+            f(n) = n ^ 2 - 4 * n - 1
+    =>:
+        $Int::Even(4)
+        f(4) = 4 ^ 2 - 4 * 4 - 1 = -1
+        $Int::Odd(-1)
+        f(-1) = (-1)^2 = 1
+        $Int::Odd(1)
+        f(1) = 1^2 = 1
+        f(f(f(f(f(4))))) = f(f(f(f(-1)))) = f(f(f(1))) = f(f(1)) = f(1) = 1

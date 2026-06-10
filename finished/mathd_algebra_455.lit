@@ -1,0 +1,6 @@
+claim:
+    prove:
+        forall x R:
+            2 * (2 * (2 * (2 * x))) = 48
+            =>:
+                x = 3

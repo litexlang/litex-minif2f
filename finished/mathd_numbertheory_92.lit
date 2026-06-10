@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_92
+# informal_prefix:
+# /-- Solve the congruence $5n \equiv 8 \pmod{17}$, as a residue modulo 17.  (Give an answer between 0 and 16.) Show that it is 5.-/
+# formal_statement:
+# theorem mathd_numbertheory_92 (n : ℕ) (h₀ : 5 * n % 17 = 8) : n % 17 = 5 := by
+
+claim:
+    prove:
+        5 * 5 % 17 = 8

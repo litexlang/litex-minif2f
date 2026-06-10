@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_457
+# informal_prefix:
+# /-- What is the least positive integer $n$ such that $80325$ divides $n!$? Show that it is 17.-/
+# formal_statement:
+# theorem mathd_numbertheory_457 (n : ℕ) (h₀ : 0 < n) (h₁ : 80325 ∣ n !) : 17 ≤ n := by
+
+claim:
+    prove:
+        355687428096000 = 80325 * 4428103680

@@ -1,0 +1,16 @@
+# name: imo_1963_p5
+# informal_prefix:
+# /-- Prove that $\cos{\frac{\pi}{7}}-\cos{\frac{2\pi}{7}}+\cos{\frac{3\pi}{7}}=\frac{1}{2}$.-/
+# formal_statement:
+# theorem imo_1963_p5 : Real.cos (Real.pi / 7) - Real.cos (2 * Real.pi / 7) + Real.cos (3 * Real.pi / 7) = 1 / 2 := by
+
+import Trig
+
+claim:
+    prove:
+        cos(pi / 7) - cos(2 * pi / 7) + cos(3 * pi / 7) = 1 / 2
+    # proof_debt: this needs exact seventh-angle trigonometric
+    # identities, e.g. via roots of unity or a Chebyshev polynomial.
+    know:
+        cos(pi / 7) - cos(2 * pi / 7) + cos(3 * pi / 7) = 1 / 2
+    cos(pi / 7) - cos(2 * pi / 7) + cos(3 * pi / 7) = 1 / 2

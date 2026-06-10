@@ -1,0 +1,11 @@
+# name: mathd_algebra_302
+# informal_prefix:
+# /-- Evaluate $\left(\frac{i}{2}\right)^2$. Show that it is -\frac{1}{4}.-/
+# formal_statement:
+# theorem mathd_algebra_302 : (Complex.I / 2) ^ 2 = -(1 / 4) := by
+
+import complex
+
+C_mul((0, 1 / 2), (0, 1 / 2)) = (0 * 0 - (1 / 2) * (1 / 2), 0 * (1 / 2) + (1 / 2) * 0) = (-(1 / 4), 0)
+C_mul((1 / 2, 0), C_i) = (1 / 2 * 0 - 0 * 1, 1 / 2 * 1 + 0 * 0) = (0, 1 / 2)
+C_mul(C_mul((1 / 2, 0), C_i), C_mul((1 / 2, 0), C_i)) = C_mul((0, 1 / 2), (0, 1 / 2)) = (-(1 / 4), 0)

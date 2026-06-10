@@ -1,0 +1,31 @@
+# name: amc12b_2020_p5
+# informal_prefix:
+# /-- Teams $A$ and $B$ are playing in a basketball league where each game results in a win for one team and a loss for the other team. Team $A$ has won $\tfrac{2}{3}$ of its games and team $B$ has won $\tfrac{5}{8}$ of its games. Also, team $B$ has won $7$ more games and lost $7$ more games than team $A.$ How many games has team $A$ played?
+# 
+# $\textbf{(A) } 21 \qquad \textbf{(B) } 27 \qquad \textbf{(C) } 42 \qquad \textbf{(D) } 48 \qquad \textbf{(E) } 63$ Show that it is \textbf{(C) } 42.-/
+# formal_statement:
+# theorem amc12b_2020_p5 (a b : ℕ) (h₀ : (5 : ℚ) / 8 * b = 2 / 3 * a + 7)
+#   (h₁ : (b : ℚ) - 5 / 8 * b = a - 2 / 3 * a + 7) : a = 42 := by
+
+claim:
+    prove:
+        forall a, b Q:
+            5 / 8 * b = 2 / 3 * a + 7
+            b - 5 / 8 * b = a - 2 / 3 * a + 7
+            =>:
+                a = 3 / 4 * b = 3 / 4 * 56 = 42
+    3 / 8 * b = b - 5 / 8 * b
+    3 / 8 * b = a - 2 / 3 * a + 7 = 1 / 3 * a + 7
+    3 / 8 * b = 1 / 3 * a + 7
+    5 / 8 * b - 2 / 3 * a = (2 / 3 * a + 7) - 2 / 3 * a = 7
+    3 / 8 * b - 1 / 3 * a = (1 / 3 * a + 7) - 1 / 3 * a = 7
+    5 / 8 * b - 2 / 3 * a = 3 / 8 * b - 1 / 3 * a
+    (5 / 8 * b - 2 / 3 * a) - (3 / 8 * b - 1 / 3 * a) = 0
+    1 / 4 * b - 1 / 3 * a = (5 / 8 * b - 2 / 3 * a) - (3 / 8 * b - 1 / 3 * a) = 0
+    1 / 4 * b = 1 / 3 * a
+    3 * b = 12 * (1 / 4 * b) = 12 * (1 / 3 * a) = 4 * a
+    a = (3 * b) / 4 = 3 / 4 * b
+    5 / 8 * b = 2 / 3 * a + 7 = 2 / 3 * (3 / 4 * b) + 7 = 1 / 2 * b + 7
+    1 / 8 * b = 5 / 8 * b - 1 / 2 * b = (1 / 2 * b + 7) - 1 / 2 * b = 7
+    b = 8 * (1 / 8 * b) = 8 * 7 = 56
+    a = 3 / 4 * b = 3 / 4 * 56 = 42

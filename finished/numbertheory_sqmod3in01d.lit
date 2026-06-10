@@ -1,0 +1,21 @@
+# name: numbertheory_sqmod3in01d
+# informal_prefix:
+# /-- Show that the square of any integer is congruent to 0 or 1 modulo 3.-/
+# formal_statement:
+# theorem numbertheory_sqmod3in01d (a : ℤ) : a ^ 2 % 3 = 0 ∨ a ^ 2 % 3 = 1 := by
+
+import Nat
+
+claim:
+    prove:
+        forall a Z:
+            a^2 % 3 = 0 or a^2 % 3 = 1
+    by cases:
+        prove:
+            a^2 % 3 = 0 or a^2 % 3 = 1
+        case a % 3 = 0:
+            a^2 % 3 = ((a % 3)^2) % 3 = 0^2 % 3 = 0
+        case a % 3 = 1:
+            a^2 % 3 = ((a % 3)^2) % 3 = 1^2 % 3 = 1
+        case a % 3 = 2:
+            a^2 % 3 = ((a % 3)^2) % 3 = 2^2 % 3 = 1

@@ -1,0 +1,32 @@
+# name: amc12a_2009_p15
+# informal_prefix:
+# /-- For what value of $n$ is $i + 2i^2 + 3i^3 + \cdots + ni^n = 48 + 49i$?
+# 
+# Note: here $i = \sqrt { - 1}$.
+# 
+# $\textbf{(A)}\ 24 \qquad \textbf{(B)}\ 48 \qquad \textbf{(C)}\ 49 \qquad \textbf{(D)}\ 97 \qquad \textbf{(E)}\ 98$ Show that it is \mathbf{D}.-/
+# formal_statement:
+# theorem amc12a_2009_p15 (n : ℕ) (h₀ : 0 < n)
+#   (h₁ : (∑ k in Finset.Icc 1 n, ↑k * Complex.I ^ k) = 48 + 49 * Complex.I) : n = 97 := by
+
+# Natural-language idea:
+# The powers of i cycle every four terms. Group k*i^k in blocks of four,
+# compute the real and imaginary contributions, and solve the resulting
+# partial-sum equation to get n = 97.
+
+import complex
+
+have weighted_i_power_sum fn(n N_pos) &C
+
+claim:
+    prove:
+        forall n N_pos:
+            weighted_i_power_sum(n) = (48, 49)
+            =>:
+                n = 97
+
+    # proof_debt: the proof needs complex finite sums, coercions from
+    # natural numbers to complex numbers, and the four-cycle of powers of i.
+    know:
+        n = 97
+    n = 97

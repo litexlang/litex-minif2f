@@ -1,0 +1,8 @@
+# Combine the numerator first, then divide by 4/5.
+have numerator R = 3 / 8 + 7 / 8
+have divisor R = 4 / 5
+
+numerator = 3 / 8 + 7 / 8 = 10 / 8 = 5 / 4
+divisor = 4 / 5
+numerator / divisor = (5 / 4) / (4 / 5) = 25 / 16
+(3 / 8 + 7 / 8) / (4 / 5) = numerator / divisor = 25 / 16

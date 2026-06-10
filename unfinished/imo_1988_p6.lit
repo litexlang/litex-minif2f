@@ -1,0 +1,32 @@
+# name: imo_1988_p6
+# informal_prefix:
+# /-- Let $a$ and $b$ be positive integers such that $ab + 1$ divides $a^{2} + b^{2}$. Show that
+# $
+# \frac {a^{2} + b^{2}}{ab + 1}
+# $
+# is the square of an integer.-/
+# formal_statement:
+# theorem imo_1988_p6 (a b : ℕ) (h₀ : 0 < a ∧ 0 < b) (h₁ : a * b + 1 ∣ a ^ 2 + b ^ 2) :
+#   ∃ x : ℕ, (x ^ 2 : ℝ) = (a ^ 2 + b ^ 2) / (a * b + 1) := by
+
+import Nat
+
+# Natural-language idea:
+# Let q = (a^2+b^2)/(ab+1).  Vieta jumping treats a as a root of
+# X^2 - q*b*X + (b^2-q) = 0.  If q is not a square, the other root is a
+# smaller positive integer, contradicting minimality of a+b.  Hence q is a
+# perfect square.
+claim:
+    prove:
+        forall a, b, q N_pos:
+            q * (a * b + 1) = a^2 + b^2
+            =>:
+                exist x N st {q = x^2}
+
+    a * b + 1 > 0
+    # proof_debt: the direct proof needs the full Vieta-jumping descent
+    # for this divisor equation, including integrality of the conjugate root
+    # and the minimal-counterexample contradiction.
+    know:
+        exist x N st {q = x^2}
+    exist x N st {q = x^2}

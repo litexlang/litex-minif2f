@@ -1,0 +1,70 @@
+# name: algebra_sqineq_unitcircatbpabsamblt1
+# informal_prefix:
+# /-- Let $a$ and $b$ be real numbers such that $a^2+b^2=1$. Show that $ab+\lvert a-b\rvert \leq 1$.-/
+# formal_statement:
+# theorem algebra_sqineq_unitcircatbpabsamblt1 (a b : ℝ) (h₀ : a ^ 2 + b ^ 2 = 1) :
+#     a * b + abs (a - b) ≤ 1 := by
+
+claim:
+    prove:
+        forall a, b R:
+            a^2 + b^2 = 1
+            =>:
+                a * b + abs(a - b) <= 1
+
+    0 <= a^2
+    0 <= b^2
+    a^2 <= a^2 + b^2 = 1
+    b^2 <= a^2 + b^2 = 1
+
+    0 <= (a - 1)^2
+    (a - 1)^2 = a^2 - 2 * a + 1 <= 1 - 2 * a + 1 = 2 - 2 * a
+    0 <= (a - 1)^2 <= 2 - 2 * a
+    0 <= 2 - 2 * a
+    2 * a <= 2
+    a = (2 * a) / 2 <= 2 / 2 = 1
+
+    0 <= (b + 1)^2
+    (b + 1)^2 = b^2 + 2 * b + 1 <= 1 + 2 * b + 1 = 2 * b + 2
+    0 <= (b + 1)^2 <= 2 * b + 2
+    0 <= 2 * b + 2
+    -2 = -2 + 0 <= -2 + (2 * b + 2) = 2 * b
+    -1 = -2 / 2 <= (2 * b) / 2 = b
+    -1 <= b
+
+    0 <= (a + 1)^2
+    (a + 1)^2 = a^2 + 2 * a + 1 <= 1 + 2 * a + 1 = 2 * a + 2
+    0 <= (a + 1)^2 <= 2 * a + 2
+    0 <= 2 * a + 2
+    -2 = -2 + 0 <= -2 + (2 * a + 2) = 2 * a
+    -1 = -2 / 2 <= (2 * a) / 2 = a
+    -1 <= a
+
+    0 <= (b - 1)^2
+    (b - 1)^2 = b^2 - 2 * b + 1 <= 1 - 2 * b + 1 = 2 - 2 * b
+    0 <= (b - 1)^2 <= 2 - 2 * b
+    0 <= 2 - 2 * b
+    2 * b <= 2
+    b = (2 * b) / 2 <= 2 / 2 = 1
+
+    by cases:
+        prove:
+            a * b + abs(a - b) <= 1
+        case a - b >= 0:
+            abs(a - b) = a - b
+            0 <= 1 - a
+            0 = 1 + -1 <= 1 + b
+            0 <= (1 - a) * (1 + b)
+            (1 - a) * (1 + b) = 1 - (a * b + (a - b))
+            0 <= 1 - (a * b + (a - b))
+            a * b + abs(a - b) = a * b + (a - b)
+            a * b + (a - b) = a * b + (a - b) + 0 <= a * b + (a - b) + (1 - (a * b + (a - b))) = 1
+        case a - b < 0:
+            abs(a - b) = -(a - b) = b - a
+            0 = 1 + -1 <= 1 + a
+            0 <= 1 - b
+            0 <= (1 + a) * (1 - b)
+            (1 + a) * (1 - b) = 1 - (a * b + (b - a))
+            0 <= 1 - (a * b + (b - a))
+            a * b + abs(a - b) = a * b + (b - a)
+            a * b + (b - a) = a * b + (b - a) + 0 <= a * b + (b - a) + (1 - (a * b + (b - a))) = 1

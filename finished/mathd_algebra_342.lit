@@ -1,0 +1,18 @@
+# name: mathd_algebra_342
+# informal_prefix:
+# /-- The sum of the first 5 terms of an arithmetic series is $70$.  The sum of the first 10 terms of this  arithmetic series is $210$.  What is the first term of the series? Show that it is \frac{42}{5}.-/
+# formal_statement:
+# theorem mathd_algebra_342 (a d : ℝ) (h₀ : (∑ k in Finset.range 5, a + k * d) = 70)
+#     (h₁ : (∑ k in Finset.range 10, a + k * d) = 210) : a = 42 / 5 := by
+
+forall a, d R:
+    a + (a + d) + (a + 2 * d) + (a + 3 * d) + (a + 4 * d) = 70
+    a + (a + d) + (a + 2 * d) + (a + 3 * d) + (a + 4 * d) + (a + 5 * d) + (a + 6 * d) + (a + 7 * d) + (a + 8 * d) + (a + 9 * d) = 210
+    =>:
+        70 = a + (a + d) + (a + 2 * d) + (a + 3 * d) + (a + 4 * d) = 5 * a + 10 * d
+        210 = a + (a + d) + (a + 2 * d) + (a + 3 * d) + (a + 4 * d) + (a + 5 * d) + (a + 6 * d) + (a + 7 * d) + (a + 8 * d) + (a + 9 * d) = 10 * a + 45 * d
+        10 * a + 20 * d = 2 * (5 * a + 10 * d) = 2 * 70 = 140
+        25 * d = (10 * a + 45 * d) - (10 * a + 20 * d) = 210 - 140 = 70
+        d = 14 / 5
+        5 * a = 70 - 10 * d
+        a = (5 * a) / 5 = (70 - 10 * d) / 5 = (70 - 10 * (14 / 5)) / 5 = 42 / 5

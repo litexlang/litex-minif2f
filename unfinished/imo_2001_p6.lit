@@ -1,0 +1,31 @@
+# name: imo_2001_p6
+# informal_prefix:
+# /-- $K > L > M > N$ are positive integers such that $KM + LN = (K + L - M + N)(-K + L + M + N)$. Prove that $KL + MN$ is not prime.-/
+# formal_statement:
+# theorem imo_2001_p6 (a b c d : ℕ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d) (h₁ : d < c) (h₂ : c < b)
+#     (h₃ : b < a) (h₄ : a * c + b * d = (b + d + a - c) * (b + d + c - a)) :
+#     ¬Nat.Prime (a * b + c * d) := by
+
+import Nat
+
+# Natural-language idea:
+# Rewrite the hypothesis as a norm identity
+# K^2 - K*M + M^2 = L^2 + L*N + N^2.  The standard solution uses this
+# Eisenstein-integer style structure to produce a nontrivial factor of
+# K*L + M*N, so that it cannot be prime.
+claim:
+    prove:
+        forall k, l, m, n N_pos:
+            n < m
+            m < l
+            l < k
+            k * m + l * n = (k + l - m + n) * (l + m + n - k)
+            =>:
+                not $Prime(k * l + m * n)
+
+    k * l + m * n > 0
+    # proof_debt: the proof needs the olympiad norm/factorization
+    # argument turning the given identity into a proper divisor of k*l+m*n.
+    know:
+        not $Prime(k * l + m * n)
+    not $Prime(k * l + m * n)

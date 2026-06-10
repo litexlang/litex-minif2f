@@ -1,0 +1,50 @@
+# name: aime_1988_p3
+# informal_prefix:
+# /-- Find $(\log_2 x)^2$ if $\log_2 (\log_8 x) = \log_8 (\log_2 x)$. Show that it is 027.-/
+# formal_statement:
+# theorem aime_1988_p3 (x : ℝ) (h₀ : 0 < x)
+#   (h₁ : Real.logb 2 (Real.logb 8 x) = Real.logb 8 (Real.logb 2 x)) : Real.logb 2 x ^ 2 = 27 := by
+
+claim:
+    prove:
+        forall x R_pos:
+            log(2, x) > 0
+            log(8, x) > 0
+            log(2, log(8, x)) = log(8, log(2, x))
+            =>:
+                log(2, x)^2 = 27
+
+    have y R = log(2, x)
+    y = log(2, x)
+    y > 0
+    2 != 1
+    8 != 1
+    log(2, 8) = 3
+    log(8, x) = log(2, x) / log(2, 8) = y / 3
+    log(8, y) = log(2, y) / log(2, 8) = log(2, y) / 3
+    log(2, y / 3) = log(2, y) - log(2, 3)
+    log(2, y / 3) = log(2, log(8, x))
+    log(8, log(2, x)) = log(8, y)
+    log(2, y) - log(2, 3) = log(2, y) / 3
+    have A R = log(2, y)
+    have B R = log(2, 3)
+    A - B = log(2, y) - log(2, 3) = log(2, y) / 3 = A / 3
+    B = A - (A - B) = A - A / 3
+    A - A / 3 = 2 * A / 3
+    B = 2 * A / 3
+    3 / 2 * B = 3 / 2 * (2 * A / 3) = A
+    A = 3 / 2 * B
+    log(2, y) = A = 3 / 2 * B = 3 / 2 * log(2, 3)
+    log(2, 3^3) = 3 * log(2, 3)
+    3 / 2 * log(2, 3) = (3 * log(2, 3)) / 2 = log(2, 3^3) / 2
+    log(2, y) = log(2, 3^3) / 2
+    3^3 = 27
+    log(2, 3^3) = log(2, 27)
+    log(2, 3^3) / 2 = log(2, 27) / 2
+    2 * log(2, y) = log(2, 27)
+    log(2, y^2) = 2 * log(2, y)
+    log(2, y^2) = log(2, 27)
+    2 ^ log(2, y^2) = y^2
+    2 ^ log(2, 27) = 27
+    y^2 = 2 ^ log(2, y^2) = 2 ^ log(2, 27) = 27
+    log(2, x)^2 = y^2 = 27

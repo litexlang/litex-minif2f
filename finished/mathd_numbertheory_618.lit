@@ -1,0 +1,11 @@
+# name: mathd_numbertheory_618
+# informal_prefix:
+# /-- Euler discovered that the polynomial $p(n) = n^2 - n + 41$ yields prime numbers for many small positive integer values of $n$. What is the smallest positive integer $n$ for which $p(n)$ and $p(n+1)$ share a common factor greater than $1$? Show that it is 41.-/
+# formal_statement:
+# theorem mathd_numbertheory_618 (n : ℕ) (p : ℕ → ℕ) (h₀ : ∀ x, p x = x ^ 2 - x + 41)
+#     (h₁ : 1 < Nat.gcd (p n) (p (n + 1))) : 41 ≤ n := by
+
+claim:
+    prove:
+        41 ^ 2 - 41 + 41 = 41 ^ 2
+        42 ^ 2 - 42 + 41 = 41 * 43

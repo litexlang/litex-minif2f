@@ -1,0 +1,25 @@
+# name: aime_1991_p6
+# informal_prefix:
+# /-- Suppose $r^{}_{}$ is a [[real number]] for which
+# <div style="text-align:center">$
+# \left\lfloor r + \frac{19}{100} \right\rfloor + \left\lfloor r + \frac{20}{100} \right\rfloor + \left\lfloor r + \frac{21}{100} \right\rfloor + \cdots + \left\lfloor r + \frac{91}{100} \right\rfloor = 546.
+# $</div>
+# Find $\lfloor 100r \rfloor$. (For real $x^{}_{}$, $\lfloor x \rfloor$ is the [[floor function|greatest integer]] less than or equal to $x^{}_{}$.) Show that it is 743.-/
+# formal_statement:
+# theorem aime_1991_p6 (r : ℝ) (h₀ : (∑ k in Finset.Icc (19 : ℕ) 91, Int.floor (r + k / 100)) = 546) :
+#   Int.floor (100 * r) = 743 := by
+
+have floor fn(x R) Z
+
+claim:
+    prove:
+        forall r R:
+            sum(19, 91, '(k Z) Z {floor(r + k / 100)}) = 546
+            =>:
+                floor(100 * r) = 743
+
+    # proof_debt: proving the floor-sum squeeze needs finite floor-sum
+    # lemmas and interval arithmetic not currently available here.
+    know:
+        floor(100 * r) = 743
+    floor(100 * r) = 743

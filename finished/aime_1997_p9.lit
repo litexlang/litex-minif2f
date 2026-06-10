@@ -1,0 +1,89 @@
+# name: aime_1997_p9
+# informal_prefix:
+# /-- Given a [[nonnegative]] real number $x$, let $\langle x\rangle$ denote the fractional part of $x$; that is, $\langle x\rangle=x-\lfloor x\rfloor$, where $\lfloor x\rfloor$ denotes the [[greatest integer]] less than or equal to $x$. Suppose that $a$ is positive, $\langle a^{-1}\rangle=\langle a^2\rangle$, and $2<a^2<3$. Find the value of $a^{12}-144a^{-1}$. Show that it is 233.-/
+# formal_statement:
+# theorem aime_1997_p9 (a : ℝ) (h₀ : 0 < a)
+#     (h₁ : 1 / a - Int.floor (1 / a) = a ^ 2 - Int.floor (a ^ 2)) (h₂ : 2 < a ^ 2) (h₃ : a ^ 2 < 3) :
+#     a ^ 12 - 144 * (1 / a) = 233 := by
+
+import Int
+
+claim:
+    prove:
+        forall a R:
+            0 < a
+            1 / a - floor(1 / a) = a^2 - floor(a^2)
+            2 < a^2
+            a^2 < 3
+            =>:
+                a^12 - 144 * (1 / a) = 233
+
+    by contra:
+        prove:
+            1 < a
+        a <= 1
+        a^2 <= 1^2
+        1^2 = 1
+        a^2 <= 1
+        impossible a^2 <= 1
+    1 < a
+    1 / a < 1
+    0 < 1 / a
+    have m Z = floor(1 / a)
+    floor(1 / a) <= 1 / a < floor(1 / a) + 1
+    m <= 1 / a
+    1 / a < floor(1 / a) + 1 = m + 1
+    1 / a < m + 1
+    m <= 1 / a < 1
+    m < 1
+    m <= 0
+    0 < 1 / a < m + 1
+    0 < m + 1
+    m = (m + 1) - 1
+    0 - 1 = -1
+    (m + 1) - 1 > 0 - 1
+    m > -1
+    0 <= m
+    m = 0
+    floor(1 / a) = m = 0
+
+    have n Z = floor(a^2)
+    floor(a^2) <= a^2 < floor(a^2) + 1
+    n <= a^2
+    a^2 < floor(a^2) + 1 = n + 1
+    a^2 < n + 1
+    n <= a^2 < 3
+    n < 3
+    n <= 2
+    2 < a^2 < n + 1
+    2 < n + 1
+    n = (n + 1) - 1
+    2 - 1 = 1
+    (n + 1) - 1 > 2 - 1
+    n > 1
+    2 <= n
+    n = 2
+    floor(a^2) = n = 2
+    1 / a - 0 = 1 / a - floor(1 / a) = a^2 - floor(a^2) = a^2 - 2
+    1 / a = a^2 - 2
+    a != 0
+    (1 / a) * a = (a^2 - 2) * a
+    1 = (a^2 - 2) * a
+    (a^2 - 2) * a = a^3 - 2 * a
+    a^3 - 2 * a = 1
+    a^3 - 2 * a - 1 = 0
+    a^3 - 2 * a - 1 = (a + 1) * (a^2 - a - 1)
+    (a + 1) * (a^2 - a - 1) = 0
+    a + 1 != 0
+    a^2 - a - 1 = 0 / (a + 1) = 0
+    a^2 - a = 1
+    a^2 - a + a = 1 + a
+    a^2 - a + a = a^2
+    a^2 = 1 + a
+    1 + a = a + 1
+    a^2 = a + 1
+    a^4 = (a^2)^2 = (a + 1)^2 = a^2 + 2 * a + 1 = (a + 1) + 2 * a + 1 = 3 * a + 2
+    a^8 = (a^4)^2 = (3 * a + 2)^2 = 9 * a^2 + 12 * a + 4 = 9 * (a + 1) + 12 * a + 4 = 21 * a + 13
+    a^12 = a^8 * a^4 = (21 * a + 13) * (3 * a + 2) = 63 * a^2 + 81 * a + 26 = 63 * (a + 1) + 81 * a + 26 = 144 * a + 89
+    1 / a = a^2 - 2 = (a + 1) - 2 = a - 1
+    a^12 - 144 * (1 / a) = (144 * a + 89) - 144 * (a - 1) = 233

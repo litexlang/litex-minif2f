@@ -1,0 +1,54 @@
+# name: aime_1984_p5
+# informal_prefix:
+# /-- Determine the value of $ab$ if $\log_8a+\log_4b^2=5$ and $\log_8b+\log_4a^2=7$. Show that it is 512.-/
+# formal_statement:
+# theorem aime_1984_p5 (a b : ℝ) (h₀ : Real.logb 8 a + Real.logb 4 (b ^ 2) = 5)
+#   (h₁ : Real.logb 8 b + Real.logb 4 (a ^ 2) = 7) : a * b = 512 := by
+
+# Natural-language idea:
+# Let A = log_2(a) and B = log_2(b).  The two equations become
+# A/3 + B = 5 and B/3 + A = 7, hence A = 6 and B = 3.  Therefore
+# a = 2^6, b = 2^3, and ab = 512.
+claim:
+    prove:
+        forall a, b R_pos:
+            log(8, a) + log(4, b^2) = 5
+            log(8, b) + log(4, a^2) = 7
+            =>:
+                a * b = 512
+    8 = 2^3
+    4 = 2^2
+    log(8, a) = log(2^3, a) = log(2, a) / 3
+    log(4, b^2) = log(2^2, b^2) = log(2, b^2) / 2 = (2 * log(2, b)) / 2 = log(2, b)
+    log(8, b) = log(2^3, b) = log(2, b) / 3
+    log(4, a^2) = log(2^2, a^2) = log(2, a^2) / 2 = (2 * log(2, a)) / 2 = log(2, a)
+    log(2, a) / 3 + log(2, b) = 5
+    log(2, b) / 3 + log(2, a) = 7
+    have A R = log(2, a)
+    have B R = log(2, b)
+    A = log(2, a)
+    B = log(2, b)
+    A / 3 + B = log(2, a) / 3 + log(2, b) = 5
+    B / 3 + A = log(2, b) / 3 + log(2, a) = 7
+    3 * (A / 3 + B) = 3 * 5
+    3 * (A / 3 + B) = A + 3 * B
+    3 * 5 = 15
+    A + 3 * B = 15
+    3 * (B / 3 + A) = 3 * 7
+    3 * (B / 3 + A) = B + 3 * A
+    B + 3 * A = 3 * A + B
+    3 * 7 = 21
+    3 * A + B = 21
+    3 * (3 * A + B) - (A + 3 * B) = 3 * 21 - 15
+    3 * (3 * A + B) - (A + 3 * B) = 8 * A
+    3 * 21 - 15 = 48
+    8 * A = 48
+    A = 48 / 8 = 6
+    (A + 3 * B) - A = 15 - 6
+    (A + 3 * B) - A = 3 * B
+    15 - 6 = 9
+    3 * B = 9
+    B = 9 / 3 = 3
+    a = 2^A = 2^6 = 64
+    b = 2^B = 2^3 = 8
+    a * b = 64 * 8 = 512

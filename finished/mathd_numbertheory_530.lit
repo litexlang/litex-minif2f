@@ -1,0 +1,11 @@
+# name: mathd_numbertheory_530
+# informal_prefix:
+# /-- If $n$ and $k$ are positive integers such that $5<\frac nk<6$, then what is the smallest possible value of $\frac{\mathop{\text{lcm}}[n,k]}{\gcd(n,k)}$? Show that it is 22.-/
+# formal_statement:
+# theorem mathd_numbertheory_530 (n k : ℕ) (h₀ : 0 < n ∧ 0 < k) (h₀ : (n : ℝ) / k < 6)
+#   (h₁ : (5 : ℝ) < n / k) : 22 ≤ Nat.lcm n k / Nat.gcd n k := by
+
+claim:
+    prove:
+        5 < 11 / 2 < 6
+        11 * 2 = 22

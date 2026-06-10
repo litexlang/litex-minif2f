@@ -1,0 +1,7 @@
+forall f, g fn(x R) R:
+    forall x R:
+        f(g(x)) = x
+        g(f(x)) = x
+    f(2) = g(2)
+    =>:
+        f(f(2)) = f(g(2)) = 2

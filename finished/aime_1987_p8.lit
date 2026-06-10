@@ -1,0 +1,259 @@
+# name: aime_1987_p8
+# informal_prefix:
+# /-- What is the largest positive integer $n$ for which there is a unique integer $k$ such that $\frac{8}{15} < \frac{n}{n + k} < \frac{7}{13}$? Show that it is 112.-/
+# formal_statement:
+# theorem aime_1987_p8 :
+#   IsGreatest { n : ℕ | 0 < n ∧ ∃! k : ℕ, (8 : ℝ) / 15 < n / (n + k) ∧ (n : ℝ) / (n + k) < 7 / 13 } 112 := by
+
+# Natural-language idea:
+# For n > 0 and k >= 0, the double inequality is equivalent to
+# 6n/7 < k < 7n/8.  When n = 112 this is the open interval (96, 98), so
+# k = 97 is the only integer.  If n > 112, the interval length is n/56 > 2,
+# so it contains at least two integers and uniqueness fails.
+
+prop aime_1987_p8_good(n N_pos):
+    exist! k N st {n + k != 0, 8 / 15 < n / (n + k), n / (n + k) < 7 / 13}
+
+prop aime_1987_p8_largest(m N_pos):
+    $aime_1987_p8_good(m)
+    forall n N_pos:
+        $aime_1987_p8_good(n)
+        =>:
+            n <= m
+
+thm aime_1987_p8_ratio_upper_to_k_lower:
+    prove:
+        forall n N_pos, k N:
+            n + k != 0
+            n / (n + k) < 7 / 13
+            =>:
+                6 * n / 7 < k
+    n + k > 0
+    n / (n + k) * (n + k) = n
+    n / (n + k) * (n + k) < 7 / 13 * (n + k)
+    n < 7 / 13 * (n + k)
+    n * 13 < 7 / 13 * (n + k) * 13
+    7 / 13 * (n + k) * 13 = 7 * (n + k)
+    n * 13 < 7 * (n + k)
+    7 * (n + k) = 7 * n + 7 * k
+    n * 13 < 7 * n + 7 * k
+    n * 13 - 7 * n < (7 * n + 7 * k) - 7 * n
+    n * 13 - 7 * n = 6 * n
+    (7 * n + 7 * k) - 7 * n = 7 * k
+    6 * n < 7 * k
+    6 * n / 7 < 7 * k / 7
+    7 * k / 7 = k
+    6 * n / 7 < k
+
+thm aime_1987_p8_ratio_lower_to_k_upper:
+    prove:
+        forall n N_pos, k N:
+            n + k != 0
+            8 / 15 < n / (n + k)
+            =>:
+                k < 7 * n / 8
+    n + k > 0
+    8 / 15 * (n + k) < n / (n + k) * (n + k)
+    n / (n + k) * (n + k) = n
+    8 / 15 * (n + k) < n
+    8 / 15 * (n + k) * 15 < n * 15
+    8 / 15 * (n + k) * 15 = 8 * (n + k)
+    8 * (n + k) < n * 15
+    8 * (n + k) = 8 * n + 8 * k
+    8 * n + 8 * k < n * 15
+    (8 * n + 8 * k) - 8 * n < n * 15 - 8 * n
+    (8 * n + 8 * k) - 8 * n = 8 * k
+    n * 15 - 8 * n = 7 * n
+    8 * k < 7 * n
+    8 * k / 8 < 7 * n / 8
+    8 * k / 8 = k
+    k < 7 * n / 8
+
+thm aime_1987_p8_k_upper_to_ratio_lower:
+    prove:
+        forall n N_pos, k N:
+            n + k != 0
+            k < 7 * n / 8
+            =>:
+                8 / 15 < n / (n + k)
+    n + k > 0
+    k * 8 < 7 * n / 8 * 8
+    7 * n / 8 * 8 = 7 * n
+    k * 8 < 7 * n
+    k * 8 = 8 * k
+    8 * k < 7 * n
+    8 * n + 8 * k < 8 * n + 7 * n
+    8 * n + 8 * k = 8 * (n + k)
+    8 * n + 7 * n = 15 * n
+    8 * (n + k) < 15 * n
+    8 * (n + k) / 15 < 15 * n / 15
+    15 * n / 15 = n
+    8 * (n + k) / 15 = 8 / 15 * (n + k)
+    8 / 15 * (n + k) < n
+    8 / 15 * (n + k) / (n + k) < n / (n + k)
+    8 / 15 * (n + k) / (n + k) = 8 / 15
+    8 / 15 < n / (n + k)
+
+thm aime_1987_p8_k_lower_to_ratio_upper:
+    prove:
+        forall n N_pos, k N:
+            n + k != 0
+            6 * n / 7 < k
+            =>:
+                n / (n + k) < 7 / 13
+    n + k > 0
+    6 * n / 7 * 7 < k * 7
+    6 * n / 7 * 7 = 6 * n
+    k * 7 = 7 * k
+    6 * n < 7 * k
+    7 * n + 6 * n < 7 * n + 7 * k
+    7 * n + 6 * n = 13 * n
+    7 * n + 7 * k = 7 * (n + k)
+    13 * n < 7 * (n + k)
+    13 * n / 13 < 7 * (n + k) / 13
+    13 * n / 13 = n
+    7 * (n + k) / 13 = 7 / 13 * (n + k)
+    n < 7 / 13 * (n + k)
+    n / (n + k) < 7 / 13 * (n + k) / (n + k)
+    7 / 13 * (n + k) / (n + k) = 7 / 13
+    n / (n + k) < 7 / 13
+
+thm aime_1987_p8_k_eq_97:
+    prove:
+        forall k N:
+            112 + k != 0
+            8 / 15 < 112 / (112 + k)
+            112 / (112 + k) < 7 / 13
+            =>:
+                k = 97
+    by thm aime_1987_p8_ratio_upper_to_k_lower(112, k)
+    6 * 112 / 7 < k
+    6 * 112 / 7 = 96
+    96 < k
+    by thm aime_1987_p8_ratio_lower_to_k_upper(112, k)
+    k < 7 * 112 / 8
+    7 * 112 / 8 = 98
+    k < 98
+    k $in range(97, 98)
+    by enumerate range: k $in range(97, 98)
+    k = 97
+
+thm aime_1987_p8_112_unique:
+    prove:
+        forall k1, k2 N:
+            112 + k1 != 0
+            8 / 15 < 112 / (112 + k1)
+            112 / (112 + k1) < 7 / 13
+            112 + k2 != 0
+            8 / 15 < 112 / (112 + k2)
+            112 / (112 + k2) < 7 / 13
+            =>:
+                k1 = k2
+    by thm aime_1987_p8_k_eq_97(k1)
+    k1 = 97
+    by thm aime_1987_p8_k_eq_97(k2)
+    k2 = 97
+    k1 = k2
+
+thm aime_1987_p8_good_bound:
+    prove:
+        forall n N_pos:
+            $aime_1987_p8_good(n)
+            =>:
+                n <= 112
+    exist! j N st {n + j != 0, 8 / 15 < n / (n + j), n / (n + j) < 7 / 13}
+    have by exist k N st {n + k != 0, 8 / 15 < n / (n + k), n / (n + k) < 7 / 13}: k
+    by thm aime_1987_p8_ratio_upper_to_k_lower(n, k)
+    6 * n / 7 < k
+    by thm aime_1987_p8_ratio_lower_to_k_upper(n, k)
+    k < 7 * n / 8
+
+    by contra:
+        prove:
+            7 * n / 8 <= k + 1
+        k + 1 < 7 * n / 8
+        k + 1 $in N
+        n + (k + 1) > 0
+        n + (k + 1) != 0
+        6 * n / 7 < k + 1
+        by thm aime_1987_p8_k_upper_to_ratio_lower(n, k + 1)
+        8 / 15 < n / (n + (k + 1))
+        by thm aime_1987_p8_k_lower_to_ratio_upper(n, k + 1)
+        n / (n + (k + 1)) < 7 / 13
+        k = k + 1
+        k - k = (k + 1) - k
+        k - k = 0
+        (k + 1) - k = 1
+        0 = 1
+        impossible 0 = 1
+    7 * n / 8 <= k + 1
+
+    by contra:
+        prove:
+            k <= 6 * n / 7 + 1
+        k > 6 * n / 7 + 1
+        6 * n > 0
+        6 * n / 7 > 0
+        1 < 6 * n / 7 + 1
+        6 * n / 7 + 1 < k
+        1 < 6 * n / 7 + 1 < k
+        1 < k
+        k - 1 >= 0
+        k - 1 $in N
+        n + (k - 1) > 0
+        n + (k - 1) != 0
+        6 * n / 7 < k - 1
+        k - 1 < 7 * n / 8
+        by thm aime_1987_p8_k_upper_to_ratio_lower(n, k - 1)
+        8 / 15 < n / (n + (k - 1))
+        by thm aime_1987_p8_k_lower_to_ratio_upper(n, k - 1)
+        n / (n + (k - 1)) < 7 / 13
+        k = k - 1
+        k - (k - 1) = (k - 1) - (k - 1)
+        k - (k - 1) = 1
+        (k - 1) - (k - 1) = 0
+        1 = 0
+        0 = 1
+        impossible 0 = 1
+    k <= 6 * n / 7 + 1
+
+    k + 1 <= 6 * n / 7 + 1 + 1
+    6 * n / 7 + 1 + 1 = 6 * n / 7 + 2
+    k + 1 <= 6 * n / 7 + 2
+    7 * n / 8 <= k + 1 <= 6 * n / 7 + 2
+    7 * n / 8 <= 6 * n / 7 + 2
+    7 * n / 8 * 56 <= (6 * n / 7 + 2) * 56
+    7 * n / 8 * 56 = 49 * n
+    (6 * n / 7 + 2) * 56 = 48 * n + 112
+    49 * n <= 48 * n + 112
+    49 * n - 48 * n <= (48 * n + 112) - 48 * n
+    49 * n - 48 * n = n
+    (48 * n + 112) - 48 * n = 112
+    n <= 112
+
+claim:
+    prove:
+        $aime_1987_p8_largest(112)
+
+    witness exist k N st {112 + k != 0, 8 / 15 < 112 / (112 + k), 112 / (112 + k) < 7 / 13} from 97:
+        112 + 97 != 0
+        8 / 15 < 112 / (112 + 97)
+        112 / (112 + 97) < 7 / 13
+
+    forall k1, k2 N:
+        112 + k1 != 0
+        8 / 15 < 112 / (112 + k1)
+        112 / (112 + k1) < 7 / 13
+        112 + k2 != 0
+        8 / 15 < 112 / (112 + k2)
+        112 / (112 + k2) < 7 / 13
+        =>:
+            k1 = k2
+    exist! k N st {112 + k != 0, 8 / 15 < 112 / (112 + k), 112 / (112 + k) < 7 / 13}
+    $aime_1987_p8_good(112)
+
+    forall n N_pos:
+        $aime_1987_p8_good(n)
+        =>:
+            n <= 112
+    $aime_1987_p8_largest(112)

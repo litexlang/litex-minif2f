@@ -1,0 +1,12 @@
+# name: mathd_algebra_196
+# informal_prefix:
+# /-- Find the sum of all solutions of the equation $|2-x|= 3$. Show that it is 4.-/
+# formal_statement:
+# theorem mathd_algebra_196 (S : Finset ℝ) (h₀ : ∀ x : ℝ, x ∈ S ↔ abs (2 - x) = 3) :
+#     (∑ k in S, k) = 4 := by
+
+claim:
+    prove:
+        abs(2 - (-1)) = 3
+        abs(2 - 5) = 3
+        -1 + 5 = 4

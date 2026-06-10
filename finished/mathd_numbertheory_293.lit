@@ -1,0 +1,86 @@
+# name: mathd_numbertheory_293
+# informal_prefix:
+# /-- What digit must be placed in the blank to make the four-digit integer $20\_7$ a multiple of 11? Show that it is 5.-/
+# formal_statement:
+# theorem mathd_numbertheory_293 (n : ℕ) (h₀ : n ≤ 9) (h₁ : 11 ∣ 20 * 100 + 10 * n + 7) : n = 5 := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N:
+            n <= 9
+            $Nat::Dvd(11, 20 * 100 + 10 * n + 7)
+            =>:
+                n = 5
+    n >= 0
+    n $in closed_range(0, 9)
+    by closed_range as cases: n $in 0...9
+    by cases:
+        prove:
+            n = 5
+        case n = 0:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2007
+            2007 = 11 * k
+            k = 2007 / 11
+            not 2007 / 11 $in Z
+            impossible k $in Z
+        case n = 1:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2017
+            2017 = 11 * k
+            k = 2017 / 11
+            not 2017 / 11 $in Z
+            impossible k $in Z
+        case n = 2:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2027
+            2027 = 11 * k
+            k = 2027 / 11
+            not 2027 / 11 $in Z
+            impossible k $in Z
+        case n = 3:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2037
+            2037 = 11 * k
+            k = 2037 / 11
+            not 2037 / 11 $in Z
+            impossible k $in Z
+        case n = 4:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2047
+            2047 = 11 * k
+            k = 2047 / 11
+            not 2047 / 11 $in Z
+            impossible k $in Z
+        case n = 5:
+            n = 5
+        case n = 6:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2067
+            2067 = 11 * k
+            k = 2067 / 11
+            not 2067 / 11 $in Z
+            impossible k $in Z
+        case n = 7:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2077
+            2077 = 11 * k
+            k = 2077 / 11
+            not 2077 / 11 $in Z
+            impossible k $in Z
+        case n = 8:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2087
+            2087 = 11 * k
+            k = 2087 / 11
+            not 2087 / 11 $in Z
+            impossible k $in Z
+        case n = 9:
+            have by exist k N st {20 * 100 + 10 * n + 7 = 11 * k}: k
+            20 * 100 + 10 * n + 7 = 2097
+            2097 = 11 * k
+            k = 2097 / 11
+            not 2097 / 11 $in Z
+            impossible k $in Z

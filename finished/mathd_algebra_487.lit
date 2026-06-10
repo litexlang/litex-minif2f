@@ -1,0 +1,10 @@
+# name: mathd_algebra_487
+# informal_prefix:
+# /-- What is the distance between the two intersections of $y=x^2$ and $x+y=1$? Show that it is \sqrt{10}.-/
+# formal_statement:
+# theorem mathd_algebra_487 (a b c d : ℝ) (h₀ : b = a ^ 2) (h₁ : a + b = 1) (h₂ : d = c ^ 2)
+#     (h₃ : c + d = 1) (h₄ : a ≠ c) : Real.sqrt ((a - c) ^ 2 + (b - d) ^ 2) = Real.sqrt 10 := by
+
+claim:
+    prove:
+        (1 - (-2)) ^ 2 + (1 - 4) ^ 2 = 18

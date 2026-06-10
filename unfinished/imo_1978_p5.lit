@@ -1,0 +1,30 @@
+# name: imo_1978_p5
+# informal_prefix:
+# /-- Let $f$ be an injective function from ${1,2,3,\ldots}$ in itself. Prove that for any $n$ we have: $\sum_{k=1}^{n} f(k)k^{-2} \geq \sum_{k=1}^{n} k^{-1}.$-/
+# formal_statement:
+# theorem imo_1978_p5 (n : ℕ) (a : ℕ → ℕ) (h₀ : Function.Injective a) (h₁ : a 0 = 0) (h₂ : 0 < n) :
+#   (∑ k in Finset.Icc 1 n, (1 : ℝ) / k) ≤ ∑ k in Finset.Icc 1 n, (a k : ℝ) / k ^ 2 := by
+
+# Natural-language idea:
+# Among the first n positive inputs, injectivity makes a(1), ..., a(n)
+# n distinct positive integers.  Since the weights 1/k^2 are decreasing, the
+# rearrangement/majorization minimum occurs when the values are 1, ..., n in
+# that order, giving sum a(k)/k^2 >= sum k/k^2 = sum 1/k.
+prop Imo1978InjectivePositive(a fn(k N_pos) N_pos):
+    forall i, j N_pos:
+        a(i) = a(j)
+        =>:
+            i = j
+
+claim:
+    prove:
+        forall n N_pos, a fn(k N_pos) N_pos:
+            $Imo1978InjectivePositive(a)
+            =>:
+                sum(1, n, '(k N_pos) R {1 / k}) <= sum(1, n, '(k N_pos) R {a(k) / k^2})
+
+    # proof_debt: this is the finite rearrangement/majorization theorem
+    # for an injective positive-integer sequence against decreasing weights.
+    know:
+        sum(1, n, '(k N_pos) R {1 / k}) <= sum(1, n, '(k N_pos) R {a(k) / k^2})
+    sum(1, n, '(k N_pos) R {1 / k}) <= sum(1, n, '(k N_pos) R {a(k) / k^2})

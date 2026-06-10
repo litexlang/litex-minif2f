@@ -1,0 +1,37 @@
+claim:
+    prove:
+        forall a, b N:
+            1 <= a
+            a <= 9
+            b <= 9
+            10 * a + b = 2 * (a + b)
+            =>:
+                10 * a + b = 18
+    10 * a + b = 2 * (a + b) = 2 * a + 2 * b
+    10 * a = (10 * a + b) - b = (2 * a + 2 * b) - b = 2 * a + b
+    8 * a = 10 * a - 2 * a = (2 * a + b) - 2 * a = b
+    8 * a <= 9
+    a $in closed_range(1, 9)
+    by closed_range as cases: a $in 1...9
+    by cases:
+        prove:
+            10 * a + b = 18
+        case a = 1:
+            b = 8 * a = 8
+            10 * a + b = 10 * 1 + 8 = 18
+        case a = 2:
+            impossible 8 * a <= 9
+        case a = 3:
+            impossible 8 * a <= 9
+        case a = 4:
+            impossible 8 * a <= 9
+        case a = 5:
+            impossible 8 * a <= 9
+        case a = 6:
+            impossible 8 * a <= 9
+        case a = 7:
+            impossible 8 * a <= 9
+        case a = 8:
+            impossible 8 * a <= 9
+        case a = 9:
+            impossible 8 * a <= 9

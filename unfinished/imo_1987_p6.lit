@@ -1,0 +1,42 @@
+# name: imo_1987_p6
+# informal_prefix:
+# /-- Let $n $ be an integer greater than or equal to 2.  Prove that if $k^2 + k + n $ is prime for all integers $k $ such that $ 0 \leq k \leq \sqrt{n/3} $, then $k^2 + k + n $ is prime for all integers $k $ such that $0 \leq k \leq n - 2 $.-/
+# formal_statement:
+# theorem imo_1987_p6 (p : ℕ) (f : ℕ → ℕ) (h₀ : ∀ x, f x = x ^ 2 + x + p)
+#   (h₀ : ∀ k : ℕ, k ≤ Nat.floor (Real.sqrt (p / 3)) → Nat.Prime (f k)) :
+#    ∀ i ≤ p - 2, Nat.Prime (f i) := by
+
+import Nat
+
+prop imo_1987_small_prime_window(n N):
+    forall k N:
+        3 * k^2 <= n
+        =>:
+            $Prime(k^2 + k + n)
+
+prop imo_1987_full_prime_range(n N):
+    forall i N:
+        i <= n - 2
+        =>:
+            $Prime(i^2 + i + n)
+
+# Natural-language idea:
+# Prove the contrapositive.  If k^2+k+n is composite for some k <= n-2,
+# choose the least such k and use a prime divisor of that value to reflect the
+# quadratic modulo the divisor.  The classical descent produces a smaller
+# residue t with 3*t^2 <= n for which t^2+t+n is also composite, contradicting
+# the prime window hypothesis.
+claim:
+    prove:
+        forall n N:
+            2 <= n
+            $imo_1987_small_prime_window(n)
+            =>:
+                $imo_1987_full_prime_range(n)
+
+    # proof_debt: this needs the olympiad descent for quadratic prime
+    # values, including prime-divisor choice, modular reflection, and the
+    # bound that the reflected residue lies in the small prime window.
+    know:
+        $imo_1987_full_prime_range(n)
+    $imo_1987_full_prime_range(n)

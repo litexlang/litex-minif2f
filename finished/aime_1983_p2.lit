@@ -1,0 +1,54 @@
+# name: aime_1983_p2
+# informal_prefix:
+# /-- Let $f(x)=|x-p|+|x-15|+|x-p-15|$, where $0 < p < 15$. Determine the [[minimum]] value taken by $f(x)$ for $x$ in the [[interval]] $p \leq x\leq15$. Show that it is 015.-/
+# formal_statement:
+# theorem aime_1983_p2 (x p : ℝ) (f : ℝ → ℝ) (h₀ : 0 < p ∧ p < 15) (h₁ : p ≤ x ∧ x ≤ 15)
+#     (h₂ : f x = abs (x - p) + abs (x - 15) + abs (x - p - 15)) : 15 ≤ f x := by
+
+thm rewritten_neg_le_abs:
+    prove:
+        forall a, b R:
+            a = -b
+            =>:
+                a <= abs(b)
+    a = -b <= abs(b)
+
+thm add_three_le:
+    prove:
+        forall a, b, c, A, B, C R:
+            a <= A
+            b <= B
+            c <= C
+            =>:
+                a + b + c <= A + B + C
+    a + b <= A + B
+    a + b + c <= A + B + C
+
+claim:
+    prove:
+        forall x, p R, f fn(t R) R:
+            0 < p
+            p < 15
+            p <= x
+            x <= 15
+            f(x) = abs (x - p) + abs (x - 15) + abs (x - p - 15)
+            =>:
+                15 <= f(x)
+    0 <= x - p
+    x - 15 <= 0
+    x - p - 15 = (x - 15) - p
+    (x - 15) - p <= 0 - p
+    0 - p < 0
+    x - p - 15 <= 0
+    0 <= 15 - x
+    0 <= p + 15 - x
+    x - p <= abs(x - p)
+    15 - x = -(x - 15)
+    by thm rewritten_neg_le_abs(15 - x, x - 15)
+    p + 15 - x = -(x - p - 15)
+    by thm rewritten_neg_le_abs(p + 15 - x, x - p - 15)
+    by thm add_three_le(x - p, 15 - x, p + 15 - x, abs(x - p), abs(x - 15), abs(x - p - 15))
+    (x - p) + (15 - x) + (p + 15 - x) = 30 - x
+    15 + x <= 15 + 15 = 30
+    15 <= 30 - x
+    15 <= 30 - x = (x - p) + (15 - x) + (p + 15 - x) <= abs(x - p) + abs(x - 15) + abs(x - p - 15) = f(x)

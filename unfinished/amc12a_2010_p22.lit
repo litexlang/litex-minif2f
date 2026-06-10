@@ -1,0 +1,22 @@
+# name: amc12a_2010_p22
+# informal_prefix:
+# /-- What is the minimum value of $f(x)=\left|x-1\right| + \left|2x-1\right| + \left|3x-1\right| + \cdots + \left|119x - 1 \right|$?
+# 
+# $\textbf{(A)}\ 49 \qquad \textbf{(B)}\ 50 \qquad \textbf{(C)}\ 51 \qquad \textbf{(D)}\ 52 \qquad \textbf{(E)}\ 53$ Show that it is 49\ \textbf{(A)}.-/
+# formal_statement:
+# theorem amc12a_2010_p22 (x : ℝ) : 49 ≤ ∑ k:ℤ in Finset.Icc 1 119, abs (↑k * x - 1) := by
+
+claim:
+    prove:
+        forall x R:
+            49 <= sum(1, 119, '(k Z) R {abs(k * x - 1)})
+
+    # proof_debt: this needs a finite absolute-value sum lower-bound
+    # pattern, e.g. pairing terms or using the median of the breakpoints 1/k.
+    know:
+        49 <= sum(1, 119, '(k Z) R {abs(k * x - 1)})
+
+# Natural-language idea:
+# The function is a convex piecewise-linear sum with breakpoints 1/k. Its
+# minimum occurs at a median breakpoint; pairing terms gives the lower bound
+# 49.

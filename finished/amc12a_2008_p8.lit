@@ -1,0 +1,24 @@
+# name: amc12a_2008_p8
+# informal_prefix:
+# /-- What is the [[volume]] of a [[cube]] whose [[surface area]] is twice that of a cube with volume 1? 
+# 
+# $\mathrm{(A)}\ \sqrt{2}\qquad\mathrm{(B)}\ 2\qquad\mathrm{(C)}\ 2\sqrt{2}\qquad\mathrm{(D)}\ 4\qquad\mathrm{(E)}\ 8$ Show that it is \mathrm{(C)}.-/
+# formal_statement:
+# theorem amc12a_2008_p8 (x y : ℝ) (h₀ : 0 < x ∧ 0 < y) (h₁ : y ^ 3 = 1)
+#   (h₂ : 6 * x ^ 2 = 2 * (6 * y ^ 2)) : x ^ 3 = 2 * Real.sqrt 2 := by
+
+have fn cube_surface(x R) R = 6 * x^2
+have fn cube_volume(x R) R = x^3
+
+claim:
+    prove:
+        cube_volume(1) = 1 and cube_surface(1) = 6 and cube_surface(sqrt(2)) = 2 * cube_surface(1) and cube_volume(sqrt(2)) = 2 * sqrt(2)
+    cube_volume(1) = 1
+    cube_surface(1) = 6
+    cube_surface(sqrt(2)) = 12
+    cube_surface(sqrt(2)) = 2 * cube_surface(1)
+    cube_volume(sqrt(2)) = sqrt(2)^3
+    sqrt(2)^3 = sqrt(2)^2 * sqrt(2)
+    sqrt(2)^2 = 2
+    sqrt(2)^2 * sqrt(2) = 2 * sqrt(2)
+    cube_volume(sqrt(2)) = sqrt(2)^3 = sqrt(2)^2 * sqrt(2) = 2 * sqrt(2)

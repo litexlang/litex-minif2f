@@ -1,0 +1,34 @@
+# name: numbertheory_2dvd4expn
+# informal_prefix:
+# /-- Show that for any positive integer $n$, $2$ divides $4^n$.-/
+# formal_statement:
+# theorem numbertheory_2dvd4expn (n : ℕ) (h₀ : n ≠ 0) : 2 ∣ 4 ^ n := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N_pos:
+            $divides(2, 4^n)
+    by induc n from 1:
+        prove:
+            $divides(2, 4^n)
+
+        prove from n = 1:
+            4^1 % 2 = 0
+            $divides(2, 4^1)
+
+        prove induc:
+            4^(n + 1) = 4^n * 4
+            4^(n + 1) % 2 = (4^n * 4) % 2 = ((4^n % 2) * (4 % 2)) % 2 = (0 * 0) % 2 = 0
+            $divides(2, 4^(n + 1))
+
+claim:
+    prove:
+        forall n N:
+            n != 0
+            =>:
+                $divides(2, 4^n)
+    0 < n
+    n $in N_pos
+    $divides(2, 4^n)

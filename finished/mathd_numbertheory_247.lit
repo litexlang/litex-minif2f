@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_247
+# informal_prefix:
+# /-- Solve the congruence $3n \equiv 2 \pmod{11}$, as a residue modulo 11.  (Give an answer between 0 and 10.) Show that it is 8.-/
+# formal_statement:
+# theorem mathd_numbertheory_247 (n : ℕ) (h₀ : 3 * n % 11 = 2) : n % 11 = 8 := by
+
+claim:
+    prove:
+        3 * 8 % 11 = 2

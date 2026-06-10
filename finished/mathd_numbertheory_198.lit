@@ -1,0 +1,6 @@
+# For powers of 5 beyond the first, the last two digits stabilize at 25.
+5 ^ 2 = 25
+5 ^ 3 = 125
+125 % 100 = 25
+5 ^ 2005 % 100 = 25
+(25 - 5) / 10 = 2

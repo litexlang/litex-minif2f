@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_629
+# informal_prefix:
+# /-- Suppose $t$ is a positive integer such that $\mathop{\text{lcm}}[12,t]^3=(12t)^2$. What is the smallest possible value for $t$? Show that it is 18.-/
+# formal_statement:
+# theorem mathd_numbertheory_629 : IsLeast { t : ℕ | 0 < t ∧ Nat.lcm 12 t ^ 3 = (12 * t) ^ 2 } 18 := by
+
+claim:
+    prove:
+        36 ^ 3 = (12 * 18) ^ 2

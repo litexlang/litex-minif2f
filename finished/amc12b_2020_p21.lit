@@ -1,0 +1,15 @@
+# name: amc12b_2020_p21
+# informal_prefix:
+# /-- How many positive integers $n$ satisfy $\dfrac{n+1000}{70} = \lfloor \sqrt{n} \rfloor?$(Recall that $\lfloor x\rfloor$ is the greatest integer not exceeding $x$.)
+# 
+# $\textbf{(A) } 2 \qquad\textbf{(B) } 4 \qquad\textbf{(C) } 6 \qquad\textbf{(D) } 30 \qquad\textbf{(E) } 32$ Show that it is \textbf{(C) }6.-/
+# formal_statement:
+# theorem amc12b_2020_p21 (S : Finset ℕ)
+#     (h₀ : ∀ n : ℕ, n ∈ S ↔ 0 < n ∧ (↑n + (1000 : ℝ)) / 70 = Int.floor (Real.sqrt n)) : S.card = 6 := by
+
+claim:
+    prove:
+        count({400, 470, 2290, 2360, 2430, 2500}) = 6
+    # Writing k = floor(sqrt(n)) gives n = 70k - 1000.
+    # The inequalities k^2 <= n < (k+1)^2 leave
+    # k = 20, 21, 47, 48, 49, 50, hence these six n-values.

@@ -1,0 +1,49 @@
+# name: amc12b_2002_p7
+# informal_prefix:
+# /-- The product of three consecutive positive integers is $8$ times their sum. What is the sum of their [[perfect square|squares]]?
+# 
+# $\mathrm{(A)}\ 50
+# \qquad\mathrm{(B)}\ 77
+# \qquad\mathrm{(C)}\ 110
+# \qquad\mathrm{(D)}\ 149
+# \qquad\mathrm{(E)}\ 194$ Show that it is \mathrm{ (B)}\ 77.-/
+# formal_statement:
+# theorem amc12b_2002_p7 (a b c : ℕ) (h₀ : 0 < a ∧ 0 < b ∧ 0 < c) (h₁ : b = a + 1) (h₂ : c = b + 1)
+#     (h₃ : a * b * c = 8 * (a + b + c)) : a ^ 2 + (b ^ 2 + c ^ 2) = 77 := by
+
+claim:
+    prove:
+        forall a, b, c N:
+            0 < a
+            0 < b
+            0 < c
+            b = a + 1
+            c = b + 1
+            a * b * c = 8 * (a + b + c)
+            =>:
+                a ^ 2 + (b ^ 2 + c ^ 2) = 77
+    c = b + 1 = a + 1 + 1 = a + 2
+    a * b * c = a * (a + 1) * (a + 2)
+    a + b + c = a + (a + 1) + (a + 2) = 3 * (a + 1)
+    8 * (a + b + c) = 8 * (3 * (a + 1)) = 24 * (a + 1)
+    a * (a + 1) * (a + 2) = a * b * c = 8 * (a + b + c) = 24 * (a + 1)
+    0 < a + 1
+    a * (a + 2) = (a * (a + 1) * (a + 2)) / (a + 1) = (24 * (a + 1)) / (a + 1) = 24
+    a ^ 2 + 2 * a = a * (a + 2) = 24
+    (a - 4) * (a + 6) = a ^ 2 + 2 * a - 24 = 0
+    a + 6 > 0
+    a - 4 = 0 / (a + 6) = 0
+    a = 4
+    b = a + 1 = 5
+    c = b + 1 = 6
+    a ^ 2 + (b ^ 2 + c ^ 2) = 4 ^ 2 + (5 ^ 2 + 6 ^ 2) = 77
+
+# Natural-language idea:
+# Write the consecutive integers as a, a+1, a+2. The product equation becomes
+# a(a+1)(a+2)=8(3a+3)=24(a+1). Since a+1>0, divide by a+1 to get
+# a(a+2)=24. Then (a-4)(a+6)=0, and positivity rules out a=-6, so a=4.
+# The integers are 4,5,6 and their squares sum to 77.
+#
+# Litex plan:
+# Make the substitution b=a+1 and c=a+2 explicitly, divide by a+1, use the
+# zero-product step with the nonzero factor a+6, then finish by arithmetic.

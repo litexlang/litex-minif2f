@@ -1,0 +1,10 @@
+# name: mathd_algebra_224
+# informal_prefix:
+# /-- The square root of $t$ is greater than $2$ and less than $3.5$. How many integer values of $t$ satisfy this condition? Show that it is 8.-/
+# formal_statement:
+# theorem mathd_algebra_224 (S : Finset ℕ)
+#   (h₀ : ∀ n : ℕ, n ∈ S ↔ Real.sqrt n < 7 / 2 ∧ 2 < Real.sqrt n) : S.card = 8 := by
+
+claim:
+    prove:
+        count({5, 6, 7, 8, 9, 10, 11, 12}) = 8

@@ -1,0 +1,12 @@
+forall a, b, n N:
+    1 <= a
+    a <= 9
+    0 <= b
+    b <= 9
+    n = 10 * a + b
+    n = a * b + a + b
+    =>:
+        10 * a + b = n = a * b + a + b
+        10 * a = (10 * a + b) - b = (a * b + a + b) - b = a * b + a
+        9 * a = 10 * a - a = (a * b + a) - a = a * b
+        b = (a * b) / a = (9 * a) / a = 9

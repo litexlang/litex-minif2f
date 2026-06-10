@@ -1,0 +1,11 @@
+# name: mathd_numbertheory_780
+# informal_prefix:
+# /-- Suppose $m$ is a two-digit positive integer such that $6^{-1}\pmod m$ exists and $6^{-1}\equiv 6^2\pmod m$. What is $m$? Show that it is 43.-/
+# formal_statement:
+# theorem mathd_numbertheory_780 (m x : ℤ) (h₀ : 0 ≤ x) (h₁ : 10 ≤ m ∧ m ≤ 99) (h₂ : 6 * x % m = 1)
+#   (h₃ : (x - 6 ^ 2) % m = 0) : m = 43 := by
+
+claim:
+    prove:
+        6 * 36 % 43 = 1
+        36 - 6 ^ 2 = 0

@@ -1,0 +1,39 @@
+# name: algebra_sqineq_unitcircatbpamblt1
+# informal_prefix:
+# /-- Let $a$ and $b$ be two real numbers such that $a^2+b^2=1$. Show that $ab+(a-b)\leq 1$.-/
+# formal_statement:
+# theorem algebra_sqineq_unitcircatbpamblt1 (a b : ℝ) (h₀ : a ^ 2 + b ^ 2 = 1) :
+#     a * b + (a - b) ≤ 1 := by
+
+claim:
+    prove:
+        forall a, b R:
+            a^2 + b^2 = 1
+            =>:
+                a * b + (a - b) <= 1
+
+    0 <= a^2
+    0 <= b^2
+    a^2 <= a^2 + b^2 = 1
+    b^2 <= a^2 + b^2 = 1
+    0 <= (a - 1)^2
+    (a - 1)^2 = a^2 - 2 * a + 1 <= 1 - 2 * a + 1 = 2 - 2 * a
+    0 <= (a - 1)^2 <= 2 - 2 * a
+    0 <= 2 - 2 * a
+    2 * a <= 2
+    a = (2 * a) / 2 <= 2 / 2 = 1
+    0 <= (b + 1)^2
+    (b + 1)^2 = b^2 + 2 * b + 1 <= 1 + 2 * b + 1 = 2 * b + 2
+    0 <= (b + 1)^2 <= 2 * b + 2
+    0 <= 2 * b + 2
+    -2 = -2 + 0 <= -2 + (2 * b + 2) = 2 * b
+    -1 = -2 / 2 <= (2 * b) / 2 = b
+    -1 <= b
+    0 <= 1 - a
+    0 = 1 + -1 <= 1 + b
+    0 <= (1 - a) * (1 + b)
+    (1 - a) * (1 + b) = 1 - a * b - a + b
+    0 <= 1 - a * b - a + b
+    1 - a * b - a + b = 1 - (a * b + (a - b))
+    0 <= 1 - (a * b + (a - b))
+    a * b + (a - b) = a * b + (a - b) + 0 <= a * b + (a - b) + (1 - (a * b + (a - b))) = 1

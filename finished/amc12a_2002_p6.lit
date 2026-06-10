@@ -1,0 +1,22 @@
+# name: amc12a_2002_p6
+# informal_prefix:
+# /-- For how many positive integers $m$ does there exist at least one positive integer n such that $m \cdot n \le m + n$?
+# 
+# $ \textbf{(A) } 4\qquad \textbf{(B) } 6\qquad \textbf{(C) } 9\qquad \textbf{(D) } 12\qquad \textbf{(E) } \text{infinitely many} $ Show that it is \textbf{(E) } \text{infinitely many}.-/
+# formal_statement:
+# theorem amc12a_2002_p6 (n : ℕ) (h₀ : 0 < n) : ∃ m, m > n ∧ ∃ p, m * p ≤ m + p := by
+
+prop amc12a_2002_p6_good(m N):
+    exist p N st {m * p <= m + p}
+
+claim:
+    prove:
+        forall n N:
+            0 < n
+            =>:
+                exist m N st {m > n, $amc12a_2002_p6_good(m)}
+    witness exist m N st {m > n, $amc12a_2002_p6_good(m)} from n + 1:
+        n + 1 > n
+        witness exist p N st {(n + 1) * p <= (n + 1) + p} from 1:
+            (n + 1) * 1 = n + 1 <= (n + 1) + 1
+        $amc12a_2002_p6_good(n + 1)

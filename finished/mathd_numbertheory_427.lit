@@ -1,0 +1,12 @@
+# name: mathd_numbertheory_427
+# informal_prefix:
+# /-- If $A$ is the sum of the positive divisors of $500$, what is the sum of the distinct prime divisors of $A$? Show that it is 25.-/
+# formal_statement:
+# theorem mathd_numbertheory_427 (a : ℕ) (h₀ : a = ∑ k in Nat.divisors 500, k) :
+#     (∑ k in Finset.filter (fun x => Nat.Prime x) (Nat.divisors a), k) = 25 := by
+
+claim:
+    prove:
+        1 + 2 + 4 + 5 + 10 + 20 + 25 + 50 + 100 + 125 + 250 + 500 = 1092
+        1092 = 2 ^ 2 * 3 * 7 * 13
+        2 + 3 + 7 + 13 = 25

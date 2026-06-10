@@ -1,0 +1,18 @@
+# name: amc12a_2009_p9
+# informal_prefix:
+# /-- Suppose that $f(x+3)=3x^2 + 7x + 4$ and $f(x)=ax^2 + bx + c$. What is $a+b+c$?
+# 
+# $\textbf{(A)}\ -1 \qquad \textbf{(B)}\ 0 \qquad \textbf{(C)}\ 1 \qquad \textbf{(D)}\ 2 \qquad \textbf{(E)}\ 3$ Show that it is 2.-/
+# formal_statement:
+# theorem amc12a_2009_p9 (a b c : ℝ) (f : ℝ → ℝ) (h₀ : ∀ x, f (x + 3) = 3 * x ^ 2 + 7 * x + 4)
+#   (h₁ : ∀ x, f x = a * x ^ 2 + b * x + c) : a + b + c = 2 := by
+
+claim:
+    prove:
+        forall a, b, c R, f fn(x R) R:
+            forall x R:
+                f(x + 3) = 3 * x ^ 2 + 7 * x + 4
+            forall x R:
+                f(x) = a * x ^ 2 + b * x + c
+            =>:
+                a + b + c = a * 1^2 + b * 1 + c = f(1) = f(-2 + 3) = 3 * (-2)^2 + 7 * (-2) + 4 = 2

@@ -1,0 +1,111 @@
+# name: numbertheory_aoddbdiv4asqpbsqmod8eq1
+# informal_prefix:
+# /-- Let $a$ be an odd integer number and $b$ be a natural number such that $4 \mid b$. Show that $a^2 + b^2 \equiv 1 \mod 8$.-/
+# formal_statement:
+# theorem numbertheory_aoddbdiv4asqpbsqmod8eq1 (a : ℤ) (b : ℕ) (h₀ : Odd a) (h₁ : 4 ∣ b) :
+#     (a ^ 2 + b ^ 2) % 8 = 1 := by
+
+import Nat
+
+claim:
+    prove:
+        forall a Z:
+            $odd(a)
+            =>:
+                a^2 % 8 = 1
+    by cases:
+        prove:
+            a^2 % 8 = 1
+        case a % 8 = 0:
+            have by exist r Z st {a = 8 * r + 0}: r
+            witness exist s Z st {a = s * 2 + 0} from 4 * r:
+                a = (4 * r) * 2 + 0
+            a % 2 = 0
+            impossible a % 2 = 1
+        case a % 8 = 1:
+            a^2 % 8 = ((a % 8)^2) % 8 = 1^2 % 8 = 1
+        case a % 8 = 2:
+            have by exist r Z st {a = 8 * r + 2}: r
+            witness exist s Z st {a = s * 2 + 0} from 4 * r + 1:
+                a = (4 * r + 1) * 2 + 0
+            a % 2 = 0
+            impossible a % 2 = 1
+        case a % 8 = 3:
+            a^2 % 8 = ((a % 8)^2) % 8 = 3^2 % 8 = 1
+        case a % 8 = 4:
+            have by exist r Z st {a = 8 * r + 4}: r
+            witness exist s Z st {a = s * 2 + 0} from 4 * r + 2:
+                a = (4 * r + 2) * 2 + 0
+            a % 2 = 0
+            impossible a % 2 = 1
+        case a % 8 = 5:
+            a^2 % 8 = ((a % 8)^2) % 8 = 5^2 % 8 = 1
+        case a % 8 = 6:
+            have by exist r Z st {a = 8 * r + 6}: r
+            witness exist s Z st {a = s * 2 + 0} from 4 * r + 3:
+                a = (4 * r + 3) * 2 + 0
+            a % 2 = 0
+            impossible a % 2 = 1
+        case a % 8 = 7:
+            a^2 % 8 = ((a % 8)^2) % 8 = 7^2 % 8 = 1
+
+claim:
+    prove:
+        forall b N:
+            $divides(4, b)
+            =>:
+                b^2 % 8 = 0
+    by cases:
+        prove:
+            b^2 % 8 = 0
+        case b % 8 = 0:
+            b^2 % 8 = ((b % 8)^2) % 8 = 0^2 % 8 = 0
+        case b % 8 = 1:
+            have by exist r Z st {b = 8 * r + 1}: r
+            witness exist s Z st {b = s * 4 + 1} from 2 * r:
+                b = (2 * r) * 4 + 1
+            b % 4 = 1
+            impossible b % 4 = 0
+        case b % 8 = 2:
+            have by exist r Z st {b = 8 * r + 2}: r
+            witness exist s Z st {b = s * 4 + 2} from 2 * r:
+                b = (2 * r) * 4 + 2
+            b % 4 = 2
+            impossible b % 4 = 0
+        case b % 8 = 3:
+            have by exist r Z st {b = 8 * r + 3}: r
+            witness exist s Z st {b = s * 4 + 3} from 2 * r:
+                b = (2 * r) * 4 + 3
+            b % 4 = 3
+            impossible b % 4 = 0
+        case b % 8 = 4:
+            b^2 % 8 = ((b % 8)^2) % 8 = 4^2 % 8 = 0
+        case b % 8 = 5:
+            have by exist r Z st {b = 8 * r + 5}: r
+            witness exist s Z st {b = s * 4 + 1} from 2 * r + 1:
+                b = (2 * r + 1) * 4 + 1
+            b % 4 = 1
+            impossible b % 4 = 0
+        case b % 8 = 6:
+            have by exist r Z st {b = 8 * r + 6}: r
+            witness exist s Z st {b = s * 4 + 2} from 2 * r + 1:
+                b = (2 * r + 1) * 4 + 2
+            b % 4 = 2
+            impossible b % 4 = 0
+        case b % 8 = 7:
+            have by exist r Z st {b = 8 * r + 7}: r
+            witness exist s Z st {b = s * 4 + 3} from 2 * r + 1:
+                b = (2 * r + 1) * 4 + 3
+            b % 4 = 3
+            impossible b % 4 = 0
+
+claim:
+    prove:
+        forall a Z, b N:
+            $odd(a)
+            $divides(4, b)
+            =>:
+                (a^2 + b^2) % 8 = 1
+    a^2 % 8 = 1
+    b^2 % 8 = 0
+    (a^2 + b^2) % 8 = ((a^2 % 8) + (b^2 % 8)) % 8 = (1 + 0) % 8 = 1

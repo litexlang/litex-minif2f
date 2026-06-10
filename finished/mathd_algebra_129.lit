@@ -1,0 +1,15 @@
+# name: mathd_algebra_129
+# informal_prefix:
+# /-- Solve for $a$: $\dfrac{8^{-1}}{4^{-1}}-a^{-1}=1$. Show that it is -2.-/
+# formal_statement:
+# theorem mathd_algebra_129 (a : ℝ) (h₀ : a ≠ 0) (h₁ : 8⁻¹ / 4⁻¹ - a⁻¹ = 1) : a = -2 := by
+
+forall a R:
+    a != 0
+    1 / 8 / (1 / 4) - 1 / a = 1
+    =>:
+        1 / 8 / (1 / 4) = 1 / 2
+        1 / a = 1 / 2 - 1
+        1 / a = -1 / 2
+        1 = a * (-1 / 2)
+        a = 1 / (-1 / 2) = -2

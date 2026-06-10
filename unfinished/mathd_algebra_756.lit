@@ -1,0 +1,19 @@
+# name: mathd_algebra_756
+# informal_prefix:
+# /-- Given $2^a = 32$ and $a^b = 125$ find $b^a$. Show that it is 243.-/
+# formal_statement:
+# theorem mathd_algebra_756 (a b : ℝ) (h₀ : (2 : ℝ) ^ a = 32) (h₁ : a ^ b = 125) : b ^ a = 243 := by
+
+forall a, b R:
+    a > 0
+    b > 0
+    2 ^ a = 32
+    a ^ b = 125
+    =>:
+        # proof_debt: finishing source-faithfully needs uniqueness of
+        # positive real exponent solutions, deriving a = 5 and b = 3 from
+        # 2^a = 32 and a^b = 125.
+        know:
+            a = 5
+            b = 3
+        b ^ a = 3 ^ 5 = 243

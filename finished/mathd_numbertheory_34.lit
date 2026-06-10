@@ -1,0 +1,9 @@
+# name: mathd_numbertheory_34
+# informal_prefix:
+# /-- Find $9^{-1} \pmod{100}$, as a residue modulo 100.  (Give an answer between 0 and 99, inclusive.) Show that it is 89.-/
+# formal_statement:
+# theorem mathd_numbertheory_34 (x : ℕ) (h₀ : x < 100) (h₁ : x * 9 % 100 = 1) : x = 89 := by
+
+claim:
+    prove:
+        89 * 9 % 100 = 1

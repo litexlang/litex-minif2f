@@ -1,0 +1,12 @@
+# name: mathd_algebra_392
+# informal_prefix:
+# /-- The sum of the squares of three consecutive positive even numbers is $12296$. Find the product of the three numbers divided by $8$. Show that it is 32736.-/
+# formal_statement:
+# theorem mathd_algebra_392 (n : ℕ) (h₀ : Even n)
+#     (h₁ : (↑n - 2) ^ 2 + ↑n ^ 2 + (↑n + 2) ^ 2 = (12296 : ℤ)) :
+#     (↑n - 2) * ↑n * (↑n + 2) / 8 = (32736 : ℤ) := by
+
+claim:
+    prove:
+        62 * 64 * 66 / 8 = 32736
+        62 ^ 2 + 64 ^ 2 + 66 ^ 2 = 12296

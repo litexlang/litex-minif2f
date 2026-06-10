@@ -1,0 +1,33 @@
+# name: imo_1966_p4
+# informal_prefix:
+# /-- Prove that for every natural number $n$, and for every real number $x \neq \frac{k\pi}{2^t}$ ($t=0,1, \dots, n$; $k$ any integer)
+# $ \frac{1}{\sin{2x}}+\frac{1}{\sin{4x}}+\dots+\frac{1}{\sin{2^nx}}=\cot{x}-\cot{2^nx}  $-/
+# formal_statement:
+# theorem imo_1966_p4 (n : ℕ) (x : ℝ) (h₀ : ∀ k : ℕ, 0 < k → ∀ m : ℤ, x ≠ m * Real.pi / 2 ^ k)
+#   (h₁ : 0 < n) :
+#   (∑ k in Finset.Icc 1 n, 1 / Real.sin (2 ^ k * x)) = 1 / Real.tan x - 1 / Real.tan (2 ^ n * x) := by
+
+have sin fn(t R) R
+have cot fn(t R) R
+have csc fn(t R) R
+
+prop imo_1966_p4_domain(n N_pos, x R):
+    forall t N_pos:
+        sin(2^t * x) != 0
+
+claim:
+    prove:
+        forall n N_pos, x R:
+            $imo_1966_p4_domain(n, x)
+            =>:
+                sum(1, n, '(k N_pos) R {csc(2^k * x)}) = cot(x) - cot(2^n * x)
+
+    # Natural-language idea: use
+    # cot(u) - cot(2u) = csc(2u) = 1 / sin(2u), then telescope from u = x through
+    # u = 2^(n-1) x.
+    # proof_debt: the missing piece is a reusable finite telescoping
+    # rule combined with the trigonometric cotangent subtraction identity and
+    # the nonzero sine side conditions.
+    know:
+        sum(1, n, '(k N_pos) R {csc(2^k * x)}) = cot(x) - cot(2^n * x)
+    sum(1, n, '(k N_pos) R {csc(2^k * x)}) = cot(x) - cot(2^n * x)

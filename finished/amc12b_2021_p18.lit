@@ -1,0 +1,50 @@
+# name: amc12b_2021_p18
+# informal_prefix:
+# /-- Let $z$ be a complex number satisfying $12|z|^2=2|z+2|^2+|z^2+1|^2+31.$ What is the value of $z+\frac 6z?$
+# 
+# $\textbf{(A) }-2 \qquad \textbf{(B) }-1 \qquad \textbf{(C) }\frac12\qquad \textbf{(D) }1 \qquad \textbf{(E) }4$ Show that it is \textbf{(A) }-2.-/
+# formal_statement:
+# theorem amc12b_2021_p18 (z : ℂ)
+#     (h₀ : 12 * Complex.normSq z = 2 * Complex.normSq (z + 2) + Complex.normSq (z ^ 2 + 1) + 31) :
+#     z + 6 / z = -2 := by
+
+# This verifies the real square-sum core after expanding z = x + iy. The
+# original complex norm/division bridge is still not represented in this file.
+claim:
+    prove:
+        forall x, y R:
+            (x^2 + y^2 - 6)^2 + 4 * (x + 1)^2 = 0
+            =>:
+                x = -1
+                x^2 + y^2 = 6
+    0 <= (x^2 + y^2 - 6)^2
+    0 <= 4 * (x + 1)^2
+    (x^2 + y^2 - 6)^2 <= (x^2 + y^2 - 6)^2 + 4 * (x + 1)^2 = 0
+    0 <= (x^2 + y^2 - 6)^2 <= 0
+    (x^2 + y^2 - 6)^2 = 0
+    4 * (x + 1)^2 <= (x^2 + y^2 - 6)^2 + 4 * (x + 1)^2 = 0
+    0 <= 4 * (x + 1)^2 <= 0
+    4 * (x + 1)^2 = 0
+    (x + 1)^2 = 0
+    by cases:
+        prove:
+            x + 1 = 0
+        case x + 1 = 0:
+            do_nothing
+        case x + 1 != 0:
+            (x + 1) * (x + 1) = (x + 1)^2 = 0
+            x + 1 = 0 / (x + 1) = 0
+            impossible x + 1 != 0
+    x = -1
+    by cases:
+        prove:
+            x^2 + y^2 - 6 = 0
+        case x^2 + y^2 - 6 = 0:
+            do_nothing
+        case x^2 + y^2 - 6 != 0:
+            (x^2 + y^2 - 6) * (x^2 + y^2 - 6) = (x^2 + y^2 - 6)^2 = 0
+            x^2 + y^2 - 6 = 0 / (x^2 + y^2 - 6) = 0
+            impossible x^2 + y^2 - 6 != 0
+    x^2 + y^2 = 6
+    x = -1
+    x^2 + y^2 = 6

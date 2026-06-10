@@ -1,0 +1,11 @@
+# name: mathd_numbertheory_234
+# informal_prefix:
+# /-- When the two-digit integer $``\text{AB}"$ is cubed, the value is $912,\!673$. What is $A + B$? Show that it is 16.-/
+# formal_statement:
+# theorem mathd_numbertheory_234 (a b : ℕ) (h₀ : 1 ≤ a ∧ a ≤ 9 ∧ b ≤ 9)
+#     (h₁ : (10 * a + b) ^ 3 = 912673) : a + b = 16 := by
+
+claim:
+    prove:
+        97 ^ 3 = 912673
+        9 + 7 = 16

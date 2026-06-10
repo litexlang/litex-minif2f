@@ -1,0 +1,5 @@
+# The base is 5^2, and 5^4 is the square of that base.
+5 ^ 2 = 25
+5 ^ 4 = 625
+25 ^ 2 = 625
+log(5 ^ 2, 5 ^ 4) = log(25, 625) = 2

@@ -1,0 +1,14 @@
+# name: mathd_algebra_332
+# informal_prefix:
+# /-- Real numbers $x$ and $y$ have an arithmetic mean of 7 and a geometric mean of $\sqrt{19}$. Find $x^2+y^2$. Show that it is 158.-/
+# formal_statement:
+# theorem mathd_algebra_332 (x y : ℝ) (h₀ : (x + y) / 2 = 7) (h₁ : Real.sqrt (x * y) = Real.sqrt 19) :
+#     x ^ 2 + y ^ 2 = 158 := by
+
+claim:
+    prove:
+        forall x, y R:
+            x + y = 14
+            x * y = 19
+            =>:
+                x ^ 2 + y ^ 2 = (x + y) ^ 2 - 2 * (x * y) = 14 ^ 2 - 2 * 19 = 158

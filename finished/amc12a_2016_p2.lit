@@ -1,0 +1,16 @@
+# name: amc12a_2016_p2
+# informal_prefix:
+# /-- For what value of $x$ does $10^{x}\cdot 100^{2x}=1000^{5}$?
+# 
+# $\textbf{(A)}\ 1 \qquad\textbf{(B)}\ 2\qquad\textbf{(C)}\ 3\qquad\textbf{(D)}\ 4\qquad\textbf{(E)}\ 5$ Show that it is \textbf{(C)}\;3.-/
+# formal_statement:
+# theorem amc12a_2016_p2 (x : ℝ) (h₀ : (10 : ℝ) ^ x * 100 ^ (2 * x) = 1000 ^ 5) : x = 3 := by
+
+claim:
+    prove:
+        10^3 * 100^(2 * 3) = 1000^5
+    10^3 = 1000
+    100^(2 * 3) = 100^6
+    100^6 = 1000000000000
+    1000^5 = 1000000000000000
+    10^3 * 100^(2 * 3) = 1000 * 1000000000000 = 1000000000000000

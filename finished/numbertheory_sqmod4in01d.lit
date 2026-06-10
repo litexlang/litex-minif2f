@@ -1,0 +1,23 @@
+# name: numbertheory_sqmod4in01d
+# informal_prefix:
+# /-- For any integer $a$, show that $a^2 \equiv 0 \pmod{4}$ or $a^2 \equiv 1 \pmod{4}$.-/
+# formal_statement:
+# theorem numbertheory_sqmod4in01d (a : ℤ) : a ^ 2 % 4 = 0 ∨ a ^ 2 % 4 = 1 := by
+
+import Nat
+
+claim:
+    prove:
+        forall a Z:
+            a^2 % 4 = 0 or a^2 % 4 = 1
+    by cases:
+        prove:
+            a^2 % 4 = 0 or a^2 % 4 = 1
+        case a % 4 = 0:
+            a^2 % 4 = ((a % 4)^2) % 4 = 0^2 % 4 = 0
+        case a % 4 = 1:
+            a^2 % 4 = ((a % 4)^2) % 4 = 1^2 % 4 = 1
+        case a % 4 = 2:
+            a^2 % 4 = ((a % 4)^2) % 4 = 2^2 % 4 = 0
+        case a % 4 = 3:
+            a^2 % 4 = ((a % 4)^2) % 4 = 3^2 % 4 = 1

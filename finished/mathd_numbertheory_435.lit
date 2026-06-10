@@ -1,0 +1,82 @@
+# name: mathd_numbertheory_435
+# informal_prefix:
+# /-- Find the smallest positive integer $k$ such that, for every positive integer $n$, $6n+k$ is relatively prime to each of $6n+3$, $6n+2$, and $6n+1$. Show that it is 5.-/
+# formal_statement:
+# theorem mathd_numbertheory_435 (k : ℕ) (h₀ : 0 < k) (h₁ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 3) = 1)
+#     (h₂ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 2) = 1) (h₃ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 1) = 1) :
+#     5 ≤ k := by
+
+import Nat
+
+thm gcd_eq_one_contra_common_divisor_gt_one:
+    prove:
+        forall d, a, b N:
+            d > 1
+            $Dvd(d, a)
+            $Dvd(d, b)
+            gcd(a, b) = 1
+            =>:
+                0 = 1
+    $Dvd(d, gcd(a, b))
+    have by exist q N st {gcd(a, b) = d * q}: q
+    by cases:
+        prove:
+            0 = 1
+        case q = 0:
+            1 = gcd(a, b) = d * q = d * 0 = 0
+            impossible 1 = 0
+        case q != 0:
+            q >= 1
+            d * q >= d * 1 = d
+            d * q >= d > 1
+            gcd(a, b) = d * q
+            gcd(a, b) > 1
+            1 > 1
+            impossible 1 > 1
+
+claim:
+    prove:
+        forall k N_pos:
+            forall n N:
+                gcd(6 * n + k, 6 * n + 3) = 1
+            forall n N:
+                gcd(6 * n + k, 6 * n + 2) = 1
+            forall n N:
+                gcd(6 * n + k, 6 * n + 1) = 1
+            =>:
+                5 <= k
+    by cases:
+        prove:
+            5 <= k
+        case k <= 4:
+            k $in closed_range(1, 4)
+            by closed_range as cases: k $in 1...4
+            by cases:
+                prove:
+                    5 <= k
+                case k = 1:
+                    gcd(6 * 1 + k, 6 * 1 + 1) = 1
+                    $Dvd(7, 6 * 1 + k)
+                    $Dvd(7, 6 * 1 + 1)
+                    by thm gcd_eq_one_contra_common_divisor_gt_one(7, 6 * 1 + k, 6 * 1 + 1)
+                    impossible 0 = 1
+                case k = 2:
+                    gcd(6 * 0 + k, 6 * 0 + 2) = 1
+                    $Dvd(2, 6 * 0 + k)
+                    $Dvd(2, 6 * 0 + 2)
+                    by thm gcd_eq_one_contra_common_divisor_gt_one(2, 6 * 0 + k, 6 * 0 + 2)
+                    impossible 0 = 1
+                case k = 3:
+                    gcd(6 * 0 + k, 6 * 0 + 3) = 1
+                    $Dvd(3, 6 * 0 + k)
+                    $Dvd(3, 6 * 0 + 3)
+                    by thm gcd_eq_one_contra_common_divisor_gt_one(3, 6 * 0 + k, 6 * 0 + 3)
+                    impossible 0 = 1
+                case k = 4:
+                    gcd(6 * 0 + k, 6 * 0 + 2) = 1
+                    $Dvd(2, 6 * 0 + k)
+                    $Dvd(2, 6 * 0 + 2)
+                    by thm gcd_eq_one_contra_common_divisor_gt_one(2, 6 * 0 + k, 6 * 0 + 2)
+                    impossible 0 = 1
+        case k > 4:
+            5 <= k

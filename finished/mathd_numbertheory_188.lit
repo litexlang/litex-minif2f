@@ -1,0 +1,143 @@
+# name: mathd_numbertheory_188
+# informal_prefix:
+# /-- Find the greatest common factor of 180 and 168. Show that it is 12.-/
+# formal_statement:
+# theorem mathd_numbertheory_188 : Nat.gcd 180 168 = 12 := by
+
+import Nat
+
+thm common_quotient_15_14_eq_one:
+    prove:
+        forall q, k, l N:
+            15 = q * k
+            14 = q * l
+            =>:
+                q = 1
+    by cases:
+        prove:
+            q = 1
+        case q = 0:
+            15 = q * k = 0 * k = 0
+            impossible 15 = 0
+        case q != 0:
+            q >= 1
+            by cases:
+                prove:
+                    q = 1
+                case q <= 1:
+                    q = 1
+                case q > 1:
+                    by cases:
+                        prove:
+                            q $in closed_range(2, 15)
+                        case k = 0:
+                            15 = q * k = q * 0 = 0
+                            impossible 15 = 0
+                        case k != 0:
+                            k >= 1
+                            q * k >= q * 1 = q
+                            15 >= q
+                            q <= 15
+                            q >= 2
+                            q $in closed_range(2, 15)
+                    by closed_range as cases: q $in 2...15
+                    by cases:
+                        prove:
+                            q = 1
+                        case q = 2:
+                            15 = q * k = 2 * k
+                            k = 15 / 2
+                            not 15 / 2 $in Z
+                            impossible k $in Z
+                        case q = 3:
+                            14 = q * l = 3 * l
+                            l = 14 / 3
+                            not 14 / 3 $in Z
+                            impossible l $in Z
+                        case q = 4:
+                            15 = q * k = 4 * k
+                            k = 15 / 4
+                            not 15 / 4 $in Z
+                            impossible k $in Z
+                        case q = 5:
+                            14 = q * l = 5 * l
+                            l = 14 / 5
+                            not 14 / 5 $in Z
+                            impossible l $in Z
+                        case q = 6:
+                            15 = q * k = 6 * k
+                            k = 15 / 6
+                            not 15 / 6 $in Z
+                            impossible k $in Z
+                        case q = 7:
+                            15 = q * k = 7 * k
+                            k = 15 / 7
+                            not 15 / 7 $in Z
+                            impossible k $in Z
+                        case q = 8:
+                            15 = q * k = 8 * k
+                            k = 15 / 8
+                            not 15 / 8 $in Z
+                            impossible k $in Z
+                        case q = 9:
+                            15 = q * k = 9 * k
+                            k = 15 / 9
+                            not 15 / 9 $in Z
+                            impossible k $in Z
+                        case q = 10:
+                            15 = q * k = 10 * k
+                            k = 15 / 10
+                            not 15 / 10 $in Z
+                            impossible k $in Z
+                        case q = 11:
+                            15 = q * k = 11 * k
+                            k = 15 / 11
+                            not 15 / 11 $in Z
+                            impossible k $in Z
+                        case q = 12:
+                            15 = q * k = 12 * k
+                            k = 15 / 12
+                            not 15 / 12 $in Z
+                            impossible k $in Z
+                        case q = 13:
+                            15 = q * k = 13 * k
+                            k = 15 / 13
+                            not 15 / 13 $in Z
+                            impossible k $in Z
+                        case q = 14:
+                            15 = q * k = 14 * k
+                            k = 15 / 14
+                            not 15 / 14 $in Z
+                            impossible k $in Z
+                        case q = 15:
+                            14 = q * l = 15 * l
+                            l = 14 / 15
+                            not 14 / 15 $in Z
+                            impossible l $in Z
+    q = 1
+
+claim:
+    prove:
+        Nat::gcd(180, 168) = 12
+    witness exist k N st {180 = 12 * k} from 15:
+        180 = 12 * 15
+    $Nat::Dvd(12, 180)
+    witness exist k N st {168 = 12 * k} from 14:
+        168 = 12 * 14
+    $Nat::Dvd(12, 168)
+    by thm Nat::dvd_gcd(180, 168, 12)
+    $Nat::Dvd(12, Nat::gcd(180, 168))
+    have by exist q N st {Nat::gcd(180, 168) = 12 * q}: q
+    by thm Nat::gcd_dvd_left(180, 168)
+    $Nat::Dvd(Nat::gcd(180, 168), 180)
+    have by exist k N st {180 = Nat::gcd(180, 168) * k}: k
+    by thm Nat::gcd_dvd_right(180, 168)
+    $Nat::Dvd(Nat::gcd(180, 168), 168)
+    have by exist l N st {168 = Nat::gcd(180, 168) * l}: l
+    180 = Nat::gcd(180, 168) * k = 12 * q * k
+    168 = Nat::gcd(180, 168) * l = 12 * q * l
+    15 = 180 / 12 = (12 * q * k) / 12 = q * k
+    14 = 168 / 12 = (12 * q * l) / 12 = q * l
+    by thm common_quotient_15_14_eq_one(q, k, l)
+    q = 1
+    Nat::gcd(180, 168) = 12 * q = 12 * 1 = 12

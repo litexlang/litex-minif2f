@@ -1,0 +1,42 @@
+# name: amc12b_2002_p6
+# informal_prefix:
+# /-- Suppose that $a$ and $b$ are nonzero real numbers, and that the [[equation]] $x^2 + ax + b = 0$ has solutions $a$ and $b$. Then the pair $(a,b)$ is
+# 
+# $\mathrm{(A)}\ (-2,1)
+# \qquad\mathrm{(B)}\ (-1,2)
+# \qquad\mathrm{(C)}\ (1,-2)
+# \qquad\mathrm{(D)}\ (2,-1)
+# \qquad\mathrm{(E)}\ (4,4)$ Show that it is \mathrm{(C)}\ (1,-2).-/
+# formal_statement:
+# theorem amc12b_2002_p6 (a b : ℝ) (h₀ : a ≠ 0 ∧ b ≠ 0)
+#   (h₁ : ∀ x, x ^ 2 + a * x + b = (x - a) * (x - b)) : a = 1 ∧ b = -2 := by
+
+claim:
+    prove:
+        forall a, b R:
+            forall x R:
+                x ^ 2 + a * x + b = (x - a) * (x - b)
+            =>:
+                b = a * b
+    b = 0 ^ 2 + a * 0 + b = (0 - a) * (0 - b) = a * b
+
+claim:
+    prove:
+        forall a, b R:
+            a != 0
+            b != 0
+            forall x R:
+                x ^ 2 + a * x + b = (x - a) * (x - b)
+            =>:
+                b = a * b
+                a = 1
+                b = -2
+    b = a * b
+    b / b = (a * b) / b
+    1 = b / b = (a * b) / b = a
+    a = 1
+    1 ^ 2 + a * 1 + b = (1 - a) * (1 - b)
+    1 ^ 2 + 1 * 1 + b = 1 ^ 2 + a * 1 + b
+    (1 - a) * (1 - b) = (1 - 1) * (1 - b) = 0
+    2 + b = 1 ^ 2 + 1 * 1 + b = 1 ^ 2 + a * 1 + b = (1 - a) * (1 - b) = 0
+    b = 0 - 2 = -2

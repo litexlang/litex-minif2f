@@ -1,0 +1,12 @@
+claim:
+    prove:
+        forall p, q fn(x R) R:
+            forall x R:
+                p(x) = 2 - x ^ 2
+            forall x R:
+                x != 0
+                =>:
+                    q(x) = 6 / x
+            =>:
+                q(2) = 6 / 2 = 3
+                p(q(2)) = p(3) = 2 - 3 ^ 2 = -7

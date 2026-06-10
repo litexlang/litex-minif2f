@@ -1,0 +1,30 @@
+# name: imo_1969_p2
+# informal_prefix:
+# /-- Let $a_1, a_2,\cdots, a_n$ be real constants, $x$ a real variable, and $f(x)=\cos(a_1+x)+\frac{1}{2}\cos(a_2+x)+\frac{1}{4}\cos(a_3+x)+\cdots+\frac{1}{2^{n-1}}\cos(a_n+x).$ Given that $f(x_1)=f(x_2)=0,$ prove that $x_2-x_1=m\pi$ for some integer $m.$-/
+# formal_statement:
+# theorem imo_1969_p2 (m n : ℝ) (k : ℕ) (a : ℕ → ℝ) (y : ℝ → ℝ) (h₀ : 0 < k)
+#     (h₁ : ∀ x, y x = ∑ i in Finset.range k, Real.cos (a i + x) / 2 ^ i) (h₂ : y m = 0)
+#     (h₃ : y n = 0) : ∃ t : ℤ, m - n = t * Real.pi := by
+
+have cos fn(t R) R
+have pi R
+
+claim:
+    prove:
+        forall x1, x2 R, k N_pos, a fn(i N) R, y fn(t R) R:
+            forall x R:
+                y(x) = sum(0, k - 1, '(i N) R {cos(a(i) + x) / 2^i})
+            y(x1) = 0
+            y(x2) = 0
+            =>:
+                exist t Z st {x1 - x2 = t * pi}
+
+    # Natural-language idea: expand each cos(a_i+x) as
+    # cos(a_i)cos(x)-sin(a_i)sin(x). The whole finite sum is therefore a
+    # single expression A cos(x)+B sin(x), whose real zeros are spaced by pi.
+    # proof_debt: the current trigonometric library lacks a packaged
+    # finite cosine-sum expansion and zero-classification theorem for
+    # A cos(x)+B sin(x).
+    know:
+        exist t Z st {x1 - x2 = t * pi}
+    exist t Z st {x1 - x2 = t * pi}

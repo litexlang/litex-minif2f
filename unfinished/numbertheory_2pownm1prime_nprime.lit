@@ -1,0 +1,23 @@
+# name: numbertheory_2pownm1prime_nprime
+# informal_prefix:
+# /-- Show that if $n$ is a positive integer and $2^n - 1$ is prime, then $n$ is prime.-/
+# formal_statement:
+# theorem numbertheory_2pownm1prime_nprime (n : ℕ) (h₀ : 0 < n) (h₁ : Nat.Prime (2 ^ n - 1)) : Nat.Prime n := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N_pos:
+            $Prime(2^n - 1)
+            =>:
+                $Prime(n)
+
+    # Natural-language idea: if n is composite, say n = a*b with
+    # 1 < a < n, then 2^a - 1 is a nontrivial divisor of 2^n - 1, so
+    # 2^n - 1 cannot be prime.
+    # proof_debt: finishing needs the Mersenne factorization
+    # 2^(a*b) - 1 = (2^a - 1) * (1 + 2^a + ... + (2^a)^(b-1)) and the
+    # prime contradiction from a nontrivial divisor.
+    know $Prime(n)
+    $Prime(n)

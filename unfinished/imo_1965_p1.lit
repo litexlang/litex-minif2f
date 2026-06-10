@@ -1,0 +1,40 @@
+# name: imo_1965_p1
+# informal_prefix:
+# /-- Determine all values $x$ in the interval $0\leq x\leq 2\pi $ which satisfy the inequality
+# $2\cos x \leq \left| \sqrt{1+\sin 2x} - \sqrt{1-\sin 2x } \right| \leq \sqrt{2}.$-/
+# formal_statement:
+# theorem imo_1965_p1 (x : ℝ) (h₀ : 0 ≤ x) (h₁ : x ≤ 2 * Real.pi)
+#   (h₂ : 2 * Real.cos x ≤ abs (Real.sqrt (1 + Real.sin (2 * x)) - Real.sqrt (1 - Real.sin (2 * x))))
+#   (h₃ : abs (Real.sqrt (1 + Real.sin (2 * x)) - Real.sqrt (1 - Real.sin (2 * x))) ≤ Real.sqrt 2) :
+#   Real.pi / 4 ≤ x ∧ x ≤ 7 * Real.pi / 4 := by
+
+import Trig
+
+claim:
+    prove:
+        forall x R:
+            0 <= x
+            x <= 2 * pi
+            0 <= 1 + sin(2 * x)
+            0 <= 1 - sin(2 * x)
+            2 * cos(x) <= abs(sqrt(1 + sin(2 * x)) - sqrt(1 - sin(2 * x)))
+            abs(sqrt(1 + sin(2 * x)) - sqrt(1 - sin(2 * x))) <= sqrt(2)
+            =>:
+                pi / 4 <= x
+                x <= 7 * pi / 4
+    sin(2 * x) = 2 * sin(x) * cos(x)
+    sin(x)^2 + cos(x)^2 = 1
+    (sin(x) + cos(x))^2 = sin(x)^2 + 2 * sin(x) * cos(x) + cos(x)^2
+    1 + sin(2 * x) = (sin(x)^2 + cos(x)^2) + 2 * sin(x) * cos(x)
+    (sin(x)^2 + cos(x)^2) + 2 * sin(x) * cos(x) = sin(x)^2 + 2 * sin(x) * cos(x) + cos(x)^2
+    1 + sin(2 * x) = (sin(x) + cos(x))^2
+    (cos(x) - sin(x))^2 = cos(x)^2 - 2 * cos(x) * sin(x) + sin(x)^2
+    1 - sin(2 * x) = (sin(x)^2 + cos(x)^2) - 2 * sin(x) * cos(x)
+    (sin(x)^2 + cos(x)^2) - 2 * sin(x) * cos(x) = cos(x)^2 - 2 * cos(x) * sin(x) + sin(x)^2
+    1 - sin(2 * x) = (cos(x) - sin(x))^2
+    # proof_debt: reducing sqrt squares to absolute trig pieces and solving interval cases is not in the current trig layer.
+    know:
+        pi / 4 <= x
+        x <= 7 * pi / 4
+    pi / 4 <= x
+    x <= 7 * pi / 4

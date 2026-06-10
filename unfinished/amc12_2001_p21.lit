@@ -1,0 +1,58 @@
+# name: amc12_2001_p21
+# informal_prefix:
+# /-- Four positive integers $a$, $b$, $c$, and $d$ have a product of $8!$ and satisfy:
+# 
+# $
+# \begin{align*}
+# ab + a + b & = 524
+# \\ 
+# bc + b + c & = 146
+# \\ 
+# cd + c + d & = 104
+# \end{align*}
+# $
+# 
+# What is $a-d$?
+# 
+# $
+# \text{(A) }4
+# \qquad
+# \text{(B) }6
+# \qquad
+# \text{(C) }8
+# \qquad
+# \text{(D) }10
+# \qquad
+# \text{(E) }12
+# $ Show that it is 10.-/
+# formal_statement:
+# theorem amc12_2001_p21 (a b c d : ℕ) (h₀ : a * b * c * d = 8!) (h₁ : a * b + a + b = 524)
+#     (h₂ : b * c + b + c = 146) (h₃ : c * d + c + d = 104) : ↑a - ↑d = (10 : ℤ) := by
+
+# Natural-language idea:
+# Add 1 to each bilinear relation to get
+# (a+1)(b+1)=525, (b+1)(c+1)=147, and (c+1)(d+1)=105.
+# The common factor b+1/c+1 constraints force b=20, c=6, a=24, d=14.
+claim:
+    prove:
+        forall a, b, c, d N:
+            a * b * c * d = 40320
+            a * b + a + b = 524
+            b * c + b + c = 146
+            c * d + c + d = 104
+            =>:
+                a - d = 10
+
+    a * b + a + b + 1 = 524 + 1 = 525
+    (a + 1) * (b + 1) = a * b + a + b + 1 = 525
+    (b + 1) * (c + 1) = b * c + b + c + 1 = 147
+    (c + 1) * (d + 1) = c * d + c + d + 1 = 105
+    # proof_debt: rewriting gives (a+1)(b+1)=525,
+    # (b+1)(c+1)=147, and (c+1)(d+1)=105. Finishing needs finite
+    # factor-pair enumeration and factorial/divisibility support for naturals.
+    know:
+        a = 24
+        b = 20
+        c = 6
+        d = 14
+    a - d = 24 - 14 = 10

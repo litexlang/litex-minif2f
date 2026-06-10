@@ -1,0 +1,46 @@
+# name: algebra_bleqa_apbon2msqrtableqambsqon8b
+# informal_prefix:
+# /-- Let $a$ and $b$ be positive real numbers such that $b \leq a$. Show that $\frac{a+b}{2} - \sqrt{ab} \leq \frac{(a-b)^2}{8b}$.-/
+# formal_statement:
+# theorem algebra_bleqa_apbon2msqrtableqambsqon8b (a b : ℝ) (h₀ : 0 < a ∧ 0 < b) (h₁ : b ≤ a) :
+#     (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b) ^ 2 / (8 * b) := by
+
+claim:
+    prove:
+        forall a, b R:
+            0 < a
+            0 < b
+            b <= a
+            =>:
+                (a + b) / 2 - sqrt(a * b) <= (a - b)^2 / (8 * b)
+
+    have s R = sqrt(a)
+    have t R = sqrt(b)
+    sqrt(a) > 0
+    sqrt(b) > 0
+    0 < s
+    0 < t
+    sqrt(a)^2 = a
+    sqrt(b)^2 = b
+    s^2 = sqrt(a)^2 = a
+    t^2 = sqrt(b)^2 = b
+    t^2 <= s^2
+    t <= s
+    0 <= s - t
+    0 <= (s - t)^2
+    t + t <= s + t
+    2 * t = t + t <= s + t
+    0 <= 2 * t
+    0 <= s + t
+    (2 * t)^2 <= (s + t)^2
+    (2 * t)^2 = 4 * t^2
+    4 * t^2 <= (s + t)^2
+    0 < t^2
+    0 < 8 * t^2
+    1 / 2 = (4 * t^2) / (8 * t^2) <= (s + t)^2 / (8 * t^2)
+    (s - t)^2 * (1 / 2) <= (s - t)^2 * ((s + t)^2 / (8 * t^2))
+    (s - t)^2 / 2 = (s - t)^2 * (1 / 2) <= (s - t)^2 * ((s + t)^2 / (8 * t^2))
+    sqrt(a * b) = sqrt(a) * sqrt(b) = s * t
+    (a + b) / 2 - sqrt(a * b) = (s^2 + t^2) / 2 - s * t = (s - t)^2 / 2
+    (a - b)^2 / (8 * b) = (s^2 - t^2)^2 / (8 * t^2) = ((s - t)^2 * (s + t)^2) / (8 * t^2) = (s - t)^2 * ((s + t)^2 / (8 * t^2))
+    (a + b) / 2 - sqrt(a * b) = (s - t)^2 / 2 <= (s - t)^2 * ((s + t)^2 / (8 * t^2)) = (a - b)^2 / (8 * b)

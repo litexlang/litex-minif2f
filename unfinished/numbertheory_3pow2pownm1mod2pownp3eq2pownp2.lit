@@ -1,0 +1,21 @@
+# name: numbertheory_3pow2pownm1mod2pownp3eq2pownp2
+# informal_prefix:
+# /-- Show that for positive integer $n$, the remainder of $3^{2^n} - 1 \equiv 2^{n+2} \mod 2^{n+3}$.-/
+# formal_statement:
+# theorem numbertheory_3pow2pownm1mod2pownp3eq2pownp2 (n : ℕ) (h₀ : 0 < n) :
+#     (3 ^ 2 ^ n - 1) % 2 ^ (n + 3) = 2 ^ (n + 2) := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N_pos:
+            (3^(2^n) - 1) % (2^(n + 3)) = 2^(n + 2)
+
+    # Natural-language idea: use induction on n. The step squares
+    # 3^(2^n) = 1 + 2^(n+2) modulo 2^(n+3), then keeps the next 2-adic
+    # term to get the modulus 2^(n+4).
+    # proof_debt: the verifier needs a reusable 2-adic lifting or
+    # modular-squaring lemma for powers modulo increasing powers of 2.
+    know (3^(2^n) - 1) % (2^(n + 3)) = 2^(n + 2)
+    (3^(2^n) - 1) % (2^(n + 3)) = 2^(n + 2)

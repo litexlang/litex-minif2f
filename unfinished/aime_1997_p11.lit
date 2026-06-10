@@ -1,0 +1,29 @@
+# name: aime_1997_p11
+# informal_prefix:
+# /-- Let $x=\frac{\sum\limits_{n=1}^{44} \cos n^\circ}{\sum\limits_{n=1}^{44} \sin n^\circ}$. What is the greatest integer that does not exceed $100x$? Show that it is 241.-/
+# formal_statement:
+# theorem aime_1997_p11 (x : ℝ)
+#     (h₀ :
+#       x =
+#         (∑ n in Finset.Icc (1 : ℕ) 44, Real.cos (n * Real.pi / 180)) /
+#           ∑ n in Finset.Icc (1 : ℕ) 44, Real.sin (n * Real.pi / 180)) :
+#     Int.floor (100 * x) = 241 := by
+
+have floor fn(x R) Z
+have sin fn(x R) R
+have cos fn(x R) R
+have pi R
+
+claim:
+    prove:
+        forall x R:
+            sum(1, 44, '(n N_pos) R {sin(n * pi / 180)}) != 0
+            x = sum(1, 44, '(n N_pos) R {cos(n * pi / 180)}) / sum(1, 44, '(n N_pos) R {sin(n * pi / 180)})
+            =>:
+                floor(100 * x) = 241
+
+    # proof_debt: this needs finite trigonometric sum identities and a
+    # floor bound for the resulting tangent value.
+    know:
+        floor(100 * x) = 241
+    floor(100 * x) = 241

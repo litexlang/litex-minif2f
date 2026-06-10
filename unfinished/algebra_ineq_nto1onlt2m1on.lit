@@ -1,0 +1,22 @@
+# name: algebra_ineq_nto1onlt2m1on
+# informal_prefix:
+# /-- Let $n$ be a positive natural number. Show that $n^{1/n} \leq 2 - 1/n$.-/
+# formal_statement:
+# theorem algebra_ineq_nto1onlt2m1on (n : ℕ) : (n : ℝ) ^ ((1 : ℝ) / n) < 2 - 1 / n := by
+#
+# Formulation counter: the strict source formal statement is false at n = 1,
+# since 1^(1/1) = 1 and 2 - 1/1 = 1, so it asks for 1 < 1.
+# The local target below records the corrected strict version with n > 1.
+
+claim:
+    prove:
+        forall n N:
+            n > 1
+            =>:
+                n^(1 / n) < 2 - 1 / n
+
+    # proof_debt: the source formal statement has no hypothesis
+    # n > 1 and is false at n = 1, where it asks for 1 < 1. This records the
+    # corrected local target and leaves the analytic estimate as proof debt.
+    know n^(1 / n) < 2 - 1 / n
+    n^(1 / n) < 2 - 1 / n

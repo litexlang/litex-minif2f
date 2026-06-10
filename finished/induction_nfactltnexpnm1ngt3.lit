@@ -1,0 +1,35 @@
+# name: induction_nfactltnexpnm1ngt3
+# informal_prefix:
+# /-- Show that for any integer $n \geq 3$, we have $n! < n^{n-1}$.-/
+# formal_statement:
+# theorem induction_nfactltnexpnm1ngt3 (n : ℕ) (h₀ : 3 ≤ n) : n ! < n ^ (n - 1) := by
+
+claim:
+    prove:
+        forall n N:
+            3 <= n
+            =>:
+                product(1, n, 'N_pos(k){k}) < n^(n - 1)
+
+    by induc n from 3:
+        prove:
+            product(1, n, 'N_pos(k){k}) < n^(n - 1)
+
+        prove from n = 3:
+            product(1, 1, 'N_pos(k){k}) = 1
+            product(1, 2, 'N_pos(k){k}) = product(1, 1, 'N_pos(k){k}) * 'N_pos(k){k}(2) = 1 * 2 = 2
+            product(1, 3, 'N_pos(k){k}) = product(1, 2, 'N_pos(k){k}) * 'N_pos(k){k}(3) = 2 * 3 = 6
+            3^(3 - 1) = 3^2 = 9
+            product(1, 3, 'N_pos(k){k}) = 6 < 9 = 3^(3 - 1)
+
+        prove induc:
+            product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * 'N_pos(k){k}(n + 1)
+            'N_pos(k){k}(n + 1) = n + 1
+            product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1)
+            0 < n + 1
+            product(1, n, 'N_pos(k){k}) * (n + 1) < n^(n - 1) * (n + 1)
+            n < n + 1
+            n^(n - 1) < (n + 1)^(n - 1)
+            n^(n - 1) * (n + 1) < (n + 1)^(n - 1) * (n + 1)
+            (n + 1)^(n - 1) * (n + 1) = (n + 1)^((n - 1) + 1) = (n + 1)^n = (n + 1)^((n + 1) - 1)
+            product(1, n + 1, 'N_pos(k){k}) < n^(n - 1) * (n + 1) < (n + 1)^((n + 1) - 1)

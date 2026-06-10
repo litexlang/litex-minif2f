@@ -1,0 +1,20 @@
+# name: amc12a_2019_p9
+# informal_prefix:
+# /-- A sequence of numbers is defined recursively by $a_1 = 1$, $a_2 = \frac{3}{7}$, and
+# $a_n=\frac{a_{n-2} \cdot a_{n-1}}{2a_{n-2} - a_{n-1}}$for all $n \geq 3$ Then $a_{2019}$ can be written as $\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers. What is $p+q ?$
+# 
+# $\textbf{(A) } 2020 \qquad\textbf{(B) } 4039 \qquad\textbf{(C) } 6057 \qquad\textbf{(D) } 6061 \qquad\textbf{(E) } 8078$ Show that it is \textbf{(E) }8078.-/
+# formal_statement:
+# theorem amc12a_2019_p9 (a : ℕ → ℚ) (h₀ : a 1 = 1) (h₁ : a 2 = 3 / 7)
+#   (h₂ : ∀ n, a (n + 2) = a n * a (n + 1) / (2 * a n - a (n + 1))) :
+#   ↑(a 2019).den + (a 2019).num = 8078 := by
+
+claim:
+    prove:
+        1 + (2019 - 1) * 4 / 3 = 8075 / 3
+    2019 - 1 = 2018
+    1 + 2018 * 4 / 3 = 8075 / 3
+
+claim:
+    prove:
+        3 + 8075 = 8078

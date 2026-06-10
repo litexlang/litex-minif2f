@@ -1,0 +1,31 @@
+# name: aime_1983_p9
+# informal_prefix:
+# /-- Find the minimum value of $\frac{9x^2\sin^2 x + 4}{x\sin x}$ for $0 < x < \pi$. Show that it is 012.-/
+# formal_statement:
+# theorem aime_1983_p9 (x : ℝ) (h₀ : 0 < x ∧ x < Real.pi) :
+#   12 ≤ (9 * (x ^ 2 * Real.sin x ^ 2) + 4) / (x * Real.sin x) := by
+
+import Trig
+
+# Natural-language idea:
+# Since 0 < x < pi, sin(x) is positive, so t = x sin(x) is positive.
+# Then (9t^2 + 4)/t - 12 = (3t - 2)^2/t >= 0.
+
+claim:
+    prove:
+        forall x R:
+            0 < x
+            x < pi
+            =>:
+                12 <= (9 * (x^2 * sin(x)^2) + 4) / (x * sin(x))
+    0 < x < pi
+    sin(x) > 0
+    0 < x * sin(x)
+    x * sin(x) != 0
+    0 <= (3 * x * sin(x) - 2)^2
+    0 <= (3 * x * sin(x) - 2)^2 / (x * sin(x))
+    (3 * x * sin(x) - 2)^2 = 9 * (x^2 * sin(x)^2) - 12 * x * sin(x) + 4
+    (9 * (x^2 * sin(x)^2) + 4) / (x * sin(x)) - 12 = (9 * (x^2 * sin(x)^2) - 12 * x * sin(x) + 4) / (x * sin(x))
+    (9 * (x^2 * sin(x)^2) - 12 * x * sin(x) + 4) / (x * sin(x)) = (3 * x * sin(x) - 2)^2 / (x * sin(x))
+    0 <= (9 * (x^2 * sin(x)^2) + 4) / (x * sin(x)) - 12
+    12 <= (9 * (x^2 * sin(x)^2) + 4) / (x * sin(x))

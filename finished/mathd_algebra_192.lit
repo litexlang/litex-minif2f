@@ -1,0 +1,19 @@
+# name: mathd_algebra_192
+# informal_prefix:
+# /-- If $Q = 11-5i$, $E = 11+5i$, and $D = 2i$, find $Q\cdot E \cdot D$. Show that it is 292i.-/
+# formal_statement:
+# theorem mathd_algebra_192 (q e d : ℂ) (h₀ : q = 11 - 5 * Complex.I) (h₁ : e = 11 + 5 * Complex.I)
+#     (h₂ : d = 2 * Complex.I) : q * e * d = 292 * Complex.I := by
+
+import complex
+
+C_mul((5, 0), C_i) = (5 * 0 - 0 * 1, 5 * 1 + 0 * 0) = (0, 5)
+C_sub((11, 0), (0, 5)) = (11 - 0, 0 - 5) = (11, -5)
+C_add((11, 0), (0, 5)) = (11 + 0, 0 + 5) = (11, 5)
+C_mul((2, 0), C_i) = (2 * 0 - 0 * 1, 2 * 1 + 0 * 0) = (0, 2)
+C_mul((11, -5), (11, 5)) = (11 * 11 - (-5) * 5, 11 * 5 + (-5) * 11) = (146, 0)
+C_mul((146, 0), (0, 2)) = (146 * 0 - 0 * 2, 146 * 2 + 0 * 0) = (0, 292)
+C_sub((11, 0), C_mul((5, 0), C_i)) = C_sub((11, 0), (0, 5)) = (11, -5)
+C_add((11, 0), C_mul((5, 0), C_i)) = C_add((11, 0), (0, 5)) = (11, 5)
+C_mul(C_mul(C_sub((11, 0), C_mul((5, 0), C_i)), C_add((11, 0), C_mul((5, 0), C_i))), C_mul((2, 0), C_i)) = C_mul(C_mul((11, -5), (11, 5)), (0, 2)) = C_mul((146, 0), (0, 2)) = (0, 292)
+C_mul((292, 0), C_i) = (292 * 0 - 0 * 1, 292 * 1 + 0 * 0) = (0, 292)

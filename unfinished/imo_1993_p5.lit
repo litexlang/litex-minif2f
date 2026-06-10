@@ -1,0 +1,30 @@
+# name: imo_1993_p5
+# informal_prefix:
+# /-- Let $\mathbb{N} = \{1,2,3, \ldots\}$. Determine if there exists a strictly increasing function $f: \mathbb{N} \mapsto \mathbb{N}$ with the following properties:
+# 
+# (i) $f(1) = 2$;
+# 
+# (ii) $f(f(n)) = f(n) + n, (n \in \mathbb{N})$.-/
+# formal_statement:
+# theorem imo_1993_p5 : ∃ f : ℕ → ℕ, f 1 = 2 ∧ ∀ n, f (f n) = f n + n ∧ ∀ n, f n < f (n + 1) := by
+
+prop imo_1993_good(f fn(n N_pos) N_pos):
+    f(1) = 2
+    forall n N_pos:
+        f(f(n)) = f(n) + n
+    forall n N_pos:
+        f(n) < f(n + 1)
+
+# Natural-language idea:
+# The intended construction is the Wythoff/Beatty-type increasing sequence.
+# One constructs f so that the image and complement interlace, giving
+# f(f(n)) = f(n)+n, with f(1)=2 and strict monotonicity.
+claim:
+    prove:
+        exist f fn(n N_pos) N_pos st {$imo_1993_good(f)}
+
+    # proof_debt: this requires a Beatty-sequence/floor construction
+    # and proofs of monotonicity plus the self-indexing recurrence.
+    know:
+        exist f fn(n N_pos) N_pos st {$imo_1993_good(f)}
+    exist f fn(n N_pos) N_pos st {$imo_1993_good(f)}

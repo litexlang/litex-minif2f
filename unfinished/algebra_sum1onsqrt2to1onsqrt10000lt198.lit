@@ -1,0 +1,20 @@
+# name: algebra_sum1onsqrt2to1onsqrt10000lt198
+# informal_prefix:
+# /-- Show that $\sum_{k=2}^{10000} \frac{1}{\sqrt{k}} < 198$.-/
+# formal_statement:
+# theorem algebra_sum1onsqrt2to1onsqrt10000lt198 :
+#     (∑ k in Finset.Icc (2 : ℕ) 10000, 1 / Real.sqrt k) < 198 := by
+
+claim:
+    prove:
+        sum(2, 10000, '(k N_pos) R {1 / sqrt(k)}) < 198
+
+    # proof_debt: the concrete proof compares each term with
+    # 2*(sqrt(k)-sqrt(k-1)) and then telescopes the finite sum.
+    know:
+        sum(2, 10000, '(k N_pos) R {1 / sqrt(k)}) < sum(2, 10000, '(k N_pos) R {2 * (sqrt(k) - sqrt(k - 1))})
+        sum(2, 10000, '(k N_pos) R {2 * (sqrt(k) - sqrt(k - 1))}) = 2 * (sqrt(10000) - sqrt(1))
+    sqrt(10000) = 100
+    sqrt(1) = 1
+    2 * (sqrt(10000) - sqrt(1)) = 2 * (100 - 1) = 198
+    sum(2, 10000, '(k N_pos) R {1 / sqrt(k)}) < sum(2, 10000, '(k N_pos) R {2 * (sqrt(k) - sqrt(k - 1))}) = 2 * (sqrt(10000) - sqrt(1)) = 198

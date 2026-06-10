@@ -1,0 +1,103 @@
+# name: algebra_apbpceq2_abpbcpcaeq1_aleq1on3anbleq1ancleq4on3
+# informal_prefix:
+# /-- Let $a, b, c$ be real numbers satisfying $a \leq b \leq c$, $a+b+c=2$, and $ab+bc+ca=1$. Show that $0 \leq a \leq \frac{1}{3}$, $\frac{1}{3} \leq b \leq 1$, and $1 \leq c \leq \frac{4}{3}$.-/
+# formal_statement:
+# theorem algebra_apbpceq2_abpbcpcaeq1_aleq1on3anbleq1ancleq4on3 (a b c : ℝ) (h₀ : a ≤ b ∧ b ≤ c)
+#     (h₁ : a + b + c = 2) (h₂ : a * b + b * c + c * a = 1) :
+#     0 ≤ a ∧ a ≤ 1 / 3 ∧ 1 / 3 ≤ b ∧ b ≤ 1 ∧ 1 ≤ c ∧ c ≤ 4 / 3 := by
+
+claim:
+    prove:
+        forall a, b, c R:
+            a <= b
+            b <= c
+            a + b + c = 2
+            a * b + b * c + c * a = 1
+            =>:
+                0 <= a and a <= 1 / 3 and 1 / 3 <= b and b <= 1 and 1 <= c and c <= 4 / 3
+
+    a <= b <= c
+    a <= c
+    b + c = a + b + c - a = 2 - a
+    a + c = a + b + c - b = 2 - b
+    a + b = a + b + c - c = 2 - c
+    a * (b + c) + b * c = a * b + a * c + b * c = a * b + b * c + c * a = 1
+    b * (a + c) + a * c = a * b + b * c + c * a = 1
+    c * (a + b) + a * b = a * b + b * c + c * a = 1
+    b * c + a * (b + c) = 1
+    a * c + b * (a + c) = 1
+    a * b + c * (a + b) = 1
+    b * c = 1 - a * (b + c) = 1 - a * (2 - a) = (1 - a)^2
+    a * c = 1 - b * (a + c) = 1 - b * (2 - b) = (1 - b)^2
+    a * b = 1 - c * (a + b) = 1 - c * (2 - c) = (1 - c)^2
+    (b - c)^2 >= 0
+    (a - c)^2 >= 0
+    (a - b)^2 >= 0
+    (b + c)^2 - 4 * b * c = (b - c)^2
+    (a + c)^2 - 4 * a * c = (a - c)^2
+    (a + b)^2 - 4 * a * b = (a - b)^2
+    (2 - a)^2 - 4 * (1 - a)^2 = a * (4 - 3 * a)
+    (2 - b)^2 - 4 * (1 - b)^2 = b * (4 - 3 * b)
+    (2 - c)^2 - 4 * (1 - c)^2 = c * (4 - 3 * c)
+    (b + c)^2 = (2 - a)^2
+    4 * (b * c) = 4 * (1 - a)^2
+    (a + c)^2 = (2 - b)^2
+    4 * (a * c) = 4 * (1 - b)^2
+    (a + b)^2 = (2 - c)^2
+    4 * (a * b) = 4 * (1 - c)^2
+    (b - c)^2 = (b + c)^2 - 4 * b * c = (2 - a)^2 - 4 * (1 - a)^2 = a * (4 - 3 * a)
+    (a - c)^2 = (a + c)^2 - 4 * a * c = (2 - b)^2 - 4 * (1 - b)^2 = b * (4 - 3 * b)
+    (a - b)^2 = (a + b)^2 - 4 * a * b = (2 - c)^2 - 4 * (1 - c)^2 = c * (4 - 3 * c)
+    0 <= (b - c)^2 = a * (4 - 3 * a)
+    0 <= (a - c)^2 = b * (4 - 3 * b)
+    0 <= (a - b)^2 = c * (4 - 3 * c)
+    a - b <= 0
+    a - c <= 0
+    b - c <= 0
+    0 <= (a - b) * (a - c)
+    (b - a) * (c - b) >= 0
+    0 <= (c - a) * (c - b)
+    (a - b) * (a - c) = a^2 - a * (b + c) + b * c
+    a^2 - a * (b + c) + b * c = a^2 - a * (2 - a) + (1 - a)^2 = (3 * a - 1) * (a - 1)
+    (b - a) * (c - b) = b * (a + c) - b^2 - a * c
+    b * (a + c) - b^2 - a * c = b * (2 - b) - b^2 - (1 - b)^2 = (3 * b - 1) * (1 - b)
+    (c - a) * (c - b) = c^2 - c * (a + b) + a * b
+    c^2 - c * (a + b) + a * b = c^2 - c * (2 - c) + (1 - c)^2 = (3 * c - 1) * (c - 1)
+    (a - b) * (a - c) = (3 * a - 1) * (a - 1)
+    (b - a) * (c - b) = (3 * b - 1) * (1 - b)
+    (c - a) * (c - b) = (3 * c - 1) * (c - 1)
+    3 * a = a + a + a <= a + b + c = 2
+    a = (3 * a) / 3 <= 2 / 3
+    3 * a <= 2
+    4 - 3 * a = 4 - (3 * a) >= 4 - 2 = 2
+    4 - 3 * a > 0
+    a = (a * (4 - 3 * a)) / (4 - 3 * a) >= 0 / (4 - 3 * a) = 0
+    2 = a + b + c <= c + c + c = 3 * c
+    2 / 3 <= (3 * c) / 3 = c
+    0 < 2 / 3
+    0 < 2 / 3 <= c
+    0 < c
+    4 - 3 * c = (c * (4 - 3 * c)) / c >= 0 / c = 0
+    4 - 3 * c >= 0
+    3 * c <= 4
+    c = (3 * c) / 3 <= 4 / 3
+    3 * c - 1 >= 1
+    3 * c - 1 > 0
+    c - 1 = ((3 * c - 1) * (c - 1)) / (3 * c - 1) >= 0 / (3 * c - 1) = 0
+    1 <= c
+    a - 1 <= 2 / 3 - 1 = -1 / 3
+    -1 / 3 < 0
+    a - 1 <= -1 / 3 < 0
+    a - 1 < 0
+    3 * a - 1 = ((3 * a - 1) * (a - 1)) / (a - 1) <= 0 / (a - 1) = 0
+    3 * a - 1 <= 0
+    3 * a <= 1
+    a = (3 * a) / 3 <= 1 / 3
+    b = a + b + c - a - c = 2 - a - c
+    2 - a - c >= 2 - 1 / 3 - c
+    2 - 1 / 3 - c >= 2 - 1 / 3 - 4 / 3 = 1 / 3
+    b = 2 - a - c >= 2 - 1 / 3 - c >= 2 - 1 / 3 - 4 / 3 = 1 / 3
+    2 - a - c <= 2 - 0 - c
+    2 - 0 - c <= 2 - 0 - 1 = 1
+    b = 2 - a - c <= 2 - 0 - c <= 2 - 0 - 1 = 1
+    0 <= a and a <= 1 / 3 and 1 / 3 <= b and b <= 1 and 1 <= c and c <= 4 / 3

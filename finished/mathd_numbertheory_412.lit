@@ -1,0 +1,19 @@
+# name: mathd_numbertheory_412
+# informal_prefix:
+# /-- If $x \equiv 4 \pmod{19}$ and $y \equiv 7 \pmod{19}$, then find the remainder when $(x + 1)^2 (y + 5)^3$ is divided by 19. Show that it is 13.-/
+# formal_statement:
+# theorem mathd_numbertheory_412 (x y : ℤ) (h₀ : x % 19 = 4) (h₁ : y % 19 = 7) :
+#   (x + 1) ^ 2 * (y + 5) ^ 3 % 19 = 13 := by
+
+claim:
+    prove:
+        forall x, y Z:
+            x % 19 = 4
+            y % 19 = 7
+            =>:
+                (x + 1) ^ 2 * (y + 5) ^ 3 % 19 = 13
+    (x + 1) % 19 = (4 + 1) % 19 = 5
+    (y + 5) % 19 = (7 + 5) % 19 = 12
+    (x + 1) ^ 2 % 19 = (x + 1) * (x + 1) % 19 = (x + 1) % 19 * (x + 1) % 19 % 19 = 5 * 5 % 19 = 6
+    (y + 5) ^ 3 % 19 = (y + 5) * (y + 5) * (y + 5) % 19 = 12 * 12 * 12 % 19 = 18
+    (x + 1) ^ 2 * (y + 5) ^ 3 % 19 = 6 * 18 % 19 = 13

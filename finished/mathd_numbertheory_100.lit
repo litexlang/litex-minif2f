@@ -1,0 +1,20 @@
+# name: mathd_numbertheory_100
+# informal_prefix:
+# /-- Find $n$ if $\gcd(n,40) = 10$ and $\mathop{\text{lcm}}[n,40] = 280$. Show that it is 70.-/
+# formal_statement:
+# theorem mathd_numbertheory_100 (n : ℕ) (h₀ : 0 < n) (h₁ : Nat.gcd n 40 = 10)
+#     (h₂ : Nat.lcm n 40 = 280) : n = 70 := by
+
+import Nat
+
+claim:
+    prove:
+        forall n N_pos:
+            Nat::gcd(n, 40) = 10
+            Nat::lcm(n, 40) = 280
+            =>:
+                n = 70
+    by thm Nat::lcm_mul_gcd(n, 40)
+    Nat::lcm(n, 40) * Nat::gcd(n, 40) = n * 40
+    n * 40 = Nat::lcm(n, 40) * Nat::gcd(n, 40) = 280 * 10 = 2800
+    n = 2800 / 40 = 70

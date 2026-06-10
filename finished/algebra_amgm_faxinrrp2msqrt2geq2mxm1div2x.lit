@@ -1,0 +1,26 @@
+# name: algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x
+# informal_prefix:
+# /-- Let $x$ be a positive real number. Show that $2 - \sqrt{2} \geq 2 - x - \frac{1}{2x}$.-/
+# formal_statement:
+# theorem algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x :
+#   ∀ x > 0, 2 - Real.sqrt 2 ≥ 2 - x - 1 / (2 * x) := by
+
+claim:
+    prove:
+        forall x R_pos:
+            2 - sqrt(2) >= 2 - x - 1 / (2 * x)
+
+    sqrt(2)^2 = 2
+    0 <= (x - sqrt(2) / 2)^2
+    0 <= (x - sqrt(2) / 2)^2 / x
+    (sqrt(2) / 2)^2 = sqrt(2)^2 / 4 = 2 / 4 = 1 / 2
+    2 * x * (sqrt(2) / 2) = x * sqrt(2)
+    (x - sqrt(2) / 2)^2 = x^2 - 2 * x * (sqrt(2) / 2) + (sqrt(2) / 2)^2
+    x^2 - 2 * x * (sqrt(2) / 2) + (sqrt(2) / 2)^2 = x^2 - x * sqrt(2) + 1 / 2
+    (x - sqrt(2) / 2)^2 / x = (x^2 - x * sqrt(2) + 1 / 2) / x
+    (x^2 - x * sqrt(2) + 1 / 2) / x = x - sqrt(2) + 1 / (2 * x)
+    (x - sqrt(2) / 2)^2 / x = x - sqrt(2) + 1 / (2 * x)
+    0 <= x - sqrt(2) + 1 / (2 * x)
+    x - sqrt(2) + 1 / (2 * x) = (2 - sqrt(2)) - (2 - x - 1 / (2 * x))
+    0 <= (2 - sqrt(2)) - (2 - x - 1 / (2 * x))
+    2 - sqrt(2) >= 2 - x - 1 / (2 * x)

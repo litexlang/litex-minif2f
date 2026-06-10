@@ -1,0 +1,12 @@
+# name: amc12a_2010_p10
+# informal_prefix:
+# /-- The first four terms of an arithmetic sequence are $p$, $9$, $3p-q$, and $3p+q$. What is the $2010^\text{th}$ term of this sequence?
+# 
+# $\textbf{(A)}\ 8041 \qquad \textbf{(B)}\ 8043 \qquad \textbf{(C)}\ 8045 \qquad \textbf{(D)}\ 8047 \qquad \textbf{(E)}\ 8049$ Show that it is \textbf{(A) }8041.-/
+# formal_statement:
+# theorem amc12a_2010_p10 (p q : ℝ) (a : ℕ → ℝ) (h₀ : ∀ n, a (n + 2) - a (n + 1) = a (n + 1) - a n)
+#   (h₁ : a 1 = p) (h₂ : a 2 = 9) (h₃ : a 3 = 3 * p - q) (h₄ : a 4 = 3 * p + q) : a 2010 = 8041 := by
+
+claim:
+    prove:
+        8041 = 1 + 4 * 2010

@@ -1,0 +1,12 @@
+# name: amc12a_2008_p4
+# informal_prefix:
+# /-- Which of the following is equal to the [[product]]
+# $\frac{8}{4}\cdot\frac{12}{8}\cdot\frac{16}{12}\cdot\cdots\cdot\frac{4n+4}{4n}\cdot\cdots\cdot\frac{2008}{2004}?$
+# 
+# $\textbf{(A)}\ 251\qquad\textbf{(B)}\ 502\qquad\textbf{(C)}\ 1004\qquad\textbf{(D)}\ 2008\qquad\textbf{(E)}\ 4016$ Show that it is \textbf{(B)}.-/
+# formal_statement:
+# theorem amc12a_2008_p4 : (∏ k in Finset.Icc (1 : ℕ) 501, ((4 : ℝ) * k + 4) / (4 * k)) = 502 := by
+
+claim:
+    prove:
+        2008 / 4 = 502

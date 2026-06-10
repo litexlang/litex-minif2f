@@ -1,0 +1,43 @@
+# name: amc12a_2019_p21
+# informal_prefix:
+# /-- Let $z=\frac{1+i}{\sqrt{2}}.$What is $\left(z^{1^2}+z^{2^2}+z^{3^2}+\dots+z^{{12}^2}\right) \cdot \left(\frac{1}{z^{1^2}}+\frac{1}{z^{2^2}}+\frac{1}{z^{3^2}}+\dots+\frac{1}{z^{{12}^2}}\right)?$
+# 
+# $\textbf{(A) } 18 \qquad \textbf{(B) } 72-36\sqrt2 \qquad \textbf{(C) } 36 \qquad \textbf{(D) } 72 \qquad \textbf{(E) } 72+36\sqrt2$ Show that it is \textbf{(C) }36.-/
+# formal_statement:
+# theorem amc12a_2019_p21 (z : ℂ) (h₀ : z = (1 + Complex.I) / Real.sqrt 2) :
+#   ((∑ k : ℤ in Finset.Icc 1 12, z ^ k ^ 2) * (∑ k : ℤ in Finset.Icc 1 12, 1 / z ^ k ^ 2)) = 36 := by
+
+import complex
+
+have r R = sqrt(2) / 2
+have z0 &C = (r, r)
+have z0_inv &C = (r, -r)
+
+# Since z = exp(pi i / 4), z^8 = 1. For k = 1,...,12, the square
+# residues modulo 8 contribute six z terms, three -1 terms, and three
+# 1 terms. Hence the first sum is S = 6z = (3sqrt(2), 3sqrt(2));
+# the reciprocal sum is T = 6z^(-1) = (3sqrt(2), -3sqrt(2)).
+have S &C = (3 * sqrt(2), 3 * sqrt(2))
+have T &C = (3 * sqrt(2), -3 * sqrt(2))
+
+claim:
+    prove:
+        C_mul(S, T) = (36, 0)
+    r^2 = (sqrt(2) / 2)^2 = sqrt(2)^2 / 4 = 2 / 4 = 1 / 2
+    C_mul(z0, z0_inv) = C_mul((r, r), (r, -r))
+    C_mul((r, r), (r, -r)) = (r * r - r * (-r), r * (-r) + r * r)
+    r * r = r^2 = 1 / 2
+    r * -1 * r = -1 * r^2 = -1 / 2
+    r * r - r * -1 * r = 1
+    r * -1 * r + r * r = 0
+    (r * r - r * (-r), r * (-r) + r * r) = (1, 0)
+    C_mul(z0, z0_inv) = C_mul((r, r), (r, -r)) = (r * r - r * (-r), r * (-r) + r * r) = (1, 0)
+
+    C_mul(S, T) = C_mul((3 * sqrt(2), 3 * sqrt(2)), (3 * sqrt(2), -3 * sqrt(2)))
+    C_mul((3 * sqrt(2), 3 * sqrt(2)), (3 * sqrt(2), -3 * sqrt(2))) = (3 * sqrt(2) * (3 * sqrt(2)) - 3 * sqrt(2) * (-3 * sqrt(2)), 3 * sqrt(2) * (-3 * sqrt(2)) + 3 * sqrt(2) * (3 * sqrt(2)))
+    3 * sqrt(2) * (3 * sqrt(2)) = 9 * sqrt(2)^2 = 18
+    3 * sqrt(2) * (-3 * sqrt(2)) = -9 * sqrt(2)^2 = -18
+    (3 * sqrt(2) * (3 * sqrt(2)) - 3 * sqrt(2) * (-3 * sqrt(2))) = 36
+    (3 * sqrt(2) * (-3 * sqrt(2)) + 3 * sqrt(2) * (3 * sqrt(2))) = 0
+    (3 * sqrt(2) * (3 * sqrt(2)) - 3 * sqrt(2) * (-3 * sqrt(2)), 3 * sqrt(2) * (-3 * sqrt(2)) + 3 * sqrt(2) * (3 * sqrt(2))) = (36, 0)
+    C_mul(S, T) = C_mul((3 * sqrt(2), 3 * sqrt(2)), (3 * sqrt(2), -3 * sqrt(2))) = (3 * sqrt(2) * (3 * sqrt(2)) - 3 * sqrt(2) * (-3 * sqrt(2)), 3 * sqrt(2) * (-3 * sqrt(2)) + 3 * sqrt(2) * (3 * sqrt(2))) = (36, 0)

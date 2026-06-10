@@ -1,0 +1,11 @@
+# name: mathd_algebra_28
+# informal_prefix:
+# /-- What is the largest number $c$ such that $2x^2+5x+c=0$ has at least one real solution? Express your answer as a common fraction. Show that it is \frac{25}{8}.-/
+# formal_statement:
+# theorem mathd_algebra_28 (c : ℝ) (f : ℝ → ℝ) (h₀ : ∀ x, f x = 2 * x ^ 2 + 5 * x + c)
+#   (h₁ : ∃ x, f x ≤ 0) : c ≤ 25 / 8 := by
+
+claim:
+    prove:
+        forall x R:
+            2 * x ^ 2 + 5 * x + 25 / 8 = 2 * (x + 5 / 4) ^ 2

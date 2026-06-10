@@ -1,0 +1,41 @@
+# name: numbertheory_notequiv2i2jasqbsqdiv8
+# informal_prefix:
+# /-- Let $a$ and $b$ be two integer numbers. Show that the following statement is false: $a$ and $b$ are both even iff $8 \mid a^2 + b^2$.-/
+# formal_statement:
+# theorem numbertheory_notequiv2i2jasqbsqdiv8 :
+#     ¬∀ a b : ℤ, (∃ i j, a = 2 * i ∧ b = 2 * j) ↔ ∃ k, a ^ 2 + b ^ 2 = 8 * k := by
+
+prop both_even(a, b Z):
+    exist i, j Z st {a = 2 * i, b = 2 * j}
+
+prop eight_divides_square_sum(a, b Z):
+    exist k Z st {a^2 + b^2 = 8 * k}
+
+claim:
+    prove:
+        not forall a, b Z:
+            $both_even(a, b)
+            =>:
+                $eight_divides_square_sum(a, b)
+    by contra:
+        prove:
+            not forall a, b Z:
+                $both_even(a, b)
+                =>:
+                    $eight_divides_square_sum(a, b)
+        forall a, b Z:
+            $both_even(a, b)
+            =>:
+                $eight_divides_square_sum(a, b)
+
+        witness exist i, j Z st {2 = 2 * i, 0 = 2 * j} from 1, 0:
+            2 = 2 * 1
+            0 = 2 * 0
+        $both_even(2, 0)
+        $eight_divides_square_sum(2, 0)
+        have by exist k Z st {2^2 + 0^2 = 8 * k}: k
+        2^2 + 0^2 = 4
+        8 * k = 4
+        k = 4 / 8 = 1 / 2
+        not 1 / 2 $in Z
+        impossible k $in Z

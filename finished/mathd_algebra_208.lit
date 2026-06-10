@@ -1,0 +1,11 @@
+# name: mathd_algebra_208
+# informal_prefix:
+# /-- What is the value of $\sqrt{1,\!000,\!000} - \sqrt[3]{1,\!000,\!000}$? Show that it is 900.-/
+# formal_statement:
+# theorem mathd_algebra_208 : Real.sqrt 1000000 - 1000000 ^ ((1 : ℝ) / 3) = 900 := by
+
+claim:
+    prove:
+        1000 ^ 2 = 1000000
+        100 ^ 3 = 1000000
+        1000 - 100 = 900

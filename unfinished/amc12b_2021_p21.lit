@@ -1,0 +1,23 @@
+# name: amc12b_2021_p21
+# informal_prefix:
+# /-- Let $S$ be the sum of all positive real numbers $x$ for which$x^{2^{\sqrt2}}=\sqrt2^{2^x}.$Which of the following statements is true?
+# 
+# $\textbf{(A) }S<\sqrt2 \qquad \textbf{(B) }S=\sqrt2 \qquad \textbf{(C) }\sqrt2<S<2\qquad \textbf{(D) }2\le S<6 \qquad \textbf{(E) }S\ge 6$ Show that it is \textbf{(D) }2\le S<6.-/
+# formal_statement:
+# theorem amc12b_2021_p21 (S : Finset ℝ)
+#   (h₀ : ∀ x : ℝ, x ∈ S ↔ 0 < x ∧ x ^ (2 : ℝ) ^ Real.sqrt 2 = Real.sqrt 2 ^ (2 : ℝ) ^ x) :
+#   (↑2 ≤ ∑ k in S, k) ∧ (∑ k in S, k) < 6 := by
+
+have amc12b_2021_p21_solution_sum R
+
+claim:
+    prove:
+        2 <= amc12b_2021_p21_solution_sum < 6
+    # Taking log base 2 reduces the roots to an equation in x involving
+    # 2^x and log_2(x). One root is sqrt(2), and the other lies between
+    # 3 and 4, so the total is between 2 and 6.
+    # proof_debt: this needs real-exponential/log root isolation and
+    # a finite-sum bridge for the solution set.
+    know:
+        2 <= amc12b_2021_p21_solution_sum < 6
+    2 <= amc12b_2021_p21_solution_sum < 6

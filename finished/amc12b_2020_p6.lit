@@ -1,0 +1,53 @@
+# name: amc12b_2020_p6
+# informal_prefix:
+# /-- For all integers $n \geq 9,$ the value of
+# $\frac{(n+2)!-(n+1)!}{n!}$is always which of the following?
+# 
+# $\textbf{(A) } \text{a multiple of 4} \qquad \textbf{(B) } \text{a multiple of 10} \qquad \textbf{(C) } \text{a prime number} \qquad \textbf{(D) } \text{a perfect square} \qquad \textbf{(E) } \text{a perfect cube}$ Show that it is \textbf{(D) } \text{a perfect square}.-/
+# formal_statement:
+# theorem amc12b_2020_p6 (n : ℕ) (h₀ : 9 ≤ n) : ∃ x : ℕ, (x : ℝ) ^ 2 = ((n + 2)! - (n + 1)!) / n ! := by
+#
+# Litex uses product(1, n, 'N_pos(k){k}) for n! here.  The proof expands the
+# last two product factors and cancels the nonzero denominator.
+
+claim:
+    prove:
+        forall n N:
+            1 <= n
+            =>:
+                product(1, n, 'N_pos(k){k}) >= 1
+
+claim:
+    prove:
+        forall n N:
+            1 <= n
+            =>:
+                product(1, n, 'N_pos(k){k}) != 0
+    product(1, n, 'N_pos(k){k}) >= 1
+    product(1, n, 'N_pos(k){k}) != 0
+
+claim:
+    prove:
+        forall n N:
+            9 <= n
+            =>:
+                exist x N st {x = n + 1, x^2 = (product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k})) / product(1, n, 'N_pos(k){k})}
+    product(1, n, 'N_pos(k){k}) >= 1
+    product(1, n, 'N_pos(k){k}) != 0
+    product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * 'N_pos(k){k}(n + 1)
+    'N_pos(k){k}(n + 1) = n + 1
+    product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1)
+    product(1, n + 2, 'N_pos(k){k}) = product(1, n + 1, 'N_pos(k){k}) * 'N_pos(k){k}(n + 2)
+    'N_pos(k){k}(n + 2) = n + 2
+    product(1, n + 2, 'N_pos(k){k}) = product(1, n + 1, 'N_pos(k){k}) * (n + 2)
+    product(1, n + 2, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1) * (n + 2)
+    product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1)
+    product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1) * (n + 2) - product(1, n, 'N_pos(k){k}) * (n + 1)
+    product(1, n, 'N_pos(k){k}) * (n + 1) * (n + 2) - product(1, n, 'N_pos(k){k}) * (n + 1) = product(1, n, 'N_pos(k){k}) * (n + 1) * ((n + 2) - 1)
+    product(1, n, 'N_pos(k){k}) * (n + 1) * ((n + 2) - 1) = product(1, n, 'N_pos(k){k}) * (n + 1) * (n + 1)
+    product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k}) = product(1, n, 'N_pos(k){k}) * (n + 1) * (n + 1)
+    (product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k})) / product(1, n, 'N_pos(k){k}) = (n + 1) * (n + 1)
+    (n + 1)^2 = (n + 1) * (n + 1)
+    witness exist x N st {x = n + 1, x^2 = (product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k})) / product(1, n, 'N_pos(k){k})} from n + 1:
+        n + 1 = n + 1
+        (n + 1)^2 = (product(1, n + 2, 'N_pos(k){k}) - product(1, n + 1, 'N_pos(k){k})) / product(1, n, 'N_pos(k){k})

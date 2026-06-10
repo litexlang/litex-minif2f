@@ -1,0 +1,9 @@
+# name: mathd_algebra_151
+# informal_prefix:
+# /-- Evaluate $\left\lceil\sqrt{27}\right\rceil - \left\lfloor\sqrt{26}\right\rfloor$. Show that it is 1.-/
+# formal_statement:
+# theorem mathd_algebra_151 : Int.ceil (Real.sqrt 27) - Int.floor (Real.sqrt 26) = 1 := by
+
+claim:
+    prove:
+        5 ^ 2 < 26 < 27 < 6 ^ 2

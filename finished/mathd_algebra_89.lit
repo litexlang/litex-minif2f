@@ -1,0 +1,13 @@
+# name: mathd_algebra_89
+# informal_prefix:
+# /-- Simplify $(7b^3)^2 \cdot (4b^2)^{-3},$ given that $b$ is non-zero. Show that it is \frac{49}{64}.-/
+# formal_statement:
+# theorem mathd_algebra_89 (b : ℝ) (h₀ : b ≠ 0) :
+#   (7 * b ^ 3) ^ 2 * (4 * b ^ 2) ^ (-(3 : ℤ)) = 49 / 64 := by
+
+claim:
+    prove:
+        forall b R:
+            b != 0
+            =>:
+                (7 * b ^ 3) ^ 2 / (4 * b ^ 2) ^ 3 = 49 / 64

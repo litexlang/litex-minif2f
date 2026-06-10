@@ -1,0 +1,18 @@
+# name: mathd_numbertheory_690
+# informal_prefix:
+# /-- Determine the smallest non-negative integer $a$ that satisfies the congruences: \begin{align*}
+# &a\equiv 2\pmod 3,\\
+# &a\equiv 4\pmod 5,\\
+# &a\equiv 6\pmod 7,\\
+# &a\equiv 8\pmod 9.
+# \end{align*} Show that it is 314.-/
+# formal_statement:
+# theorem mathd_numbertheory_690 :
+#     IsLeast { a : ℕ | 0 < a ∧ a ≡ 2 [MOD 3] ∧ a ≡ 4 [MOD 5] ∧ a ≡ 6 [MOD 7] ∧ a ≡ 8 [MOD 9] } 314 := by
+
+claim:
+    prove:
+        314 % 3 = 2
+        314 % 5 = 4
+        314 % 7 = 6
+        314 % 9 = 8

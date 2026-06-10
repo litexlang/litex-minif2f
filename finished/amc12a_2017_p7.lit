@@ -1,0 +1,6 @@
+have fn as algo f(x Z: x >= 1) R by induc x from 1:
+    case x = 1: 2
+    case x > 1: f(x - 1) + 1
+
+eval f(2017)
+f(2017) = 2018

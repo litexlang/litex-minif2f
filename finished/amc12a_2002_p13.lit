@@ -1,0 +1,103 @@
+# name: amc12a_2002_p13
+# informal_prefix:
+# /-- Two different positive numbers $a$ and $b$ each differ from their reciprocals by $1$. What is $a+b$?
+# 
+# $
+# \text{(A) }1
+# \qquad
+# \text{(B) }2
+# \qquad
+# \text{(C) }\sqrt 5
+# \qquad
+# \text{(D) }\sqrt 6
+# \qquad
+# \text{(E) }3
+# $ Show that it is (C) \sqrt 5.-/
+# formal_statement:
+# theorem amc12a_2002_p13 (a b : ℝ) (h₀ : 0 < a ∧ 0 < b) (h₁ : a ≠ b) (h₂ : abs (a - 1 / a) = 1)
+#     (h₃ : abs (b - 1 / b) = 1) : a + b = Real.sqrt 5 := by
+
+# Natural-language idea:
+# For positive t, abs(t - 1/t)=1 splits into t - 1/t = 1 or -1.
+# Multiplying by t gives t^2 - t - 1=0 or t^2 + t - 1=0; the two
+# positive roots are different and add to sqrt(5).
+
+thm abs_recip_diff_sq_identity:
+    prove:
+        forall t R:
+            0 < t
+            abs(t - 1 / t) = 1
+            =>:
+                t^2 + 1 / t^2 = 3
+    t != 0
+    abs(t - 1 / t)^2 = 1^2 = 1
+    abs(t - 1 / t)^2 = (t - 1 / t)^2
+    (t - 1 / t)^2 = 1
+    (t - 1 / t)^2 = t^2 - 2 + 1 / t^2
+    t^2 - 2 + 1 / t^2 = 1
+    (t^2 - 2 + 1 / t^2) + 2 = 1 + 2
+    (t^2 - 2 + 1 / t^2) + 2 = t^2 + 1 / t^2
+    1 + 2 = 3
+    t^2 + 1 / t^2 = 3
+
+thm distinct_positive_recip_diff_product_one:
+    prove:
+        forall a, b R:
+            0 < a
+            0 < b
+            a != b
+            a^2 + 1 / a^2 = 3
+            b^2 + 1 / b^2 = 3
+            =>:
+                a * b = 1
+    a != 0
+    b != 0
+    a + b > 0
+    a^2 - b^2 = (a - b) * (a + b)
+    a^2 - b^2 != 0
+    (a^2 + 1 / a^2) - (b^2 + 1 / b^2) = 3 - 3 = 0
+    (a^2 + 1 / a^2) - (b^2 + 1 / b^2) = (a^2 - b^2) + (1 / a^2 - 1 / b^2)
+    1 / a^2 - 1 / b^2 = (b^2 - a^2) / (a^2 * b^2)
+    (a^2 - b^2) + (1 / a^2 - 1 / b^2) = (a^2 - b^2) + (b^2 - a^2) / (a^2 * b^2)
+    (a^2 - b^2) + (b^2 - a^2) / (a^2 * b^2) = (a^2 - b^2) * (1 - 1 / (a^2 * b^2))
+    (a^2 - b^2) * (1 - 1 / (a^2 * b^2)) = 0
+    1 - 1 / (a^2 * b^2) = 0 / (a^2 - b^2) = 0
+    1 / (a^2 * b^2) = 1
+    a^2 * b^2 != 0
+    1 = 1 * (a^2 * b^2)
+    a^2 * b^2 = 1
+    (a * b)^2 = a^2 * b^2 = 1
+    a * b > 0
+    a * b = sqrt((a * b)^2) = sqrt(1) = 1
+
+claim:
+    prove:
+        forall a, b R:
+            0 < a
+            0 < b
+            a != b
+            abs(a - 1 / a) = 1
+            abs(b - 1 / b) = 1
+            =>:
+                a + b = sqrt(5)
+
+    a != 0
+    b != 0
+    by thm abs_recip_diff_sq_identity(a)
+    a^2 + 1 / a^2 = 3
+    by thm abs_recip_diff_sq_identity(b)
+    b^2 + 1 / b^2 = 3
+    by thm distinct_positive_recip_diff_product_one(a, b)
+    a * b = 1
+    b = 1 / a
+    b^2 = (1 / a)^2 = 1 / a^2
+    a^2 + b^2 = a^2 + 1 / a^2 = 3
+    0 < a + b
+    0 <= a + b
+    2 * a * b = 2 * (a * b) = 2 * 1 = 2
+    (a + b)^2 = a^2 + 2 * a * b + b^2
+    a^2 + 2 * a * b + b^2 = (a^2 + b^2) + 2 * a * b = 3 + 2 = 5
+    (a + b)^2 = 5
+    sqrt((a + b)^2) = a + b
+    sqrt((a + b)^2) = sqrt(5)
+    a + b = sqrt(5)

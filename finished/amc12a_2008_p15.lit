@@ -1,0 +1,11 @@
+# name: amc12a_2008_p15
+# informal_prefix:
+# /-- Let $k={2008}^{2}+{2}^{2008}$. What is the units digit of $k^2+2^k$?
+# 
+# $\mathrm{(A)}\ 0\qquad\mathrm{(B)}\ 2\qquad\mathrm{(C)}\ 4\qquad\mathrm{(D)}\ 6\qquad\mathrm{(E)}\ 8$ Show that it is D.-/
+# formal_statement:
+# theorem amc12a_2008_p15 (k : ℕ) (h₀ : k = 2008 ^ 2 + 2 ^ 2008) : (k ^ 2 + 2 ^ k) % 10 = 6 := by
+
+claim:
+    prove:
+        8 ^ 2 % 10 + 2 ^ 1 % 10 = 6

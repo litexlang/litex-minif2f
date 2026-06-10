@@ -1,0 +1,33 @@
+# name: imo_1968_p5_1
+# informal_prefix:
+# /-- Let $a$ be a positive real number and $f$ be a real function such that $\forall x \in \mathbb{R}, f(x+a)=\frac{1}{2}+\sqrt{f(x)-f(x)^2}$.
+# Show that there exists a positive real number $b$ such that $\forall x \in \mathbb{R}, f(x+b)=f(x)$.-/
+# formal_statement:
+# theorem imo_1968_p5_1 (a : ℝ) (f : ℝ → ℝ) (h₀ : 0 < a)
+#     (h₁ : ∀ x, f (x + a) = 1 / 2 + Real.sqrt (f x - f x ^ 2)) : ∃ b > 0, ∀ x, f (x + b) = f x := by
+
+prop imo_1968_p5_period(f fn(x R) R, b R):
+    0 < b
+    forall x R:
+        f(x + b) = f(x)
+
+claim:
+    prove:
+        forall a R, f fn(x R) R:
+            0 < a
+            forall x R:
+                0 <= f(x) - f(x)^2
+                f(x + a) = 1 / 2 + sqrt(f(x) - f(x)^2)
+            =>:
+                exist b R st {$imo_1968_p5_period(f, b)}
+
+    # Natural-language idea: the map T(t)=1/2+sqrt(t-t^2) sends the relevant
+    # values into [1/2,1], and on that interval T(T(t))=t after the substitution
+    # t=cos(theta)^2. Hence f(x+3a)=f(x+a), so f has positive period 2a.
+    # kernel_problem: this formulation has to state the radicand
+    # nonnegativity explicitly because Litex sqrt is well-defined only with a
+    # nonnegative argument; the source Real.sqrt theorem is total.
+    know:
+        $imo_1968_p5_period(f, 2 * a)
+    witness exist b R st {$imo_1968_p5_period(f, b)} from 2 * a:
+        $imo_1968_p5_period(f, 2 * a)

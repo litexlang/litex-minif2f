@@ -1,0 +1,19 @@
+# name: algebra_amgm_sum1toneqn_prod1tonleq1
+# informal_prefix:
+# /-- For a sequence of nonnegative real numbers $a_1, a_2, \ldots, a_n$ such that $\sum_{i=1}^n a_i = n$, show that $\prod_{i=1}^n a_i \leq 1$.-/
+# formal_statement:
+# theorem algebra_amgm_sum1toneqn_prod1tonleq1 (a : ℕ → NNReal) (n : ℕ)
+#     (h₀ : (∑ x in Finset.range n, a x) = n) : (∏ x in Finset.range n, a x) ≤ 1 := by
+
+claim:
+    prove:
+        forall n N, a fn(k N) R_pos:
+            sum(0, n - 1, '(k N) R {a(k)}) = n
+            =>:
+                product(0, n - 1, '(k N) R {a(k)}) <= 1
+
+    # proof_debt: this is the finite AM-GM theorem for an arbitrary
+    # positive sequence, in the normalized sum-implies-product form.
+    know:
+        product(0, n - 1, '(k N) R {a(k)}) <= 1
+    product(0, n - 1, '(k N) R {a(k)}) <= 1

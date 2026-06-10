@@ -1,0 +1,12 @@
+# name: mathd_numbertheory_22
+# informal_prefix:
+# /-- The two-digit number $``B6,''$ where $B$ is the tens digit, is the square of a positive integer. How many distinct possible values are there for $B$? Show that it is 2.-/
+# formal_statement:
+# theorem mathd_numbertheory_22 (b : ℕ) (h₀ : b < 10)
+#   (h₁ : Nat.sqrt (10 * b + 6) * Nat.sqrt (10 * b + 6) = 10 * b + 6) : b = 3 ∨ b = 1 := by
+
+claim:
+    prove:
+        count({1, 3}) = 2
+        10 * 1 + 6 = 16 = 4 ^ 2
+        10 * 3 + 6 = 36 = 6 ^ 2

@@ -1,0 +1,10 @@
+# name: mathd_algebra_113
+# informal_prefix:
+# /-- What value of $x$ will give the minimum value for $x^2- 14x + 3$? Show that it is 7.-/
+# formal_statement:
+# theorem mathd_algebra_113 (x : ℝ) : x ^ 2 - 14 * x + 3 ≥ 7 ^ 2 - 14 * 7 + 3 := by
+
+claim:
+    prove:
+        forall x R:
+            x ^ 2 - 14 * x + 3 = (x - 7) ^ 2 - 46

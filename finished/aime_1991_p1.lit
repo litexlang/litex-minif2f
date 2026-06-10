@@ -1,0 +1,75 @@
+# name: aime_1991_p1
+# informal_prefix:
+# /-- Find $x^2+y^2_{}$ if $x_{}^{}$ and $y_{}^{}$ are positive integers such that
+# $\begin{align*}
+# xy+x+y&=71, \\
+# x^2y+xy^2&=880.
+# \end{align*}$ Show that it is 146.-/
+# formal_statement:
+# theorem aime_1991_p1 (x y : ℕ) (h₀ : 0 < x ∧ 0 < y) (h₁ : x * y + (x + y) = 71)
+#   (h₂ : x ^ 2 * y + x * y ^ 2 = 880) : x ^ 2 + y ^ 2 = 146 := by
+
+# Natural-language idea:
+# Put p = xy and s = x + y.  The hypotheses give p + s = 71 and
+# ps = 880, so (p - 55)(p - 16) = 0.  The case p = 16 would force
+# x <= 16 and y <= 16, hence s <= 32, contradicting s = 55.  Thus
+# p = 55 and s = 16, and x^2 + y^2 = s^2 - 2p = 146.
+claim:
+    prove:
+        forall x, y N:
+            x > 0
+            y > 0
+            x * y + (x + y) = 71
+            x^2 * y + x * y^2 = 880
+            =>:
+                x^2 + y^2 = 146
+    have p N = x * y
+    have s N = x + y
+    p = x * y
+    s = x + y
+    p + s = x * y + (x + y) = 71
+    x^2 * y + x * y^2 = x * y * (x + y)
+    x * y * (x + y) = p * s
+    p * s = 880
+    s = 71 - p
+    p * (71 - p) = p * s = 880
+    p * (71 - p) - 880 = 0
+    p * (71 - p) - 880 = -1 * (p^2 - 71 * p + 880)
+    -1 * (p^2 - 71 * p + 880) = 0
+    p^2 - 71 * p + 880 = 0
+    (p - 55) * (p - 16) = p^2 - 71 * p + 880 = 0
+    by contra p != 16:
+        p = 16
+        y - 1 >= 0
+        x * (y - 1) >= 0
+        x * y - x = x * (y - 1)
+        x * y - x >= 0
+        x <= x * y
+        x <= p
+        x <= 16
+        x - 1 >= 0
+        y * (x - 1) >= 0
+        x * y - y = y * (x - 1)
+        x * y - y >= 0
+        y <= x * y
+        y <= p
+        y <= 16
+        x + y <= 16 + 16
+        16 + 16 = 32
+        x + y <= 32
+        s = x + y
+        s <= 32
+        s = 71 - p = 71 - 16 = 55
+        impossible s <= 32
+    p - 16 != 0
+    p - 55 = 0 / (p - 16) = 0
+    p = 55
+    s = 71 - p = 16
+    x^2 + y^2 = (x + y)^2 - 2 * x * y
+    (x + y)^2 = s^2
+    2 * x * y = 2 * (x * y)
+    2 * (x * y) = 2 * p
+    2 * x * y = 2 * p
+    (x + y)^2 - 2 * x * y = s^2 - 2 * p
+    s^2 - 2 * p = 16^2 - 2 * 55 = 146
+    x^2 + y^2 = 146

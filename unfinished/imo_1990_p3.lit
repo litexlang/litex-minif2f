@@ -1,0 +1,27 @@
+# name: imo_1990_p3
+# informal_prefix:
+# /-- Determine all integers $n > 1$ such that $\frac{2^n+1}{n^2}$ is an integer.-/
+# formal_statement:
+# theorem imo_1990_p3 (n : ℕ) (h₀ : 2 ≤ n) (h₁ : n ^ 2 ∣ 2 ^ n + 1) : n = 3 := by
+
+import Nat
+
+# Natural-language idea:
+# First n must be odd.  Then use prime divisors of n and multiplicative-order
+# restrictions from p | 2^n+1.  The standard number-theory argument forces the
+# only possible divisor pattern to be n = 3.
+claim:
+    prove:
+        forall n N:
+            2 <= n
+            $Dvd(n^2, 2^n + 1)
+            =>:
+                n = 3
+
+    2^3 + 1 = 9
+    3^2 = 9
+    # proof_debt: this needs multiplicative-order / prime-divisor
+    # reasoning for n^2 | 2^n+1, not just modular arithmetic evaluation.
+    know:
+        n = 3
+    n = 3

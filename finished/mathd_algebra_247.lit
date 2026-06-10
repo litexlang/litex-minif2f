@@ -1,0 +1,14 @@
+# name: mathd_algebra_247
+# informal_prefix:
+# /-- Let $t=2s-s^2$ and $s=n^2 - 2^n+1$. What is the value of $t$ when $n=3$? Show that it is 0.-/
+# formal_statement:
+# theorem mathd_algebra_247 (t s : ℝ) (n : ℤ) (h₀ : t = 2 * s - s ^ 2) (h₁ : s = n ^ 2 - 2 ^ n + 1)
+#   (n) (_ : n = 3) : t = 0 := by
+
+forall t, s, n R:
+    t = 2 * s - s ^ 2
+    s = n ^ 2 - 2 ^ n + 1
+    n = 3
+    =>:
+        s = n ^ 2 - 2 ^ n + 1 = 3 ^ 2 - 2 ^ 3 + 1 = 2
+        t = 2 * s - s ^ 2 = 2 * 2 - 2 ^ 2 = 0

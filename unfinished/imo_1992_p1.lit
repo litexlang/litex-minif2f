@@ -1,0 +1,29 @@
+# name: imo_1992_p1
+# informal_prefix:
+# /-- Let $p, q, r$ be integers with $1 < p < q < r$. Show that if $(p - 1) (q - 1) (r - 1)$ divides $pqr - 1$, then $(p, q, r) = (2, 4, 8)$ or $(p, q, r) = (3, 5, 15)$.-/
+# formal_statement:
+# theorem imo_1992_p1 (p q r : ℤ) (h₀ : 1 < p ∧ p < q ∧ q < r)
+#     (h₁ : (p - 1) * (q - 1) * (r - 1) ∣ p * q * r - 1) :
+#     (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15) := by
+
+import Nat
+
+# Natural-language idea:
+# Rewrite the divisibility in terms of x=p-1, y=q-1, z=r-1.  The condition
+# x*y*z | (x+1)(y+1)(z+1)-1 gives strong reciprocal bounds and a finite
+# descent/enumeration, leaving only (2,4,8) and (3,5,15).
+claim:
+    prove:
+        forall p, q, r Z:
+            1 < p
+            p < q
+            q < r
+            $divides((p - 1) * (q - 1) * (r - 1), p * q * r - 1)
+            =>:
+                p = 2 and q = 4 and r = 8 or p = 3 and q = 5 and r = 15
+
+    # proof_debt: the proof needs divisor-bound reasoning plus a finite
+    # integer enumeration after the substitution x=p-1, y=q-1, z=r-1.
+    know:
+        p = 2 and q = 4 and r = 8 or p = 3 and q = 5 and r = 15
+    p = 2 and q = 4 and r = 8 or p = 3 and q = 5 and r = 15

@@ -1,0 +1,12 @@
+have fn as algo f(x Z: x >= 1) R by induc x from 1:
+    case x = 1: 211
+    case x = 2: 375
+    case x = 3: 420
+    case x = 4: 523
+    case x > 4: f(x - 1) - f(x - 2) + f(x - 3) - f(x - 4)
+
+eval f(531)
+eval f(753)
+eval f(975)
+
+f(531) + f(753) + f(975) = 898

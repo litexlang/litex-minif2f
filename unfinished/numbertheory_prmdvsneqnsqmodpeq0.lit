@@ -1,0 +1,37 @@
+# name: numbertheory_prmdvsneqnsqmodpeq0
+# informal_prefix:
+# /-- Show that for any prime $p$ and any integer $n$, we have $p \mid n$ if and only if $n^2 \equiv 0 \pmod{p}$.-/
+# formal_statement:
+# theorem numbertheory_prmdvsneqnsqmodpeq0 (n : ℤ) (p : ℕ) (h₀ : Nat.Prime p) :
+#   ↑p ∣ n ↔ n ^ 2 % p = 0 := by
+
+import Int
+
+claim:
+    prove:
+        forall p N_pos, n Z:
+            $Prime(p)
+            $Dvd(p, n)
+            =>:
+                n^2 % p = 0
+
+    # Natural-language idea: one direction is immediate from divisibility.
+    # Conversely, if p divides n^2 and p is prime, Euclid's lemma gives that p
+    # divides n.
+    # proof_debt: this needs an integer-facing bridge between `%`,
+    # divisibility, prime divisibility of products, and casts from Nat to Int.
+    know n^2 % p = 0
+    n^2 % p = 0
+
+claim:
+    prove:
+        forall p N_pos, n Z:
+            $Prime(p)
+            n^2 % p = 0
+            =>:
+                $Dvd(p, n)
+
+    # proof_debt: this is Euclid's lemma plus the bridge from an
+    # integer modulo-zero fact to prime divisibility of the square.
+    know $Dvd(p, n)
+    $Dvd(p, n)

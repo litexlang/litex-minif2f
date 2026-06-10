@@ -1,0 +1,21 @@
+# name: algebra_9onxpypzleqsum2onxpy
+# informal_prefix:
+# /-- Show that for any three positive real numbers $x$, $y$, and $z$, $9/(x+y+z)\leq 2/(x+y)+2/(y+z)+2/(z+x)$.-/
+# formal_statement:
+# theorem algebra_9onxpypzleqsum2onxpy (x y z : ℝ) (h₀ : 0 < x ∧ 0 < y ∧ 0 < z) :
+#     9 / (x + y + z) ≤ 2 / (x + y) + 2 / (y + z) + 2 / (z + x) := by
+
+claim:
+    prove:
+        forall x, y, z R_pos:
+            9 / (x + y + z) <= 2 / (x + y) + 2 / (y + z) + 2 / (z + x)
+
+    0 <= (x + y) * (y - x)^2
+    0 <= (y + z) * (z - y)^2
+    0 <= (z + x) * (x - z)^2
+    0 <= (x + y) * (y - x)^2 + (y + z) * (z - y)^2 + (z + x) * (x - z)^2
+    0 < (x + y) * (y + z) * (z + x) * (x + y + z)
+    0 <= ((x + y) * (y - x)^2 + (y + z) * (z - y)^2 + (z + x) * (x - z)^2) / ((x + y) * (y + z) * (z + x) * (x + y + z))
+    2 / (x + y) + 2 / (y + z) + 2 / (z + x) - 9 / (x + y + z) = ((x + y) * (y - x)^2 + (y + z) * (z - y)^2 + (z + x) * (x - z)^2) / ((x + y) * (y + z) * (z + x) * (x + y + z))
+    0 <= 2 / (x + y) + 2 / (y + z) + 2 / (z + x) - 9 / (x + y + z)
+    9 / (x + y + z) <= 2 / (x + y) + 2 / (y + z) + 2 / (z + x)
